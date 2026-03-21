@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AdiRaj — Routes & Reflections</title>
+    <meta
+      name="description"
+      content="Your post meta description goes here. Write 150–160 chars for best SEO."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Reading progress bar -->
+    <div class="reading-bar" id="readingBar"></div>
+
+    <!-- ─────────────────────────────────────
+       TOP BAR (same as index)
+  ───────────────────────────────────── -->
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <a href="#" class="tb-icon" aria-label="Instagram">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1.2"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </a>
+          <a href="#" class="tb-icon" aria-label="Pinterest">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="top-bar-right">
+          <a href="#" class="tb-link">Work With Me</a>
+          <span class="tb-sep">|</span>
+          <a href="index.html" class="tb-link">← Back to Blog</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────
+       HEADER
+  ───────────────────────────────────── -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="logo-wrap">
+          <a href="index.html" class="logo">
+            <span class="logo-text">AdiRaj</span>
+            <span class="logo-tagline">Routes & Reflections</span>
+          </a>
+        </div>
+
+        <div class="header-actions">
+          <button class="search-toggle" id="searchToggle" aria-label="Search">
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <line x1="16.5" y1="16.5" x2="22" y2="22" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <nav class="cat-nav">
+        <div class="cat-nav-inner">
+          <a href="index.html" class="cat-nav-link">All Posts</a>
+          <a href="#" class="cat-nav-link">Travel</a>
+          <a href="#" class="cat-nav-link">Destinations</a>
+          <a href="#" class="cat-nav-link">Lifestyle</a>
+          <a href="#" class="cat-nav-link">Entrepreneurship</a>
+          <a href="#" class="cat-nav-link">Growth</a>
+          <a href="#" class="cat-nav-link">Resources</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Search bar -->
+    <div class="search-bar" id="searchBar">
+      <div class="search-bar-inner">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        >
+          <circle cx="11" cy="11" r="7" />
+          <line x1="16.5" y1="16.5" x2="22" y2="22" />
+        </svg>
+        <input
+          type="search"
+          placeholder="Search posts, destinations, topics…"
+          id="searchInput"
+        />
+        <button class="search-close" id="searchClose">✕</button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mob-menu" id="mobMenu">
+      <button class="mob-close" id="mobClose">✕</button>
+      <nav class="mob-nav">
+        <a href="index.html" onclick="closeMob()">All Posts</a>
+        <a href="#" onclick="closeMob()">Travel</a>
+        <a href="#" onclick="closeMob()">Destinations</a>
+        <a href="#" onclick="closeMob()">Lifestyle</a>
+        <a href="#" onclick="closeMob()">Entrepreneurship</a>
+        <a href="#" onclick="closeMob()">Growth</a>
+        <a href="#" onclick="closeMob()">Resources</a>
+      </nav>
+    </div>
+
+    <!-- ─────────────────────────────────────
+       POST HERO IMAGE
+       Replace with your actual post image
+  ───────────────────────────────────── -->
+    <div class="post-hero">
+      <div class="post-hero-img-wrap">
+        <img
+          src="assets/thailand.JPG"
+          alt="Thailand | December 2025"
+          loading="eager"
+        />
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────
+       POST HEADER
+       Replace all placeholder text below
+  ───────────────────────────────────── -->
+    <div class="post-header">
+      <div class="post-card-tags">
+        <a href="#" class="post-tag">Category Name</a>
+        <a href="#" class="post-tag">Tag Name</a>
+      </div>
+
+      <h1 class="post-title">
+        Your Full Post Title Goes Here: Make It Clear, Specific, and Compelling
+      </h1>
+
+      <p class="post-subtitle">
+        An optional subtitle or lede that expands on the headline. 1–2 sentences
+        that set up what the post is about.
+      </p>
+
+      <div class="post-meta-row">
+        <span class="post-meta-item"><strong>By:</strong> Your Name</span>
+        <span class="post-meta-item"
+          ><strong>Published:</strong> January 1, 2025</span
+        >
+        <span class="post-meta-item"
+          ><strong>Last Updated:</strong> January 1, 2025</span
+        >
+        <span class="post-meta-item"><strong>Reading Time:</strong> 8 min</span>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────
+       POST BODY + SIDEBAR
+  ───────────────────────────────────── -->
+    <div class="post-page-wrap">
+      <!-- ═══ POST CONTENT ═══
+         Replace everything inside .post-body with your writing.
+         Keep the HTML structure as a guide for formatting.
+    -->
+      <article class="post-body">
+        <p>
+          Your introduction paragraph goes here. This is the opening of your
+          post — the hook that makes the reader want to continue. Write 3–5
+          sentences that set the scene, state the problem, or make a promise
+          about what the post will deliver.
+        </p>
+
+        <p>
+          Your second paragraph continues here. This might expand on the
+          introduction, provide context, or share a personal anecdote that makes
+          the topic relatable. Keep paragraphs focused — one idea per paragraph
+          works well for readability.
+        </p>
+
+        <!-- Table of Contents — optional, remove if not needed -->
+        <div
+          style="
+            background: var(--beige);
+            border-left: 3px solid var(--accent);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+          "
+        >
+          <p
+            style="
+              font-size: 0.72rem;
+              font-weight: 700;
+              letter-spacing: 0.15em;
+              text-transform: uppercase;
+              color: var(--ink);
+              margin-bottom: 0.75rem;
+            "
+          >
+            Table of Contents
+          </p>
+          <ol style="padding-left: 1.2rem; margin: 0">
+            <li
+              style="
+                font-size: 0.9rem;
+                margin-bottom: 0.3rem;
+                color: var(--ink-soft);
+              "
+            >
+              <a href="#section-1" style="color: var(--accent)"
+                >Section One Title</a
+              >
+            </li>
+            <li
+              style="
+                font-size: 0.9rem;
+                margin-bottom: 0.3rem;
+                color: var(--ink-soft);
+              "
+            >
+              <a href="#section-2" style="color: var(--accent)"
+                >Section Two Title</a
+              >
+            </li>
+            <li
+              style="
+                font-size: 0.9rem;
+                margin-bottom: 0.3rem;
+                color: var(--ink-soft);
+              "
+            >
+              <a href="#section-3" style="color: var(--accent)"
+                >Section Three Title</a
+              >
+            </li>
+            <li
+              style="
+                font-size: 0.9rem;
+                margin-bottom: 0.3rem;
+                color: var(--ink-soft);
+              "
+            >
+              <a href="#section-4" style="color: var(--accent)"
+                >Final Thoughts</a
+              >
+            </li>
+          </ol>
+        </div>
+
+        <h2 id="section-1">Section One: Your First Main Point</h2>
+
+        <p>
+          This is where your first major section begins. Each H2 should
+          represent a distinct idea, tip, or chapter of your story. Write 2–4
+          paragraphs per section depending on the depth needed.
+        </p>
+
+        <p>
+          Continue expanding on this section here. Share specific details,
+          examples, or insights that support the heading above. Be concrete —
+          readers appreciate specificity over vague generalities.
+        </p>
+
+        <!-- Image within post — replace src and alt -->
+        <img
+          src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=900&auto=format&fit=crop&q=80"
+          alt="Replace with descriptive alt text for this image"
+          loading="lazy"
+        />
+        <p class="img-caption">
+          Your image caption goes here — describe what's shown or credit the
+          photographer.
+        </p>
+
+        <h2 id="section-2">Section Two: Your Second Main Point</h2>
+
+        <p>
+          Start your second section here. If this is a how-to post, this might
+          be the next step. If it's a travel guide, this could be the next
+          destination or attraction. Structure your content to flow logically
+          from one section to the next.
+        </p>
+
+        <blockquote>
+          "This is a pull quote — use it to highlight a particularly insightful
+          or memorable line from your post. It breaks up the text and draws the
+          eye."
+        </blockquote>
+
+        <p>
+          Continue your second section here. Remember to link out to helpful
+          resources where relevant — both to other posts on your blog (internal
+          links) and to useful external sources (external links, ideally opening
+          in a new tab).
+        </p>
+
+        <!-- Bulleted list example -->
+        <h3>Key Takeaways from This Section</h3>
+        <ul>
+          <li>First key point or item in your list</li>
+          <li>Second key point — keep each item concise and actionable</li>
+          <li>Third key point with a brief explanation if needed</li>
+          <li>Fourth key point that readers can apply immediately</li>
+          <li>Fifth key point to round out the list</li>
+        </ul>
+
+        <h2 id="section-3">Section Three: Your Third Main Point</h2>
+
+        <p>
+          Third section content goes here. By this point in the post, your
+          reader is invested — reward them with your most valuable insights, the
+          insider tips, or the practical details they came for.
+        </p>
+
+        <p>
+          Another paragraph in section three. If this is a destination guide,
+          this might be where you cover logistics — getting there, where to
+          stay, what to eat. If it's a personal essay, this is where you go
+          deeper.
+        </p>
+
+        <!-- Second in-post image -->
+        <img
+          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&auto=format&fit=crop&q=80"
+          alt="Replace with descriptive alt text"
+          loading="lazy"
+        />
+        <p class="img-caption">Another image caption goes here.</p>
+
+        <h2 id="section-4">Final Thoughts</h2>
+
+        <p>
+          Your conclusion starts here. Summarize the main takeaways, restate the
+          value the reader gained from this post, and end on a note that feels
+          complete. Don't just trail off — land it.
+        </p>
+
+        <p>
+          End with a call to action if relevant — invite the reader to leave a
+          comment, share the post, subscribe to your newsletter, or check out a
+          related post. Make it feel natural, not forced.
+        </p>
+
+        <!-- Post tags -->
+        <div class="post-tags-row">
+          <a href="#" class="tag-pill">Tag One</a>
+          <a href="#" class="tag-pill">Tag Two</a>
+          <a href="#" class="tag-pill">Tag Three</a>
+          <a href="#" class="tag-pill">Tag Four</a>
+        </div>
+
+        <!-- Filed Under -->
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--ink-muted)">
+          Filed Under:
+          <a href="#" style="color: var(--accent)">Category Name</a>
+          &nbsp;·&nbsp; Tagged With:
+          <a href="#" style="color: var(--accent)">Tag One</a>,
+          <a href="#" style="color: var(--accent)">Tag Two</a>
+        </p>
+      </article>
+
+      <!-- ═══ SIDEBAR (same widgets as index) ═══ -->
+      <aside class="sidebar">
+        <div class="widget widget--about">
+          <div class="about-photo-wrap">
+            <img
+              src="assets/profilephoto.JPG"
+              alt="Rajesh and Aditi"
+              class="about-photo"
+              loading="lazy"
+            />
+          </div>
+          <div class="about-text">
+            <h3 class="about-name">Hi, We’re AdiRaj!</h3>
+            <p>
+              Navigating life through travel, ideas, & curiosity. This is our
+              space to document what we see, feel & learn along the way. Routes
+              & Reflections capture the journeys we take and the meaning we
+              carry forward.
+            </p>
+            <a href="#" class="widget-link">More About Us →</a>
+          </div>
+        </div>
+
+        <div class="widget widget--newsletter">
+          <h4 class="widget-title">Never Miss a Post</h4>
+          <p class="widget-text">New posts to your inbox.</p>
+          <input
+            type="email"
+            placeholder="Your email address"
+            class="widget-email-input"
+          />
+          <button class="widget-subscribe-btn">Subscribe</button>
+          <p class="widget-fine">No spam. Unsubscribe anytime.</p>
+        </div>
+
+        <div class="widget">
+          <h4 class="widget-title">Browse Topics</h4>
+          <ul class="widget-cat-list">
+            <li>
+              <a href="#">Travel <span class="cat-count">(22)</span></a>
+            </li>
+            <li>
+              <a href="#">Destinations <span class="cat-count">(18)</span></a>
+            </li>
+            <li>
+              <a href="#">Lifestyle <span class="cat-count">(9)</span></a>
+            </li>
+            <li>
+              <a href="#"
+                >Entrepreneurship <span class="cat-count">(14)</span></a
+              >
+            </li>
+            <li>
+              <a href="#">Growth <span class="cat-count">(11)</span></a>
+            </li>
+            <li>
+              <a href="#">Resources <span class="cat-count">(7)</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="widget">
+          <h4 class="widget-title">Popular Posts</h4>
+          <ul class="popular-posts">
+            <li class="pop-post">
+              <a href="post-template.html" class="pop-post-img-link">
+                <img
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=160&auto=format&fit=crop&q=80"
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
+              <div class="pop-post-text">
+                <a href="post-template.html">Your Most Popular Post Title</a>
+                <span class="pop-post-date">Jan 2025</span>
+              </div>
+            </li>
+            <li class="pop-post">
+              <a href="post-template.html" class="pop-post-img-link">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&auto=format&fit=crop&q=80"
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
+              <div class="pop-post-text">
+                <a href="post-template.html">Second Popular Post Title</a>
+                <span class="pop-post-date">Feb 2025</span>
+              </div>
+            </li>
+            <li class="pop-post">
+              <a href="post-template.html" class="pop-post-img-link">
+                <img
+                  src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=160&auto=format&fit=crop&q=80"
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
+              <div class="pop-post-text">
+                <a href="post-template.html">Third Popular Post Title</a>
+                <span class="pop-post-date">Mar 2025</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+    <!-- /.post-page-wrap -->
+
+    <!-- ─────────────────────────────────────
+       RELATED POSTS
+  ───────────────────────────────────── -->
+    <div
+      style="
+        background: var(--white);
+        border-top: 1px solid var(--rule);
+        padding: 3rem var(--pad-x);
+      "
+    >
+      <div style="max-width: var(--max-w); margin-inline: auto">
+        <h3
+          style="
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--ink);
+          "
+        >
+          You Might Also Like
+        </h3>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+          "
+        >
+          <article
+            class="post-card"
+            style="
+              grid-template-columns: 1fr;
+              border: none;
+              padding: 0;
+              gap: 0.6rem;
+            "
+          >
+            <a
+              href="post-template.html"
+              class="post-card-img-link"
+              style="width: 100%"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&auto=format&fit=crop&q=80"
+                alt=""
+                class="post-card-img"
+                style="width: 100%; height: 180px"
+                loading="lazy"
+              />
+            </a>
+            <div class="post-card-body" style="padding-top: 0.5rem">
+              <div class="post-card-tags">
+                <a href="#" class="post-tag">Category</a>
+              </div>
+              <h4 class="post-card-title" style="font-size: 1rem">
+                <a href="post-template.html">Related Post Title Goes Here</a>
+              </h4>
+            </div>
+          </article>
+
+          <article
+            class="post-card"
+            style="
+              grid-template-columns: 1fr;
+              border: none;
+              padding: 0;
+              gap: 0.6rem;
+            "
+          >
+            <a
+              href="post-template.html"
+              class="post-card-img-link"
+              style="width: 100%"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&auto=format&fit=crop&q=80"
+                alt=""
+                class="post-card-img"
+                style="width: 100%; height: 180px"
+                loading="lazy"
+              />
+            </a>
+            <div class="post-card-body" style="padding-top: 0.5rem">
+              <div class="post-card-tags">
+                <a href="#" class="post-tag">Category</a>
+              </div>
+              <h4 class="post-card-title" style="font-size: 1rem">
+                <a href="post-template.html">Second Related Post Title Here</a>
+              </h4>
+            </div>
+          </article>
+
+          <article
+            class="post-card"
+            style="
+              grid-template-columns: 1fr;
+              border: none;
+              padding: 0;
+              gap: 0.6rem;
+            "
+          >
+            <a
+              href="post-template.html"
+              class="post-card-img-link"
+              style="width: 100%"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?w=500&auto=format&fit=crop&q=80"
+                alt=""
+                class="post-card-img"
+                style="width: 100%; height: 180px"
+                loading="lazy"
+              />
+            </a>
+            <div class="post-card-body" style="padding-top: 0.5rem">
+              <div class="post-card-tags">
+                <a href="#" class="post-tag">Category</a>
+              </div>
+              <h4 class="post-card-title" style="font-size: 1rem">
+                <a href="post-template.html">Third Related Post Title Here</a>
+              </h4>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────
+       FOOTER
+  ───────────────────────────────────── -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-logo-wrap">
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-text">Your Blog Name</span>
+            <span class="logo-tagline">Your Tagline Here</span>
+          </a>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="#">About</a>
+          <a href="index.html">Blog</a>
+          <a href="#">Work With Me</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy Policy</a>
+        </nav>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1.2"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"
+              />
+            </svg>
+          </a>
+        </div>
+        <p class="footer-copy">
+          © 2025 Your Blog Name · All rights reserved · Made with ♥
+        </p>
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path
+          d="M8 13V3M3 8l5-5 5 5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
