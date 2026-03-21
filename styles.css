@@ -744,9 +744,9 @@ textarea {
 }
 
 .explore-links a:hover {
-  background-color: #111;
+  background-color: #c47a4a;
   color: #fff;
-  border-color: #111;
+  border-color: #c47a4a;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
