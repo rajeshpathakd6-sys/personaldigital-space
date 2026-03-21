@@ -641,6 +641,117 @@ textarea {
 }
 
 /* ════════════════════════════════════════════
+   FEATURED DESTINATIONS
+════════════════════════════════════════════ */
+
+.featured-destinations {
+  margin: 60px 0;
+  width: 100%;
+}
+
+.featured-destinations h2 {
+  max-width: 1100px;
+  margin: 0 auto 20px;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.dest-grid {
+  max-width: 1100px; /* 🔥 KEY: controls alignment */
+  margin: 0 auto; /* 🔥 centers like explore */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.dest-grid a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  background: #fff;
+}
+
+.dest-grid a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dest-grid img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+
+.dest-grid span {
+  display: block;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ════════════════════════════════════════════
+   EXPLORE MORE LINKS
+════════════════════════════════════════════ */
+
+.explore-more {
+  margin: 60px 0;
+  width: 100%;
+  border-top: 1px solid #eee;
+  padding-top: 25px;
+}
+
+.explore-more h2 {
+  max-width: 1100px; /* 🔥 SAME as featured */
+  margin: 0 auto 10px;
+  font-size: 22px;
+}
+
+/* Optional subtext */
+.explore-subtext {
+  max-width: 1100px;
+  margin: 0 auto 20px;
+  color: #777;
+  font-size: 14px;
+}
+
+.explore-links {
+  max-width: 1100px; /* 🔥 SAME alignment */
+  margin: 0 auto;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.explore-links a {
+  padding: 16px 28px; /* 🔥 bigger size */
+  font-size: 15px;
+  border-radius: 40px;
+
+  min-width: 200px; /* 🔥 makes them wider */
+  text-align: center;
+
+  border: 1px solid #e5e5e5;
+  text-decoration: none;
+  color: #333;
+  background-color: #fafafa;
+
+  transition: all 0.3s ease;
+}
+
+.explore-links a:hover {
+  background-color: #111;
+  color: #fff;
+  border-color: #111;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ════════════════════════════════════════════
    SIDEBAR
 ════════════════════════════════════════════ */
 .sidebar {
