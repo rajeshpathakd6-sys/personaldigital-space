@@ -451,6 +451,7 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 0;
+  min-width: 0;
 }
 
 .post-card {
@@ -645,52 +646,57 @@ textarea {
 ════════════════════════════════════════════ */
 
 .featured-destinations {
-  margin: 60px 0;
+  margin: 2.5rem 0 1.5rem;
   width: 100%;
 }
 
 .featured-destinations h2 {
-  max-width: 1100px;
-  margin: 0 auto 20px;
-  font-size: 22px;
-  letter-spacing: 1px;
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
 }
 
 .dest-grid {
-  max-width: 1100px; /* 🔥 KEY: controls alignment */
-  margin: 0 auto; /* 🔥 centers like explore */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 1rem;
 }
 
 .dest-grid a {
   display: block;
   text-decoration: none;
-  color: #333;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
   overflow: hidden;
-  transition: 0.3s ease;
-  background: #fff;
+  transition:
+    transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+  background: var(--white);
 }
 
 .dest-grid a:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 .dest-grid img {
   width: 100%;
-  height: 270px;
+  height: 160px;
   object-fit: cover;
+  display: block;
 }
 
 .dest-grid span {
   display: block;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: 600;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-family: var(--sans);
 }
 
 /* ════════════════════════════════════════════
@@ -698,57 +704,55 @@ textarea {
 ════════════════════════════════════════════ */
 
 .explore-more {
-  margin: 60px 0;
+  margin: 1.5rem 0 0;
   width: 100%;
-  border-top: 1px solid #eee;
-  padding-top: 25px;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
 }
 
 .explore-more h2 {
-  max-width: 1100px; /* 🔥 SAME as featured */
-  margin: 0 auto 10px;
-  font-size: 22px;
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
 }
 
 /* Optional subtext */
 .explore-subtext {
-  max-width: 1100px;
-  margin: 0 auto 20px;
-  color: #777;
-  font-size: 14px;
+  margin-bottom: 1rem;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
 }
 
 .explore-links {
-  max-width: 1100px; /* 🔥 SAME alignment */
-  margin: 0 auto;
   display: flex;
-  gap: 15px;
+  gap: 0.6rem;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
 
 .explore-links a {
-  padding: 16px 28px; /* 🔥 bigger size */
-  font-size: 15px;
-  border-radius: 40px;
-
-  min-width: 200px; /* 🔥 makes them wider */
-  text-align: center;
-
-  border: 1px solid #e5e5e5;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 2rem;
+  border: 1px solid var(--rule);
   text-decoration: none;
-  color: #333;
-  background-color: #fafafa;
-
-  transition: all 0.3s ease;
+  color: var(--ink-soft);
+  background-color: var(--off-white);
+  font-family: var(--sans);
+  transition: all 0.25s var(--ease);
 }
 
 .explore-links a:hover {
-  background-color: #c47a4a;
-  color: #fff;
-  border-color: #c47a4a;
+  background-color: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(192, 129, 90, 0.25);
 }
 
 /* ════════════════════════════════════════════
@@ -759,7 +763,7 @@ textarea {
   flex-direction: column;
   gap: 1.8rem;
   position: sticky;
-  top: calc(var(--header-h) + var(--nav-h) + 1.5rem);
+  top: calc(var(--header-h) + var(--nav-h) + 1rem);
   max-height: none;
   overflow-y: visible;
   scrollbar-width: thin;
@@ -1393,6 +1397,9 @@ textarea {
     width: 180px;
     height: 135px;
   }
+  .dest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ── Mobile: 620px ── */
@@ -1433,6 +1440,18 @@ textarea {
   .post-card-img {
     width: 100%;
     height: 200px;
+  }
+
+  .dest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-links {
+    gap: 0.5rem;
+  }
+  .explore-links a {
+    flex: 1 1 calc(50% - 0.25rem);
+    text-align: center;
   }
 
   .footer-nav {
