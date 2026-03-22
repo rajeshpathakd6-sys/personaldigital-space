@@ -2257,12 +2257,15 @@ background: var(--white);
   cursor: pointer;
 }
 
-/* Layer 0 — blurred background image */
+/* Layer 0 — blurred background image (real element; inherit on ::after is unreliable in production) */
 .about-find-item::after {
-  content: '';
+  display: none; /* disabled — replaced by .about-find-bg */
+}
+
+.about-find-bg {
   position: absolute;
   inset: -10px;
-  background-image: inherit;
+  background-image: var(--bg);
   background-size: cover;
   background-position: center;
   filter: blur(2.5px) brightness(0.88);
@@ -2288,7 +2291,7 @@ background: var(--white);
 }
 
 /* Hover — image sharpens and zooms slightly */
-.about-find-item:hover::after {
+.about-find-item:hover .about-find-bg {
   filter: blur(1px) brightness(0.75);
   transform: scale(1.05);
 }
