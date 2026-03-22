@@ -1564,13 +1564,14 @@ textarea {
   display: grid;
   grid-template-columns: 5fr 7fr;
   gap: 4rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* ─ Left: info panel ─ */
 .contact-info {
-  position: sticky;
-  top: 5rem;
+  position: static;
+  display: flex;
+  flex-direction: column;
 }
 .contact-info h2 {
   font-family: var(--serif);
@@ -1714,11 +1715,32 @@ textarea {
 
 /* ─ Right: form card ─ */
 .contact-form-wrap {
-  background: var(--white);
+background: var(--white);
   border: 1px solid var(--rule);
   border-radius: calc(var(--radius) + 4px);
   padding: 2rem 2.2rem;
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.045);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-wrap form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-wrap .field:last-of-type {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-wrap .field:last-of-type textarea {
+  flex: 1;
+  min-height: 120px;
+  resize: none;
+}
 }
 .contact-form-wrap h2 {
   font-family: var(--serif);
