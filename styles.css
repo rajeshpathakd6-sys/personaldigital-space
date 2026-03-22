@@ -2215,6 +2215,16 @@ background: var(--white);
   color: var(--ink);
 }
 
+.philosophy span {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.philosophy em {
+  color: #777;
+  font-style: italic;
+}
+
 /* ── Pull quote ── */
 .about-pullquote {
   border-left: 2px solid var(--accent);
@@ -2239,17 +2249,109 @@ background: var(--white);
   margin-top: 1.75rem;
 }
 .about-find-item {
-  background: var(--white);
-  border: 1px solid var(--rule);
+  position: relative;
   border-radius: 4px;
-  padding: 1.35rem 1.3rem;
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
+  overflow: hidden;
+  height: 180px;
+  background-color: var(--beige);
+  cursor: pointer;
 }
-.about-find-item:hover {
-  border-color: var(--accent-lt);
-  box-shadow: var(--shadow-sm);
+
+/* Layer 0 — blurred background image */
+.about-find-item::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2.5px) brightness(0.88);
+  z-index: 0;
+  transition:
+    filter 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+
+/* Layer 1 — dark gradient overlay */
+.about-find-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 8, 6, 0.78) 0%,
+    rgba(10, 8, 6, 0.32) 55%,
+    rgba(10, 8, 6, 0.06) 100%
+  );
+  transition: background 0.35s var(--ease);
+  z-index: 1;
+}
+
+/* Hover — image sharpens and zooms slightly */
+.about-find-item:hover::after {
+  filter: blur(1px) brightness(0.75);
+  transform: scale(1.05);
+}
+.about-find-item:hover::before {
+  background: linear-gradient(
+    to top,
+    rgba(10, 8, 6, 0.88) 0%,
+    rgba(10, 8, 6, 0.44) 60%,
+    rgba(10, 8, 6, 0.10) 100%
+  );
+}
+
+/* Layer 2 — text content */
+.about-find-item-inner {
+  position: relative;
+  z-index: 2;
+  padding: 1.1rem 1.2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Arrow icon — fades in on hover */
+.about-find-arrow {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s var(--ease);
+}
+.about-find-item:hover .about-find-arrow {
+  opacity: 1;
+}
+.about-find-arrow svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--white);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Numbered category tag */
+.about-find-tag {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 0.35rem;
+  display: block;
 }
 .about-find-icon {
   font-size: 1.25rem;
@@ -2259,17 +2361,17 @@ background: var(--white);
 }
 .about-find-item h3 {
   font-family: var(--serif);
-  font-size: 0.98rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.4rem;
+  color: var(--white);
+  margin-bottom: 0.3rem;
 }
 .about-find-item p {
   font-family: var(--sans);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 300;
-  line-height: 1.75;
-  color: var(--ink-muted);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
   margin: 0;
 }
 
@@ -2397,6 +2499,9 @@ background: var(--white);
   }
   .about-find-grid {
     grid-template-columns: 1fr;
+  }
+  .about-find-item {
+    height: 160px;
   }
   .about-cta {
     padding: 2.5rem 1.25rem;
