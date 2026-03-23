@@ -1463,8 +1463,18 @@ textarea {
   .logo-wordmark {
     display: none;
   }
+  /* Mobile logo — proportional to desktop (2.3rem / 0.48rem / 50px) */
   .logo-text {
     font-size: 1.5rem;
+  }
+  .logo-tagline {
+    font-size: 0.42rem;
+    letter-spacing: 0.16em;
+  }
+  .logo-icon,
+  .logo-img {
+    width: 36px;
+    height: 36px;
   }
 
   .cat-nav-inner {
