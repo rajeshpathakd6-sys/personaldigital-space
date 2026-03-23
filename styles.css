@@ -244,7 +244,6 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2px;
   border-left: 2.5px solid #7c5cbf;
   padding-left: 10px;
 }
@@ -255,16 +254,21 @@ textarea {
   color: var(--ink);
   letter-spacing: 0.02em;
   line-height: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* gap between AdiRaj and tagline */
 }
 .logo-tagline {
   font-family: var(--sans);
-  font-size: 8px;
+  font-size: 0.21em;   /* relative to logo-text size — always proportional */
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-muted);
   line-height: 1;
   white-space: nowrap;
+  display: block;
+  width: 100%;         /* never overflows beyond AdiRaj width */
 }
 
 /* Header right actions */
@@ -1463,21 +1467,15 @@ textarea {
   .logo-wordmark {
     display: none;
   }
-  /* Mobile logo */
+  /* Only need to set logo-text size — tagline scales automatically via em */
   .logo-text {
     font-size: 1.4rem;
-  }
-  .logo-tagline {
-    font-size: 7px;
-    letter-spacing: 0.12em;
+    gap: 3px;
   }
   .logo-icon,
   .logo-img {
     width: 34px;
     height: 34px;
-  }
-  .logo-text-wrap {
-    gap: 1px;
   }
 
   .cat-nav-inner {
