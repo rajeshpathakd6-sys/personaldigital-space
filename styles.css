@@ -258,7 +258,7 @@ textarea {
 }
 .logo-tagline {
   font-family: var(--sans);
-  font-size: 0.48rem;
+  font-size: 8px;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1463,18 +1463,21 @@ textarea {
   .logo-wordmark {
     display: none;
   }
-  /* Mobile logo — proportional to desktop (2.3rem / 0.48rem / 50px) */
+  /* Mobile logo */
   .logo-text {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .logo-tagline {
-    font-size: 0.42rem;
-    letter-spacing: 0.16em;
+    font-size: 7px;
+    letter-spacing: 0.12em;
   }
   .logo-icon,
   .logo-img {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+  }
+  .logo-text-wrap {
+    gap: 1px;
   }
 
   .cat-nav-inner {
