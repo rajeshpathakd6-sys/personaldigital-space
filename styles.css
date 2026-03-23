@@ -205,23 +205,52 @@ textarea {
   align-items: center;
 }
 
-/* Logo — centered column */
+/* ── Logo (shared: header + footer) ── */
 .logo-wrap {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .logo {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 3px;
+  gap: 12px;
   transition: opacity 0.2s;
 }
 .logo:hover {
   opacity: 0.8;
 }
+
+/* Monogram image */
+.logo-icon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-img {
+  width: 50px;
+  height: 50px;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+}
+
+/* Text: AdiRaj + tagline */
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  border-left: 2.5px solid #7c5cbf;
+  padding-left: 10px;
+}
 .logo-text {
   font-family: var(--serif);
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-size: 2.3rem;
   font-weight: 700;
   color: var(--ink);
   letter-spacing: 0.02em;
@@ -229,12 +258,13 @@ textarea {
 }
 .logo-tagline {
   font-family: var(--sans);
-  font-size: 0.68rem;
+  font-size: 0.48rem;
   font-weight: 400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-muted);
   line-height: 1;
+  white-space: nowrap;
 }
 
 /* Header right actions */
@@ -1088,14 +1118,22 @@ textarea {
 }
 
 .footer-logo-wrap {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Footer logo = same layout as header, just white colours */
+.footer-logo .logo-img {
+  filter: invert(1);
 }
 .footer-logo .logo-text {
   color: var(--white);
-  font-size: 1.8rem;
 }
 .footer-logo .logo-tagline {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer-logo .logo-text-wrap {
+  border-left-color: rgba(255, 255, 255, 0.35);
 }
 
 .footer-nav {
