@@ -1,0 +1,1282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinations — AdiRaj Routes & Reflections</title>
+  <meta name="description" content="Explore travel guides by continent, country and city from AdiRaj Routes & Reflections." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ══════════════════════════════════════════
+       DESTINATIONS PAGE — Matching reference layout
+    ══════════════════════════════════════════ */
+
+    /* ── Page wrapper ── */
+    .dest-page {
+      background: var(--off-white);
+      min-height: 100vh;
+    }
+
+    /* ── Page Hero Banner ── */
+    .dest-page-hero {
+      position: relative;
+      height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(160deg, #e8ddd3 0%, #d5c9be 50%, #c9b8a8 100%);
+    }
+    .dest-page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a09080' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .dest-page-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .dest-page-hero-kicker {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .dest-page-hero-kicker::before,
+    .dest-page-hero-kicker::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.6;
+    }
+    .dest-page-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .dest-page-hero-sub {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--ink-soft);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Divider ornament ── */
+    .dest-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.8rem var(--pad-x);
+      gap: 0.6rem;
+      overflow: hidden;
+    }
+    .dest-ornament-line {
+      flex: 1;
+      max-width: 200px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--rule), transparent);
+    }
+    .dest-ornament svg {
+      flex-shrink: 0;
+      color: var(--accent);
+      opacity: 0.7;
+    }
+
+    /* ── Two-column layout: sidebar list + map ── */
+    .dest-top-section {
+      max-width: 1200px;
+      margin-inline: auto;
+      padding: 0 var(--pad-x) 3rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .dest-top-section { grid-template-columns: 1fr; }
+    }
+
+    /* ── Left sidebar: numbered expand list ── */
+    .dest-sidebar-list-wrap {
+      position: sticky;
+      top: calc(var(--total-top) + 1rem);
+    }
+    .dest-sidebar-box {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.8rem 1.5rem 2rem;
+      position: relative;
+    }
+    .dest-sidebar-expand-label {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 1.4rem;
+      display: block;
+    }
+    .dest-sidebar-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .dest-sidebar-item {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid #f0ebe4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .dest-sidebar-item:last-child { border-bottom: none; }
+    .dest-sidebar-item:hover .dest-sidebar-item-name { color: var(--accent); }
+    .dest-sidebar-item-num {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      width: 16px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .dest-sidebar-item-diamond {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .dest-sidebar-item-diamond::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      background: var(--accent-lt);
+      transform: rotate(45deg);
+      border-radius: 1px;
+      transition: background 0.2s;
+    }
+    .dest-sidebar-item:hover .dest-sidebar-item-diamond::before { background: var(--accent); }
+    .dest-sidebar-item-name {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      transition: color 0.2s;
+    }
+
+    /* Currently Traveling stamp */
+    .dest-traveling-stamp {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 2;
+    }
+    .dest-stamp-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px dashed #c5b8a8;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .dest-stamp-circle span {
+      font-family: var(--sans);
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8a7e72;
+      line-height: 1.4;
+    }
+    .dest-stamp-location {
+      background: var(--white);
+      border: 1.5px solid var(--rule);
+      border-radius: 8px;
+      padding: 0.6rem 1.4rem;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    /* ── World Map area ── */
+    .dest-map-area {
+      position: relative;
+      min-height: 520px;
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* SVG World Map background */
+    .dest-map-svg-wrap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0.18;
+    }
+    .dest-map-svg-wrap svg { width: 100%; height: 100%; }
+
+    /* Filter bar on top of map */
+    .dest-map-filters {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(4px);
+    }
+    .dest-map-select {
+      flex: 1;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      border: 1px solid var(--rule);
+      background: var(--white);
+      padding: 0.6rem 1rem;
+      border-radius: 2px;
+      outline: none;
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      padding-right: 2rem;
+    }
+    .dest-map-search-wrap {
+      flex: 1.2;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .dest-map-search {
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--ink);
+      border: 1px solid var(--rule);
+      background: var(--white);
+      padding: 0.6rem 2.4rem 0.6rem 1rem;
+      border-radius: 2px;
+      outline: none;
+    }
+    .dest-map-search::placeholder { color: var(--ink-muted); letter-spacing: 0.04em; }
+    .dest-map-search-icon {
+      position: absolute;
+      right: 0.75rem;
+      color: var(--ink-muted);
+      pointer-events: none;
+    }
+
+    /* Map pins grid — absolute positioned on the map canvas */
+    .dest-map-canvas {
+      position: relative;
+      width: 100%;
+      height: 460px;
+    }
+
+    /* Individual map pin */
+    .dest-pin {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.25s;
+      z-index: 3;
+    }
+    .dest-pin:hover { transform: translate(-50%, -50%) scale(1.06); }
+
+    .dest-pin-photo {
+      width: 100px;
+      height: 80px;
+      border: 3px solid var(--white);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.16);
+      background: var(--beige);
+      position: relative;
+    }
+    .dest-pin-photo-inner {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.4s;
+    }
+    .dest-pin:hover .dest-pin-photo-inner { transform: scale(1.08); }
+
+    .dest-pin-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #c5b0a0;
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dest-pin-label {
+      margin-top: 5px;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-align: center;
+      white-space: nowrap;
+      background: rgba(255,255,255,0.88);
+      padding: 2px 6px;
+      border-radius: 2px;
+    }
+
+    /* Photo gradient placeholders for pins */
+    .bg-northamerica { background: linear-gradient(135deg, #c84b31 0%, #2d4059 100%); }
+    .bg-europe       { background: linear-gradient(135deg, #4a90a4 0%, #2c3e50 100%); }
+    .bg-asia         { background: linear-gradient(135deg, #27ae60 0%, #1a5276 100%); }
+    .bg-africa       { background: linear-gradient(135deg, #d4a017 0%, #6b3a0f 100%); }
+    .bg-middleeast   { background: linear-gradient(135deg, #c0924a 0%, #5c3d11 100%); }
+    .bg-caribbean    { background: linear-gradient(135deg, #17a589 0%, #1a5276 100%); }
+    .bg-centralamer  { background: linear-gradient(135deg, #8e44ad 0%, #2c3e50 100%); }
+    .bg-southamer    { background: linear-gradient(135deg, #27ae60 0%, #6b3a0f 100%); }
+    .bg-oceania      { background: linear-gradient(135deg, #0066cc 0%, #004080 100%); }
+
+    /* ══════════════════
+       POPULAR DESTINATIONS SECTION
+    ══════════════════ */
+    .dest-popular-section {
+      background: var(--white);
+      padding: 4rem var(--pad-x);
+    }
+    .dest-popular-inner {
+      max-width: 1200px;
+      margin-inline: auto;
+    }
+    .dest-section-title {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Popular grid: 3 col */
+    .dest-popular-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 760px) { .dest-popular-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .dest-popular-grid { grid-template-columns: 1fr; } }
+
+    .dest-pop-card {
+      display: block;
+      text-decoration: none;
+      position: relative;
+      border: 1px solid var(--rule);
+      background: var(--white);
+      overflow: visible;
+      border-radius: 2px;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .dest-pop-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.12); transform: translateY(-3px); }
+
+    .dest-pop-card-img {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      border: 5px solid var(--white);
+      position: relative;
+    }
+    .dest-pop-card-img-bg {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s;
+    }
+    .dest-pop-card:hover .dest-pop-card-img-bg { transform: scale(1.05); }
+
+    .dest-pop-card-label {
+      background: #b5a898;
+      padding: 0.7rem 1rem;
+      text-align: center;
+      margin: 0 5px;
+    }
+    .dest-pop-card-label span {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    /* Decorative arrow below card */
+    .dest-pop-card-arrow {
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 0 0.75rem;
+    }
+    .dest-pop-card-arrow svg {
+      color: var(--accent-lt);
+      opacity: 0.7;
+    }
+
+    /* ══════════════════
+       BROWSE BY COUNTRIES SECTION
+    ══════════════════ */
+    .dest-countries-section {
+      background: var(--off-white);
+      padding: 4rem var(--pad-x) 5rem;
+    }
+    .dest-countries-inner {
+      max-width: 1200px;
+      margin-inline: auto;
+    }
+
+    /* 3-col continent grid */
+    .dest-continents-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    @media (max-width: 860px) { .dest-continents-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .dest-continents-grid { grid-template-columns: 1fr; } }
+
+    .dest-continent-cell {
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 2rem 2rem 2.5rem;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .dest-continent-cell:nth-child(3n) { border-right: none; }
+    @media (max-width: 860px) { .dest-continent-cell:nth-child(2n) { border-right: none; } .dest-continent-cell:nth-child(3n) { border-right: 1px solid var(--rule); } }
+
+    /* Faint continent silhouette watermark */
+    .dest-continent-watermark {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 80px;
+      height: 60px;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .dest-continent-watermark svg { width: 100%; height: 100%; fill: var(--ink); }
+
+    .dest-continent-name {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      margin-bottom: 1.6rem;
+      line-height: 1;
+    }
+
+    .dest-country-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.3rem 1rem;
+    }
+    .dest-country-link {
+      font-family: var(--sans);
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 0.25rem 0;
+      transition: color 0.2s;
+      display: block;
+    }
+    .dest-country-link:hover { color: var(--accent); }
+
+    /* ── Scroll reveal ── */
+    @keyframes revealUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; }
+    .reveal.visible { animation: revealUp 0.6s var(--ease) forwards; }
+
+  </style>
+</head>
+<body class="dest-page">
+
+  <!-- ── TOP BAR ── -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <a href="#" class="tb-icon" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" class="tb-icon" aria-label="Pinterest">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        </a>
+        <a href="#" class="tb-icon" aria-label="Twitter/X">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+      <div class="top-bar-right">
+        <a href="./index.html" class="tb-link">Home</a>
+        <a href="./workwithus.html" class="tb-link">Work With Us</a>
+        <span class="tb-sep">|</span>
+        <a href="./contact.html" class="tb-link">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SITE HEADER ── -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="logo-wrap">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><img src="assets/logo.png" alt="AdiRaj" class="logo-img" /></span>
+          <span class="logo-text-wrap">
+            <span class="logo-text">AdiRaj<span class="logo-tagline">Routes &amp; Reflections</span></span>
+          </span>
+        </a>
+      </div>
+      <div class="header-actions">
+        <button class="search-toggle" id="searchToggle" aria-label="Search">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="cat-nav" id="catNav">
+      <div class="cat-nav-inner">
+        <a href="index.html" class="cat-nav-link">All Posts</a>
+        <a href="./destinations.html" class="cat-nav-link active">Travel</a>
+        <a href="./lifestyle.html" class="cat-nav-link">Lifestyle</a>
+        <a href="./resources.html" class="cat-nav-link">Resources</a>
+        <a href="./studio.html" class="cat-nav-link">Studio</a>
+        <a href="./about.html" class="cat-nav-link">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Search bar -->
+  <div class="search-bar" id="searchBar">
+    <div class="search-bar-inner">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      <input type="search" placeholder="Search destinations, countries, cities…" id="searchInput" />
+      <button class="search-close" id="searchClose" aria-label="Close">✕</button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mob-menu" id="mobMenu">
+    <button class="mob-close" id="mobClose" aria-label="Close">✕</button>
+    <nav class="mob-nav">
+      <a href="index.html">All Posts</a>
+      <a href="./destinations.html">Travel</a>
+      <a href="./lifestyle.html">Lifestyle</a>
+      <a href="./resources.html">Resources</a>
+      <div class="mob-divider"></div>
+      <a href="./about.html">About</a>
+      <a href="./workwithus.html">Work With Us</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="dest-page-hero">
+    <div class="dest-page-hero-content">
+      <p class="dest-page-hero-kicker">Explore the World</p>
+      <h1>Destinations</h1>
+      <p class="dest-page-hero-sub">From Asia to the Americas — every corner tells a story</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TWO-COLUMN: NUMBERED LIST + WORLD MAP
+  ══════════════════════════════════════════ -->
+  <div class="dest-top-section">
+
+    <!-- LEFT: Numbered clickable list -->
+    <div class="dest-sidebar-list-wrap">
+      <div class="dest-sidebar-box">
+        <span class="dest-sidebar-expand-label">Click to Expand</span>
+        <div class="dest-sidebar-items">
+          <a href="#africa" class="dest-sidebar-item" data-region="africa">
+            <span class="dest-sidebar-item-num">1</span>
+            <span class="dest-sidebar-item-diamond"></span>
+            <span class="dest-sidebar-item-name">Africa</span>
+          </a>
+          <a href="#asia" class="dest-sidebar-item" data-region="asia">
+            <span class="dest-sidebar-item-num">2</span>
+            <span class="dest-sidebar-item-diamond"></span>
+            <span class="dest-sidebar-item-name">Asia</span>
+          </a>
+          <a href="#caribbean" class="dest-sidebar-item" data-region="caribbean">
+            <span class="dest-sidebar-item-num">3</span>
+            <span class="dest-sidebar-item-diamond"></span>
+            <span class="dest-sidebar-item-name">The Caribbean</span>
+          </a>
+          <a href="#central-america" class="dest-sidebar-item" data-region="central-america">
+            <span class="dest-sidebar-item-num">4</span>
+            <span class="dest-sidebar-item-diamond"></span>
+            <span class="dest-sidebar-item-name">Central America</span>
+          </a>
+          <a href="#europe" class="dest-sidebar-item" data-region="europe">
+            <span class="dest-sidebar-item-num">5</span>
+            <span class="dest-sidebar-item-diamond"></span>
+            <span class="dest-sidebar-item-name">Europe</span>
+          </a>
+          <a href="#middle-east" class="dest-sidebar-item" data-region="middle-east">
+            <span class="dest-sidebar-item-num">6</span>
+            <span class="dest-sidebar-item-diamond"></span>
+            <span class="dest-sidebar-item-name">The Middle East</span>
+          </a>
+          <a href="#north-america" class="dest-sidebar-item" data-region="north-america">
+            <span class="dest-sidebar-item-num">7</span>
+            <span class="dest-sidebar-item-diamond"></span>
+            <span class="dest-sidebar-item-name">North America</span>
+          </a>
+          <a href="#oceania" class="dest-sidebar-item" data-region="oceania">
+            <span class="dest-sidebar-item-num">8</span>
+            <span class="dest-sidebar-item-diamond"></span>
+            <span class="dest-sidebar-item-name">Oceania</span>
+          </a>
+          <a href="#south-america" class="dest-sidebar-item" data-region="south-america">
+            <span class="dest-sidebar-item-num">9</span>
+            <span class="dest-sidebar-item-diamond"></span>
+            <span class="dest-sidebar-item-name">South America</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stamp widget -->
+      <div class="dest-traveling-stamp">
+        <div class="dest-stamp-circle">
+          <span>Currently<br>Traveling<br>In:</span>
+        </div>
+        <div class="dest-stamp-location">India</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: World Map with photo pins -->
+    <div class="dest-map-area">
+
+      <!-- Filter bar -->
+      <div class="dest-map-filters">
+        <select class="dest-map-select" id="destFilterSelect">
+          <option value="">By Destination</option>
+          <option value="africa">Africa</option>
+          <option value="asia">Asia</option>
+          <option value="caribbean">The Caribbean</option>
+          <option value="central-america">Central America</option>
+          <option value="europe">Europe</option>
+          <option value="middle-east">The Middle East</option>
+          <option value="north-america">North America</option>
+          <option value="oceania">Oceania</option>
+          <option value="south-america">South America</option>
+        </select>
+        <div class="dest-map-search-wrap">
+          <input type="text" class="dest-map-search" placeholder="Search the site …" id="destMapSearch" />
+          <svg class="dest-map-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+        </div>
+      </div>
+
+      <!-- Map canvas with pins -->
+      <div class="dest-map-canvas">
+
+        <!-- SVG world map faint outline -->
+        <div class="dest-map-svg-wrap">
+          <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+            <!-- Simplified world continents as paths -->
+            <!-- North America -->
+            <path d="M 80 80 Q 120 60 180 70 Q 220 65 240 90 Q 260 110 250 140 Q 240 170 210 190 Q 190 210 180 240 Q 160 260 150 250 Q 130 240 120 220 Q 100 200 90 175 Q 70 150 70 120 Z" fill="#555" opacity="0.4"/>
+            <!-- Central America -->
+            <path d="M 150 250 Q 170 260 175 275 Q 170 290 160 295 Q 148 285 145 268 Z" fill="#555" opacity="0.4"/>
+            <!-- South America -->
+            <path d="M 180 285 Q 220 270 250 280 Q 280 295 290 330 Q 300 365 285 400 Q 265 430 240 440 Q 210 445 195 425 Q 175 400 170 370 Q 160 340 165 310 Z" fill="#555" opacity="0.4"/>
+            <!-- Europe -->
+            <path d="M 440 70 Q 480 60 510 70 Q 530 80 525 100 Q 515 120 495 130 Q 470 140 450 130 Q 430 115 430 95 Z" fill="#555" opacity="0.4"/>
+            <!-- Africa -->
+            <path d="M 450 155 Q 490 140 520 150 Q 545 165 550 200 Q 555 240 545 280 Q 530 320 510 345 Q 485 360 460 350 Q 435 335 425 300 Q 415 260 420 220 Q 425 180 440 160 Z" fill="#555" opacity="0.4"/>
+            <!-- Middle East / Western Asia -->
+            <path d="M 530 110 Q 570 95 610 100 Q 635 110 640 130 Q 635 150 615 160 Q 590 165 565 155 Q 540 140 530 120 Z" fill="#555" opacity="0.4"/>
+            <!-- Asia -->
+            <path d="M 620 55 Q 700 40 780 50 Q 840 60 870 90 Q 890 115 880 145 Q 865 175 835 190 Q 800 200 760 195 Q 710 190 670 170 Q 630 150 615 120 Q 605 95 615 70 Z" fill="#555" opacity="0.4"/>
+            <!-- South East Asia / Indonesia -->
+            <path d="M 750 220 Q 800 210 830 220 Q 850 230 845 245 Q 830 255 805 252 Q 780 248 760 235 Z" fill="#555" opacity="0.4"/>
+            <!-- Oceania / Australia -->
+            <path d="M 770 300 Q 820 285 860 295 Q 890 310 895 340 Q 895 370 870 385 Q 840 395 810 385 Q 775 370 765 340 Q 758 315 765 300 Z" fill="#555" opacity="0.4"/>
+            <!-- Caribbean -->
+            <path d="M 200 195 Q 225 190 235 200 Q 235 210 220 215 Q 205 212 200 203 Z" fill="#555" opacity="0.4"/>
+          </svg>
+        </div>
+
+        <!-- Photo Pins — positioned to match reference layout -->
+
+        <!-- 7 - North America -->
+        <a href="destinations/north-america.html" class="dest-pin" data-region="north-america"
+           style="left:14%; top:42%;">
+          <div class="dest-pin-photo">
+            <div class="dest-pin-photo-inner bg-northamerica"></div>
+            <div class="dest-pin-badge">7</div>
+          </div>
+          <div class="dest-pin-label">North America</div>
+        </a>
+
+        <!-- 4 - Central America -->
+        <a href="destinations/central-america.html" class="dest-pin" data-region="central-america"
+           style="left:9%; top:65%;">
+          <div class="dest-pin-photo">
+            <div class="dest-pin-photo-inner bg-centralamer"></div>
+            <div class="dest-pin-badge">4</div>
+          </div>
+          <div class="dest-pin-label">Central America</div>
+        </a>
+
+        <!-- 3 - The Caribbean -->
+        <a href="destinations/caribbean.html" class="dest-pin" data-region="caribbean"
+           style="left:27%; top:54%;">
+          <div class="dest-pin-photo">
+            <div class="dest-pin-photo-inner bg-caribbean"></div>
+            <div class="dest-pin-badge">3</div>
+          </div>
+          <div class="dest-pin-label">The Caribbean</div>
+        </a>
+
+        <!-- 9 - South America -->
+        <a href="destinations/south-america.html" class="dest-pin" data-region="south-america"
+           style="left:24%; top:78%;">
+          <div class="dest-pin-photo">
+            <div class="dest-pin-photo-inner bg-southamer"></div>
+            <div class="dest-pin-badge">9</div>
+          </div>
+          <div class="dest-pin-label">South America</div>
+        </a>
+
+        <!-- 5 - Europe -->
+        <a href="destinations/europe.html" class="dest-pin" data-region="europe"
+           style="left:46%; top:28%;">
+          <div class="dest-pin-photo">
+            <div class="dest-pin-photo-inner bg-europe"></div>
+            <div class="dest-pin-badge">5</div>
+          </div>
+          <div class="dest-pin-label">Europe</div>
+        </a>
+
+        <!-- 6 - Middle East -->
+        <a href="destinations/middle-east.html" class="dest-pin" data-region="middle-east"
+           style="left:57%; top:50%;">
+          <div class="dest-pin-photo">
+            <div class="dest-pin-photo-inner bg-middleeast"></div>
+            <div class="dest-pin-badge">6</div>
+          </div>
+          <div class="dest-pin-label">The Middle East</div>
+        </a>
+
+        <!-- 1 - Africa -->
+        <a href="destinations/africa.html" class="dest-pin" data-region="africa"
+           style="left:49%; top:66%;">
+          <div class="dest-pin-photo">
+            <div class="dest-pin-photo-inner bg-africa"></div>
+            <div class="dest-pin-badge">1</div>
+          </div>
+          <div class="dest-pin-label">Africa</div>
+        </a>
+
+        <!-- 2 - Asia -->
+        <a href="destinations/asia.html" class="dest-pin" data-region="asia"
+           style="left:72%; top:38%;">
+          <div class="dest-pin-photo">
+            <div class="dest-pin-photo-inner bg-asia"></div>
+            <div class="dest-pin-badge">2</div>
+          </div>
+          <div class="dest-pin-label">Asia</div>
+        </a>
+
+        <!-- 8 - Oceania -->
+        <a href="destinations/oceania.html" class="dest-pin" data-region="oceania"
+           style="left:74%; top:76%;">
+          <div class="dest-pin-photo">
+            <div class="dest-pin-photo-inner bg-oceania"></div>
+            <div class="dest-pin-badge">8</div>
+          </div>
+          <div class="dest-pin-label">Oceania</div>
+        </a>
+
+      </div><!-- /.dest-map-canvas -->
+    </div><!-- /.dest-map-area -->
+  </div><!-- /.dest-top-section -->
+
+  <!-- Ornament divider -->
+  <div class="dest-ornament">
+    <div class="dest-ornament-line"></div>
+    <svg width="60" height="12" viewBox="0 0 60 12" fill="none">
+      <path d="M0 6 L8 1 L16 6 L8 11 Z" fill="currentColor" opacity="0.4"/>
+      <path d="M22 6 L30 1 L38 6 L30 11 Z" fill="currentColor" opacity="0.6"/>
+      <path d="M44 6 L52 1 L60 6 L52 11 Z" fill="currentColor" opacity="0.4"/>
+    </svg>
+    <div class="dest-ornament-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       BROWSE BY POPULAR DESTINATIONS
+  ══════════════════════════════════════════ -->
+  <section class="dest-popular-section" id="popular">
+    <div class="dest-popular-inner">
+      <h2 class="dest-section-title">Browse by Popular Destinations</h2>
+
+      <div class="dest-popular-grid">
+
+        <!-- Greece -->
+        <a href="destinations/europe-greece.html" class="dest-pop-card reveal">
+          <div class="dest-pop-card-img">
+            <div class="dest-pop-card-img-bg bg-europe" style="background:linear-gradient(160deg,#4a90a4,#1a6180);"></div>
+          </div>
+          <div class="dest-pop-card-label"><span>Greece</span></div>
+          <div class="dest-pop-card-arrow">
+            <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+        </a>
+
+        <!-- Hawaii -->
+        <a href="destinations/north-america-usa-hawaii.html" class="dest-pop-card reveal" style="animation-delay:0.08s">
+          <div class="dest-pop-card-img">
+            <div class="dest-pop-card-img-bg" style="background:linear-gradient(160deg,#0066cc,#004080);"></div>
+          </div>
+          <div class="dest-pop-card-label"><span>Hawaii</span></div>
+          <div class="dest-pop-card-arrow">
+            <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+        </a>
+
+        <!-- Italy -->
+        <a href="destinations/europe-italy.html" class="dest-pop-card reveal" style="animation-delay:0.16s">
+          <div class="dest-pop-card-img">
+            <div class="dest-pop-card-img-bg" style="background:linear-gradient(160deg,#c84b31,#6b1f0f);"></div>
+          </div>
+          <div class="dest-pop-card-label"><span>Italy</span></div>
+          <div class="dest-pop-card-arrow">
+            <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+        </a>
+
+        <!-- Bali -->
+        <a href="destinations/asia-bali.html" class="dest-pop-card reveal" style="animation-delay:0.04s">
+          <div class="dest-pop-card-img">
+            <div class="dest-pop-card-img-bg" style="background:linear-gradient(160deg,#27ae60,#1a5226);"></div>
+          </div>
+          <div class="dest-pop-card-label"><span>Bali</span></div>
+          <div class="dest-pop-card-arrow">
+            <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+        </a>
+
+        <!-- Thailand -->
+        <a href="destinations/asia-thailand.html" class="dest-pop-card reveal" style="animation-delay:0.12s">
+          <div class="dest-pop-card-img">
+            <div class="dest-pop-card-img-bg" style="background:linear-gradient(160deg,#d4a017,#7d5a00);"></div>
+          </div>
+          <div class="dest-pop-card-label"><span>Thailand</span></div>
+          <div class="dest-pop-card-arrow">
+            <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+        </a>
+
+        <!-- Japan -->
+        <a href="destinations/asia-japan.html" class="dest-pop-card reveal" style="animation-delay:0.2s">
+          <div class="dest-pop-card-img">
+            <div class="dest-pop-card-img-bg" style="background:linear-gradient(160deg,#c0324a,#5c1120);"></div>
+          </div>
+          <div class="dest-pop-card-label"><span>Japan</span></div>
+          <div class="dest-pop-card-arrow">
+            <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Ornament divider -->
+  <div class="dest-ornament" style="background:var(--off-white);">
+    <div class="dest-ornament-line"></div>
+    <svg width="60" height="12" viewBox="0 0 60 12" fill="none">
+      <path d="M0 6 L8 1 L16 6 L8 11 Z" fill="currentColor" opacity="0.4"/>
+      <path d="M22 6 L30 1 L38 6 L30 11 Z" fill="currentColor" opacity="0.6"/>
+      <path d="M44 6 L52 1 L60 6 L52 11 Z" fill="currentColor" opacity="0.4"/>
+    </svg>
+    <div class="dest-ornament-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       BROWSE BY COUNTRIES
+  ══════════════════════════════════════════ -->
+  <section class="dest-countries-section" id="countries">
+    <div class="dest-countries-inner">
+      <h2 class="dest-section-title" style="margin-bottom:2.5rem;">Browse by Countries</h2>
+
+      <div class="dest-continents-grid">
+
+        <!-- AFRICA -->
+        <div class="dest-continent-cell reveal" id="africa">
+          <div class="dest-continent-watermark">
+            <svg viewBox="0 0 200 220"><path d="M100 10 Q140 15 165 40 Q185 65 180 100 Q175 135 160 160 Q140 185 110 200 Q80 210 60 195 Q35 175 25 145 Q15 115 20 85 Q30 50 55 30 Q75 12 100 10Z"/></svg>
+          </div>
+          <div class="dest-continent-name">Africa</div>
+          <div class="dest-country-cols">
+            <div>
+              <a href="destinations/africa-botswana.html" class="dest-country-link">Botswana</a>
+              <a href="destinations/africa-egypt.html" class="dest-country-link">Egypt</a>
+              <a href="destinations/africa-kenya.html" class="dest-country-link">Kenya</a>
+              <a href="destinations/africa-mauritius.html" class="dest-country-link">Mauritius</a>
+              <a href="destinations/africa-morocco.html" class="dest-country-link">Morocco</a>
+              <a href="destinations/africa-mozambique.html" class="dest-country-link">Mozambique</a>
+              <a href="destinations/africa-namibia.html" class="dest-country-link">Namibia</a>
+            </div>
+            <div>
+              <a href="destinations/africa-seychelles.html" class="dest-country-link">Seychelles</a>
+              <a href="destinations/africa-south-africa.html" class="dest-country-link">South Africa</a>
+              <a href="destinations/africa-tanzania.html" class="dest-country-link">Tanzania</a>
+              <a href="destinations/africa-uganda.html" class="dest-country-link">Uganda</a>
+              <a href="destinations/africa-zambia.html" class="dest-country-link">Zambia</a>
+              <a href="destinations/africa-zimbabwe.html" class="dest-country-link">Zimbabwe</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASIA -->
+        <div class="dest-continent-cell reveal" id="asia">
+          <div class="dest-continent-watermark">
+            <svg viewBox="0 0 200 200"><path d="M50 20 Q90 5 140 15 Q180 30 190 70 Q200 110 185 145 Q165 175 130 185 Q95 192 65 175 Q30 155 15 115 Q5 80 20 50 Q35 25 50 20Z"/></svg>
+          </div>
+          <div class="dest-continent-name">Asia</div>
+          <div class="dest-country-cols">
+            <div>
+              <a href="destinations/asia-cambodia.html" class="dest-country-link">Cambodia</a>
+              <a href="destinations/asia-china.html" class="dest-country-link">China</a>
+              <a href="destinations/asia-hong-kong.html" class="dest-country-link">Hong Kong</a>
+              <a href="destinations/asia-india.html" class="dest-country-link">India</a>
+              <a href="destinations/asia-indonesia.html" class="dest-country-link">Indonesia</a>
+              <a href="destinations/asia-japan.html" class="dest-country-link">Japan</a>
+            </div>
+            <div>
+              <a href="destinations/asia-maldives.html" class="dest-country-link">Maldives</a>
+              <a href="destinations/asia-singapore.html" class="dest-country-link">Singapore</a>
+              <a href="destinations/asia-sri-lanka.html" class="dest-country-link">Sri Lanka</a>
+              <a href="destinations/asia-thailand.html" class="dest-country-link">Thailand</a>
+              <a href="destinations/asia-taiwan.html" class="dest-country-link">Taiwan</a>
+              <a href="destinations/asia-vietnam.html" class="dest-country-link">Vietnam</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- THE CARIBBEAN -->
+        <div class="dest-continent-cell reveal" id="caribbean">
+          <div class="dest-continent-watermark">
+            <svg viewBox="0 0 200 120"><path d="M20 40 Q60 20 100 30 Q140 40 170 60 Q185 75 175 90 Q155 105 120 100 Q80 95 45 80 Q15 65 20 40Z"/></svg>
+          </div>
+          <div class="dest-continent-name">The Caribbean</div>
+          <div class="dest-country-cols">
+            <div>
+              <a href="destinations/caribbean-aruba.html" class="dest-country-link">Aruba</a>
+              <a href="destinations/caribbean-bahamas.html" class="dest-country-link">Bahamas</a>
+              <a href="destinations/caribbean-bermuda.html" class="dest-country-link">Bermuda</a>
+              <a href="destinations/caribbean-bvi.html" class="dest-country-link">British Virgin Islands</a>
+            </div>
+            <div>
+              <a href="destinations/caribbean-cuba.html" class="dest-country-link">Cuba</a>
+              <a href="destinations/caribbean-dominican.html" class="dest-country-link">Dominican Republic</a>
+              <a href="destinations/caribbean-jamaica.html" class="dest-country-link">Jamaica</a>
+              <a href="destinations/caribbean-turks.html" class="dest-country-link">Turks & Caicos</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENTRAL AMERICA -->
+        <div class="dest-continent-cell reveal" id="central-america">
+          <div class="dest-continent-watermark">
+            <svg viewBox="0 0 120 180"><path d="M60 10 Q90 20 100 50 Q108 80 95 110 Q78 140 55 155 Q35 162 20 145 Q8 125 12 95 Q18 60 35 35 Q50 15 60 10Z"/></svg>
+          </div>
+          <div class="dest-continent-name">Central America</div>
+          <div class="dest-country-cols">
+            <div>
+              <a href="destinations/central-america-belize.html" class="dest-country-link">Belize</a>
+              <a href="destinations/central-america-costa-rica.html" class="dest-country-link">Costa Rica</a>
+              <a href="destinations/central-america-guatemala.html" class="dest-country-link">Guatemala</a>
+            </div>
+            <div>
+              <a href="destinations/central-america-honduras.html" class="dest-country-link">Honduras</a>
+              <a href="destinations/central-america-mexico.html" class="dest-country-link">Mexico</a>
+              <a href="destinations/central-america-panama.html" class="dest-country-link">Panama</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EUROPE -->
+        <div class="dest-continent-cell reveal" id="europe">
+          <div class="dest-continent-watermark">
+            <svg viewBox="0 0 180 160"><path d="M80 15 Q120 8 155 30 Q175 50 170 80 Q165 115 140 135 Q110 155 75 148 Q40 138 22 110 Q8 85 15 55 Q28 25 60 15 Q70 12 80 15Z"/></svg>
+          </div>
+          <div class="dest-continent-name">Europe</div>
+          <div class="dest-country-cols">
+            <div>
+              <a href="destinations/europe-austria.html" class="dest-country-link">Austria</a>
+              <a href="destinations/europe-belgium.html" class="dest-country-link">Belgium</a>
+              <a href="destinations/europe-croatia.html" class="dest-country-link">Croatia</a>
+              <a href="destinations/europe-czech.html" class="dest-country-link">Czech Republic</a>
+              <a href="destinations/europe-denmark.html" class="dest-country-link">Denmark</a>
+              <a href="destinations/europe-england.html" class="dest-country-link">England</a>
+              <a href="destinations/europe-france.html" class="dest-country-link">France</a>
+              <a href="destinations/europe-germany.html" class="dest-country-link">Germany</a>
+              <a href="destinations/europe-greece.html" class="dest-country-link">Greece</a>
+            </div>
+            <div>
+              <a href="destinations/europe-italy.html" class="dest-country-link">Italy</a>
+              <a href="destinations/europe-malta.html" class="dest-country-link">Malta</a>
+              <a href="destinations/europe-netherlands.html" class="dest-country-link">Netherlands</a>
+              <a href="destinations/europe-poland.html" class="dest-country-link">Poland</a>
+              <a href="destinations/europe-portugal.html" class="dest-country-link">Portugal</a>
+              <a href="destinations/europe-scotland.html" class="dest-country-link">Scotland</a>
+              <a href="destinations/europe-spain.html" class="dest-country-link">Spain</a>
+              <a href="destinations/europe-switzerland.html" class="dest-country-link">Switzerland</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- THE MIDDLE EAST -->
+        <div class="dest-continent-cell reveal" id="middle-east">
+          <div class="dest-continent-watermark">
+            <svg viewBox="0 0 200 160"><path d="M40 30 Q80 10 130 20 Q165 35 178 70 Q188 100 170 130 Q148 155 110 158 Q72 160 45 138 Q18 112 15 78 Q12 45 40 30Z"/></svg>
+          </div>
+          <div class="dest-continent-name">The Middle East</div>
+          <div class="dest-country-cols">
+            <div>
+              <a href="destinations/middle-east-egypt.html" class="dest-country-link">Egypt</a>
+              <a href="destinations/middle-east-jordan.html" class="dest-country-link">Jordan</a>
+              <a href="destinations/middle-east-turkey.html" class="dest-country-link">Turkey</a>
+            </div>
+            <div>
+              <a href="destinations/middle-east-uae.html" class="dest-country-link">United Arab Emirates</a>
+              <a href="destinations/middle-east-israel.html" class="dest-country-link">Israel</a>
+              <a href="destinations/middle-east-oman.html" class="dest-country-link">Oman</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- NORTH AMERICA -->
+        <div class="dest-continent-cell reveal" id="north-america">
+          <div class="dest-continent-watermark">
+            <svg viewBox="0 0 200 200"><path d="M120 10 Q160 18 180 55 Q195 90 185 130 Q170 165 140 180 Q105 192 70 178 Q35 160 18 120 Q5 85 15 50 Q30 18 65 10 Q92 5 120 10Z"/></svg>
+          </div>
+          <div class="dest-continent-name">North America</div>
+          <div class="dest-country-cols">
+            <div>
+              <a href="destinations/north-america-canada.html" class="dest-country-link">Canada</a>
+              <a href="destinations/north-america-usa.html" class="dest-country-link">United States</a>
+            </div>
+            <div>
+              <a href="destinations/north-america-usa-california.html" class="dest-country-link">California</a>
+              <a href="destinations/north-america-usa-hawaii.html" class="dest-country-link">Hawaii</a>
+              <a href="destinations/north-america-usa-new-york.html" class="dest-country-link">New York</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- OCEANIA -->
+        <div class="dest-continent-cell reveal" id="oceania">
+          <div class="dest-continent-watermark">
+            <svg viewBox="0 0 220 160"><path d="M80 20 Q130 5 175 25 Q205 45 210 85 Q212 118 188 138 Q158 158 115 155 Q72 150 45 125 Q20 100 22 65 Q26 35 55 22 Q67 18 80 20Z"/></svg>
+          </div>
+          <div class="dest-continent-name">Oceania</div>
+          <div class="dest-country-cols">
+            <div>
+              <a href="destinations/oceania-australia.html" class="dest-country-link">Australia</a>
+              <a href="destinations/oceania-fiji.html" class="dest-country-link">Fiji</a>
+            </div>
+            <div>
+              <a href="destinations/oceania-new-zealand.html" class="dest-country-link">New Zealand</a>
+              <a href="destinations/oceania-samoa.html" class="dest-country-link">Samoa</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOUTH AMERICA -->
+        <div class="dest-continent-cell reveal" id="south-america">
+          <div class="dest-continent-watermark">
+            <svg viewBox="0 0 160 220"><path d="M80 10 Q120 15 145 50 Q165 85 158 130 Q148 170 120 195 Q88 215 58 205 Q25 190 10 155 Q-2 118 8 80 Q22 40 55 18 Q67 10 80 10Z"/></svg>
+          </div>
+          <div class="dest-continent-name">South America</div>
+          <div class="dest-country-cols">
+            <div>
+              <a href="destinations/south-america-argentina.html" class="dest-country-link">Argentina</a>
+              <a href="destinations/south-america-brazil.html" class="dest-country-link">Brazil</a>
+              <a href="destinations/south-america-chile.html" class="dest-country-link">Chile</a>
+            </div>
+            <div>
+              <a href="destinations/south-america-colombia.html" class="dest-country-link">Colombia</a>
+              <a href="destinations/south-america-ecuador.html" class="dest-country-link">Ecuador</a>
+              <a href="destinations/south-america-peru.html" class="dest-country-link">Peru</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.dest-continents-grid -->
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <a href="index.html" class="logo footer-logo">
+          <span class="logo-icon"><img src="assets/logo.png" alt="AdiRaj" class="logo-img" /></span>
+          <span class="logo-text-wrap"><span class="logo-text">AdiRaj<span class="logo-tagline">Routes &amp; Reflections</span></span></span>
+        </a>
+      </div>
+      <nav class="footer-nav">
+        <a href="./index.html">Home</a>
+        <a href="./destinations.html">Destinations</a>
+        <a href="./about.html">About</a>
+        <a href="./workwithus.html">Work With Us</a>
+        <a href="./contact.html">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </nav>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
+      </div>
+      <p class="footer-copy">© 2026 AdiRaj · All rights reserved</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+  <script>
+    // ── Scroll reveal ──
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          const delay = e.target.style.animationDelay || '0s';
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => revealObs.observe(el));
+
+    // ── Map pin filter ──
+    const filterSelect = document.getElementById('destFilterSelect');
+    const pins = document.querySelectorAll('.dest-pin');
+    filterSelect.addEventListener('change', function() {
+      const val = this.value;
+      pins.forEach(pin => {
+        if (!val || pin.dataset.region === val) {
+          pin.style.opacity = '1';
+          pin.style.pointerEvents = 'auto';
+        } else {
+          pin.style.opacity = '0.18';
+          pin.style.pointerEvents = 'none';
+        }
+      });
+    });
+
+    // ── Sidebar list hover highlights pin ──
+    document.querySelectorAll('.dest-sidebar-item').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const region = item.dataset.region;
+        pins.forEach(pin => {
+          pin.style.transform = pin.dataset.region === region
+            ? 'translate(-50%,-50%) scale(1.12)'
+            : 'translate(-50%,-50%) scale(0.92)';
+          pin.style.opacity = pin.dataset.region === region ? '1' : '0.4';
+        });
+      });
+      item.addEventListener('mouseleave', () => {
+        pins.forEach(pin => {
+          pin.style.transform = '';
+          pin.style.opacity = '';
+        });
+      });
+    });
+
+    // ── Search ──
+    const mapSearch = document.getElementById('destMapSearch');
+    mapSearch.addEventListener('input', function() {
+      const q = this.value.toLowerCase();
+      document.querySelectorAll('.dest-country-link').forEach(link => {
+        const match = link.textContent.toLowerCase().includes(q);
+        link.style.opacity = q && !match ? '0.25' : '1';
+        link.style.color = q && match ? 'var(--accent)' : '';
+      });
+    });
+  </script>
+</body>
+</html>

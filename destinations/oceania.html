@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oceania Travel Guide — AdiRaj Routes & Reflections</title>
+  <meta name="description" content="Explore Oceania travel guides covering Australia, New Zealand, Fiji and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../travel-dest.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <a href="#" class="tb-icon" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" class="tb-icon" aria-label="Pinterest">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        </a>
+      </div>
+      <div class="top-bar-right">
+        <a href="../index.html" class="tb-link">Home</a>
+        <a href="../workwithus.html" class="tb-link">Work With Us</a>
+        <span class="tb-sep">|</span>
+        <a href="../contact.html" class="tb-link">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="logo-wrap">
+        <a href="../index.html" class="logo">
+          <span class="logo-icon" aria-hidden="true">
+            <img src="../assets/logo.png" alt="AdiRaj monogram" class="logo-img" />
+          </span>
+          <span class="logo-text-wrap">
+            <span class="logo-text">AdiRaj<span class="logo-tagline">Routes &amp; Reflections</span></span>
+          </span>
+        </a>
+      </div>
+      <div class="header-actions">
+        <button class="search-toggle" id="searchToggle" aria-label="Search">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="cat-nav" id="catNav">
+      <div class="cat-nav-inner">
+        <a href="../index.html" class="cat-nav-link">All Posts</a>
+        <a href="../travel.html" class="cat-nav-link active">Travel</a>
+        <a href="../lifestyle.html" class="cat-nav-link">Lifestyle</a>
+        <a href="../resources.html" class="cat-nav-link">Resources</a>
+        <a href="../studio.html" class="cat-nav-link">Studio</a>
+        <a href="../about.html" class="cat-nav-link">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SEARCH BAR -->
+  <div class="search-bar" id="searchBar">
+    <div class="search-bar-inner">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      <input type="search" placeholder="Search destinations…" id="searchInput" />
+      <button class="search-close" id="searchClose" aria-label="Close search">✕</button>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mob-menu" id="mobMenu">
+    <button class="mob-close" id="mobClose" aria-label="Close">✕</button>
+    <nav class="mob-nav">
+      <a href="../index.html">All Posts</a>
+      <a href="../travel.html">Travel</a>
+      <a href="../lifestyle.html">Lifestyle</a>
+      <div class="mob-divider"></div>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="tdest-hero">
+    <div class="tdest-hero-bg" style="background:linear-gradient(135deg, #0066cc 0%, #004080 100%);"></div>
+    <div class="tdest-hero-gradient"></div>
+    <div class="tdest-hero-content">
+      <p class="tdest-hero-kicker">🌏 Continent Guide</p>
+      <h1>Oceania</h1>
+      <p class="tdest-hero-tagline">Ancient Aboriginal culture, Great Barrier Reef and some of the world's most remote beauty.</p>
+      <div class="tdest-hero-badges">
+        <span class="tdest-badge">3 Countries</span>
+        <span class="tdest-badge">12 Cities</span>
+      </div>
+    </div>
+  </section>
+
+  
+  <div class="tdest-breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">›</span>
+    <a href="../destinations.html">Destinations</a>
+    <span class="sep">›</span>
+    <span class="current">Oceania</span>
+  </div>
+
+  <div class="tdest-layout">
+    <main>
+      <div class="tdest-intro">
+        <p>Ancient Aboriginal culture, Great Barrier Reef and some of the world's most remote beauty.</p>
+      </div>
+
+      <h2 class="tdest-section-title">Choose a <em>Country</em></h2>
+      <div class="tdest-cards">
+      <a href="./oceania-australia.html" class="tdest-ccard js-reveal">
+        <div class="tdest-ccard-img">
+          <div class="tdest-ccard-img-bg" style="background:linear-gradient(135deg, #0066cc 0%, #004080 100%);"></div>
+        </div>
+        <div class="tdest-ccard-body">
+          <div class="tdest-ccard-tag">🇦🇺 Country Guide</div>
+          <div class="tdest-ccard-name">Australia</div>
+          <div class="tdest-ccard-desc">Vast, ancient and wildly diverse — Australia rewards those who go beyond the cities.</div>
+          <div class="tdest-ccard-sub" style="font-family:var(--sans);font-size:0.72rem;color:var(--ink-muted);margin-bottom:0.75rem;">Sydney · Melbourne · Queensland / Great Barrier Reef · Uluru / Red Centre</div>
+          <span class="tdest-ccard-link">Explore Guide →</span>
+        </div>
+      </a>
+      <a href="./oceania-new-zealand.html" class="tdest-ccard js-reveal">
+        <div class="tdest-ccard-img">
+          <div class="tdest-ccard-img-bg" style="background:linear-gradient(135deg, #0066cc 0%, #004080 100%);"></div>
+        </div>
+        <div class="tdest-ccard-body">
+          <div class="tdest-ccard-tag">🇳🇿 Country Guide</div>
+          <div class="tdest-ccard-name">New Zealand</div>
+          <div class="tdest-ccard-desc">Middle Earth is real — fjords, glaciers, geothermal fields and bungee jumps.</div>
+          <div class="tdest-ccard-sub" style="font-family:var(--sans);font-size:0.72rem;color:var(--ink-muted);margin-bottom:0.75rem;">Auckland · Queenstown · Milford Sound · Rotorua</div>
+          <span class="tdest-ccard-link">Explore Guide →</span>
+        </div>
+      </a>
+      <a href="./oceania-fiji.html" class="tdest-ccard js-reveal">
+        <div class="tdest-ccard-img">
+          <div class="tdest-ccard-img-bg" style="background:linear-gradient(135deg, #0066cc 0%, #004080 100%);"></div>
+        </div>
+        <div class="tdest-ccard-body">
+          <div class="tdest-ccard-tag">🇫🇯 Country Guide</div>
+          <div class="tdest-ccard-name">Fiji</div>
+          <div class="tdest-ccard-desc">Bula! The happiest people on earth live on the most impossibly beautiful islands.</div>
+          <div class="tdest-ccard-sub" style="font-family:var(--sans);font-size:0.72rem;color:var(--ink-muted);margin-bottom:0.75rem;">Nadi · Mamanuca Islands · Yasawa Islands · Taveuni</div>
+          <span class="tdest-ccard-link">Explore Guide →</span>
+        </div>
+      </a>
+      </div>
+
+      <div class="tdest-cta">
+        <h3>Not sure where to go in <em>Oceania</em>?</h3>
+        <p>Browse all our destination guides or get in touch — we love helping plan itineraries.</p>
+        <a href="../contact.html">Get in Touch →</a>
+      </div>
+    </main>
+
+    <aside class="tdest-sidebar">
+      <div class="tdest-sidebar-widget">
+        <div class="tdest-sidebar-widget-title">Countries in Oceania</div>
+        <div class="tdest-sidebar-list">
+          <a href="./oceania-australia.html"><span>🇦🇺</span> Australia</a>
+<a href="./oceania-new-zealand.html"><span>🇳🇿</span> New Zealand</a>
+<a href="./oceania-fiji.html"><span>🇫🇯</span> Fiji</a>
+
+        </div>
+      </div>
+      <div class="tdest-sidebar-widget">
+        <div class="tdest-sidebar-widget-title">Other Continents</div>
+        <div class="tdest-sidebar-list">
+          <a href="./asia.html"><span>🌏</span> Asia</a>
+          <a href="./europe.html"><span>🌍</span> Europe</a>
+          <a href="./americas.html"><span>🌎</span> Americas</a>
+          <a href="./africa.html"><span>🌍</span> Africa</a>
+          <a href="./oceania.html"><span>🌏</span> Oceania</a>
+          <a href="./middle-east.html"><span>🌍</span> Middle East</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <a href="../index.html" class="logo footer-logo">
+          <span class="logo-icon" aria-hidden="true"><img src="../assets/logo.png" alt="AdiRaj monogram" class="logo-img" /></span>
+          <span class="logo-text-wrap"><span class="logo-text">AdiRaj<span class="logo-tagline">Routes &amp; Reflections</span></span></span>
+        </a>
+      </div>
+      <nav class="footer-nav">
+        <a href="../index.html">Home</a>
+        <a href="../destinations.html">Destinations</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </nav>
+      <p class="footer-copy">© 2026 AdiRaj · All rights reserved</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <script src="../script.js"></script>
+  <script>
+    const reveals = document.querySelectorAll('.js-reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); } });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

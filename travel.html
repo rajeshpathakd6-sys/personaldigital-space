@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel — AdiRaj Routes &amp; Reflections</title>
+    <meta
+      name="description"
+      content="Explore travel guides by continent, country and city from AdiRaj Routes & Reflections."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- All page styles now live in styles.css -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dest-page">
+    <!-- ── TOP BAR ── -->
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <a href="#" class="tb-icon" aria-label="Instagram">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1.2"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </a>
+          <a href="#" class="tb-icon" aria-label="Pinterest">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="tb-icon" aria-label="Twitter/X">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="top-bar-right">
+          <a href="./index.html" class="tb-link">Home</a>
+          <a href="./workwithus.html" class="tb-link">Work With Us</a>
+          <span class="tb-sep">|</span>
+          <a href="./contact.html" class="tb-link">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SITE HEADER ── -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="logo-wrap">
+          <a href="index.html" class="logo">
+            <span class="logo-icon">
+              <img src="assets/logo.png" alt="AdiRaj" class="logo-img" />
+            </span>
+            <span class="logo-text-wrap">
+              <span class="logo-text"
+                >AdiRaj<span class="logo-tagline"
+                  >Routes &amp; Reflections</span
+                ></span
+              >
+            </span>
+          </a>
+        </div>
+        <div class="header-actions">
+          <button class="search-toggle" id="searchToggle" aria-label="Search">
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <line x1="16.5" y1="16.5" x2="22" y2="22" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <nav class="cat-nav" id="catNav">
+        <div class="cat-nav-inner">
+          <a href="index.html" class="cat-nav-link">All Posts</a>
+          <a href="./travel.html" class="cat-nav-link active">Travel</a>
+          <a href="./lifestyle.html" class="cat-nav-link">Lifestyle</a>
+          <a href="./resources.html" class="cat-nav-link">Resources</a>
+          <a href="./studio.html" class="cat-nav-link">Studio</a>
+          <a href="./about.html" class="cat-nav-link">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Search bar -->
+    <div class="search-bar" id="searchBar">
+      <div class="search-bar-inner">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        >
+          <circle cx="11" cy="11" r="7" />
+          <line x1="16.5" y1="16.5" x2="22" y2="22" />
+        </svg>
+        <input
+          type="search"
+          placeholder="Search destinations, countries, cities…"
+          id="searchInput"
+        />
+        <button class="search-close" id="searchClose" aria-label="Close">
+          ✕
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mob-menu" id="mobMenu">
+      <button class="mob-close" id="mobClose" aria-label="Close">✕</button>
+      <nav class="mob-nav">
+        <a href="index.html">All Posts</a>
+        <a href="./travel.html">Travel</a>
+        <a href="./lifestyle.html">Lifestyle</a>
+        <a href="./resources.html">Resources</a>
+        <div class="mob-divider"></div>
+        <a href="./about.html">About</a>
+        <a href="./workwithus.html">Work With Us</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="dest-page-hero">
+      <div class="dest-page-hero-content">
+        <p class="dest-page-hero-kicker">Explore the World</p>
+        <h1>Travel</h1>
+        <p class="dest-page-hero-sub">
+          From Asia to the Americas — every corner tells a story
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         TWO-COLUMN: SIDEBAR LIST + WORLD MAP
+    ══════════════════════════════════════════ -->
+    <div class="dest-top-section">
+      <!-- LEFT: Accordion sidebar -->
+      <div class="dest-sidebar-list-wrap">
+        <div class="dest-sidebar-box">
+          <span class="dest-sidebar-expand-label">Click to Expand</span>
+          <div class="dest-sidebar-items">
+            <!-- AFRICA -->
+            <div class="dest-accordion-item">
+              <div class="dest-sidebar-item" data-region="africa">
+                <span class="dest-sidebar-item-num">1</span>
+                <span class="dest-sidebar-item-diamond"></span>
+                <span class="dest-sidebar-item-name">Africa</span>
+              </div>
+              <div class="dest-accordion-content">
+                <a href="destinations/africa-kenya.html">Kenya</a>
+              </div>
+            </div>
+
+            <!-- ASIA -->
+            <div class="dest-accordion-item">
+              <div class="dest-sidebar-item" data-region="asia">
+                <span class="dest-sidebar-item-num">2</span>
+                <span class="dest-sidebar-item-diamond"></span>
+                <span class="dest-sidebar-item-name">Asia</span>
+              </div>
+              <div class="dest-accordion-content">
+                <a href="destinations/asia-india.html">India</a>
+                <a href="destinations/asia-japan.html">Japan</a>
+                <a href="destinations/asia-maldives.html">Maldives</a>
+                <a href="destinations/asia-taiwan.html">Taiwan</a>
+                <a href="destinations/asia-thailand.html">Thailand</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Currently Traveling stamp — now in normal flow, not absolute -->
+        <div class="dest-traveling-stamp">
+          <div class="dest-stamp-circle">
+            <span>Currently<br />Traveling<br />In:</span>
+          </div>
+          <div class="dest-stamp-location">India</div>
+        </div>
+      </div>
+      <!-- /.dest-sidebar-list-wrap -->
+
+      <!-- RIGHT: World Map -->
+      <div class="dest-map-area">
+        <!-- Filter bar -->
+        <div class="dest-map-filters">
+          <select class="dest-map-select" id="destFilterSelect">
+            <option value="">All Visited</option>
+            <option value="africa">Africa</option>
+            <option value="asia">Asia</option>
+          </select>
+        </div>
+
+        <!--
+          Map canvas — KEY CHANGE:
+          Using <img> tag instead of CSS background so the element
+          height always exactly matches the rendered image height.
+          The .dest-map-pin-layer overlay is position:absolute,inset:0
+          and perfectly matches the image at ALL viewport sizes.
+
+          Pin positions are set by script.js using real geographic
+          coordinates (lon/lat) converted via equirectangular projection.
+        -->
+        <div class="dest-map-canvas">
+          <img
+            src="assets/worldmapbackground.jpg"
+            alt="World map"
+            class="dest-map-img"
+            draggable="false"
+          />
+
+          <!-- Pins live inside this overlay — JS positions them -->
+          <div class="dest-map-pin-layer">
+            <!-- 1 · India · lon:78 lat:22 -->
+            <a
+              href="destinations/asia-india.html"
+              class="dest-pin"
+              data-pin-id="pin-india"
+              data-region="asia"
+            >
+              <div class="dest-pin-photo">
+                <div class="dest-pin-img-area bg-india"></div>
+                <div class="dest-pin-label">India</div>
+              </div>
+              <div class="dest-pin-needle"></div>
+              <div class="dest-pin-dot"></div>
+            </a>
+
+            <!-- 2 · Japan · lon:138 lat:36 -->
+            <a
+              href="destinations/asia-japan.html"
+              class="dest-pin"
+              data-pin-id="pin-japan"
+              data-region="asia"
+            >
+              <div class="dest-pin-photo">
+                <div class="dest-pin-img-area bg-japan"></div>
+                <div class="dest-pin-label">Japan</div>
+              </div>
+              <div class="dest-pin-needle"></div>
+              <div class="dest-pin-dot"></div>
+            </a>
+
+            <!-- 3 · Taiwan · lon:121 lat:24 -->
+            <a
+              href="destinations/asia-taiwan.html"
+              class="dest-pin"
+              data-pin-id="pin-taiwan"
+              data-region="asia"
+            >
+              <div class="dest-pin-photo">
+                <div class="dest-pin-img-area bg-taiwan"></div>
+                <div class="dest-pin-label">Taiwan</div>
+              </div>
+              <div class="dest-pin-needle"></div>
+              <div class="dest-pin-dot"></div>
+            </a>
+
+            <!-- 4 · Thailand · lon:101 lat:13 -->
+            <a
+              href="destinations/asia-thailand.html"
+              class="dest-pin"
+              data-pin-id="pin-thailand"
+              data-region="asia"
+            >
+              <div class="dest-pin-photo">
+                <div class="dest-pin-img-area bg-thailand"></div>
+                <div class="dest-pin-label">Thailand</div>
+              </div>
+              <div class="dest-pin-needle"></div>
+              <div class="dest-pin-dot"></div>
+            </a>
+
+            <!-- 5 · Kenya · lon:37 lat:0 -->
+            <a
+              href="destinations/africa-kenya.html"
+              class="dest-pin"
+              data-pin-id="pin-kenya"
+              data-region="africa"
+            >
+              <div class="dest-pin-photo">
+                <div class="dest-pin-img-area bg-kenya"></div>
+                <div class="dest-pin-label">Kenya</div>
+              </div>
+              <div class="dest-pin-needle"></div>
+              <div class="dest-pin-dot"></div>
+            </a>
+
+            <!-- 6 · Maldives · lon:73 lat:3 -->
+            <a
+              href="destinations/asia-maldives.html"
+              class="dest-pin"
+              data-pin-id="pin-maldives"
+              data-region="asia"
+            >
+              <div class="dest-pin-photo">
+                <div class="dest-pin-img-area bg-maldives"></div>
+                <div class="dest-pin-label">Maldives</div>
+              </div>
+              <div class="dest-pin-needle"></div>
+              <div class="dest-pin-dot"></div>
+            </a>
+          </div>
+          <!-- /.dest-map-pin-layer -->
+        </div>
+        <!-- /.dest-map-canvas -->
+      </div>
+      <!-- /.dest-map-area -->
+    </div>
+    <!-- /.dest-top-section -->
+
+    <!-- Ornament divider -->
+    <div class="dest-ornament">
+      <div class="dest-ornament-line"></div>
+      <svg width="60" height="12" viewBox="0 0 60 12" fill="none">
+        <path d="M0 6 L8 1 L16 6 L8 11 Z" fill="currentColor" opacity="0.4" />
+        <path
+          d="M22 6 L30 1 L38 6 L30 11 Z"
+          fill="currentColor"
+          opacity="0.6"
+        />
+        <path
+          d="M44 6 L52 1 L60 6 L52 11 Z"
+          fill="currentColor"
+          opacity="0.4"
+        />
+      </svg>
+      <div class="dest-ornament-line"></div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         BROWSE BY POPULAR DESTINATIONS
+    ══════════════════════════════════════════ -->
+    <section class="dest-popular-section" id="popular">
+      <div class="dest-popular-inner">
+        <h2 class="dest-section-title">Browse by Popular Destinations</h2>
+        <div class="dest-popular-grid">
+          <a
+            href="destinations/asia-india.html"
+            class="dest-pop-card reveal"
+            style="animation-delay: 0.2s"
+          >
+            <div class="dest-pop-card-img">
+              <div
+                class="dest-pop-card-img-bg"
+                style="background-image: url(&quot;assets/india.jpg&quot;)"
+              ></div>
+            </div>
+            <div class="dest-pop-card-label"><span>India</span></div>
+            <div class="dest-pop-card-arrow">
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                <path
+                  d="M1 4h12M9 1l3 3-3 3"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a href="destinations/asia-japan.html" class="dest-pop-card reveal">
+            <div class="dest-pop-card-img">
+              <div
+                class="dest-pop-card-img-bg"
+                style="background-image: url(&quot;assets/japan.JPG&quot;)"
+              ></div>
+            </div>
+            <div class="dest-pop-card-label"><span>Japan</span></div>
+            <div class="dest-pop-card-arrow">
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                <path
+                  d="M1 4h12M9 1l3 3-3 3"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="destinations/asia-taiwan.html"
+            class="dest-pop-card reveal"
+            style="animation-delay: 0.08s"
+          >
+            <div class="dest-pop-card-img">
+              <div
+                class="dest-pop-card-img-bg"
+                style="background-image: url(&quot;assets/taiwan.JPG&quot;)"
+              ></div>
+            </div>
+            <div class="dest-pop-card-label"><span>Taiwan</span></div>
+            <div class="dest-pop-card-arrow">
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                <path
+                  d="M1 4h12M9 1l3 3-3 3"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="destinations/africa-kenya.html"
+            class="dest-pop-card reveal"
+            style="animation-delay: 0.16s"
+          >
+            <div class="dest-pop-card-img">
+              <div
+                class="dest-pop-card-img-bg"
+                style="background-image: url(&quot;assets/kenya.JPG&quot;)"
+              ></div>
+            </div>
+            <div class="dest-pop-card-label"><span>Kenya</span></div>
+            <div class="dest-pop-card-arrow">
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                <path
+                  d="M1 4h12M9 1l3 3-3 3"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="destinations/asia-thailand.html"
+            class="dest-pop-card reveal"
+            style="animation-delay: 0.04s"
+          >
+            <div class="dest-pop-card-img">
+              <div
+                class="dest-pop-card-img-bg"
+                style="background-image: url(&quot;assets/thailand.JPG&quot;)"
+              ></div>
+            </div>
+            <div class="dest-pop-card-label"><span>Thailand</span></div>
+            <div class="dest-pop-card-arrow">
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                <path
+                  d="M1 4h12M9 1l3 3-3 3"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="destinations/asia-maldives.html"
+            class="dest-pop-card reveal"
+            style="animation-delay: 0.12s"
+          >
+            <div class="dest-pop-card-img">
+              <div
+                class="dest-pop-card-img-bg"
+                style="background-image: url(&quot;assets/maldives.jpg&quot;)"
+              ></div>
+            </div>
+            <div class="dest-pop-card-label"><span>Maldives</span></div>
+            <div class="dest-pop-card-arrow">
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                <path
+                  d="M1 4h12M9 1l3 3-3 3"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ornament divider -->
+    <div class="dest-ornament" style="background: var(--off-white)">
+      <div class="dest-ornament-line"></div>
+      <svg width="60" height="12" viewBox="0 0 60 12" fill="none">
+        <path d="M0 6 L8 1 L16 6 L8 11 Z" fill="currentColor" opacity="0.4" />
+        <path
+          d="M22 6 L30 1 L38 6 L30 11 Z"
+          fill="currentColor"
+          opacity="0.6"
+        />
+        <path
+          d="M44 6 L52 1 L60 6 L52 11 Z"
+          fill="currentColor"
+          opacity="0.4"
+        />
+      </svg>
+      <div class="dest-ornament-line"></div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         BROWSE BY COUNTRIES
+    ══════════════════════════════════════════ -->
+    <section class="dest-countries-section" id="countries">
+      <div class="dest-countries-inner">
+        <h2 class="dest-section-title" style="margin-bottom: 2.5rem">
+          Browse by Countries
+        </h2>
+        <div class="dest-continents-grid">
+          <!-- AFRICA -->
+          <div class="dest-continent-cell reveal" id="africa">
+            <div class="dest-continent-watermark">
+              <svg viewBox="0 0 200 220">
+                <path
+                  d="M100 10 Q140 15 165 40 Q185 65 180 100 Q175 135 160 160 Q140 185 110 200 Q80 210 60 195 Q35 175 25 145 Q15 115 20 85 Q30 50 55 30 Q75 12 100 10Z"
+                />
+              </svg>
+            </div>
+            <div class="dest-continent-name">Africa</div>
+            <div class="dest-country-cols">
+              <div>
+                <a
+                  href="destinations/africa-kenya.html"
+                  class="dest-country-link"
+                  >Kenya</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- ASIA -->
+          <div class="dest-continent-cell reveal" id="asia">
+            <div class="dest-continent-watermark">
+              <svg viewBox="0 0 200 200">
+                <path
+                  d="M50 20 Q90 5 140 15 Q180 30 190 70 Q200 110 185 145 Q165 175 130 185 Q95 192 65 175 Q30 155 15 115 Q5 80 20 50 Q35 25 50 20Z"
+                />
+              </svg>
+            </div>
+            <div class="dest-continent-name">Asia</div>
+            <div class="dest-country-cols">
+              <div>
+                <a href="destinations/asia-india.html" class="dest-country-link"
+                  >India</a
+                >
+                <a href="destinations/asia-japan.html" class="dest-country-link"
+                  >Japan</a
+                >
+                <a
+                  href="destinations/asia-maldives.html"
+                  class="dest-country-link"
+                  >Maldives</a
+                >
+              </div>
+              <div>
+                <a
+                  href="destinations/asia-taiwan.html"
+                  class="dest-country-link"
+                  >Taiwan</a
+                >
+                <a
+                  href="destinations/asia-thailand.html"
+                  class="dest-country-link"
+                  >Thailand</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-logo-wrap">
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-icon"
+              ><img src="assets/logo.png" alt="AdiRaj" class="logo-img"
+            /></span>
+            <span class="logo-text-wrap">
+              <span class="logo-text"
+                >AdiRaj<span class="logo-tagline"
+                  >Routes &amp; Reflections</span
+                ></span
+              >
+            </span>
+          </a>
+        </div>
+        <nav class="footer-nav">
+          <a href="./index.html">Home</a>
+          <a href="./travel.html">Travel</a>
+          <a href="./about.html">About</a>
+          <a href="./workwithus.html">Work With Us</a>
+          <a href="./contact.html">Contact</a>
+          <a href="#">Privacy Policy</a>
+        </nav>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1.2"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"
+              />
+            </svg>
+          </a>
+        </div>
+        <p class="footer-copy">© 2026 AdiRaj · All rights reserved</p>
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path
+          d="M8 13V3M3 8l5-5 5 5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
