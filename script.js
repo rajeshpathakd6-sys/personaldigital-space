@@ -397,3 +397,14 @@ document.addEventListener("DOMContentLoaded", () => {
     init();
   }
 })();
+
+document.addEventListener("click", function (e) {
+  const accordion = document.querySelector(".dest-sidebar-items");
+
+  // If click is OUTSIDE accordion
+  if (accordion && !accordion.contains(e.target)) {
+    document.querySelectorAll(".dest-accordion-item").forEach((item) => {
+      item.classList.remove("active");
+    });
+  }
+});

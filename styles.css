@@ -3123,7 +3123,8 @@ background: var(--white);
 /* ── Page Hero Banner ── */
 .dest-page-hero {
   position: relative;
-  height: 340px;
+  padding: 60px 20px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3143,7 +3144,7 @@ background: var(--white);
 }
 .dest-page-hero-kicker {
   font-family: var(--sans);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -3173,7 +3174,7 @@ background: var(--white);
 }
 .dest-page-hero-sub {
   font-family: var(--sans);
-  font-size: 0.9rem;
+  font-size: 1.0rem;
   font-weight: 300;
   color: var(--ink-soft);
   letter-spacing: 0.08em;
