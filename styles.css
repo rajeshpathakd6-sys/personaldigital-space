@@ -2761,8 +2761,8 @@ background: var(--white);
 /* ── Country / city card grid ── */
 .tdest-cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   margin-bottom: 3rem;
 }
 @media (max-width: 600px) { .tdest-cards { grid-template-columns: 1fr; } }
@@ -2779,7 +2779,7 @@ background: var(--white);
 }
 .tdest-ccard:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
 .tdest-ccard-img {
-  height: 200px;
+  height: 120px;
   overflow: hidden;
   position: relative;
 }
@@ -2815,7 +2815,7 @@ background: var(--white);
   line-height: 1;
 }
 .tdest-ccard-body {
-  padding: 1.1rem 1.2rem 1.25rem;
+  padding: 0.7rem 0.9rem 0.8rem;
 }
 .tdest-ccard-tag {
   font-family: var(--sans);
