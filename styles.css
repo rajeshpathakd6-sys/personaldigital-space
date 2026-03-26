@@ -3703,3 +3703,4 @@ background: var(--white);
 @media (max-width: 560px) {
   .dest-map-filters { flex-direction: column; gap: 0.6rem; }
 }
+

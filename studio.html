@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Studio — AdiRaj · Routes &amp; Reflections</title>
+    <title>Studio— AdiRaj</title>
     <meta
       name="description"
       content="Objects shaped by journeys — handmade, curated, intentional."
@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="styles.css" />
     <style>
       /* ═══════════════════════════════════════════════
-       STUDIO PAGE — Self-contained styles
-       Tone: Parker Pen — dark, gold, editorial, precise
-    ═══════════════════════════════════════════════ */
+         STUDIO PAGE — Self-contained styles
+         Tone: Parker Pen — dark, gold, editorial, precise
+      ═══════════════════════════════════════════════ */
 
       :root {
         --gold: #b8924a;
@@ -63,6 +63,9 @@
       }
       .st-kicker--center {
         justify-content: center;
+      }
+      .st-kicker--center::before {
+        display: none;
       }
 
       /* ── Shared buttons ── */
@@ -110,16 +113,14 @@
       }
 
       /* ════════════════════════════════════════════
-       HERO — full viewport, cinematic
-    ════════════════════════════════════════════ */
+         HERO — full viewport, cinematic
+      ════════════════════════════════════════════ */
       .st-hero {
         position: relative;
-        height: 100vh;
-        min-height: 640px;
-        max-height: 960px;
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
+        align-items: center;
+        min-height: auto;
+        padding: 1rem 0;
         overflow: hidden;
         background: var(--ink-deep);
       }
@@ -163,16 +164,16 @@
         max-width: var(--max-w);
         margin-inline: auto;
         width: 100%;
-        padding: 0 var(--pad-x) 7rem;
+        padding: clamp(1.5rem, 3vw, 3rem) var(--pad-x);
       }
       .st-hero h1 {
         font-family: var(--serif);
-        font-size: clamp(3rem, 8.5vw, 7.5rem);
+        font-size: clamp(2.2rem, 5vw, 4.5rem);
         font-weight: 400;
         color: var(--white);
         line-height: 1.04;
         letter-spacing: -0.015em;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         max-width: 820px;
       }
       .st-hero h1 em {
@@ -181,12 +182,12 @@
       }
       .st-hero-sub {
         font-family: var(--sans);
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         font-weight: 300;
         color: rgba(255, 255, 255, 0.48);
         max-width: 390px;
         line-height: 1.95;
-        margin-bottom: 2.75rem;
+        margin-bottom: 1.8rem;
       }
       .st-hero-actions {
         display: flex;
@@ -236,20 +237,19 @@
       }
 
       /* ════════════════════════════════════════════
-       SECTION 1 — The Travel Edit
-       Dark split — emotional, storytelling
-    ════════════════════════════════════════════ */
+         SECTION 1 — The Travel Edit
+         Dark split — emotional, storytelling
+      ════════════════════════════════════════════ */
       .st-wander {
         background: var(--ink-deep);
         display: grid;
         grid-template-columns: 1fr 1fr;
-        min-height: 85vh;
+        min-height: auto;
       }
       .st-wander-text {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        padding: 7rem clamp(2rem, 5vw, 5rem);
+        padding: 1.5rem var(--pad-x);
       }
       .st-wander h2 {
         font-family: var(--serif);
@@ -258,7 +258,7 @@
         color: var(--white);
         line-height: 1.15;
         letter-spacing: -0.01em;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.6rem;
       }
       .st-wander h2 em {
         font-style: italic;
@@ -271,7 +271,7 @@
         font-weight: 300;
         line-height: 2;
         color: rgba(255, 255, 255, 0.48);
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.6rem;
         max-width: 440px;
       }
       .st-wander-pullquote {
@@ -292,7 +292,7 @@
         gap: 2.5rem;
         padding-top: 2rem;
         border-top: 1px solid rgba(255, 255, 255, 0.07);
-        margin-bottom: 2.5rem;
+        margin-bottom: 0.6rem;
       }
       .st-stat {
         display: flex;
@@ -350,23 +350,23 @@
       }
 
       /* ════════════════════════════════════════════
-       SECTION 2 — THE ARTISAN EDIT
-       Parchment, clean, upscale — 4-card grid
-    ════════════════════════════════════════════ */
+         SECTION 2 — THE ARTISAN EDIT
+         Parchment, clean, upscale — 4-card grid
+      ════════════════════════════════════════════ */
       .st-artisan {
         background: var(--parchment);
-        padding: 7rem 0;
+        padding: 2.5rem 0;
       }
       .st-artisan-head {
         max-width: var(--max-w);
         margin-inline: auto;
-        padding: 0 var(--pad-x) 3.5rem;
+        padding: 0 var(--pad-x) 1.5rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        gap: 1.5rem;
         align-items: end;
         border-bottom: 1px solid var(--parch-dk);
-        margin-bottom: 3.5rem;
+        margin-bottom: 0.6rem;
       }
       .st-artisan-head h2 {
         font-family: var(--serif);
@@ -386,7 +386,7 @@
         font-weight: 300;
         line-height: 1.9;
         color: var(--ink-soft);
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.6rem;
       }
 
       /* 4-card product row */
@@ -503,12 +503,12 @@
       }
 
       /* ════════════════════════════════════════════
-       SECTION 3 — CRAFTED JOURNEYS
-       Full-bleed cinematic — travel meets objects
-    ════════════════════════════════════════════ */
+         SECTION 3 — CRAFTED JOURNEYS
+         Full-bleed cinematic — travel meets objects
+      ════════════════════════════════════════════ */
       .st-journeys {
         position: relative;
-        min-height: 80vh;
+        min-height: auto;
         display: flex;
         align-items: center;
         overflow: hidden;
@@ -540,10 +540,10 @@
         z-index: 2;
         max-width: var(--max-w);
         margin-inline: auto;
-        padding: 8rem var(--pad-x);
+        padding: 1.5rem var(--pad-x);
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 5rem;
+        gap: 2rem;
         align-items: center;
         width: 100%;
       }
@@ -566,7 +566,7 @@
         font-weight: 300;
         line-height: 2;
         color: rgba(255, 255, 255, 0.48);
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.5rem;
       }
       .st-journey-list {
         display: flex;
@@ -609,12 +609,12 @@
       }
 
       /* ════════════════════════════════════════════
-       SECTION 4 — ARTFUL LIVING CO.
-       White bg — asymmetric editorial photo grid
-    ════════════════════════════════════════════ */
+         SECTION 4 — ARTFUL LIVING CO.
+         White bg — asymmetric editorial photo grid
+      ════════════════════════════════════════════ */
       .st-artful {
         background: var(--white);
-        padding: 7rem 0;
+        padding: 1.5rem 0;
       }
       .st-artful-inner {
         max-width: var(--max-w);
@@ -625,7 +625,7 @@
         text-align: center;
         max-width: 600px;
         margin-inline: auto;
-        margin-bottom: 4.5rem;
+        margin-bottom: 1.5rem;
       }
       .st-artful-top h2 {
         font-family: var(--serif);
@@ -721,12 +721,12 @@
       }
 
       /* ════════════════════════════════════════════
-       SECTION 5 — WANDER ESSENTIALS
-       Dark, product-forward — 3-card shelf
-    ════════════════════════════════════════════ */
+         SECTION 5 — WANDER ESSENTIALS
+         Dark, product-forward — 3-card shelf
+      ════════════════════════════════════════════ */
       .st-essentials {
         background: var(--ink-deep);
-        padding: 7rem 0;
+        padding: 1.5rem 0;
       }
       .st-essentials-inner {
         max-width: var(--max-w);
@@ -738,8 +738,8 @@
         align-items: flex-end;
         justify-content: space-between;
         gap: 3rem;
-        margin-bottom: 3.5rem;
-        padding-bottom: 2.5rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
       .st-essentials-top h2 {
@@ -863,12 +863,12 @@
       }
 
       /* ════════════════════════════════════════════
-       SECTION 6 — THE CURATED CRAFT
-       Manifesto + pillars — boutique close
-    ════════════════════════════════════════════ */
+         SECTION 6 — THE CURATED CRAFT
+         Manifesto + pillars — boutique close
+      ════════════════════════════════════════════ */
       .st-curated {
         background: var(--parchment);
-        padding: 7rem 0 0;
+        padding: 1.5rem 0 0;
       }
       .st-curated-inner {
         max-width: var(--max-w);
@@ -880,7 +880,7 @@
         text-align: center;
         max-width: 700px;
         margin-inline: auto;
-        padding-bottom: 5rem;
+        padding-bottom: 1.5rem;
         border-bottom: 1px solid var(--parch-dk);
       }
       .st-manifesto h2 {
@@ -904,42 +904,36 @@
         color: var(--ink-soft);
         margin-bottom: 2.5rem;
       }
-      .st-manifesto-body strong {
-        font-weight: 700;
-        color: var(--ink);
-      }
-
       .st-pillars {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 0;
-        margin-top: 0;
-        border-top: 1px solid var(--parch-dk);
+        margin-top: 3.5rem;
       }
       .st-pillar {
-        padding: 3rem 2.5rem;
+        padding: 2.5rem 3rem;
         border-right: 1px solid var(--parch-dk);
       }
       .st-pillar:last-child {
         border-right: none;
       }
       .st-pillar-num {
-        font-family: var(--serif);
-        font-size: 2.5rem;
-        font-weight: 400;
-        color: var(--parch-dk);
-        line-height: 1;
         display: block;
-        margin-bottom: 0.75rem;
+        font-family: var(--serif);
+        font-size: 2rem;
+        font-weight: 400;
+        color: var(--gold);
+        opacity: 0.5;
+        margin-bottom: 1.25rem;
       }
       .st-pillar h4 {
         font-family: var(--sans);
-        font-size: 0.66rem;
+        font-size: 0.68rem;
         font-weight: 700;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
         color: var(--ink);
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.85rem;
       }
       .st-pillar p {
         font-family: var(--sans);
@@ -963,87 +957,422 @@
       }
 
       /* ════════════════════════════════════════════
-       NOTIFY BAND
-    ════════════════════════════════════════════ */
-      .st-notify {
-        background: var(--ink-deep);
-        padding: 5.5rem var(--pad-x);
-        text-align: center;
+         NEW — CREATIONS SECTION (PRIMARY)
+         Responsive image-first grid
+      ════════════════════════════════════════════ */
+      .st-creations {
+        background: var(--white);
+        padding: 5rem 0;
       }
-      .st-notify h3 {
+      .st-creations-inner {
+        max-width: var(--max-w);
+        margin-inline: auto;
+        padding-inline: var(--pad-x);
+      }
+      .st-creations-head {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: end;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid var(--parch-dk);
+        margin-bottom: 3rem;
+      }
+      .st-creations-head h2 {
         font-family: var(--serif);
-        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        font-size: clamp(2rem, 3.8vw, 3.2rem);
         font-weight: 400;
-        color: var(--white);
-        line-height: 1.3;
-        margin-bottom: 0.75rem;
+        color: var(--ink);
+        line-height: 1.15;
+        letter-spacing: -0.01em;
       }
-      .st-notify h3 em {
+      .st-creations-head h2 em {
         font-style: italic;
-        color: var(--gold-lt);
+        color: var(--gold-dk);
       }
-      .st-notify p {
+      .st-creations-head-right p {
         font-family: var(--sans);
         font-size: 0.88rem;
         font-weight: 300;
-        color: rgba(255, 255, 255, 0.38);
-        line-height: 1.8;
-        margin-bottom: 2rem;
+        line-height: 1.95;
+        color: var(--ink-soft);
+        margin-bottom: 1rem;
       }
-      .st-notify-form {
+
+      /* Creation grid: 4-col desktop, 2 tablet, 1 mobile */
+      .st-creations-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+
+      /* ROW SYSTEM */
+      .st-creations-rows {
         display: flex;
-        gap: 0;
-        max-width: 440px;
-        margin-inline: auto;
+        flex-direction: column;
+        gap: 2rem;
       }
-      .st-notify-input {
-        flex: 1;
-        padding: 0.9rem 1.25rem;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-right: none;
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--white);
-        font-family: var(--sans);
-        font-size: 0.85rem;
-        font-weight: 300;
-        outline: none;
-        transition: border-color 0.2s;
+
+      /* Row wrapper with arrows */
+      .st-creation-row-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
       }
-      .st-notify-input::placeholder {
-        color: rgba(255, 255, 255, 0.22);
+
+      /* Scroll row */
+      .st-creation-row {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        width: 100%;
+        padding: 0.5rem 0;
       }
-      .st-notify-input:focus {
-        border-color: var(--gold);
+
+      /* Hide scrollbar */
+      .st-creation-row::-webkit-scrollbar {
+        display: none;
       }
-      .st-notify-btn {
-        padding: 0.9rem 1.75rem;
-        background: var(--gold);
-        color: var(--ink-deep);
-        font-family: var(--sans);
-        font-size: 0.62rem;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
+      .st-creation-row {
+        scrollbar-width: none;
+      }
+
+      /* Cards per row */
+      .st-creation-card {
+        flex: 0 0 calc(20% - 1rem);
+      }
+
+      /* Tablet */
+      @media (max-width: 1024px) {
+        .st-creation-card {
+          flex: 0 0 calc(50% - 1rem);
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 620px) {
+        .st-creation-card {
+          flex: 0 0 100%;
+        }
+      }
+
+      /* Arrows */
+      .st-row-btn {
+        width: 32px;
+        height: 32px;
         border: none;
+        background: #eee;
         cursor: pointer;
-        white-space: nowrap;
-        transition: background 0.2s;
+        font-size: 18px;
+        flex-shrink: 0;
       }
-      .st-notify-btn:hover {
-        background: var(--gold-lt);
+
+      /* Creation card — image-first, hover reveals title */
+      .st-creation-card {
+        position: relative;
+        overflow: hidden;
+        background: var(--parch-dk);
+        cursor: pointer;
       }
-      .st-notify-fine {
+      .st-creation-card-img {
+        aspect-ratio: 1/1.2;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+      }
+      .st-creation-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.75s var(--ease);
+        transform-origin: center;
+      }
+      .st-creation-card:hover .st-creation-card-img img {
+        transform: scale(1.07);
+      }
+
+      /* Overlay — slides up on hover */
+      .st-creation-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(14, 13, 11, 0.88) 0%,
+          rgba(14, 13, 11, 0.2) 50%,
+          transparent 100%
+        );
+        opacity: 0;
+        transition: opacity 0.4s var(--ease);
+        pointer-events: none;
+      }
+      .st-creation-card:hover .st-creation-card-overlay {
+        opacity: 1;
+      }
+
+      /* Text — revealed on hover */
+      .st-creation-card-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1.5rem 1.25rem;
+        transform: translateY(12px);
+        opacity: 0;
+        transition:
+          transform 0.4s var(--ease),
+          opacity 0.4s var(--ease);
+        pointer-events: none;
+        z-index: 2;
+      }
+      .st-creation-card:hover .st-creation-card-text {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .st-creation-card-medium {
+        display: block;
         font-family: var(--sans);
-        font-size: 0.62rem;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.18);
-        margin-top: 1rem;
-        letter-spacing: 0.06em;
+        font-size: 0.5rem;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold-lt);
+        margin-bottom: 0.4rem;
+      }
+      .st-creation-card-title {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--white);
+        line-height: 1.35;
       }
 
       /* ════════════════════════════════════════════
-       RESPONSIVE
-    ════════════════════════════════════════════ */
+         NEW — CREATIVE PROCESS SECTION
+         Lightweight, expandable
+      ════════════════════════════════════════════ */
+      .st-process {
+        background: var(--parchment);
+        padding: 5rem 0;
+        border-top: 1px solid var(--parch-dk);
+      }
+      .st-process-inner {
+        max-width: var(--max-w);
+        margin-inline: auto;
+        padding-inline: var(--pad-x);
+      }
+      .st-process-top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+        margin-bottom: 4rem;
+      }
+      .st-process-top h2 {
+        font-family: var(--serif);
+        font-size: clamp(1.9rem, 3.5vw, 3rem);
+        font-weight: 400;
+        color: var(--ink);
+        line-height: 1.18;
+        letter-spacing: -0.01em;
+      }
+      .st-process-top h2 em {
+        font-style: italic;
+        color: var(--gold-dk);
+      }
+      .st-process-intro {
+        font-family: var(--sans);
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: var(--ink-soft);
+        line-height: 2;
+      }
+      .st-process-items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background: var(--parch-dk);
+        border: 1px solid var(--parch-dk);
+      }
+      .st-process-item {
+        background: var(--white);
+        padding: 2.5rem;
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 1.75rem;
+        align-items: start;
+        transition: background 0.2s;
+      }
+      .st-process-item:hover {
+        background: var(--parchment);
+      }
+      .st-process-num {
+        width: 56px;
+        height: 56px;
+        border: 1px solid var(--parch-dk);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .st-process-num span {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: var(--gold);
+      }
+      .st-process-item-label {
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-dk);
+        margin-bottom: 0.55rem;
+        display: block;
+      }
+      .st-process-item h4 {
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        font-weight: 400;
+        color: var(--ink);
+        line-height: 1.3;
+        margin-bottom: 0.6rem;
+      }
+      .st-process-item p {
+        font-family: var(--sans);
+        font-size: 0.82rem;
+        font-weight: 300;
+        line-height: 1.85;
+        color: var(--ink-soft);
+        margin: 0;
+      }
+
+      /* ════════════════════════════════════════════
+         NEW — COMING SOON SECTIONS
+         Collections · Shop · Ideas
+      ════════════════════════════════════════════ */
+      .st-coming-row {
+        background: var(--ink-deep);
+        padding: 5rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .st-coming-row::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(184, 146, 74, 0.35),
+          transparent
+        );
+      }
+      .st-coming-inner {
+        max-width: var(--max-w);
+        margin-inline: auto;
+        padding-inline: var(--pad-x);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .st-coming-tile {
+        background: var(--ink-deep);
+        padding: 3rem 2.5rem 3.5rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        transition: background 0.3s;
+      }
+      .st-coming-tile:hover {
+        background: rgba(184, 146, 74, 0.04);
+      }
+      .st-coming-tile-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 2rem;
+        opacity: 0.22;
+      }
+      .st-coming-tile-icon svg {
+        width: 100%;
+        height: 100%;
+      }
+      .st-coming-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--sans);
+        font-size: 0.48rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.25rem;
+      }
+      .st-coming-tag::before {
+        content: "";
+        width: 18px;
+        height: 1px;
+        background: var(--gold);
+        opacity: 0.6;
+        flex-shrink: 0;
+      }
+      .st-coming-tile h3 {
+        font-family: var(--serif);
+        font-size: clamp(1.4rem, 2.2vw, 2rem);
+        font-weight: 400;
+        color: var(--white);
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        margin-bottom: 1rem;
+      }
+      .st-coming-tile h3 em {
+        font-style: italic;
+        color: var(--gold-lt);
+      }
+      .st-coming-tile p {
+        font-family: var(--sans);
+        font-size: 0.84rem;
+        font-weight: 300;
+        line-height: 1.9;
+        color: rgba(255, 255, 255, 0.35);
+        margin: 0 0 2.5rem;
+        flex: 1;
+      }
+      .st-coming-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: var(--sans);
+        font-size: 0.5rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.55rem 1.1rem;
+        border-radius: 1px;
+        width: fit-content;
+      }
+      .st-coming-pill::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--gold);
+        opacity: 0.5;
+        flex-shrink: 0;
+      }
+
+      /* ════════════════════════════════════════════
+         RESPONSIVE
+      ════════════════════════════════════════════ */
       @media (max-width: 1024px) {
         .st-product-row {
           grid-template-columns: repeat(2, 1fr);
@@ -1057,6 +1386,14 @@
         }
         .st-artful-cell--short {
           min-height: 200px;
+        }
+        /* New sections */
+        .st-creations-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .st-coming-inner {
+          grid-template-columns: 1fr;
+          gap: 1px;
         }
       }
       @media (max-width: 820px) {
@@ -1094,10 +1431,35 @@
         .st-pillar:last-child {
           border-bottom: none;
         }
+        /* New sections */
+        .st-creations-head {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        .st-creations-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .st-process-top {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .st-process-items {
+          grid-template-columns: 1fr;
+        }
+        .st-coming-inner {
+          grid-template-columns: 1fr;
+        }
       }
       @media (max-width: 620px) {
         .st-hero h1 {
           font-size: 2.8rem;
+        }
+        .st-hero-inner {
+          padding: 0 var(--pad-x) 2rem;
+        }
+        .st-hero {
+          height: auto;
+          min-height: 480px;
         }
         .st-hero-scroll {
           display: none;
@@ -1123,6 +1485,13 @@
         }
         .st-wander-stats {
           gap: 1.5rem;
+        }
+        /* New sections */
+        .st-creations-grid {
+          grid-template-columns: 1fr;
+        }
+        .st-coming-tile {
+          padding: 2.5rem 1.5rem;
         }
       }
     </style>
@@ -1216,8 +1585,8 @@
       <nav class="cat-nav" id="catNav">
         <div class="cat-nav-inner">
           <a href="index.html" class="cat-nav-link">All Posts</a>
-          <a href="#" class="cat-nav-link">Travel</a>
-          <a href="#" class="cat-nav-link">Lifestyle</a>
+          <a href="./travel.html" class="cat-nav-link">Travel</a>
+          <a href="./lifestyle.html" class="cat-nav-link">Lifestyle</a>
           <a href="./resources.html" class="cat-nav-link">Resources</a>
           <a href="./studio.html" class="cat-nav-link active">Studio</a>
           <a href="./about.html" class="cat-nav-link">About</a>
@@ -1254,8 +1623,8 @@
       <button class="mob-close" id="mobClose" aria-label="Close">✕</button>
       <nav class="mob-nav">
         <a href="index.html" onclick="closeMob()">All Posts</a>
-        <a href="#" onclick="closeMob()">Travel</a>
-        <a href="#" onclick="closeMob()">Lifestyle</a>
+        <a href="./travel.html" onclick="closeMob()">Travel</a>
+        <a href="./lifestyle.html" onclick="closeMob()">Lifestyle</a>
         <a href="./resources.html" onclick="closeMob()">Resources</a>
         <a href="./studio.html" onclick="closeMob()">Studio</a>
         <div class="mob-divider"></div>
@@ -1272,17 +1641,15 @@
       <div class="st-hero-bg"></div>
       <div class="st-hero-overlay"></div>
       <div class="st-hero-inner">
-        <div class="st-kicker st-kicker--light">AdiRaj Studio</div>
+        <div class="st-kicker st-kicker--light">The Studio</div>
         <h1>Where every<br />journey leaves<br /><em>something behind</em></h1>
         <p class="st-hero-sub">
           Handmade objects, curated finds, and things worth keeping — shaped by
           the places we've been.
         </p>
         <div class="st-hero-actions">
-          <a href="#wander" class="st-btn st-btn--gold">Explore the Studio</a>
-          <a href="#curated-craft" class="st-btn st-btn--outline-dark"
-            >Our Philosophy</a
-          >
+          <a href="#creations" class="st-btn st-btn--gold">View Creations</a>
+          <a href="#process" class="st-btn st-btn--outline-dark">The Process</a>
         </div>
       </div>
       <div class="st-hero-scroll">
@@ -1292,381 +1659,210 @@
     </section>
 
     <!-- ═══════════════════════════════════════
-         01 — The Travel Edit
+         01 — CREATIONS (PRIMARY)
+         Responsive image-first grid with hover reveal
     ═══════════════════════════════════════ -->
-    <section id="wander" class="st-wander js-reveal">
-      <div class="st-wander-text">
-        <div class="st-kicker st-kicker--light">01 — The Travel Edit</div>
-        <h2>Made slow,<br /><em>carried far</em></h2>
-        <p class="st-wander-body">
-          Every piece in this collection began as a moment — a morning in a
-          pottery lane, a weaver working before the market opened, a craftsman
-          who didn't look up when we walked in. We stayed. We watched. We
-          brought something home.
-        </p>
-        <blockquote class="st-wander-pullquote">
-          <p>"The things that survive a journey are the ones worth keeping."</p>
-        </blockquote>
-        <div class="st-wander-stats">
-          <div class="st-stat">
-            <span class="st-stat-num">34</span>
-            <span class="st-stat-lbl">Countries visited</span>
-          </div>
-          <div class="st-stat">
-            <span class="st-stat-num">12</span>
-            <span class="st-stat-lbl">Artisan makers</span>
-          </div>
-          <div class="st-stat">
-            <span class="st-stat-num">100%</span>
-            <span class="st-stat-lbl">Handmade</span>
-          </div>
-        </div>
-        <a href="#" class="st-btn st-btn--outline-dark"
-          >Discover the Collection</a
-        >
-      </div>
-      <div class="st-wander-visual">
-        <img
-          src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=900&q=85"
-          alt="Handmade objects"
-          loading="lazy"
-        />
-        <span class="st-img-label">Handcrafted — sourced direct</span>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         02 — THE ARTISAN EDIT
-    ═══════════════════════════════════════ -->
-    <section id="artisan-edit" class="st-artisan js-reveal">
-      <div class="st-artisan-head">
-        <div>
-          <div class="st-kicker">02 — The Artisan Edit</div>
-          <h2>Precision.<br />Provenance.<br /><em>Purpose.</em></h2>
-        </div>
-        <div class="st-artisan-head-right">
-          <p>
-            Each object here was chosen for one reason: it earned its place. Not
-            through branding or price — through the hands that made it and the
-            story it carries.
-          </p>
-          <a href="#" class="st-btn st-btn--outline-ink">View Full Edit</a>
-        </div>
-      </div>
-      <div class="st-product-row">
-        <div class="st-card js-reveal">
-          <div class="st-card-img">
-            <img
-              src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=600&q=80"
-              alt="Stoneware Cup"
-              loading="lazy"
-            />
-            <span class="st-card-badge">Handmade</span>
-          </div>
-          <div class="st-card-body">
-            <span class="st-card-origin">Ceramics</span>
-            <h3 class="st-card-name">Stoneware Morning Cup</h3>
-            <p class="st-card-desc">
-              Wheel-thrown, wood-fired. Each one slightly different — that's the
-              point.
-            </p>
-            <div class="st-card-footer">
-              <span class="st-card-price">₹2,400</span>
-              <button class="st-card-btn">Add to Bag</button>
-            </div>
-          </div>
-        </div>
-        <div class="st-card js-reveal">
-          <div class="st-card-img">
-            <img
-              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&q=80"
-              alt="Notebook"
-              loading="lazy"
-            />
-          </div>
-          <div class="st-card-body">
-            <span class="st-card-origin">Stationery</span>
-            <h3 class="st-card-name">The Traveller's Notebook</h3>
-            <p class="st-card-desc">
-              Slim, lay-flat, unlined. For notes, sketches, things you don't
-              want to forget.
-            </p>
-            <div class="st-card-footer">
-              <span class="st-card-price">₹1,100</span>
-              <button class="st-card-btn">Add to Bag</button>
-            </div>
-          </div>
-        </div>
-        <div class="st-card js-reveal">
-          <div class="st-card-img">
-            <img
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
-              alt="Linen Pouch"
-              loading="lazy"
-            />
-            <span class="st-card-badge">Last few</span>
-          </div>
-          <div class="st-card-body">
-            <span class="st-card-origin">Textile</span>
-            <h3 class="st-card-name">Washed Linen Pouch</h3>
-            <p class="st-card-desc">
-              Hand-stitched, naturally dyed. Holds a passport, cards, and a
-              quiet sense of order.
-            </p>
-            <div class="st-card-footer">
-              <span class="st-card-price">₹890</span>
-              <button class="st-card-btn">Add to Bag</button>
-            </div>
-          </div>
-        </div>
-        <div class="st-card js-reveal">
-          <div class="st-card-img">
-            <img
-              src="https://images.unsplash.com/photo-1467043237213-65f2da53396f?w=600&q=80"
-              alt="Carved Bowl"
-              loading="lazy"
-            />
-            <span class="st-card-badge">One of a kind</span>
-          </div>
-          <div class="st-card-body">
-            <span class="st-card-origin">Woodcraft</span>
-            <h3 class="st-card-name">Hand-carved Acacia Bowl</h3>
-            <p class="st-card-desc">
-              From a single piece of wood. No two alike. Earns its place on any
-              surface.
-            </p>
-            <div class="st-card-footer">
-              <span class="st-card-price">₹3,100</span>
-              <button class="st-card-btn">Add to Bag</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         03 — CRAFTED JOURNEYS
-    ═══════════════════════════════════════ -->
-    <section id="crafted-journeys" class="st-journeys js-reveal">
-      <div class="st-journeys-bg"></div>
-      <div class="st-journeys-overlay"></div>
-      <div class="st-journeys-inner">
-        <div>
-          <div class="st-kicker st-kicker--light">03 — Crafted Journeys</div>
-          <h2>Things you find<br />when you travel<br /><em>slowly</em></h2>
-          <p class="st-journeys-body">
-            The best objects aren't bought — they're encountered. A potter met
-            by chance. A weaver at the edge of a market. A craftsman who's been
-            doing this for forty years and has no interest in Instagram. We find
-            them, earn their trust, and bring their work here.
-          </p>
-          <a href="#" class="st-btn st-btn--gold">See How We Source</a>
-        </div>
-        <div class="st-journey-list">
-          <div class="st-journey-item">
-            <span class="st-journey-num">01</span>
-            <div>
-              <h4>We travel first</h4>
-              <p>
-                Every object is found in the field — never sourced through
-                catalogues or wholesalers.
-              </p>
-            </div>
-          </div>
-          <div class="st-journey-item">
-            <span class="st-journey-num">02</span>
-            <div>
-              <h4>We meet the maker</h4>
-              <p>
-                Directly. In person. We understand the process before we carry
-                the product.
-              </p>
-            </div>
-          </div>
-          <div class="st-journey-item">
-            <span class="st-journey-num">03</span>
-            <div>
-              <h4>We bring it home honestly</h4>
-              <p>
-                Fair prices paid, origin clearly stated, no manufactured
-                mystique.
-              </p>
-            </div>
-          </div>
-          <div class="st-journey-item">
-            <span class="st-journey-num">04</span>
-            <div>
-              <h4>We tell the story</h4>
-              <p>
-                Because an object without its story is just a thing. We don't
-                sell things.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         04 — ARTFUL LIVING CO.
-    ═══════════════════════════════════════ -->
-    <section id="artful-living" class="st-artful js-reveal">
-      <div class="st-artful-inner">
-        <div class="st-artful-top">
-          <div class="st-kicker st-kicker--center">04 — Artful Living Co.</div>
-          <h2>Spaces that feel<br /><em>lived in and loved</em></h2>
-          <p>
-            Objects for the home that carry the same intent as travel — slowing
-            down, noticing, choosing well.
-          </p>
-        </div>
-        <div class="st-artful-grid">
-          <div class="st-artful-cell st-artful-cell--tall">
-            <img
-              src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80"
-              alt="Home interior"
-              loading="lazy"
-            />
-            <div class="st-artful-cell-overlay"></div>
-            <div class="st-artful-cell-text">
-              <span class="st-artful-cell-cat">Living Space</span>
-              <p class="st-artful-cell-title">
-                Objects that make a room feel like somewhere
-              </p>
-            </div>
-          </div>
-          <div class="st-artful-cell st-artful-cell--short">
-            <img
-              src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&q=80"
-              alt="Ceramic vase"
-              loading="lazy"
-            />
-            <div class="st-artful-cell-overlay"></div>
-            <div class="st-artful-cell-text">
-              <span class="st-artful-cell-cat">Ceramics</span>
-              <p class="st-artful-cell-title">Table Vase — Ash glaze</p>
-            </div>
-          </div>
-          <div class="st-artful-cell st-artful-cell--short">
-            <img
-              src="https://images.unsplash.com/photo-1509840841025-9088ba78a826?w=600&q=80"
-              alt="Woven wall hanging"
-              loading="lazy"
-            />
-            <div class="st-artful-cell-overlay"></div>
-            <div class="st-artful-cell-text">
-              <span class="st-artful-cell-cat">Textile</span>
-              <p class="st-artful-cell-title">Hand-woven Wall Hanging</p>
-            </div>
-          </div>
-          <div class="st-artful-cell st-artful-cell--short">
-            <img
-              src="https://images.unsplash.com/photo-1416339426661-015c5d01c7f3?w=600&q=80"
-              alt="Candle"
-              loading="lazy"
-            />
-            <div class="st-artful-cell-overlay"></div>
-            <div class="st-artful-cell-text">
-              <span class="st-artful-cell-cat">Scent</span>
-              <p class="st-artful-cell-title">Hand-poured Beeswax Candle</p>
-            </div>
-          </div>
-          <div class="st-artful-cell st-artful-cell--short">
-            <img
-              src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=600&q=80"
-              alt="Throw"
-              loading="lazy"
-            />
-            <div class="st-artful-cell-overlay"></div>
-            <div class="st-artful-cell-text">
-              <span class="st-artful-cell-cat">Textile</span>
-              <p class="st-artful-cell-title">Block-print Cotton Throw</p>
-            </div>
-          </div>
-        </div>
-        <div class="st-artful-cta">
-          <a href="#" class="st-btn st-btn--outline-ink">Shop Artful Living</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         05 — TRAVEL ESSENTIALS
-    ═══════════════════════════════════════ -->
-    <section id="wander-essentials" class="st-essentials js-reveal">
-      <div class="st-essentials-inner">
-        <div class="st-essentials-top">
+    <section id="creations" class="st-creations js-reveal">
+      <div class="st-creations-inner">
+        <div class="st-creations-head">
           <div>
-            <div class="st-kicker st-kicker--light">05 — Travel Essentials</div>
-            <h2>Built for the<br /><em>road</em></h2>
+            <div class="st-kicker">01 — Creations</div>
+            <h2>Made with<br /><em>intention</em></h2>
           </div>
-          <p>
-            Things that earn their weight in your bag. Functional, beautiful,
-            made to last beyond the trip.
+          <div class="st-creations-head-right">
+            <p>
+              A curated view into what the studio produces — objects, images,
+              and things shaped by slow travel and deliberate craft. Each piece
+              carries the mark of its origin.
+            </p>
+            <a href="#" class="st-btn st-btn--outline-ink">View All</a>
+          </div>
+        </div>
+
+        <div class="st-creations-rows">
+          <!-- Row 1 -->
+          <div class="st-creation-row-wrap">
+            <button class="st-row-btn" onclick="scrollRow(this, -1)">‹</button>
+
+            <div class="st-creation-row">
+              <!-- Card 1 -->
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art1.jpeg" />
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art2.jpeg" />
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art3.jpeg" />
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art4.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art5.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art6.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art7.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art17.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art18.jpeg" />
+                </div>
+              </div>
+
+              <!-- add more here -->
+            </div>
+
+            <button class="st-row-btn" onclick="scrollRow(this, 1)">›</button>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="st-creation-row-wrap">
+            <button class="st-row-btn" onclick="scrollRow(this, -1)">‹</button>
+
+            <div class="st-creation-row">
+              <!-- Add next set of images -->
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art8.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art9.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art10.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art11.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art12.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art13.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art14.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art15.jpeg" />
+                </div>
+              </div>
+
+              <div class="st-creation-card">
+                <div class="st-creation-card-img">
+                  <img src="assets/studio/art16.jpeg" />
+                </div>
+              </div>
+            </div>
+
+            <button class="st-row-btn" onclick="scrollRow(this, 1)">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         02 — CREATIVE PROCESS
+         Lightweight — structured for expansion
+    ═══════════════════════════════════════ -->
+    <section id="process" class="st-process js-reveal">
+      <div class="st-process-inner">
+        <div class="st-process-top">
+          <div>
+            <div class="st-kicker">02 — Creative Process</div>
+            <h2>How things<br />come to<br /><em>life</em></h2>
+          </div>
+          <p class="st-process-intro">
+            Nothing here is produced in bulk or in a rush. Each piece moves
+            through a process — part observation, part experiment, part
+            restraint. This is a window into how the studio thinks and makes.
+            More behind-the-scenes documentation is coming.
           </p>
         </div>
-        <div class="st-essentials-shelf">
-          <div class="st-ess-card js-reveal">
-            <div class="st-ess-card-img">
-              <img
-                src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700&q=80"
-                alt="Travel organiser"
-                loading="lazy"
-              />
+        <div class="st-process-items">
+          <div class="st-process-item js-reveal">
+            <div class="st-process-num">
+              <span>01</span>
             </div>
-            <div class="st-ess-card-body">
-              <span class="st-ess-card-cat">Carry</span>
-              <h3 class="st-ess-card-name">The Flat Lay Organiser</h3>
-              <p class="st-ess-card-desc">
-                Waxed canvas, solid brass zip. Keeps cables, cards, and small
-                chaos in order across every timezone.
+            <div>
+              <span class="st-process-item-label">Observation</span>
+              <h4>Slow travel, deliberate looking</h4>
+              <p>
+                Every creation begins with a journey — not just geographic, but
+                attentive. Watching how a craftsman holds their tool. How light
+                falls at a particular hour. The studio doesn't sketch ideas; it
+                collects moments.
               </p>
-              <div class="st-ess-card-footer">
-                <span class="st-ess-price">₹1,850</span>
-                <button class="st-ess-btn">Add to Bag</button>
-              </div>
             </div>
           </div>
-          <div class="st-ess-card js-reveal">
-            <div class="st-ess-card-img">
-              <img
-                src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=700&q=80"
-                alt="Field notes"
-                loading="lazy"
-              />
+          <div class="st-process-item js-reveal">
+            <div class="st-process-num">
+              <span>02</span>
             </div>
-            <div class="st-ess-card-body">
-              <span class="st-ess-card-cat">Document</span>
-              <h3 class="st-ess-card-name">Field Notes Bundle</h3>
-              <p class="st-ess-card-desc">
-                Three slim notebooks + a linen pencil roll. For the traveller
-                who still writes things down.
+            <div>
+              <span class="st-process-item-label">Material</span>
+              <h4>Choosing the right weight</h4>
+              <p>
+                Material isn't a constraint — it's the starting point. Whether
+                it's the weave of a linen, the grog in a clay body, or the grain
+                of a paper, the process begins by understanding what the
+                material wants to do.
               </p>
-              <div class="st-ess-card-footer">
-                <span class="st-ess-price">₹1,200</span>
-                <button class="st-ess-btn">Add to Bag</button>
-              </div>
-            </div>
-          </div>
-          <div class="st-ess-card js-reveal">
-            <div class="st-ess-card-img">
-              <img
-                src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?w=700&q=80"
-                alt="Silk scarf"
-                loading="lazy"
-              />
-            </div>
-            <div class="st-ess-card-body">
-              <span class="st-ess-card-cat">Wear</span>
-              <h3 class="st-ess-card-name">Hand-block Silk Scarf</h3>
-              <p class="st-ess-card-desc">
-                Jaipur block-printed, 100% mulberry silk. Works as scarf, wrap,
-                or wall piece when the trip is over.
-              </p>
-              <div class="st-ess-card-footer">
-                <span class="st-ess-price">₹2,750</span>
-                <button class="st-ess-btn">Add to Bag</button>
-              </div>
             </div>
           </div>
         </div>
@@ -1674,75 +1870,84 @@
     </section>
 
     <!-- ═══════════════════════════════════════
-         06 — THE CURATED CRAFT
+         03, 04, 05 — COMING SOON TRIPTYCH
+         Collections · Shop · Ideas
     ═══════════════════════════════════════ -->
-    <section id="curated-craft" class="st-curated js-reveal">
-      <div class="st-curated-inner">
-        <div class="st-manifesto">
-          <div class="st-kicker st-kicker--center">06 — The Curated Craft</div>
-          <h2>Handmade.<br />Intentional.<br /><em>Irreplaceable.</em></h2>
-          <p class="st-manifesto-body">
-            We don't believe in moving fast. The Studio exists because we got
-            tired of buying things that meant nothing — and because we kept
-            meeting makers whose work deserved a wider audience.
-            <strong
-              >Every object here is chosen slowly, carried carefully, and sold
-              honestly.</strong
+    <section class="st-coming-row js-reveal">
+      <div class="st-coming-inner">
+        <!-- Collections -->
+        <div class="st-coming-tile">
+          <div class="st-coming-tile-icon">
+            <svg
+              viewBox="0 0 40 40"
+              fill="none"
+              stroke="white"
+              stroke-width="1.2"
             >
-            No trends. No overstock. When something is gone, it's gone.
+              <rect x="4" y="10" width="15" height="22" rx="1" />
+              <rect x="21" y="6" width="15" height="22" rx="1" />
+              <line x1="4" y1="35" x2="36" y2="35" />
+            </svg>
+          </div>
+          <div class="st-coming-tag">03 — Collections</div>
+          <h3>Curated<br /><em>series</em></h3>
+          <p>
+            Curated series of my work — objects grouped not by type, but by
+            feeling. A collection from the Rann, one from the backwaters, one
+            from nowhere in particular. Coming soon.
           </p>
-          <a href="#" class="st-btn st-btn--gold">Shop the Full Collection</a>
+          <div class="st-coming-pill">Coming Soon</div>
         </div>
-        <div class="st-pillars">
-          <div class="st-pillar">
-            <span class="st-pillar-num">01</span>
-            <h4>Made to last</h4>
-            <p>
-              We only carry things that will still be in use ten years from now.
-              No fast craft. No compromise on material.
-            </p>
-          </div>
-          <div class="st-pillar">
-            <span class="st-pillar-num">02</span>
-            <h4>Honestly sourced</h4>
-            <p>
-              Direct from makers. Prices are fair, origins are clear, and we
-              know every person whose hands made what we sell.
-            </p>
-          </div>
-          <div class="st-pillar">
-            <span class="st-pillar-num">03</span>
-            <h4>Small batches only</h4>
-            <p>
-              When something is gone, it's gone. That's not artificial scarcity
-              — it's what it means to work with makers who don't scale.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="st-curated-rule"></div>
-    </section>
 
-    <!-- ═══════════════════════════════════════
-         NOTIFY BAND
-    ═══════════════════════════════════════ -->
-    <section class="st-notify js-reveal">
-      <div class="st-kicker st-kicker--light st-kicker--center">
-        Stay in the loop
+        <!-- Shop -->
+        <div class="st-coming-tile">
+          <div class="st-coming-tile-icon">
+            <svg
+              viewBox="0 0 40 40"
+              fill="none"
+              stroke="white"
+              stroke-width="1.2"
+            >
+              <path d="M8 12h24l-3 14H11L8 12z" />
+              <circle cx="15" cy="30" r="2" />
+              <circle cx="27" cy="30" r="2" />
+              <path d="M5 8h4l4 14" />
+            </svg>
+          </div>
+          <div class="st-coming-tag">04 — Shop</div>
+          <h3>Prints &amp;<br /><em>originals</em></h3>
+          <p>
+            Prints and originals will be available soon. A small, deliberate
+            shop — no catalogue, no overstock. When something is gone, it's
+            gone. Worth waiting for.
+          </p>
+          <div class="st-coming-pill">Coming Soon</div>
+        </div>
+
+        <!-- Ideas & Inspiration -->
+        <div class="st-coming-tile">
+          <div class="st-coming-tile-icon">
+            <svg
+              viewBox="0 0 40 40"
+              fill="none"
+              stroke="white"
+              stroke-width="1.2"
+            >
+              <path d="M20 6a10 10 0 0 1 6 18v4H14v-4A10 10 0 0 1 20 6z" />
+              <line x1="16" y1="32" x2="24" y2="32" />
+              <line x1="17" y1="36" x2="23" y2="36" />
+            </svg>
+          </div>
+          <div class="st-coming-tag">05 — Ideas &amp; Inspiration</div>
+          <h3>Notes from<br /><em>the road</em></h3>
+          <p>
+            A place for creative thinking, influences, and half-formed ideas.
+            Writing on craft, travel, and the intersection of both. A slower
+            kind of blog. Coming soon.
+          </p>
+          <div class="st-coming-pill">Coming Soon</div>
+        </div>
       </div>
-      <h3>New arrivals. New stories.<br /><em>Never noise.</em></h3>
-      <p>
-        Be the first to know when new pieces land — and the stories behind them.
-      </p>
-      <div class="st-notify-form">
-        <input
-          type="email"
-          class="st-notify-input"
-          placeholder="Your email address"
-        />
-        <button class="st-notify-btn">Notify Me</button>
-      </div>
-      <p class="st-notify-fine">No spam. Unsubscribe anytime.</p>
     </section>
 
     <!-- ─── FOOTER ─── -->
@@ -1829,5 +2034,14 @@
     </button>
 
     <script src="script.js"></script>
+    <script>
+      function scrollRow(btn, dir) {
+        const row = btn.parentElement.querySelector(".st-creation-row");
+        row.scrollBy({
+          left: dir * 300,
+          behavior: "smooth",
+        });
+      }
+    </script>
   </body>
 </html>
