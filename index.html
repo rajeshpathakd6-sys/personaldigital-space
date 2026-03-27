@@ -4,14 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AdiRaj — Routes &amp; Reflections</title>
-    <meta name="description" content="Travel stories, slow journeys, and reflections from two curious wanderers. Destinations across Asia, Africa, and beyond." />
+    <meta
+      name="description"
+      content="Travel stories, slow journeys, and reflections from two curious wanderers. Destinations across Asia, Africa, and beyond."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <style>
       /* ═══════════════════════════════════════════
-         INDEX PAGE — Additional Styles
+         INDEX PAGE — Styles
       ═══════════════════════════════════════════ */
 
       /* ── Hero ── */
@@ -19,34 +25,154 @@
         position: relative;
         background: var(--ink);
         overflow: hidden;
-        min-height: 560px;
+        min-height: 580px;
         display: flex;
         align-items: center;
       }
 
-      .hero-bg-collage {
+      /* ── Hero Slideshow — full-bleed crossfade + Ken Burns ── */
+      .hero-slides {
         position: absolute;
         inset: 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        opacity: 0.28;
         pointer-events: none;
+        overflow: hidden;
       }
-      .hero-bg-collage div {
-        background-size: cover;
-        background-position: center;
-        filter: grayscale(30%);
-      }
-      .hero-bg-collage div:nth-child(1) { background-image: url('assets/japan.JPG'); }
-      .hero-bg-collage div:nth-child(2) { background-image: url('assets/taiwan.JPG'); }
-      .hero-bg-collage div:nth-child(3) { background-image: url('assets/kenya.JPG'); }
-      .hero-bg-collage div:nth-child(4) { background-image: url('assets/maldives.jpg'); }
-
-      .hero-bg-collage::after {
-        content: '';
+      .hero-slide {
         position: absolute;
         inset: 0;
-        background: linear-gradient(90deg, rgba(26,26,24,0.88) 0%, rgba(26,26,24,0.55) 60%, rgba(26,26,24,0.78) 100%);
+        opacity: 0;
+        transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .hero-slide.active {
+        opacity: 1;
+      }
+      .hero-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        /* Ken Burns: each slide animates from a unique start/end */
+        filter: brightness(0.72);
+        will-change: transform;
+      }
+      /* Ken Burns keyframes — alternating directions for variety */
+      @keyframes kb-zoom-in-left {
+        from {
+          transform: scale(1.12) translate(2%, 1%);
+        }
+        to {
+          transform: scale(1) translate(0, 0);
+        }
+      }
+      @keyframes kb-zoom-in-right {
+        from {
+          transform: scale(1.1) translate(-2%, -1%);
+        }
+        to {
+          transform: scale(1) translate(0, 0);
+        }
+      }
+      @keyframes kb-pan-up {
+        from {
+          transform: scale(1.08) translateY(3%);
+        }
+        to {
+          transform: scale(1) translateY(0);
+        }
+      }
+      @keyframes kb-pan-down {
+        from {
+          transform: scale(1.08) translateY(-3%);
+        }
+        to {
+          transform: scale(1) translateY(0);
+        }
+      }
+      @keyframes kb-zoom-center {
+        from {
+          transform: scale(1.14);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      .hero-slide:nth-child(1) img {
+        animation: kb-zoom-in-left 8s ease-out both;
+      }
+      .hero-slide:nth-child(2) img {
+        animation: kb-pan-up 8s ease-out both;
+      }
+      .hero-slide:nth-child(3) img {
+        animation: kb-zoom-in-right 8s ease-out both;
+      }
+      .hero-slide:nth-child(4) img {
+        animation: kb-pan-down 8s ease-out both;
+      }
+      .hero-slide:nth-child(5) img {
+        animation: kb-zoom-center 8s ease-out both;
+      }
+
+      /* Restart animation when slide becomes active */
+      .hero-slide.active img {
+        animation-play-state: running;
+      }
+      .hero-slide:not(.active) img {
+        animation-play-state: paused;
+      }
+
+      /* Vignette overlay — darkens edges, lighter in the centre */
+      .hero-vignette {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 80% 70% at 62% 50%,
+            transparent 30%,
+            rgba(10, 8, 6, 0.55) 100%
+          ),
+          linear-gradient(
+            100deg,
+            rgba(12, 10, 8, 0.88) 0%,
+            rgba(12, 10, 8, 0.42) 36%,
+            rgba(12, 10, 8, 0.1) 60%,
+            transparent 100%
+          );
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Vertical dot indicators — right edge */
+      .hero-dots {
+        position: absolute;
+        right: 1.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+        z-index: 3;
+      }
+      .hero-dot {
+        width: 2px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.22);
+        border-radius: 1px;
+        cursor: pointer;
+        transition:
+          background 0.35s,
+          height 0.35s;
+        border: none;
+        padding: 0;
+      }
+      .hero-dot.active {
+        background: var(--accent-lt);
+        height: 42px;
+      }
+
+      /* Keep old caption hidden */
+      .hero-slide-caption {
+        display: none;
       }
 
       .hero-inner {
@@ -54,11 +180,8 @@
         z-index: 2;
         max-width: var(--max-w);
         margin-inline: auto;
-        padding: 5rem var(--pad-x);
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 4rem;
-        align-items: center;
+        padding: 5.5rem var(--pad-x) 6rem;
+        width: 100%;
       }
 
       .hero-eyebrow {
@@ -71,10 +194,11 @@
         letter-spacing: 0.32em;
         text-transform: uppercase;
         color: var(--accent-lt);
-        margin-bottom: 1.4rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.85;
       }
       .hero-eyebrow::before {
-        content: '';
+        content: "";
         width: 28px;
         height: 1px;
         background: var(--accent-lt);
@@ -84,12 +208,13 @@
 
       .hero-title {
         font-family: var(--serif);
-        font-size: clamp(2.6rem, 6vw, 4.2rem);
+        font-size: clamp(2.8rem, 6.5vw, 4.8rem);
         font-weight: 400;
         color: var(--white);
-        line-height: 1.12;
-        margin-bottom: 1.4rem;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
         letter-spacing: -0.01em;
+        max-width: 680px;
       }
       .hero-title em {
         font-style: italic;
@@ -100,16 +225,16 @@
         font-family: var(--sans);
         font-size: 1rem;
         font-weight: 300;
-        color: rgba(255,255,255,0.68);
-        line-height: 1.8;
-        max-width: 440px;
-        margin-bottom: 2rem;
+        color: rgba(255, 255, 255, 0.62);
+        line-height: 1.85;
+        max-width: 420px;
+        margin-bottom: 2.25rem;
       }
 
       .hero-cta-row {
         display: flex;
         align-items: center;
-        gap: 1.2rem;
+        gap: 1.1rem;
         flex-wrap: wrap;
       }
 
@@ -120,9 +245,12 @@
         font-weight: 700;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        padding: 0.85rem 1.8rem;
+        padding: 0.9rem 1.9rem;
         border-radius: 2px;
-        transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        transition:
+          background 0.2s,
+          transform 0.15s,
+          box-shadow 0.2s;
         text-decoration: none;
       }
       .hero-btn--primary {
@@ -132,94 +260,79 @@
       .hero-btn--primary:hover {
         background: var(--accent-hover);
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(192,129,90,0.35);
+        box-shadow: 0 6px 20px rgba(192, 129, 90, 0.38);
       }
       .hero-btn--ghost {
-        border: 1px solid rgba(255,255,255,0.3);
-        color: rgba(255,255,255,0.75);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        color: rgba(255, 255, 255, 0.7);
       }
       .hero-btn--ghost:hover {
-        border-color: var(--white);
+        border-color: rgba(255, 255, 255, 0.7);
         color: var(--white);
       }
 
-      .hero-latest { flex-shrink: 0; width: 260px; }
-      .hero-latest-label {
-        font-family: var(--sans);
-        font-size: 0.6rem;
-        font-weight: 700;
-        letter-spacing: 0.24em;
-        text-transform: uppercase;
-        color: rgba(255,255,255,0.35);
-        margin-bottom: 0.75rem;
-      }
-      .hero-latest-card {
-        background: rgba(255,255,255,0.07);
-        border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 2px;
-        overflow: hidden;
-        transition: border-color 0.2s;
-        display: block;
-        text-decoration: none;
-      }
-      .hero-latest-card:hover { border-color: rgba(255,255,255,0.28); }
-      .hero-latest-card img {
-        width: 100%;
-        height: 155px;
-        object-fit: cover;
-        display: block;
-        opacity: 0.85;
-        transition: opacity 0.3s, transform 0.5s;
-      }
-      .hero-latest-card:hover img { opacity: 1; transform: scale(1.03); }
-      .hero-latest-card-body { padding: 1rem 1.1rem 1.2rem; }
-      .hero-latest-card-tag {
-        font-family: var(--sans);
-        font-size: 0.58rem;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--accent-lt);
-        margin-bottom: 0.4rem;
-        display: block;
-      }
-      .hero-latest-card-title {
-        font-family: var(--serif);
-        font-size: 1rem;
-        font-weight: 700;
-        color: var(--white);
-        line-height: 1.3;
-        display: block;
-        transition: color 0.2s;
-      }
-      .hero-latest-card:hover .hero-latest-card-title { color: var(--accent-lt); }
-
-      /* ── Marquee ticker ── */
+      /* ── Redesigned Ticker ribbon ── */
       .hero-ticker {
-        background: var(--accent);
+        background: var(--white);
+        border-top: 3px solid var(--accent);
+        border-bottom: 1px solid var(--rule);
         overflow: hidden;
-        height: 36px;
+        height: 46px;
         display: flex;
         align-items: center;
         white-space: nowrap;
+        position: relative;
+      }
+      .hero-ticker::before,
+      .hero-ticker::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 60px;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .hero-ticker::before {
+        left: 0;
+        background: linear-gradient(to right, var(--white), transparent);
+      }
+      .hero-ticker::after {
+        right: 0;
+        background: linear-gradient(to left, var(--white), transparent);
       }
       .hero-ticker-track {
         display: inline-flex;
-        animation: ticker 26s linear infinite;
+        align-items: center;
+        animation: ticker 32s linear infinite;
       }
       .hero-ticker-track span {
         font-family: var(--sans);
         font-size: 0.62rem;
         font-weight: 700;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.26em;
         text-transform: uppercase;
-        color: rgba(255,255,255,0.88);
-        padding: 0 2rem;
+        color: var(--ink-soft);
+        padding: 0 1.6rem;
+        transition: color 0.2s;
       }
-      .hero-ticker-sep { color: rgba(255,255,255,0.4) !important; font-size: 0.5rem !important; }
+      .hero-ticker-track span:hover {
+        color: var(--accent);
+      }
+      .hero-ticker-sep {
+        color: var(--accent) !important;
+        font-size: 0.45rem !important;
+        letter-spacing: 0 !important;
+        padding: 0 !important;
+        opacity: 0.7;
+      }
       @keyframes ticker {
-        0%   { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
       }
 
       /* ── Shared section header ── */
@@ -249,7 +362,9 @@
         line-height: 1.2;
         margin: 0;
       }
-      .section-title em { font-style: italic; }
+      .section-title em {
+        font-style: italic;
+      }
       .section-more {
         font-family: var(--sans);
         font-size: 0.68rem;
@@ -259,10 +374,15 @@
         color: var(--accent);
         white-space: nowrap;
         flex-shrink: 0;
-        transition: color 0.2s, letter-spacing 0.2s;
+        transition:
+          color 0.2s,
+          letter-spacing 0.2s;
         text-decoration: none;
       }
-      .section-more:hover { color: var(--accent-hover); letter-spacing: 0.18em; }
+      .section-more:hover {
+        color: var(--accent-hover);
+        letter-spacing: 0.18em;
+      }
 
       /* ── Featured banner card ── */
       .featured-card {
@@ -280,13 +400,23 @@
         object-fit: cover;
         display: block;
         opacity: 0.75;
-        transition: opacity 0.4s, transform 0.6s;
+        transition:
+          opacity 0.4s,
+          transform 0.6s;
       }
-      .featured-card:hover .featured-card-img { opacity: 0.65; transform: scale(1.03); }
+      .featured-card:hover .featured-card-img {
+        opacity: 0.65;
+        transform: scale(1.03);
+      }
       .featured-card-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(10,8,6,0.88) 0%, rgba(10,8,6,0.35) 50%, rgba(10,8,6,0.05) 100%);
+        background: linear-gradient(
+          to top,
+          rgba(10, 8, 6, 0.9) 0%,
+          rgba(10, 8, 6, 0.35) 52%,
+          rgba(10, 8, 6, 0.04) 100%
+        );
         pointer-events: none;
       }
       .featured-card-badge {
@@ -305,10 +435,16 @@
       }
       .featured-card-body {
         position: absolute;
-        bottom: 0; left: 0; right: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         padding: 2rem 1.75rem;
       }
-      .featured-card-tags { display: flex; gap: 0.5rem; margin-bottom: 0.6rem; }
+      .featured-card-tags {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 0.6rem;
+      }
       .featured-card-tag {
         font-family: var(--sans);
         font-size: 0.58rem;
@@ -318,9 +454,9 @@
         color: var(--accent-lt);
       }
       .featured-card-tag + .featured-card-tag::before {
-        content: '·';
+        content: "·";
         margin-right: 0.5rem;
-        color: rgba(255,255,255,0.3);
+        color: rgba(255, 255, 255, 0.3);
       }
       .featured-card-title {
         font-family: var(--serif);
@@ -331,13 +467,15 @@
         margin-bottom: 0.65rem;
         transition: color 0.2s;
       }
-      .featured-card:hover .featured-card-title { color: var(--accent-lt); }
+      .featured-card:hover .featured-card-title {
+        color: var(--accent-lt);
+      }
       .featured-card-excerpt {
         font-family: var(--sans);
         font-size: 0.875rem;
         font-weight: 300;
-        color: rgba(255,255,255,0.68);
-        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.75;
         max-width: 520px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -350,9 +488,14 @@
         gap: 1rem;
         margin-top: 1rem;
         padding-top: 0.75rem;
-        border-top: 1px solid rgba(255,255,255,0.12);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
-      .featured-card-date { font-family: var(--sans); font-size: 0.68rem; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; }
+      .featured-card-date {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        color: rgba(255, 255, 255, 0.38);
+        letter-spacing: 0.06em;
+      }
       .featured-card-read {
         font-family: var(--sans);
         font-size: 0.65rem;
@@ -365,8 +508,12 @@
         align-items: center;
         gap: 0.3rem;
       }
-      .featured-card-read svg { transition: transform 0.2s; }
-      .featured-card:hover .featured-card-read svg { transform: translateX(3px); }
+      .featured-card-read svg {
+        transition: transform 0.2s;
+      }
+      .featured-card:hover .featured-card-read svg {
+        transform: translateX(4px);
+      }
 
       /* ── 2-col posts grid ── */
       .posts-grid {
@@ -381,25 +528,33 @@
         background: var(--white);
         border-radius: 2px;
         overflow: hidden;
-        transition: box-shadow 0.3s, transform 0.3s;
+        transition:
+          box-shadow 0.3s,
+          transform 0.3s;
         text-decoration: none;
       }
-      .grid-post-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+      .grid-post-card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+      }
       .grid-post-card-img-wrap {
         overflow: hidden;
-        height: 180px;
+        height: 130px;
         background: var(--beige);
         flex-shrink: 0;
       }
       .grid-post-card-img-wrap img {
-        width: 100%; height: 100%;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         display: block;
         transition: transform 0.5s var(--ease);
       }
-      .grid-post-card:hover .grid-post-card-img-wrap img { transform: scale(1.05); }
+      .grid-post-card:hover .grid-post-card-img-wrap img {
+        transform: scale(1.05);
+      }
       .grid-post-card-body {
-        padding: 1.2rem 1.35rem 1.4rem;
+        padding: 0.85rem 1rem 1rem;
         display: flex;
         flex-direction: column;
         flex: 1;
@@ -415,26 +570,28 @@
       }
       .grid-post-card-title {
         font-family: var(--serif);
-        font-size: 1.05rem;
+        font-size: 0.92rem;
         font-weight: 700;
         color: var(--ink);
         line-height: 1.3;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.35rem;
         transition: color 0.2s;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
-      .grid-post-card:hover .grid-post-card-title { color: var(--accent); }
+      .grid-post-card:hover .grid-post-card-title {
+        color: var(--accent);
+      }
       .grid-post-card-excerpt {
         font-family: var(--sans);
-        font-size: 0.82rem;
+        font-size: 0.78rem;
         font-weight: 300;
         color: var(--ink-soft);
-        line-height: 1.65;
+        line-height: 1.6;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         flex: 1;
@@ -447,7 +604,10 @@
         padding-top: 0.75rem;
         border-top: 1px solid var(--beige);
       }
-      .grid-post-card-date { font-size: 0.68rem; color: var(--ink-muted); }
+      .grid-post-card-date {
+        font-size: 0.68rem;
+        color: var(--ink-muted);
+      }
       .grid-post-card-arrow {
         font-size: 0.68rem;
         font-weight: 700;
@@ -456,12 +616,15 @@
         color: var(--accent);
         transition: letter-spacing 0.2s;
       }
-      .grid-post-card:hover .grid-post-card-arrow { letter-spacing: 0.16em; }
+      .grid-post-card:hover .grid-post-card-arrow {
+        letter-spacing: 0.16em;
+      }
 
       /* ── Explore pills bar ── */
       .explore-bar {
-        background: var(--white);
-        padding: 1.75rem var(--pad-x);
+        background: var(--off-white);
+        padding: 2rem var(--pad-x);
+        border-top: 1px solid var(--rule);
         border-bottom: 1px solid var(--rule);
       }
       .explore-bar-inner {
@@ -482,7 +645,12 @@
         white-space: nowrap;
         flex-shrink: 0;
       }
-      .explore-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; flex: 1; }
+      .explore-pills {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        flex: 1;
+      }
       .explore-pill {
         font-family: var(--sans);
         font-size: 0.72rem;
@@ -505,49 +673,78 @@
         color: var(--white);
         border-color: var(--accent);
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(192,129,90,0.22);
+        box-shadow: 0 4px 12px rgba(192, 129, 90, 0.22);
       }
-      .explore-pill-icon { font-size: 0.9rem; }
+      .explore-pill-icon {
+        font-size: 0.9rem;
+      }
 
-      /* ── Destination strip showcase ── */
+      /* ── Destinations Carousel ── */
       .dest-showcase {
         background: var(--beige);
         padding: 3.5rem var(--pad-x);
         border-top: 1px solid var(--rule);
         border-bottom: 1px solid var(--rule);
       }
-      .dest-showcase-inner { max-width: var(--max-w); margin-inline: auto; }
+      .dest-showcase-inner {
+        max-width: var(--max-w);
+        margin-inline: auto;
+      }
+
+      .dest-carousel-wrap {
+        position: relative;
+      }
+      .dest-carousel-viewport {
+        overflow: hidden;
+        border-radius: 2px;
+      }
       .dest-strip {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        display: flex;
         gap: 0.75rem;
+        transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
       }
       .dest-strip-card {
         position: relative;
         border-radius: 2px;
         overflow: hidden;
-        display: block;
+        flex: 0 0 calc(20% - 0.6rem);
         text-decoration: none;
-        aspect-ratio: 3/4;
         background: var(--ink);
+        aspect-ratio: 3/4;
+        flex-shrink: 0;
+        height: 200px;
       }
       .dest-strip-card img {
-        width: 100%; height: 100%;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         opacity: 0.75;
-        transition: opacity 0.4s, transform 0.6s;
+        transition:
+          opacity 0.4s,
+          transform 0.6s;
+        display: block;
       }
-      .dest-strip-card:hover img { opacity: 0.6; transform: scale(1.06); }
+      .dest-strip-card:hover img {
+        opacity: 0.58;
+        transform: scale(1.06);
+      }
       .dest-strip-card-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(10,8,6,0.82) 0%, rgba(10,8,6,0.1) 60%);
+        background: linear-gradient(
+          to top,
+          rgba(10, 8, 6, 0.84) 0%,
+          rgba(10, 8, 6, 0.08) 60%
+        );
         pointer-events: none;
       }
       .dest-strip-card-label {
         position: absolute;
-        bottom: 0; left: 0; right: 0;
-        padding: 0.8rem 0.85rem;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0.85rem 0.9rem;
       }
       .dest-strip-card-country {
         font-family: var(--sans);
@@ -555,35 +752,204 @@
         font-weight: 700;
         letter-spacing: 0.22em;
         text-transform: uppercase;
-        color: rgba(255,255,255,0.5);
+        color: rgba(255, 255, 255, 0.45);
         display: block;
         margin-bottom: 0.2rem;
       }
       .dest-strip-card-name {
         font-family: var(--serif);
-        font-size: 0.95rem;
+        font-size: 0.98rem;
         font-weight: 700;
         color: var(--white);
         line-height: 1.2;
         transition: color 0.2s;
         display: block;
       }
-      .dest-strip-card:hover .dest-strip-card-name { color: var(--accent-lt); }
+      .dest-strip-card:hover .dest-strip-card-name {
+        color: var(--accent-lt);
+      }
+
+      /* Carousel arrow buttons */
+      .dest-carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--white);
+        border: 1px solid var(--rule);
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+        transition:
+          background 0.2s,
+          color 0.2s,
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .dest-carousel-btn:hover {
+        background: var(--ink);
+        color: var(--white);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        transform: translateY(-50%) scale(1.06);
+      }
+      .dest-carousel-btn--prev {
+        left: -22px;
+      }
+      .dest-carousel-btn--next {
+        right: -22px;
+      }
+      .dest-carousel-btn svg {
+        pointer-events: none;
+      }
+
+      /* Carousel dots */
+      .dest-carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.4rem;
+        margin-top: 1.25rem;
+      }
+      .dest-carousel-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--rule);
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          transform 0.25s;
+        padding: 0;
+      }
+      .dest-carousel-dot.active {
+        background: var(--accent);
+        transform: scale(1.3);
+      }
+
+      /* ── Pagination ── */
+      .pagination-wrap {
+        padding-top: 2.5rem;
+        border-top: 1px solid var(--rule);
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        flex-wrap: wrap;
+      }
+      .page-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 38px;
+        height: 38px;
+        padding: 0 0.5rem;
+        border-radius: 4px;
+        border: 1px solid var(--rule);
+        background: var(--white);
+        font-family: var(--sans);
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--ink-soft);
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s;
+        text-decoration: none;
+        line-height: 1;
+      }
+      .page-btn:hover:not(:disabled):not(.page-btn--active) {
+        border-color: var(--ink-muted);
+        color: var(--ink);
+      }
+      .page-btn--active {
+        background: var(--ink);
+        color: var(--white);
+        border-color: var(--ink);
+        cursor: default;
+      }
+      .page-btn--next {
+        padding: 0 0.9rem;
+        gap: 0.3rem;
+      }
+      .page-btn:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+      .page-ellipsis {
+        font-family: var(--sans);
+        font-size: 0.82rem;
+        color: var(--ink-muted);
+        padding: 0 0.2rem;
+        user-select: none;
+      }
 
       /* ── Sidebar variants ── */
       .widget--about-v2 {
-        background: var(--ink) !important;
-        border-color: var(--ink) !important;
+        background: linear-gradient(
+          145deg,
+          #2a1f14 0%,
+          #1e1510 40%,
+          #2d1e10 70%,
+          #1a1208 100%
+        ) !important;
+        border-color: rgba(192, 129, 90, 0.2) !important;
+        border-width: 1px;
         text-align: center;
         padding: 2rem 1.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .widget--about-v2::before {
+        content: "";
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        width: 140px;
+        height: 140px;
+        background: radial-gradient(
+          circle,
+          rgba(192, 129, 90, 0.18) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .widget--about-v2::after {
+        content: "";
+        position: absolute;
+        bottom: -30px;
+        left: -30px;
+        width: 110px;
+        height: 110px;
+        background: radial-gradient(
+          circle,
+          rgba(192, 129, 90, 0.12) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
       }
       .widget--about-v2 .about-photo-wrap {
-        box-shadow: 0 0 0 2px var(--accent);
+        box-shadow:
+          0 0 0 2px var(--accent),
+          0 0 20px rgba(192, 129, 90, 0.25);
         width: 100px;
         height: 100px;
       }
-      .widget--about-v2 .about-name { color: var(--white); font-size: 1.1rem; margin-top: 0.25rem; }
-      .widget--about-v2 .about-text p { color: rgba(255,255,255,0.62); font-size: 0.82rem; }
+      .widget--about-v2 .about-name {
+        color: var(--white);
+        font-size: 1.1rem;
+        margin-top: 0.25rem;
+      }
+      .widget--about-v2 .about-text p {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.82rem;
+      }
       .widget--about-v2 .widget-link {
         display: inline-block;
         margin-top: 1rem;
@@ -592,10 +958,16 @@
         padding: 0.6rem 1.4rem;
         font-size: 0.65rem;
         letter-spacing: 0.16em;
-        border-radius: 1px;
-        transition: background 0.2s;
+        border-radius: 2px;
+        transition:
+          background 0.2s,
+          box-shadow 0.2s;
+        text-decoration: none;
       }
-      .widget--about-v2 .widget-link:hover { background: var(--accent-hover); }
+      .widget--about-v2 .widget-link:hover {
+        background: var(--accent-hover);
+        box-shadow: 0 4px 16px rgba(192, 129, 90, 0.35);
+      }
 
       .widget--stats {
         background: var(--beige) !important;
@@ -613,7 +985,9 @@
         padding: 0.75rem 0.5rem;
         border-right: 1px solid var(--rule);
       }
-      .stat-item:last-child { border-right: none; }
+      .stat-item:last-child {
+        border-right: none;
+      }
       .stat-num {
         font-family: var(--serif);
         font-size: 1.5rem;
@@ -633,53 +1007,77 @@
         display: block;
       }
 
-      /* ── Pagination line ── */
-      .pagination-wrap {
-        padding-top: 2.5rem;
-        border-top: 1px solid var(--rule);
-        margin-top: 2rem;
-      }
-
       /* ── Responsive ── */
       @media (max-width: 900px) {
-        .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-        .hero-latest { width: 100%; max-width: 380px; }
-        .dest-strip { grid-template-columns: repeat(3, 1fr); }
-        .posts-grid { grid-template-columns: 1fr; }
+        .dest-strip-card {
+          flex: 0 0 calc(33.33% - 0.5rem);
+        }
+        .posts-grid {
+          grid-template-columns: 1fr;
+        }
       }
       @media (max-width: 620px) {
-        .hero { min-height: 420px; }
-        .hero-bg-collage { grid-template-columns: 1fr 1fr; }
-        .hero-title { font-size: 2.1rem; }
-        .hero-latest { display: none; }
-        .dest-strip { grid-template-columns: repeat(2, 1fr); }
-        .dest-strip-card:last-child { display: none; }
-        .featured-card-img { height: 240px; }
-        .explore-bar-label { width: 100%; }
+        .hero {
+          min-height: 460px;
+        }
+        .hero-title {
+          font-size: 2.2rem;
+        }
+        .hero-dots {
+          display: none;
+        }
+        .dest-strip-card {
+          flex: 0 0 calc(50% - 0.4rem);
+        }
+        .featured-card-img {
+          height: 240px;
+        }
+        .explore-bar-label {
+          width: 100%;
+        }
+        .dest-carousel-btn {
+          display: none;
+        }
       }
     </style>
   </head>
   <body>
-
     <!-- ── TOP BAR ── -->
     <div class="top-bar">
       <div class="top-bar-inner">
         <div class="top-bar-left">
           <a href="#" class="tb-icon" aria-label="Instagram">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="2" y="2" width="20" height="20" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1.2"
+                fill="currentColor"
+                stroke="none"
+              />
             </svg>
           </a>
           <a href="#" class="tb-icon" aria-label="Pinterest">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"
+              />
             </svg>
           </a>
           <a href="#" class="tb-icon" aria-label="Twitter/X">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
             </svg>
           </a>
         </div>
@@ -688,7 +1086,6 @@
           <a href="./workwithus.html" class="tb-link">Work With Us</a>
           <span class="tb-sep">|</span>
           <a href="./contact.html" class="tb-link">Contact</a>
-          <span class="tb-sep">|</span>
         </div>
       </div>
     </div>
@@ -702,7 +1099,11 @@
         <div class="logo-wrap">
           <a href="index.html" class="logo">
             <span class="logo-icon" aria-hidden="true">
-              <img src="assets/logo.png" alt="AdiRaj monogram" class="logo-img" />
+              <img
+                src="assets/logo.png"
+                alt="AdiRaj monogram"
+                class="logo-img"
+              />
             </span>
             <span class="logo-text-wrap">
               <span class="logo-text">
@@ -714,9 +1115,17 @@
         </div>
         <div class="header-actions">
           <button class="search-toggle" id="searchToggle" aria-label="Search">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-              <circle cx="11" cy="11" r="7"/>
-              <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <line x1="16.5" y1="16.5" x2="22" y2="22" />
             </svg>
           </button>
         </div>
@@ -736,12 +1145,26 @@
     <!-- Search bar -->
     <div class="search-bar" id="searchBar">
       <div class="search-bar-inner">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-          <circle cx="11" cy="11" r="7"/>
-          <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        >
+          <circle cx="11" cy="11" r="7" />
+          <line x1="16.5" y1="16.5" x2="22" y2="22" />
         </svg>
-        <input type="search" placeholder="Search posts, destinations, topics…" id="searchInput" />
-        <button class="search-close" id="searchClose" aria-label="Close search">✕</button>
+        <input
+          type="search"
+          placeholder="Search posts, destinations, topics…"
+          id="searchInput"
+        />
+        <button class="search-close" id="searchClose" aria-label="Close search">
+          ✕
+        </button>
       </div>
     </div>
 
@@ -762,86 +1185,94 @@
     </div>
 
     <!-- ══════════════════════════════════════
-         HERO
+         HERO — full-bleed crossfade + Ken Burns
     ══════════════════════════════════════ -->
     <section class="hero">
-      <div class="hero-bg-collage" aria-hidden="true">
-        <div></div><div></div><div></div><div></div>
-      </div>
-      <div class="hero-inner">
-        <div class="hero-content">
-          <span class="hero-eyebrow">Travel · Lifestyle · Reflections</span>
-          <h1 class="hero-title">
-            Every journey<br>leaves a <em>mark.</em>
-          </h1>
-          <p class="hero-desc">
-            We're Aditi &amp; Rajesh — documenting slow travel, honest experiences,
-            and the meaning we carry forward. From Asia to Africa, and everywhere in between.
-          </p>
-          <div class="hero-cta-row">
-            <a href="./travel.html" class="hero-btn hero-btn--primary">Explore Destinations</a>
-            <a href="./about.html" class="hero-btn hero-btn--ghost">Our Story</a>
-          </div>
+      <!-- Crossfade slides -->
+      <div class="hero-slides" id="heroSlides">
+        <div class="hero-slide active" data-caption="Taiwan · Asia">
+          <img src="assets/taiwan.JPG" alt="Taiwan" />
         </div>
-        <div class="hero-latest">
-          <p class="hero-latest-label">Latest Post</p>
-          <a href="./taiwan.html" class="hero-latest-card">
-            <img src="assets/taiwan.JPG" alt="Taiwan" loading="eager" />
-            <div class="hero-latest-card-body">
-              <span class="hero-latest-card-tag">Travel · Asia</span>
-              <span class="hero-latest-card-title">Taiwan | December 2025</span>
-            </div>
-          </a>
+        <div class="hero-slide" data-caption="Japan · Asia">
+          <img src="assets/japan.JPG" alt="Japan" />
+        </div>
+        <div class="hero-slide" data-caption="Kenya · Africa">
+          <img src="assets/kenya.JPG" alt="Kenya" />
+        </div>
+        <div class="hero-slide" data-caption="Maldives · Asia">
+          <img src="assets/maldives.jpg" alt="Maldives" />
+        </div>
+        <div class="hero-slide" data-caption="Thailand · Asia">
+          <img src="assets/thailand.JPG" alt="Thailand" />
+        </div>
+      </div>
+
+      <!-- Vignette overlay -->
+      <div class="hero-vignette"></div>
+
+      <!-- Vertical dot indicators — right edge -->
+      <div
+        class="hero-dots"
+        id="heroDots"
+        role="tablist"
+        aria-label="Photo slideshow"
+      >
+        <button
+          class="hero-dot active"
+          data-index="0"
+          aria-label="Photo 1"
+          role="tab"
+        ></button>
+        <button
+          class="hero-dot"
+          data-index="1"
+          aria-label="Photo 2"
+          role="tab"
+        ></button>
+        <button
+          class="hero-dot"
+          data-index="2"
+          aria-label="Photo 3"
+          role="tab"
+        ></button>
+        <button
+          class="hero-dot"
+          data-index="3"
+          aria-label="Photo 4"
+          role="tab"
+        ></button>
+        <button
+          class="hero-dot"
+          data-index="4"
+          aria-label="Photo 5"
+          role="tab"
+        ></button>
+      </div>
+
+      <!-- Hero copy -->
+      <div class="hero-inner">
+        <span class="hero-eyebrow">Travel · Lifestyle · Reflections</span>
+        <h1 class="hero-title">Every journey<br />leaves a <em>mark.</em></h1>
+        <p class="hero-desc">
+          We're Aditi &amp; Rajesh — documenting slow travel, honest
+          experiences, and the meaning we carry forward. From Asia to Africa and
+          everywhere in between.
+        </p>
+        <div class="hero-cta-row">
+          <a href="./travel.html" class="hero-btn hero-btn--primary"
+            >Explore Destinations</a
+          >
+          <a href="./about.html" class="hero-btn hero-btn--ghost">Our Story</a>
         </div>
       </div>
     </section>
-
-    <!-- Ticker -->
-    <div class="hero-ticker" aria-hidden="true">
-      <div class="hero-ticker-track">
-        <span>Taiwan</span><span class="hero-ticker-sep">✦</span>
-        <span>Thailand</span><span class="hero-ticker-sep">✦</span>
-        <span>Japan</span><span class="hero-ticker-sep">✦</span>
-        <span>Kenya</span><span class="hero-ticker-sep">✦</span>
-        <span>Maldives</span><span class="hero-ticker-sep">✦</span>
-        <span>Slow Travel</span><span class="hero-ticker-sep">✦</span>
-        <span>Hidden Gems</span><span class="hero-ticker-sep">✦</span>
-        <span>Routes &amp; Reflections</span><span class="hero-ticker-sep">✦</span>
-        <span>Taiwan</span><span class="hero-ticker-sep">✦</span>
-        <span>Thailand</span><span class="hero-ticker-sep">✦</span>
-        <span>Japan</span><span class="hero-ticker-sep">✦</span>
-        <span>Kenya</span><span class="hero-ticker-sep">✦</span>
-        <span>Maldives</span><span class="hero-ticker-sep">✦</span>
-        <span>Slow Travel</span><span class="hero-ticker-sep">✦</span>
-        <span>Hidden Gems</span><span class="hero-ticker-sep">✦</span>
-        <span>Routes &amp; Reflections</span><span class="hero-ticker-sep">✦</span>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════
-         EXPLORE THEMES BAR
-    ══════════════════════════════════════ -->
-    <div class="explore-bar">
-      <div class="explore-bar-inner">
-        <span class="explore-bar-label">Explore by</span>
-        <div class="explore-pills">
-          <a href="./travel.html" class="explore-pill"><span class="explore-pill-icon">🧭</span> Offbeat Places</a>
-          <a href="./travel.html" class="explore-pill"><span class="explore-pill-icon">🌿</span> Slow Travel</a>
-          <a href="./travel.html" class="explore-pill"><span class="explore-pill-icon">🚗</span> Weekend Getaways</a>
-          <a href="./travel.html" class="explore-pill"><span class="explore-pill-icon">💎</span> Hidden Gems</a>
-          <a href="./lifestyle.html" class="explore-pill"><span class="explore-pill-icon">✨</span> Lifestyle</a>
-          <a href="./studio.html" class="explore-pill"><span class="explore-pill-icon">🎨</span> Studio</a>
-        </div>
-      </div>
-    </div>
 
     <!-- ══════════════════════════════════════
          MAIN CONTENT + SIDEBAR
     ══════════════════════════════════════ -->
     <div class="page-wrap">
       <main class="post-list" id="postList">
-
-        <!-- Featured Post -->
+        <!-- ── Featured Post ── -->
         <div class="js-reveal">
           <div class="section-header">
             <div>
@@ -850,7 +1281,12 @@
             </div>
           </div>
           <a href="./taiwan.html" class="featured-card">
-            <img src="assets/taiwan.JPG" alt="Taiwan countryside" class="featured-card-img" loading="eager" />
+            <img
+              src="assets/taiwan.JPG"
+              alt="Taiwan countryside"
+              class="featured-card-img"
+              loading="eager"
+            />
             <div class="featured-card-overlay"></div>
             <span class="featured-card-badge">New</span>
             <div class="featured-card-body">
@@ -861,15 +1297,26 @@
               </div>
               <h2 class="featured-card-title">Taiwan | December 2025</h2>
               <p class="featured-card-excerpt">
-                Taiwan unfolded gently for us — through local streets, night markets, and unplanned detours.
-                It's the kind of place where slowing down makes everything richer.
+                Taiwan unfolded gently for us — through local streets, night
+                markets, and unplanned detours. It's the kind of place where
+                slowing down makes everything richer.
               </p>
               <div class="featured-card-meta">
-                <span class="featured-card-date">Last Updated: January 1, 2026</span>
+                <span class="featured-card-date"
+                  >Last Updated: January 1, 2026</span
+                >
                 <span class="featured-card-read">
                   Continue Reading
-                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <path d="M3 8h10M9 4l4 4-4 4"/>
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  >
+                    <path d="M3 8h10M9 4l4 4-4 4" />
                   </svg>
                 </span>
               </div>
@@ -877,8 +1324,8 @@
           </a>
         </div>
 
-        <!-- Recent Posts Grid -->
-        <div class="js-reveal" style="margin-top: 2.5rem;">
+        <!-- ── Paginated Posts Grid ── -->
+        <div class="js-reveal" style="margin-top: 2.5rem">
           <div class="section-header">
             <div>
               <span class="section-kicker">Recent</span>
@@ -886,87 +1333,188 @@
             </div>
             <a href="./travel.html" class="section-more">All posts →</a>
           </div>
-          <div class="posts-grid">
-            <a href="./thailand.html" class="grid-post-card">
+
+          <!-- All posts in data — JS reads these and paginates -->
+          <div id="postsGrid" class="posts-grid">
+            <!-- Page 1 (visible by default) -->
+            <a href="./thailand.html" class="grid-post-card" data-page="1">
               <div class="grid-post-card-img-wrap">
                 <img src="assets/thailand.JPG" alt="Thailand" loading="eager" />
               </div>
               <div class="grid-post-card-body">
                 <span class="grid-post-card-tag">Travel · Asia</span>
                 <h3 class="grid-post-card-title">Thailand | December 2025</h3>
-                <p class="grid-post-card-excerpt">Thailand was more than its popular spots — we leaned into slower days, local corners, and places slightly off the map.</p>
+                <p class="grid-post-card-excerpt">
+                  Thailand was more than its popular spots — we leaned into
+                  slower days, local corners, and places slightly off the map.
+                </p>
                 <div class="grid-post-card-footer">
                   <span class="grid-post-card-date">Jan 1, 2026</span>
                   <span class="grid-post-card-arrow">Read →</span>
                 </div>
               </div>
             </a>
-            <a href="./japan.html" class="grid-post-card">
+            <a href="./japan.html" class="grid-post-card" data-page="1">
               <div class="grid-post-card-img-wrap">
                 <img src="assets/japan.JPG" alt="Japan" loading="eager" />
               </div>
               <div class="grid-post-card-body">
                 <span class="grid-post-card-tag">Travel · Asia</span>
                 <h3 class="grid-post-card-title">Japan | October 2024</h3>
-                <p class="grid-post-card-excerpt">Beyond the cities, it was the countryside that stayed with us. Quiet towns, scenic train rides, and unhurried moments.</p>
+                <p class="grid-post-card-excerpt">
+                  Beyond the cities, it was the countryside that stayed with us.
+                  Quiet towns, scenic train rides, and unhurried moments.
+                </p>
                 <div class="grid-post-card-footer">
                   <span class="grid-post-card-date">Oct 5, 2024</span>
                   <span class="grid-post-card-arrow">Read →</span>
                 </div>
               </div>
             </a>
-            <a href="./kenya.html" class="grid-post-card">
+            <a href="./kenya.html" class="grid-post-card" data-page="1">
               <div class="grid-post-card-img-wrap">
-                <img src="assets/kenya.JPG" alt="Kenya Masai Mara" loading="eager" />
+                <img
+                  src="assets/kenya.JPG"
+                  alt="Kenya Masai Mara"
+                  loading="eager"
+                />
               </div>
               <div class="grid-post-card-body">
                 <span class="grid-post-card-tag">Travel · Africa</span>
                 <h3 class="grid-post-card-title">Kenya | August 2023</h3>
-                <p class="grid-post-card-excerpt">Masai Mara felt like stepping into a world we'd only seen in documentaries — wide open skies, quiet mornings, and wildlife just there.</p>
+                <p class="grid-post-card-excerpt">
+                  Masai Mara felt like stepping into a world we'd only seen in
+                  documentaries — wide open skies, quiet mornings, and wildlife
+                  just there.
+                </p>
                 <div class="grid-post-card-footer">
                   <span class="grid-post-card-date">Aug 20, 2023</span>
                   <span class="grid-post-card-arrow">Read →</span>
                 </div>
               </div>
             </a>
-            <a href="./maldives.html" class="grid-post-card">
+            <a href="./maldives.html" class="grid-post-card" data-page="1">
               <div class="grid-post-card-img-wrap">
                 <img src="assets/maldives.jpg" alt="Maldives" loading="eager" />
               </div>
               <div class="grid-post-card-body">
                 <span class="grid-post-card-tag">Travel · Asia</span>
                 <h3 class="grid-post-card-title">Maldives | March 2023</h3>
-                <p class="grid-post-card-excerpt">Maldives gave us the rare chance to pause completely — away from movement and plans, we embraced stillness and simplicity.</p>
+                <p class="grid-post-card-excerpt">
+                  Maldives gave us the rare chance to pause completely — away
+                  from movement and plans, we embraced stillness and simplicity.
+                </p>
                 <div class="grid-post-card-footer">
                   <span class="grid-post-card-date">Mar 31, 2023</span>
                   <span class="grid-post-card-arrow">Read →</span>
                 </div>
               </div>
             </a>
+
+            <!-- Page 2 (hidden by default via JS) -->
+            <a href="./popularpost1.html" class="grid-post-card" data-page="2">
+              <div class="grid-post-card-img-wrap">
+                <img src="assets/popularpost1.JPG" alt="Post" loading="lazy" />
+              </div>
+              <div class="grid-post-card-body">
+                <span class="grid-post-card-tag">Travel · Reflections</span>
+                <h3 class="grid-post-card-title">Exploring the world slowly</h3>
+                <p class="grid-post-card-excerpt">
+                  Some of the most meaningful travel happens when you stop
+                  rushing. A look at slow travel and the things that stick with
+                  you.
+                </p>
+                <div class="grid-post-card-footer">
+                  <span class="grid-post-card-date">Jan 2025</span>
+                  <span class="grid-post-card-arrow">Read →</span>
+                </div>
+              </div>
+            </a>
+            <a href="./popularpost2.html" class="grid-post-card" data-page="2">
+              <div class="grid-post-card-img-wrap">
+                <img src="assets/popularpost2.JPG" alt="Post" loading="lazy" />
+              </div>
+              <div class="grid-post-card-body">
+                <span class="grid-post-card-tag">Travel · Offbeat</span>
+                <h3 class="grid-post-card-title">
+                  Beyond cities — quieter paths
+                </h3>
+                <p class="grid-post-card-excerpt">
+                  Into quieter paths, local lives, and hidden corners that no
+                  itinerary will ever list. Some roads are worth the detour.
+                </p>
+                <div class="grid-post-card-footer">
+                  <span class="grid-post-card-date">Feb 2025</span>
+                  <span class="grid-post-card-arrow">Read →</span>
+                </div>
+              </div>
+            </a>
+            <a href="./popularpost3.html" class="grid-post-card" data-page="2">
+              <div class="grid-post-card-img-wrap">
+                <img src="assets/popularpost3.JPG" alt="Post" loading="lazy" />
+              </div>
+              <div class="grid-post-card-body">
+                <span class="grid-post-card-tag">Lifestyle</span>
+                <h3 class="grid-post-card-title">
+                  A journey through places &amp; ideas
+                </h3>
+                <p class="grid-post-card-excerpt">
+                  A journey through places, ideas, and the life we're building
+                  along the way. Thoughts on what travel teaches you about
+                  yourself.
+                </p>
+                <div class="grid-post-card-footer">
+                  <span class="grid-post-card-date">Mar 2025</span>
+                  <span class="grid-post-card-arrow">Read →</span>
+                </div>
+              </div>
+            </a>
+            <a href="./popularpost4.html" class="grid-post-card" data-page="2">
+              <div class="grid-post-card-img-wrap">
+                <img src="assets/popularpost4.JPG" alt="Post" loading="lazy" />
+              </div>
+              <div class="grid-post-card-body">
+                <span class="grid-post-card-tag">Reflections</span>
+                <h3 class="grid-post-card-title">Every journey has a story</h3>
+                <p class="grid-post-card-excerpt">
+                  Every journey has a story — this is where we tell ours. On why
+                  writing about travel matters, and who we're writing for.
+                </p>
+                <div class="grid-post-card-footer">
+                  <span class="grid-post-card-date">Apr 2025</span>
+                  <span class="grid-post-card-arrow">Read →</span>
+                </div>
+              </div>
+            </a>
           </div>
+          <!-- /#postsGrid -->
+
+          <!-- Pagination controls -->
+          <nav
+            class="pagination pagination-wrap"
+            id="postsPagination"
+            aria-label="Posts pagination"
+          ></nav>
         </div>
-
-        <!-- Pagination -->
-        <nav class="pagination pagination-wrap" aria-label="Pagination">
-          <span class="page-current">1</span>
-          <a href="#" class="page-link">2</a>
-          <a href="#" class="page-link">3</a>
-          <span class="page-ellipsis">…</span>
-          <a href="#" class="page-link page-next">Next →</a>
-        </nav>
-
       </main>
 
       <!-- ── SIDEBAR ── -->
       <aside class="sidebar">
-
         <div class="widget widget--about widget--about-v2">
           <div class="about-photo-wrap">
-            <img src="assets/profilephoto.JPG" alt="Aditi and Rajesh" class="about-photo" loading="eager" />
+            <img
+              src="assets/profilephoto.JPG"
+              alt="Aditi and Rajesh"
+              class="about-photo"
+              loading="eager"
+            />
           </div>
           <div class="about-text">
             <h3 class="about-name">Hi, We're AdiRaj!</h3>
-            <p>Navigating life through travel, ideas &amp; curiosity. Documenting what we see, feel &amp; learn along the way.</p>
+            <p>
+              Navigating life through travel, ideas &amp; curiosity. Documenting
+              what we see, feel &amp; learn along the way.
+            </p>
             <a href="./about.html" class="widget-link">More About Us</a>
           </div>
         </div>
@@ -991,123 +1539,235 @@
 
         <div class="widget widget--newsletter" id="newsletter">
           <h4 class="widget-title">Never Miss a Post</h4>
-          <p class="widget-text">Get new posts delivered straight to your inbox.</p>
-          <input type="email" placeholder="Your email address" class="widget-email-input" />
-          <button class="widget-subscribe-btn" id="sidebarSubBtn">Subscribe</button>
+          <p class="widget-text">
+            Get new posts delivered straight to your inbox.
+          </p>
+          <input
+            type="email"
+            placeholder="Your email address"
+            class="widget-email-input"
+          />
+          <button class="widget-subscribe-btn" id="sidebarSubBtn">
+            Subscribe
+          </button>
           <p class="widget-fine">No spam. Unsubscribe anytime.</p>
-        </div>
-
-        <div class="widget">
-          <h4 class="widget-title">Popular Posts</h4>
-          <ul class="popular-posts">
-            <li class="pop-post">
-              <a href="./popularpost1.html" class="pop-post-img-link">
-                <img src="assets/popularpost1.JPG" alt="Popular post" loading="eager" />
-              </a>
-              <div class="pop-post-text">
-                <a href="./popularpost1.html">Exploring the world slowly, and reflecting on what truly stays</a>
-                <span class="pop-post-date">Jan 2025</span>
-              </div>
-            </li>
-            <li class="pop-post">
-              <a href="./popularpost2.html" class="pop-post-img-link">
-                <img src="assets/popularpost2.JPG" alt="Popular post" loading="eager" />
-              </a>
-              <div class="pop-post-text">
-                <a href="./popularpost2.html">Beyond cities — into quieter paths, local lives, and hidden corners</a>
-                <span class="pop-post-date">Feb 2025</span>
-              </div>
-            </li>
-            <li class="pop-post">
-              <a href="./popularpost3.html" class="pop-post-img-link">
-                <img src="assets/popularpost3.JPG" alt="Popular post" loading="eager" />
-              </a>
-              <div class="pop-post-text">
-                <a href="./popularpost3.html">A journey through places, ideas, and the life we're building</a>
-                <span class="pop-post-date">Mar 2025</span>
-              </div>
-            </li>
-            <li class="pop-post">
-              <a href="./popularpost4.html" class="pop-post-img-link">
-                <img src="assets/popularpost4.JPG" alt="Popular post" loading="eager" />
-              </a>
-              <div class="pop-post-text">
-                <a href="./popularpost4.html">Every journey has a story — this is where we tell ours</a>
-                <span class="pop-post-date">Apr 2025</span>
-              </div>
-            </li>
-          </ul>
         </div>
 
         <div class="widget">
           <h4 class="widget-title">Follow Along</h4>
           <div class="insta-grid">
-            <a href="#" class="insta-cell"><img src="assets/followalong1.JPG" alt="Instagram" loading="eager" /></a>
-            <a href="#" class="insta-cell"><img src="assets/followalong2.JPG" alt="Instagram" loading="eager" /></a>
-            <a href="#" class="insta-cell"><img src="assets/followalong3.JPG" alt="Instagram" loading="eager" /></a>
-            <a href="#" class="insta-cell"><img src="assets/followalong4.JPG" alt="Instagram" loading="eager" /></a>
-            <a href="#" class="insta-cell"><img src="assets/followalong5.JPG" alt="Instagram" loading="eager" /></a>
-            <a href="#" class="insta-cell"><img src="assets/followalong6.JPG" alt="Instagram" loading="eager" /></a>
+            <a href="#" class="insta-cell"
+              ><img
+                src="assets/followalong1.JPG"
+                alt="Instagram"
+                loading="eager"
+            /></a>
+            <a href="#" class="insta-cell"
+              ><img
+                src="assets/followalong2.JPG"
+                alt="Instagram"
+                loading="eager"
+            /></a>
+            <a href="#" class="insta-cell"
+              ><img
+                src="assets/followalong3.JPG"
+                alt="Instagram"
+                loading="eager"
+            /></a>
+            <a href="#" class="insta-cell"
+              ><img
+                src="assets/followalong4.JPG"
+                alt="Instagram"
+                loading="eager"
+            /></a>
+            <a href="#" class="insta-cell"
+              ><img
+                src="assets/followalong5.JPG"
+                alt="Instagram"
+                loading="eager"
+            /></a>
+            <a href="#" class="insta-cell"
+              ><img
+                src="assets/followalong6.JPG"
+                alt="Instagram"
+                loading="eager"
+            /></a>
           </div>
-          <a href="#" class="widget-link widget-link--center">Follow on Instagram →</a>
+          <a href="#" class="widget-link widget-link--center"
+            >Follow on Instagram →</a
+          >
         </div>
-
       </aside>
-    </div><!-- /.page-wrap -->
+    </div>
+    <!-- /.page-wrap -->
 
     <!-- ══════════════════════════════════════
-         DESTINATIONS SHOWCASE
+         DESTINATIONS CAROUSEL
     ══════════════════════════════════════ -->
     <div class="dest-showcase">
       <div class="dest-showcase-inner">
-        <div class="section-header" style="margin-bottom:1.5rem;">
+        <div class="section-header" style="margin-bottom: 1.5rem">
           <div>
             <span class="section-kicker">Destinations</span>
             <h2 class="section-title">Places we've <em>called home</em></h2>
           </div>
           <a href="./travel.html" class="section-more">View all →</a>
         </div>
-        <div class="dest-strip">
-          <a href="./japan.html" class="dest-strip-card">
-            <img src="assets/japan.JPG" alt="Japan" loading="lazy" />
-            <div class="dest-strip-card-overlay"></div>
-            <div class="dest-strip-card-label">
-              <span class="dest-strip-card-country">Asia</span>
-              <span class="dest-strip-card-name">Japan</span>
+
+        <div class="dest-carousel-wrap">
+          <!-- Prev arrow -->
+          <button
+            class="dest-carousel-btn dest-carousel-btn--prev"
+            id="destPrev"
+            aria-label="Previous destination"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M10 4L6 8l4 4" />
+            </svg>
+          </button>
+
+          <div class="dest-carousel-viewport">
+            <div class="dest-strip" id="destStrip">
+              <!-- 6 destinations — 5 visible at once on desktop; JS slides by 1 -->
+              <a href="./japan.html" class="dest-strip-card">
+                <img src="assets/japan.JPG" alt="Japan" loading="lazy" />
+                <div class="dest-strip-card-overlay"></div>
+                <div class="dest-strip-card-label">
+                  <span class="dest-strip-card-country">Asia</span>
+                  <span class="dest-strip-card-name">Japan</span>
+                </div>
+              </a>
+              <a href="./taiwan.html" class="dest-strip-card">
+                <img src="assets/taiwan.JPG" alt="Taiwan" loading="lazy" />
+                <div class="dest-strip-card-overlay"></div>
+                <div class="dest-strip-card-label">
+                  <span class="dest-strip-card-country">Asia</span>
+                  <span class="dest-strip-card-name">Taiwan</span>
+                </div>
+              </a>
+              <a href="./thailand.html" class="dest-strip-card">
+                <img src="assets/thailand.JPG" alt="Thailand" loading="lazy" />
+                <div class="dest-strip-card-overlay"></div>
+                <div class="dest-strip-card-label">
+                  <span class="dest-strip-card-country">Asia</span>
+                  <span class="dest-strip-card-name">Thailand</span>
+                </div>
+              </a>
+              <a href="./kenya.html" class="dest-strip-card">
+                <img src="assets/kenya.JPG" alt="Kenya" loading="lazy" />
+                <div class="dest-strip-card-overlay"></div>
+                <div class="dest-strip-card-label">
+                  <span class="dest-strip-card-country">Africa</span>
+                  <span class="dest-strip-card-name">Kenya</span>
+                </div>
+              </a>
+              <a href="./maldives.html" class="dest-strip-card">
+                <img src="assets/maldives.jpg" alt="Maldives" loading="lazy" />
+                <div class="dest-strip-card-overlay"></div>
+                <div class="dest-strip-card-label">
+                  <span class="dest-strip-card-country">Asia</span>
+                  <span class="dest-strip-card-name">Maldives</span>
+                </div>
+              </a>
+              <!-- India — coming soon card -->
+              <div class="dest-strip-card" style="cursor: default">
+                <img
+                  src="assets/profilephoto.JPG"
+                  alt="India — Coming Soon"
+                  loading="lazy"
+                  style="filter: grayscale(60%)"
+                />
+                <div
+                  class="dest-strip-card-overlay"
+                  style="
+                    background: linear-gradient(
+                      to top,
+                      rgba(10, 8, 6, 0.92) 0%,
+                      rgba(10, 8, 6, 0.3) 60%
+                    );
+                  "
+                ></div>
+                <div class="dest-strip-card-label">
+                  <span class="dest-strip-card-country">Asia</span>
+                  <span class="dest-strip-card-name">India</span>
+                  <span
+                    style="
+                      display: block;
+                      font-family: var(--sans);
+                      font-size: 0.5rem;
+                      letter-spacing: 0.18em;
+                      text-transform: uppercase;
+                      color: var(--accent-lt);
+                      margin-top: 0.3rem;
+                      opacity: 0.8;
+                    "
+                    >Coming Soon</span
+                  >
+                </div>
+              </div>
             </div>
-          </a>
-          <a href="./taiwan.html" class="dest-strip-card">
-            <img src="assets/taiwan.JPG" alt="Taiwan" loading="lazy" />
-            <div class="dest-strip-card-overlay"></div>
-            <div class="dest-strip-card-label">
-              <span class="dest-strip-card-country">Asia</span>
-              <span class="dest-strip-card-name">Taiwan</span>
-            </div>
-          </a>
-          <a href="./thailand.html" class="dest-strip-card">
-            <img src="assets/thailand.JPG" alt="Thailand" loading="lazy" />
-            <div class="dest-strip-card-overlay"></div>
-            <div class="dest-strip-card-label">
-              <span class="dest-strip-card-country">Asia</span>
-              <span class="dest-strip-card-name">Thailand</span>
-            </div>
-          </a>
-          <a href="./kenya.html" class="dest-strip-card">
-            <img src="assets/kenya.JPG" alt="Kenya" loading="lazy" />
-            <div class="dest-strip-card-overlay"></div>
-            <div class="dest-strip-card-label">
-              <span class="dest-strip-card-country">Africa</span>
-              <span class="dest-strip-card-name">Kenya</span>
-            </div>
-          </a>
-          <a href="./maldives.html" class="dest-strip-card">
-            <img src="assets/maldives.jpg" alt="Maldives" loading="lazy" />
-            <div class="dest-strip-card-overlay"></div>
-            <div class="dest-strip-card-label">
-              <span class="dest-strip-card-country">Asia</span>
-              <span class="dest-strip-card-name">Maldives</span>
-            </div>
-          </a>
+          </div>
+
+          <!-- Next arrow -->
+          <button
+            class="dest-carousel-btn dest-carousel-btn--next"
+            id="destNext"
+            aria-label="Next destination"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 4l4 4-4 4" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Carousel dots -->
+        <div class="dest-carousel-dots" id="destDots"></div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         EXPLORE BAR — after destinations
+    ══════════════════════════════════════ -->
+    <div class="explore-bar">
+      <div class="explore-bar-inner">
+        <span class="explore-bar-label">Explore by</span>
+        <div class="explore-pills">
+          <a href="./travel.html" class="explore-pill"
+            ><span class="explore-pill-icon">🧭</span> Offbeat Places</a
+          >
+          <a href="./travel.html" class="explore-pill"
+            ><span class="explore-pill-icon">🌿</span> Slow Travel</a
+          >
+          <a href="./travel.html" class="explore-pill"
+            ><span class="explore-pill-icon">🚗</span> Weekend Getaways</a
+          >
+          <a href="./travel.html" class="explore-pill"
+            ><span class="explore-pill-icon">💎</span> Hidden Gems</a
+          >
+          <a href="./lifestyle.html" class="explore-pill"
+            ><span class="explore-pill-icon">✨</span> Lifestyle</a
+          >
+          <a href="./studio.html" class="explore-pill"
+            ><span class="explore-pill-icon">🎨</span> Studio</a
+          >
         </div>
       </div>
     </div>
@@ -1118,7 +1778,11 @@
         <div class="footer-logo-wrap">
           <a href="index.html" class="logo footer-logo">
             <span class="logo-icon" aria-hidden="true">
-              <img src="assets/logo.png" alt="AdiRaj monogram" class="logo-img" />
+              <img
+                src="assets/logo.png"
+                alt="AdiRaj monogram"
+                class="logo-img"
+              />
             </span>
             <span class="logo-text-wrap">
               <span class="logo-text">
@@ -1137,20 +1801,37 @@
         </nav>
         <div class="footer-social">
           <a href="#" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="2" y="2" width="20" height="20" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1.2"
+                fill="currentColor"
+                stroke="none"
+              />
             </svg>
           </a>
           <a href="#" aria-label="Pinterest">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"
+              />
             </svg>
           </a>
           <a href="#" aria-label="Twitter/X">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
             </svg>
           </a>
         </div>
@@ -1160,10 +1841,211 @@
 
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path
+          d="M8 13V3M3 8l5-5 5 5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
     </button>
 
     <script src="script.js"></script>
+    <script>
+      /* ═══════════════════════════════════════════
+       INDEX PAGE — Interactive JS
+    ═══════════════════════════════════════════ */
+
+      /* ── 1. Hero Crossfade + Ken Burns Slideshow ── */
+      (function () {
+        const slides = document.querySelectorAll(".hero-slide");
+        const dots = document.querySelectorAll(".hero-dot");
+        const total = slides.length;
+        let current = 0;
+        let timer;
+
+        function restartKenBurns(slide) {
+          const img = slide.querySelector("img");
+          if (!img) return;
+          img.style.animation = "none";
+          img.offsetHeight; // trigger reflow
+          img.style.animation = "";
+        }
+
+        function goTo(index) {
+          slides[current].classList.remove("active");
+          dots[current].classList.remove("active");
+          current = (index + total) % total;
+          slides[current].classList.add("active");
+          dots[current].classList.add("active");
+          restartKenBurns(slides[current]);
+        }
+
+        function next() {
+          goTo(current + 1);
+        }
+
+        function startTimer() {
+          clearInterval(timer);
+          timer = setInterval(next, 5500);
+        }
+
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            goTo(parseInt(dot.dataset.index, 10));
+            startTimer();
+          });
+        });
+
+        startTimer();
+      })();
+
+      /* ── 2. Paginated Posts Grid ── */
+      (function () {
+        const grid = document.getElementById("postsGrid");
+        const paginationNav = document.getElementById("postsPagination");
+        if (!grid) return;
+
+        const cards = Array.from(grid.querySelectorAll(".grid-post-card"));
+        const perPage = 4;
+        const pages = Math.ceil(cards.length / perPage);
+        let current = 1;
+
+        function buildPagination() {
+          paginationNav.innerHTML = "";
+
+          // Previous button (only show if not on page 1 — keep space consistent via disabled)
+          const prev = document.createElement("button");
+          prev.className = "page-btn";
+          prev.textContent = "← Prev";
+          prev.disabled = current === 1;
+          prev.addEventListener("click", () => showPage(current - 1));
+          paginationNav.appendChild(prev);
+
+          // Numbered page buttons with ellipsis
+          for (let p = 1; p <= pages; p++) {
+            // Show: first, last, current and neighbors; ellipsis elsewhere
+            const showBtn =
+              p === 1 || p === pages || Math.abs(p - current) <= 1;
+            const showEllipsisBefore = p === current - 2 && p > 2;
+            const showEllipsisAfter = p === current + 2 && p < pages - 1;
+
+            if (showEllipsisBefore || showEllipsisAfter) {
+              const ell = document.createElement("span");
+              ell.className = "page-ellipsis";
+              ell.textContent = "…";
+              paginationNav.appendChild(ell);
+            }
+
+            if (showBtn) {
+              const btn = document.createElement("button");
+              btn.className =
+                "page-btn" + (p === current ? " page-btn--active" : "");
+              btn.textContent = p;
+              btn.addEventListener("click", () => showPage(p));
+              paginationNav.appendChild(btn);
+            }
+          }
+
+          // Next button
+          const next = document.createElement("button");
+          next.className = "page-btn page-btn--next";
+          next.innerHTML = "Next →";
+          next.disabled = current === pages;
+          next.addEventListener("click", () => showPage(current + 1));
+          paginationNav.appendChild(next);
+        }
+
+        function showPage(p) {
+          current = Math.max(1, Math.min(p, pages));
+          cards.forEach((card) => {
+            const cardPage = parseInt(card.dataset.page, 10);
+            card.style.display = cardPage === current ? "" : "none";
+          });
+          buildPagination();
+          const sectionEl = grid.closest(".js-reveal");
+          if (sectionEl && current > 1) {
+            sectionEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+
+        showPage(1);
+      })();
+
+      /* ── 3. Destinations Carousel ── */
+      (function () {
+        const strip = document.getElementById("destStrip");
+        const prevBtn = document.getElementById("destPrev");
+        const nextBtn = document.getElementById("destNext");
+        const dotsWrap = document.getElementById("destDots");
+        if (!strip) return;
+
+        const cards = strip.querySelectorAll(".dest-strip-card");
+        const total = cards.length;
+        const visible = () =>
+          window.innerWidth <= 620 ? 2 : window.innerWidth <= 900 ? 3 : 5;
+        let offset = 0;
+
+        function maxOffset() {
+          return Math.max(0, total - visible());
+        }
+
+        // Build dots
+        function buildDots() {
+          dotsWrap.innerHTML = "";
+          const steps = maxOffset() + 1;
+          for (let i = 0; i < steps; i++) {
+            const d = document.createElement("button");
+            d.className = "dest-carousel-dot" + (i === offset ? " active" : "");
+            d.setAttribute("aria-label", "Go to slide " + (i + 1));
+            d.addEventListener("click", () => goTo(i));
+            dotsWrap.appendChild(d);
+          }
+        }
+
+        function goTo(index) {
+          offset = Math.max(0, Math.min(index, maxOffset()));
+          // Calculate the width of one card + gap
+          const cardEl = cards[0];
+          const gap = 12; // 0.75rem gap
+          const step = cardEl.offsetWidth + gap;
+          strip.style.transform = "translateX(-" + offset * step + "px)";
+          // Update dots
+          dotsWrap.querySelectorAll(".dest-carousel-dot").forEach((d, i) => {
+            d.classList.toggle("active", i === offset);
+          });
+          prevBtn.style.opacity = offset === 0 ? "0.3" : "1";
+          prevBtn.disabled = offset === 0;
+          nextBtn.style.opacity = offset >= maxOffset() ? "0.3" : "1";
+          nextBtn.disabled = offset >= maxOffset();
+        }
+
+        prevBtn.addEventListener("click", () => goTo(offset - 1));
+        nextBtn.addEventListener("click", () => goTo(offset + 1));
+
+        // Touch / swipe support
+        let startX = 0;
+        strip.addEventListener(
+          "touchstart",
+          (e) => {
+            startX = e.touches[0].clientX;
+          },
+          { passive: true },
+        );
+        strip.addEventListener("touchend", (e) => {
+          const diff = startX - e.changedTouches[0].clientX;
+          if (Math.abs(diff) > 40) goTo(diff > 0 ? offset + 1 : offset - 1);
+        });
+
+        window.addEventListener("resize", () => {
+          buildDots();
+          goTo(Math.min(offset, maxOffset()));
+        });
+
+        buildDots();
+        goTo(0);
+      })();
+    </script>
   </body>
 </html>
