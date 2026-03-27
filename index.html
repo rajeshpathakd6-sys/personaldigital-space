@@ -3,56 +3,683 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AdiRaj- Routes & Reflections</title>
-    <meta name="description" content="Your blog description goes here." />
+    <title>AdiRaj — Routes &amp; Reflections</title>
+    <meta name="description" content="Travel stories, slow journeys, and reflections from two curious wanderers. Destinations across Asia, Africa, and beyond." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ═══════════════════════════════════════════
+         INDEX PAGE — Additional Styles
+      ═══════════════════════════════════════════ */
+
+      /* ── Hero ── */
+      .hero {
+        position: relative;
+        background: var(--ink);
+        overflow: hidden;
+        min-height: 560px;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-bg-collage {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        opacity: 0.28;
+        pointer-events: none;
+      }
+      .hero-bg-collage div {
+        background-size: cover;
+        background-position: center;
+        filter: grayscale(30%);
+      }
+      .hero-bg-collage div:nth-child(1) { background-image: url('assets/japan.JPG'); }
+      .hero-bg-collage div:nth-child(2) { background-image: url('assets/taiwan.JPG'); }
+      .hero-bg-collage div:nth-child(3) { background-image: url('assets/kenya.JPG'); }
+      .hero-bg-collage div:nth-child(4) { background-image: url('assets/maldives.jpg'); }
+
+      .hero-bg-collage::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(26,26,24,0.88) 0%, rgba(26,26,24,0.55) 60%, rgba(26,26,24,0.78) 100%);
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: var(--max-w);
+        margin-inline: auto;
+        padding: 5rem var(--pad-x);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: var(--sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--accent-lt);
+        margin-bottom: 1.4rem;
+      }
+      .hero-eyebrow::before {
+        content: '';
+        width: 28px;
+        height: 1px;
+        background: var(--accent-lt);
+        display: block;
+        flex-shrink: 0;
+      }
+
+      .hero-title {
+        font-family: var(--serif);
+        font-size: clamp(2.6rem, 6vw, 4.2rem);
+        font-weight: 400;
+        color: var(--white);
+        line-height: 1.12;
+        margin-bottom: 1.4rem;
+        letter-spacing: -0.01em;
+      }
+      .hero-title em {
+        font-style: italic;
+        color: var(--accent-lt);
+      }
+
+      .hero-desc {
+        font-family: var(--sans);
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.68);
+        line-height: 1.8;
+        max-width: 440px;
+        margin-bottom: 2rem;
+      }
+
+      .hero-cta-row {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+      }
+
+      .hero-btn {
+        display: inline-block;
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 0.85rem 1.8rem;
+        border-radius: 2px;
+        transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        text-decoration: none;
+      }
+      .hero-btn--primary {
+        background: var(--accent);
+        color: var(--white);
+      }
+      .hero-btn--primary:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(192,129,90,0.35);
+      }
+      .hero-btn--ghost {
+        border: 1px solid rgba(255,255,255,0.3);
+        color: rgba(255,255,255,0.75);
+      }
+      .hero-btn--ghost:hover {
+        border-color: var(--white);
+        color: var(--white);
+      }
+
+      .hero-latest { flex-shrink: 0; width: 260px; }
+      .hero-latest-label {
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.35);
+        margin-bottom: 0.75rem;
+      }
+      .hero-latest-card {
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 2px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+        display: block;
+        text-decoration: none;
+      }
+      .hero-latest-card:hover { border-color: rgba(255,255,255,0.28); }
+      .hero-latest-card img {
+        width: 100%;
+        height: 155px;
+        object-fit: cover;
+        display: block;
+        opacity: 0.85;
+        transition: opacity 0.3s, transform 0.5s;
+      }
+      .hero-latest-card:hover img { opacity: 1; transform: scale(1.03); }
+      .hero-latest-card-body { padding: 1rem 1.1rem 1.2rem; }
+      .hero-latest-card-tag {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent-lt);
+        margin-bottom: 0.4rem;
+        display: block;
+      }
+      .hero-latest-card-title {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.3;
+        display: block;
+        transition: color 0.2s;
+      }
+      .hero-latest-card:hover .hero-latest-card-title { color: var(--accent-lt); }
+
+      /* ── Marquee ticker ── */
+      .hero-ticker {
+        background: var(--accent);
+        overflow: hidden;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+      }
+      .hero-ticker-track {
+        display: inline-flex;
+        animation: ticker 26s linear infinite;
+      }
+      .hero-ticker-track span {
+        font-family: var(--sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.88);
+        padding: 0 2rem;
+      }
+      .hero-ticker-sep { color: rgba(255,255,255,0.4) !important; font-size: 0.5rem !important; }
+      @keyframes ticker {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      /* ── Shared section header ── */
+      .section-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 1.75rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--rule);
+      }
+      .section-kicker {
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .section-title {
+        font-family: var(--serif);
+        font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+        font-weight: 400;
+        color: var(--ink);
+        line-height: 1.2;
+        margin: 0;
+      }
+      .section-title em { font-style: italic; }
+      .section-more {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: color 0.2s, letter-spacing 0.2s;
+        text-decoration: none;
+      }
+      .section-more:hover { color: var(--accent-hover); letter-spacing: 0.18em; }
+
+      /* ── Featured banner card ── */
+      .featured-card {
+        position: relative;
+        border-radius: 2px;
+        overflow: hidden;
+        display: block;
+        margin-bottom: 1.5rem;
+        text-decoration: none;
+        background: var(--ink);
+      }
+      .featured-card-img {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        display: block;
+        opacity: 0.75;
+        transition: opacity 0.4s, transform 0.6s;
+      }
+      .featured-card:hover .featured-card-img { opacity: 0.65; transform: scale(1.03); }
+      .featured-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(10,8,6,0.88) 0%, rgba(10,8,6,0.35) 50%, rgba(10,8,6,0.05) 100%);
+        pointer-events: none;
+      }
+      .featured-card-badge {
+        position: absolute;
+        top: 1.25rem;
+        left: 1.5rem;
+        background: var(--accent);
+        color: var(--white);
+        font-family: var(--sans);
+        font-size: 0.56rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.8rem;
+        border-radius: 1px;
+      }
+      .featured-card-body {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        padding: 2rem 1.75rem;
+      }
+      .featured-card-tags { display: flex; gap: 0.5rem; margin-bottom: 0.6rem; }
+      .featured-card-tag {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent-lt);
+      }
+      .featured-card-tag + .featured-card-tag::before {
+        content: '·';
+        margin-right: 0.5rem;
+        color: rgba(255,255,255,0.3);
+      }
+      .featured-card-title {
+        font-family: var(--serif);
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.2;
+        margin-bottom: 0.65rem;
+        transition: color 0.2s;
+      }
+      .featured-card:hover .featured-card-title { color: var(--accent-lt); }
+      .featured-card-excerpt {
+        font-family: var(--sans);
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.68);
+        line-height: 1.7;
+        max-width: 520px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .featured-card-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(255,255,255,0.12);
+      }
+      .featured-card-date { font-family: var(--sans); font-size: 0.68rem; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; }
+      .featured-card-read {
+        font-family: var(--sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent-lt);
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      .featured-card-read svg { transition: transform 0.2s; }
+      .featured-card:hover .featured-card-read svg { transform: translateX(3px); }
+
+      /* ── 2-col posts grid ── */
+      .posts-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+      }
+      .grid-post-card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--rule);
+        background: var(--white);
+        border-radius: 2px;
+        overflow: hidden;
+        transition: box-shadow 0.3s, transform 0.3s;
+        text-decoration: none;
+      }
+      .grid-post-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+      .grid-post-card-img-wrap {
+        overflow: hidden;
+        height: 180px;
+        background: var(--beige);
+        flex-shrink: 0;
+      }
+      .grid-post-card-img-wrap img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s var(--ease);
+      }
+      .grid-post-card:hover .grid-post-card-img-wrap img { transform: scale(1.05); }
+      .grid-post-card-body {
+        padding: 1.2rem 1.35rem 1.4rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .grid-post-card-tag {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.4rem;
+      }
+      .grid-post-card-title {
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.3;
+        margin-bottom: 0.5rem;
+        transition: color 0.2s;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .grid-post-card:hover .grid-post-card-title { color: var(--accent); }
+      .grid-post-card-excerpt {
+        font-family: var(--sans);
+        font-size: 0.82rem;
+        font-weight: 300;
+        color: var(--ink-soft);
+        line-height: 1.65;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        flex: 1;
+      }
+      .grid-post-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--beige);
+      }
+      .grid-post-card-date { font-size: 0.68rem; color: var(--ink-muted); }
+      .grid-post-card-arrow {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        transition: letter-spacing 0.2s;
+      }
+      .grid-post-card:hover .grid-post-card-arrow { letter-spacing: 0.16em; }
+
+      /* ── Explore pills bar ── */
+      .explore-bar {
+        background: var(--white);
+        padding: 1.75rem var(--pad-x);
+        border-bottom: 1px solid var(--rule);
+      }
+      .explore-bar-inner {
+        max-width: var(--max-w);
+        margin-inline: auto;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .explore-bar-label {
+        font-family: var(--sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .explore-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; flex: 1; }
+      .explore-pill {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.45rem 1.1rem;
+        border-radius: 2rem;
+        border: 1px solid var(--rule);
+        color: var(--ink-soft);
+        background: var(--off-white);
+        transition: all 0.2s var(--ease);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .explore-pill:hover {
+        background: var(--accent);
+        color: var(--white);
+        border-color: var(--accent);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(192,129,90,0.22);
+      }
+      .explore-pill-icon { font-size: 0.9rem; }
+
+      /* ── Destination strip showcase ── */
+      .dest-showcase {
+        background: var(--beige);
+        padding: 3.5rem var(--pad-x);
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+      }
+      .dest-showcase-inner { max-width: var(--max-w); margin-inline: auto; }
+      .dest-strip {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.75rem;
+      }
+      .dest-strip-card {
+        position: relative;
+        border-radius: 2px;
+        overflow: hidden;
+        display: block;
+        text-decoration: none;
+        aspect-ratio: 3/4;
+        background: var(--ink);
+      }
+      .dest-strip-card img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        opacity: 0.75;
+        transition: opacity 0.4s, transform 0.6s;
+      }
+      .dest-strip-card:hover img { opacity: 0.6; transform: scale(1.06); }
+      .dest-strip-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(10,8,6,0.82) 0%, rgba(10,8,6,0.1) 60%);
+        pointer-events: none;
+      }
+      .dest-strip-card-label {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        padding: 0.8rem 0.85rem;
+      }
+      .dest-strip-card-country {
+        font-family: var(--sans);
+        font-size: 0.56rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.5);
+        display: block;
+        margin-bottom: 0.2rem;
+      }
+      .dest-strip-card-name {
+        font-family: var(--serif);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.2;
+        transition: color 0.2s;
+        display: block;
+      }
+      .dest-strip-card:hover .dest-strip-card-name { color: var(--accent-lt); }
+
+      /* ── Sidebar variants ── */
+      .widget--about-v2 {
+        background: var(--ink) !important;
+        border-color: var(--ink) !important;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+      .widget--about-v2 .about-photo-wrap {
+        box-shadow: 0 0 0 2px var(--accent);
+        width: 100px;
+        height: 100px;
+      }
+      .widget--about-v2 .about-name { color: var(--white); font-size: 1.1rem; margin-top: 0.25rem; }
+      .widget--about-v2 .about-text p { color: rgba(255,255,255,0.62); font-size: 0.82rem; }
+      .widget--about-v2 .widget-link {
+        display: inline-block;
+        margin-top: 1rem;
+        background: var(--accent);
+        color: var(--white);
+        padding: 0.6rem 1.4rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.16em;
+        border-radius: 1px;
+        transition: background 0.2s;
+      }
+      .widget--about-v2 .widget-link:hover { background: var(--accent-hover); }
+
+      .widget--stats {
+        background: var(--beige) !important;
+        border-color: var(--rule) !important;
+        text-align: center;
+        padding: 1.5rem;
+      }
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        margin-top: 0.75rem;
+      }
+      .stat-item {
+        padding: 0.75rem 0.5rem;
+        border-right: 1px solid var(--rule);
+      }
+      .stat-item:last-child { border-right: none; }
+      .stat-num {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent);
+        line-height: 1;
+        display: block;
+      }
+      .stat-label {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+        margin-top: 0.3rem;
+        display: block;
+      }
+
+      /* ── Pagination line ── */
+      .pagination-wrap {
+        padding-top: 2.5rem;
+        border-top: 1px solid var(--rule);
+        margin-top: 2rem;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 900px) {
+        .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+        .hero-latest { width: 100%; max-width: 380px; }
+        .dest-strip { grid-template-columns: repeat(3, 1fr); }
+        .posts-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 620px) {
+        .hero { min-height: 420px; }
+        .hero-bg-collage { grid-template-columns: 1fr 1fr; }
+        .hero-title { font-size: 2.1rem; }
+        .hero-latest { display: none; }
+        .dest-strip { grid-template-columns: repeat(2, 1fr); }
+        .dest-strip-card:last-child { display: none; }
+        .featured-card-img { height: 240px; }
+        .explore-bar-label { width: 100%; }
+      }
+    </style>
   </head>
   <body>
-    <!-- ─────────────────────────────────────
-       TOP UTILITY BAR
-  ───────────────────────────────────── -->
+
+    <!-- ── TOP BAR ── -->
     <div class="top-bar">
       <div class="top-bar-inner">
         <div class="top-bar-left">
-          <!-- Social icons placeholder -->
           <a href="#" class="tb-icon" aria-label="Instagram">
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-            >
-              <rect x="2" y="2" width="20" height="20" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle
-                cx="17.5"
-                cy="6.5"
-                r="1.2"
-                fill="currentColor"
-                stroke="none"
-              />
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
             </svg>
           </a>
           <a href="#" class="tb-icon" aria-label="Pinterest">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"
-              />
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
             </svg>
           </a>
           <a href="#" class="tb-icon" aria-label="Twitter/X">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-              />
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
           </a>
         </div>
@@ -66,25 +693,16 @@
       </div>
     </div>
 
-    <!-- ─────────────────────────────────────
-       HEADER — Centered Logo
-  ───────────────────────────────────── -->
+    <!-- ── HEADER ── -->
     <header class="site-header" id="siteHeader">
       <div class="header-inner">
-        <!-- Mobile hamburger (left) -->
         <button class="burger" id="burger" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
-
-        <!-- Centered logo -->
         <div class="logo-wrap">
           <a href="index.html" class="logo">
             <span class="logo-icon" aria-hidden="true">
-              <img
-                src="assets/logo.png"
-                alt="AdiRaj monogram"
-                class="logo-img"
-              />
+              <img src="assets/logo.png" alt="AdiRaj monogram" class="logo-img" />
             </span>
             <span class="logo-text-wrap">
               <span class="logo-text">
@@ -94,27 +712,15 @@
             </span>
           </a>
         </div>
-
-        <!-- Header right actions -->
         <div class="header-actions">
           <button class="search-toggle" id="searchToggle" aria-label="Search">
-            <svg
-              width="17"
-              height="17"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            >
-              <circle cx="11" cy="11" r="7" />
-              <line x1="16.5" y1="16.5" x2="22" y2="22" />
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="11" cy="11" r="7"/>
+              <line x1="16.5" y1="16.5" x2="22" y2="22"/>
             </svg>
           </button>
         </div>
       </div>
-
-      <!-- ─── Category Navigation ─── -->
       <nav class="cat-nav" id="catNav">
         <div class="cat-nav-inner">
           <a href="index.html" class="cat-nav-link active">All Posts</a>
@@ -127,33 +733,19 @@
       </nav>
     </header>
 
-    <!-- Search bar (hidden by default) -->
+    <!-- Search bar -->
     <div class="search-bar" id="searchBar">
       <div class="search-bar-inner">
-        <svg
-          width="17"
-          height="17"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-        >
-          <circle cx="11" cy="11" r="7" />
-          <line x1="16.5" y1="16.5" x2="22" y2="22" />
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="16.5" y1="16.5" x2="22" y2="22"/>
         </svg>
-        <input
-          type="search"
-          placeholder="Search posts, destinations, topics…"
-          id="searchInput"
-        />
-        <button class="search-close" id="searchClose" aria-label="Close search">
-          ✕
-        </button>
+        <input type="search" placeholder="Search posts, destinations, topics…" id="searchInput" />
+        <button class="search-close" id="searchClose" aria-label="Close search">✕</button>
       </div>
     </div>
 
-    <!-- Mobile menu overlay -->
+    <!-- Mobile menu -->
     <div class="mob-menu" id="mobMenu">
       <button class="mob-close" id="mobClose" aria-label="Close">✕</button>
       <nav class="mob-nav">
@@ -169,214 +761,193 @@
       </nav>
     </div>
 
-    <!-- ─────────────────────────────────────
-       MAIN CONTENT WRAPPER
-       Left: post list  |  Right: sidebar
-  ───────────────────────────────────── -->
+    <!-- ══════════════════════════════════════
+         HERO
+    ══════════════════════════════════════ -->
+    <section class="hero">
+      <div class="hero-bg-collage" aria-hidden="true">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="hero-eyebrow">Travel · Lifestyle · Reflections</span>
+          <h1 class="hero-title">
+            Every journey<br>leaves a <em>mark.</em>
+          </h1>
+          <p class="hero-desc">
+            We're Aditi &amp; Rajesh — documenting slow travel, honest experiences,
+            and the meaning we carry forward. From Asia to Africa, and everywhere in between.
+          </p>
+          <div class="hero-cta-row">
+            <a href="./travel.html" class="hero-btn hero-btn--primary">Explore Destinations</a>
+            <a href="./about.html" class="hero-btn hero-btn--ghost">Our Story</a>
+          </div>
+        </div>
+        <div class="hero-latest">
+          <p class="hero-latest-label">Latest Post</p>
+          <a href="./taiwan.html" class="hero-latest-card">
+            <img src="assets/taiwan.JPG" alt="Taiwan" loading="eager" />
+            <div class="hero-latest-card-body">
+              <span class="hero-latest-card-tag">Travel · Asia</span>
+              <span class="hero-latest-card-title">Taiwan | December 2025</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticker -->
+    <div class="hero-ticker" aria-hidden="true">
+      <div class="hero-ticker-track">
+        <span>Taiwan</span><span class="hero-ticker-sep">✦</span>
+        <span>Thailand</span><span class="hero-ticker-sep">✦</span>
+        <span>Japan</span><span class="hero-ticker-sep">✦</span>
+        <span>Kenya</span><span class="hero-ticker-sep">✦</span>
+        <span>Maldives</span><span class="hero-ticker-sep">✦</span>
+        <span>Slow Travel</span><span class="hero-ticker-sep">✦</span>
+        <span>Hidden Gems</span><span class="hero-ticker-sep">✦</span>
+        <span>Routes &amp; Reflections</span><span class="hero-ticker-sep">✦</span>
+        <span>Taiwan</span><span class="hero-ticker-sep">✦</span>
+        <span>Thailand</span><span class="hero-ticker-sep">✦</span>
+        <span>Japan</span><span class="hero-ticker-sep">✦</span>
+        <span>Kenya</span><span class="hero-ticker-sep">✦</span>
+        <span>Maldives</span><span class="hero-ticker-sep">✦</span>
+        <span>Slow Travel</span><span class="hero-ticker-sep">✦</span>
+        <span>Hidden Gems</span><span class="hero-ticker-sep">✦</span>
+        <span>Routes &amp; Reflections</span><span class="hero-ticker-sep">✦</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         EXPLORE THEMES BAR
+    ══════════════════════════════════════ -->
+    <div class="explore-bar">
+      <div class="explore-bar-inner">
+        <span class="explore-bar-label">Explore by</span>
+        <div class="explore-pills">
+          <a href="./travel.html" class="explore-pill"><span class="explore-pill-icon">🧭</span> Offbeat Places</a>
+          <a href="./travel.html" class="explore-pill"><span class="explore-pill-icon">🌿</span> Slow Travel</a>
+          <a href="./travel.html" class="explore-pill"><span class="explore-pill-icon">🚗</span> Weekend Getaways</a>
+          <a href="./travel.html" class="explore-pill"><span class="explore-pill-icon">💎</span> Hidden Gems</a>
+          <a href="./lifestyle.html" class="explore-pill"><span class="explore-pill-icon">✨</span> Lifestyle</a>
+          <a href="./studio.html" class="explore-pill"><span class="explore-pill-icon">🎨</span> Studio</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         MAIN CONTENT + SIDEBAR
+    ══════════════════════════════════════ -->
     <div class="page-wrap">
       <main class="post-list" id="postList">
-        <!-- ═══════════════════════════════
-           POST CARD — duplicate this block for each post
-           Replace: image src, category, date, tags, title, excerpt
-      ═══════════════════════════════ -->
 
-        <article class="post-card js-reveal">
-          <a href="./taiwan.html" class="post-card-img-link">
-            <img
-              src="assets\taiwan.JPG"
-              alt="Taiwan countryside"
-              class="post-card-img"
-              loading="eager"
-            />
-          </a>
-          <div class="post-card-body">
-            <div class="post-card-tags">
-              <a href="#" class="post-tag">Travel</a>
-              <a href="#" class="post-tag">Asia</a>
-            </div>
-            <h2 class="post-card-title">
-              <a href="./taiwan.html">Taiwan | December 2025</a>
-            </h2>
-            <p class="post-card-date">
-              <strong>Last Updated:</strong> January 1, 2026
-            </p>
-            <p class="post-card-excerpt">
-              Taiwan unfolded gently for us—through local streets, night
-              markets, and unplanned detours. It’s the kind of place where
-              slowing down makes everything richer. The charm wasn’t obvious at
-              first, but it grew on us with time.
-            </p>
-            <a href="./taiwan.html" class="post-card-more"
-              >Continue Reading →</a
-            >
-            <div class="post-card-meta">
-              <span>Filed Under: <a href="#">Travel</a></span>
-              &nbsp;&nbsp;
-              <span
-                >Tagged With: <a href="#">Quiet Escapes</a>,
-                <a href="#">Hidden Gems</a></span
-              >
+        <!-- Featured Post -->
+        <div class="js-reveal">
+          <div class="section-header">
+            <div>
+              <span class="section-kicker">Featured</span>
+              <h2 class="section-title">Latest <em>Journey</em></h2>
             </div>
           </div>
-        </article>
-
-        <article class="post-card js-reveal">
-          <a href="./thailand.html" class="post-card-img-link">
-            <img
-              src="assets\thailand.JPG"
-              alt="Thailand Offbeat"
-              class="post-card-img"
-              loading="eager"
-            />
+          <a href="./taiwan.html" class="featured-card">
+            <img src="assets/taiwan.JPG" alt="Taiwan countryside" class="featured-card-img" loading="eager" />
+            <div class="featured-card-overlay"></div>
+            <span class="featured-card-badge">New</span>
+            <div class="featured-card-body">
+              <div class="featured-card-tags">
+                <span class="featured-card-tag">Travel</span>
+                <span class="featured-card-tag">Asia</span>
+                <span class="featured-card-tag">Hidden Gems</span>
+              </div>
+              <h2 class="featured-card-title">Taiwan | December 2025</h2>
+              <p class="featured-card-excerpt">
+                Taiwan unfolded gently for us — through local streets, night markets, and unplanned detours.
+                It's the kind of place where slowing down makes everything richer.
+              </p>
+              <div class="featured-card-meta">
+                <span class="featured-card-date">Last Updated: January 1, 2026</span>
+                <span class="featured-card-read">
+                  Continue Reading
+                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                    <path d="M3 8h10M9 4l4 4-4 4"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
           </a>
-          <div class="post-card-body">
-            <div class="post-card-tags">
-              <a href="#" class="post-tag">Travel</a>
-              <a href="#" class="post-tag">Asia</a>
-            </div>
-            <h2 class="post-card-title">
-              <a href="./thailand.html">Thailand | December 2025</a>
-            </h2>
-            <p class="post-card-date">
-              <strong>Last Updated:</strong> January 1, 2026
-            </p>
-            <p class="post-card-excerpt">
-              Thailand was more than its popular spots—we leaned into slower
-              days, local corners, and places slightly off the map. Between
-              islands and inland escapes, we found a rhythm that felt easy and
-              real.
-            </p>
-            <a href="./thailand.html" class="post-card-more"
-              >Continue Reading →</a
-            >
-            <div class="post-card-meta">
-              <span>Filed Under: <a href="#">Travel</a></span>
-              &nbsp;&nbsp;
-              <span
-                >Tagged With: <a href="#">Offbeat</a>,
-                <a href="#">Island Life</a></span
-              >
-            </div>
-          </div>
-        </article>
+        </div>
 
-        <article class="post-card js-reveal">
-          <a href="./japan.html" class="post-card-img-link">
-            <img
-              src="assets\japan.JPG"
-              alt="Japan Countryside"
-              class="post-card-img"
-              loading="eager"
-            />
-          </a>
-          <div class="post-card-body">
-            <div class="post-card-tags">
-              <a href="#" class="post-tag">Travel</a>
-              <a href="#" class="post-tag">Asia</a>
+        <!-- Recent Posts Grid -->
+        <div class="js-reveal" style="margin-top: 2.5rem;">
+          <div class="section-header">
+            <div>
+              <span class="section-kicker">Recent</span>
+              <h2 class="section-title">More <em>from the road</em></h2>
             </div>
-            <h2 class="post-card-title">
-              <a href="./japan.html">Japan | October 2024</a>
-            </h2>
-            <p class="post-card-date">
-              <strong>Last Updated:</strong> October 5, 2024
-            </p>
-            <p class="post-card-excerpt">
-              Japan felt like a journey through layers—beyond the cities, it was
-              the countryside that stayed with us the most. Quiet towns, scenic
-              train rides, and unhurried moments gave us a deeper sense of the
-              place.
-            </p>
-            <a href="./japan.html" class="post-card-more">Continue Reading →</a>
-            <div class="post-card-meta">
-              <span>Filed Under: <a href="#">Travel</a></span>
-              &nbsp;&nbsp;
-              <span
-                >Tagged With: <a href="#">Countryside</a>,
-                <a href="#">Culture</a></span
-              >
-            </div>
+            <a href="./travel.html" class="section-more">All posts →</a>
           </div>
-        </article>
-
-        <article class="post-card js-reveal">
-          <a href="./kenya.html" class="post-card-img-link">
-            <img
-              src="assets\kenya.JPG"
-              alt="Kenya Masaai Mara"
-              class="post-card-img"
-              loading="eager"
-            />
-          </a>
-          <div class="post-card-body">
-            <div class="post-card-tags">
-              <a href="#" class="post-tag">Travel</a>
-              <a href="#" class="post-tag">Africa</a>
-            </div>
-            <h2 class="post-card-title">
-              <a href="./kenya.html">Kenya | August 2023</a>
-            </h2>
-            <p class="post-card-date">
-              <strong>Last Updated:</strong> August 20, 2023
-            </p>
-            <p class="post-card-excerpt">
-              Masai Mara felt like stepping into a world we had only seen in
-              documentaries—wide open skies, quiet mornings, and wildlife just…
-              there, living its life. Some moments were thrilling, some
-              unexpectedly calm, but all of them stayed with us.
-            </p>
-            <a href="./kenya.html" class="post-card-more">Continue Reading →</a>
-            <div class="post-card-meta">
-              <span>Filed Under: <a href="#">Travel</a></span>
-              &nbsp;&nbsp;
-              <span
-                >Tagged With: <a href="#">Safari</a>,
-                <a href="#">Wildlife</a></span
-              >
-            </div>
+          <div class="posts-grid">
+            <a href="./thailand.html" class="grid-post-card">
+              <div class="grid-post-card-img-wrap">
+                <img src="assets/thailand.JPG" alt="Thailand" loading="eager" />
+              </div>
+              <div class="grid-post-card-body">
+                <span class="grid-post-card-tag">Travel · Asia</span>
+                <h3 class="grid-post-card-title">Thailand | December 2025</h3>
+                <p class="grid-post-card-excerpt">Thailand was more than its popular spots — we leaned into slower days, local corners, and places slightly off the map.</p>
+                <div class="grid-post-card-footer">
+                  <span class="grid-post-card-date">Jan 1, 2026</span>
+                  <span class="grid-post-card-arrow">Read →</span>
+                </div>
+              </div>
+            </a>
+            <a href="./japan.html" class="grid-post-card">
+              <div class="grid-post-card-img-wrap">
+                <img src="assets/japan.JPG" alt="Japan" loading="eager" />
+              </div>
+              <div class="grid-post-card-body">
+                <span class="grid-post-card-tag">Travel · Asia</span>
+                <h3 class="grid-post-card-title">Japan | October 2024</h3>
+                <p class="grid-post-card-excerpt">Beyond the cities, it was the countryside that stayed with us. Quiet towns, scenic train rides, and unhurried moments.</p>
+                <div class="grid-post-card-footer">
+                  <span class="grid-post-card-date">Oct 5, 2024</span>
+                  <span class="grid-post-card-arrow">Read →</span>
+                </div>
+              </div>
+            </a>
+            <a href="./kenya.html" class="grid-post-card">
+              <div class="grid-post-card-img-wrap">
+                <img src="assets/kenya.JPG" alt="Kenya Masai Mara" loading="eager" />
+              </div>
+              <div class="grid-post-card-body">
+                <span class="grid-post-card-tag">Travel · Africa</span>
+                <h3 class="grid-post-card-title">Kenya | August 2023</h3>
+                <p class="grid-post-card-excerpt">Masai Mara felt like stepping into a world we'd only seen in documentaries — wide open skies, quiet mornings, and wildlife just there.</p>
+                <div class="grid-post-card-footer">
+                  <span class="grid-post-card-date">Aug 20, 2023</span>
+                  <span class="grid-post-card-arrow">Read →</span>
+                </div>
+              </div>
+            </a>
+            <a href="./maldives.html" class="grid-post-card">
+              <div class="grid-post-card-img-wrap">
+                <img src="assets/maldives.jpg" alt="Maldives" loading="eager" />
+              </div>
+              <div class="grid-post-card-body">
+                <span class="grid-post-card-tag">Travel · Asia</span>
+                <h3 class="grid-post-card-title">Maldives | March 2023</h3>
+                <p class="grid-post-card-excerpt">Maldives gave us the rare chance to pause completely — away from movement and plans, we embraced stillness and simplicity.</p>
+                <div class="grid-post-card-footer">
+                  <span class="grid-post-card-date">Mar 31, 2023</span>
+                  <span class="grid-post-card-arrow">Read →</span>
+                </div>
+              </div>
+            </a>
           </div>
-        </article>
+        </div>
 
-        <article class="post-card js-reveal">
-          <a href="./maldives.html" class="post-card-img-link">
-            <img
-              src="assets\maldives.jpg"
-              alt="Maldives Resort"
-              class="post-card-img"
-              loading="eager"
-            />
-          </a>
-          <div class="post-card-body">
-            <div class="post-card-tags">
-              <a href="#" class="post-tag">Travel</a>
-              <a href="#" class="post-tag">Asia</a>
-            </div>
-            <h2 class="post-card-title">
-              <a href="./maldives.html">Maldives | March 2023</a>
-            </h2>
-            <p class="post-card-date">
-              <strong>Last Updated:</strong> March 31, 2023
-            </p>
-            <p class="post-card-excerpt">
-              Maldives gave us the rare chance to pause completely. Away from
-              movement and plans, we embraced stillness, simplicity, and long
-              quiet days. It felt like a reset in the middle of everything else.
-            </p>
-            <a href="./maldives.html" class="post-card-more"
-              >Continue Reading →</a
-            >
-            <div class="post-card-meta">
-              <span>Filed Under: <a href="#">Travel</a></span>
-              &nbsp;&nbsp;
-              <span
-                >Tagged With: <a href="#">Island Life</a>,
-                <a href="#">Luxury</a></span
-              >
-            </div>
-          </div>
-        </article>
-
-        <!-- ─── Pagination ─── -->
-        <nav class="pagination">
+        <!-- Pagination -->
+        <nav class="pagination pagination-wrap" aria-label="Pagination">
           <span class="page-current">1</span>
           <a href="#" class="page-link">2</a>
           <a href="#" class="page-link">3</a>
@@ -384,212 +955,170 @@
           <a href="#" class="page-link page-next">Next →</a>
         </nav>
 
-        <section class="featured-destinations">
-          <h2>Featured Destinations</h2>
-          <div class="dest-grid">
-            <a href="japan.html">
-              <img src="assets\japan.JPG" alt="Japan" />
-              <span>Japan</span>
-            </a>
-            <a href="taiwan.html">
-              <img src="assets\taiwan.JPG" alt="Taiwan" />
-              <span>Taiwan</span>
-            </a>
-            <a href="kenya.html">
-              <img src="assets\kenya.JPG" alt="Kenya" />
-              <span>Kenya</span>
-            </a>
-          </div>
-        </section>
-
-        <section class="explore-more">
-          <h2>Explore More</h2>
-          <div class="explore-links">
-            <a href="offbeat.html">Offbeat Places 🧭</a>
-            <a href="slow-travel.html">Slow Travel 🌿</a>
-            <a href="weekend.html">Weekend Getaways 🚗</a>
-            <a href="hidden-gems.html">Hidden Gems 💎</a>
-          </div>
-        </section>
       </main>
 
-      <!-- ─────────────────────────────────────
-         SIDEBAR
-    ───────────────────────────────────── -->
+      <!-- ── SIDEBAR ── -->
       <aside class="sidebar">
-        <!-- About Widget -->
-        <div class="widget widget--about">
+
+        <div class="widget widget--about widget--about-v2">
           <div class="about-photo-wrap">
-            <img
-              src="assets\profilephoto.JPG"
-              alt="Rajesh and Aditi"
-              class="about-photo"
-              loading="eager"
-            />
+            <img src="assets/profilephoto.JPG" alt="Aditi and Rajesh" class="about-photo" loading="eager" />
           </div>
           <div class="about-text">
-            <h3 class="about-name">Hi, We’re AdiRaj!</h3>
-            <p>
-              Navigating life through travel, ideas, & curiosity. This is our
-              space to document what we see, feel & learn along the way.
-              <br />
-              Routes & Reflections capture the journeys we take and the meaning
-              we carry forward.
-            </p>
-            <a href="./about.html" class="widget-link">More About Us →</a>
+            <h3 class="about-name">Hi, We're AdiRaj!</h3>
+            <p>Navigating life through travel, ideas &amp; curiosity. Documenting what we see, feel &amp; learn along the way.</p>
+            <a href="./about.html" class="widget-link">More About Us</a>
           </div>
         </div>
 
-        <!-- Newsletter Widget -->
+        <div class="widget widget--stats">
+          <h4 class="widget-title">Our Journey So Far</h4>
+          <div class="stats-row">
+            <div class="stat-item">
+              <span class="stat-num">6</span>
+              <span class="stat-label">Countries</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">3</span>
+              <span class="stat-label">Continents</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">5+</span>
+              <span class="stat-label">Years</span>
+            </div>
+          </div>
+        </div>
+
         <div class="widget widget--newsletter" id="newsletter">
           <h4 class="widget-title">Never Miss a Post</h4>
-          <p class="widget-text">
-            Get new posts delivered straight to your inbox.
-          </p>
-          <input
-            type="email"
-            placeholder="Your email address"
-            class="widget-email-input"
-          />
-          <button class="widget-subscribe-btn" id="sidebarSubBtn">
-            Subscribe
-          </button>
+          <p class="widget-text">Get new posts delivered straight to your inbox.</p>
+          <input type="email" placeholder="Your email address" class="widget-email-input" />
+          <button class="widget-subscribe-btn" id="sidebarSubBtn">Subscribe</button>
           <p class="widget-fine">No spam. Unsubscribe anytime.</p>
         </div>
 
-        <!-- Popular Posts Widget -->
         <div class="widget">
           <h4 class="widget-title">Popular Posts</h4>
           <ul class="popular-posts">
             <li class="pop-post">
-              <a href=".\popularpost1.html" class="pop-post-img-link">
-                <img
-                  src="assets\popularpost1.JPG"
-                  alt="Popular post"
-                  loading="eager"
-                />
+              <a href="./popularpost1.html" class="pop-post-img-link">
+                <img src="assets/popularpost1.JPG" alt="Popular post" loading="eager" />
               </a>
               <div class="pop-post-text">
-                <a href="popularpost1.html"
-                  >Exploring the world slowly, and reflecting on what truly
-                  stays</a
-                >
+                <a href="./popularpost1.html">Exploring the world slowly, and reflecting on what truly stays</a>
                 <span class="pop-post-date">Jan 2025</span>
               </div>
             </li>
             <li class="pop-post">
-              <a href=".\popularpost2.html" class="pop-post-img-link">
-                <img
-                  src="assets\popularpost2.JPG"
-                  alt="Popular post"
-                  loading="eager"
-                />
+              <a href="./popularpost2.html" class="pop-post-img-link">
+                <img src="assets/popularpost2.JPG" alt="Popular post" loading="eager" />
               </a>
               <div class="pop-post-text">
-                <a href=".\popularpost2.html"
-                  >Beyond cities—into quieter paths, local lives, and hidden
-                  corners</a
-                >
+                <a href="./popularpost2.html">Beyond cities — into quieter paths, local lives, and hidden corners</a>
                 <span class="pop-post-date">Feb 2025</span>
               </div>
             </li>
             <li class="pop-post">
-              <a href=".\popularpost3.html" class="pop-post-img-link">
-                <img
-                  src="assets\popularpost3.JPG"
-                  alt="Popular post"
-                  loading="eager"
-                />
+              <a href="./popularpost3.html" class="pop-post-img-link">
+                <img src="assets/popularpost3.JPG" alt="Popular post" loading="eager" />
               </a>
               <div class="pop-post-text">
-                <a href=".\popularpost3.html"
-                  >A journey through places, ideas, and the life we’re building
-                  along the way</a
-                >
+                <a href="./popularpost3.html">A journey through places, ideas, and the life we're building</a>
                 <span class="pop-post-date">Mar 2025</span>
               </div>
             </li>
             <li class="pop-post">
-              <a href=".\popularpost4.html" class="pop-post-img-link">
-                <img
-                  src="assets\popularpost4.JPG"
-                  alt="Popular post"
-                  loading="eager"
-                />
+              <a href="./popularpost4.html" class="pop-post-img-link">
+                <img src="assets/popularpost4.JPG" alt="Popular post" loading="eager" />
               </a>
               <div class="pop-post-text">
-                <a href=".\popularpost4.html"
-                  >Every journey has a story—this is where we tell ours</a
-                >
+                <a href="./popularpost4.html">Every journey has a story — this is where we tell ours</a>
                 <span class="pop-post-date">Apr 2025</span>
               </div>
             </li>
           </ul>
         </div>
 
-        <!-- Instagram / Social Widget -->
         <div class="widget">
           <h4 class="widget-title">Follow Along</h4>
           <div class="insta-grid">
-            <!-- Replace src with your actual Instagram images or remove this widget -->
-            <a href="#" class="insta-cell"
-              ><img
-                src="assets\followalong1.JPG"
-                alt="Instagram photo"
-                loading="eager"
-            /></a>
-            <a href="#" class="insta-cell"
-              ><img
-                src="assets\followalong2.JPG"
-                alt="Instagram photo"
-                loading="eager"
-            /></a>
-            <a href="#" class="insta-cell"
-              ><img
-                src="assets\followalong3.JPG"
-                alt="Instagram photo"
-                loading="eager"
-            /></a>
-            <a href="#" class="insta-cell"
-              ><img
-                src="assets\followalong4.JPG"
-                alt="Instagram photo"
-                loading="eager"
-            /></a>
-            <a href="#" class="insta-cell"
-              ><img
-                src="assets\followalong5.JPG"
-                alt="Instagram photo"
-                loading="eager"
-            /></a>
-            <a href="#" class="insta-cell"
-              ><img
-                src="assets\followalong6.JPG"
-                alt="Instagram photo"
-                loading="eager"
-            /></a>
+            <a href="#" class="insta-cell"><img src="assets/followalong1.JPG" alt="Instagram" loading="eager" /></a>
+            <a href="#" class="insta-cell"><img src="assets/followalong2.JPG" alt="Instagram" loading="eager" /></a>
+            <a href="#" class="insta-cell"><img src="assets/followalong3.JPG" alt="Instagram" loading="eager" /></a>
+            <a href="#" class="insta-cell"><img src="assets/followalong4.JPG" alt="Instagram" loading="eager" /></a>
+            <a href="#" class="insta-cell"><img src="assets/followalong5.JPG" alt="Instagram" loading="eager" /></a>
+            <a href="#" class="insta-cell"><img src="assets/followalong6.JPG" alt="Instagram" loading="eager" /></a>
           </div>
-          <a href="#" class="widget-link widget-link--center"
-            >Follow on Instagram →</a
-          >
+          <a href="#" class="widget-link widget-link--center">Follow on Instagram →</a>
         </div>
-      </aside>
-    </div>
-    <!-- /.page-wrap -->
 
-    <!-- ─────────────────────────────────────
-       FOOTER
-  ───────────────────────────────────── -->
+      </aside>
+    </div><!-- /.page-wrap -->
+
+    <!-- ══════════════════════════════════════
+         DESTINATIONS SHOWCASE
+    ══════════════════════════════════════ -->
+    <div class="dest-showcase">
+      <div class="dest-showcase-inner">
+        <div class="section-header" style="margin-bottom:1.5rem;">
+          <div>
+            <span class="section-kicker">Destinations</span>
+            <h2 class="section-title">Places we've <em>called home</em></h2>
+          </div>
+          <a href="./travel.html" class="section-more">View all →</a>
+        </div>
+        <div class="dest-strip">
+          <a href="./japan.html" class="dest-strip-card">
+            <img src="assets/japan.JPG" alt="Japan" loading="lazy" />
+            <div class="dest-strip-card-overlay"></div>
+            <div class="dest-strip-card-label">
+              <span class="dest-strip-card-country">Asia</span>
+              <span class="dest-strip-card-name">Japan</span>
+            </div>
+          </a>
+          <a href="./taiwan.html" class="dest-strip-card">
+            <img src="assets/taiwan.JPG" alt="Taiwan" loading="lazy" />
+            <div class="dest-strip-card-overlay"></div>
+            <div class="dest-strip-card-label">
+              <span class="dest-strip-card-country">Asia</span>
+              <span class="dest-strip-card-name">Taiwan</span>
+            </div>
+          </a>
+          <a href="./thailand.html" class="dest-strip-card">
+            <img src="assets/thailand.JPG" alt="Thailand" loading="lazy" />
+            <div class="dest-strip-card-overlay"></div>
+            <div class="dest-strip-card-label">
+              <span class="dest-strip-card-country">Asia</span>
+              <span class="dest-strip-card-name">Thailand</span>
+            </div>
+          </a>
+          <a href="./kenya.html" class="dest-strip-card">
+            <img src="assets/kenya.JPG" alt="Kenya" loading="lazy" />
+            <div class="dest-strip-card-overlay"></div>
+            <div class="dest-strip-card-label">
+              <span class="dest-strip-card-country">Africa</span>
+              <span class="dest-strip-card-name">Kenya</span>
+            </div>
+          </a>
+          <a href="./maldives.html" class="dest-strip-card">
+            <img src="assets/maldives.jpg" alt="Maldives" loading="lazy" />
+            <div class="dest-strip-card-overlay"></div>
+            <div class="dest-strip-card-label">
+              <span class="dest-strip-card-country">Asia</span>
+              <span class="dest-strip-card-name">Maldives</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FOOTER ── -->
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-logo-wrap">
           <a href="index.html" class="logo footer-logo">
             <span class="logo-icon" aria-hidden="true">
-              <img
-                src="assets/logo.png"
-                alt="AdiRaj monogram"
-                class="logo-img"
-              />
+              <img src="assets/logo.png" alt="AdiRaj monogram" class="logo-img" />
             </span>
             <span class="logo-text-wrap">
               <span class="logo-text">
@@ -599,7 +1128,6 @@
             </span>
           </a>
         </div>
-
         <nav class="footer-nav">
           <a href="./index.html">Home</a>
           <a href="./about.html">About</a>
@@ -607,58 +1135,32 @@
           <a href="./contact.html">Contact</a>
           <a href="#">Privacy Policy</a>
         </nav>
-
         <div class="footer-social">
           <a href="#" aria-label="Instagram">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-            >
-              <rect x="2" y="2" width="20" height="20" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle
-                cx="17.5"
-                cy="6.5"
-                r="1.2"
-                fill="currentColor"
-                stroke="none"
-              />
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
             </svg>
           </a>
           <a href="#" aria-label="Pinterest">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"
-              />
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
             </svg>
           </a>
           <a href="#" aria-label="Twitter/X">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-              />
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
           </a>
         </div>
-
-        <p class="footer-copy">© 2026 AdiRaj · All rights reserved</p>
+        <p class="footer-copy">© 2026 AdiRaj · Made with ♥</p>
       </div>
     </footer>
 
-    <!-- Back to top -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path
-          d="M8 13V3M3 8l5-5 5 5"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+        <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
 

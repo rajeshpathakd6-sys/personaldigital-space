@@ -6,7 +6,7 @@
     <title>Lifestyle— AdiRaj</title>
     <meta
       name="description"
-      content="Thoughts on creativity, productivity, motivation, and the art of living deliberately."
+      content="Thoughts on creativity, Growth, Wellness, and the art of living deliberately."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -168,7 +168,7 @@
       .ls-featured-img-wrap {
         overflow: hidden;
         position: relative;
-        min-height: 420px;
+        min-height: 320px;
       }
       @media (max-width: 760px) {
         .ls-featured-img-wrap {
@@ -177,7 +177,7 @@
       }
       .ls-featured-img-wrap img {
         width: 100%;
-        height: 100%;
+        height: auto;
         object-fit: cover;
         transition: transform 0.7s var(--ease);
       }
@@ -830,7 +830,6 @@
          HERO
     ════════════════════════════════════════ -->
     <section class="ls-hero">
-      <p class="ls-hero-eyebrow">Lifestyle</p>
       <h1 class="ls-hero-title">Living with<br /><em>intention</em></h1>
       <p class="ls-hero-tagline">
         Honest notes on creativity, focus, and the quiet decisions that shape a
@@ -843,16 +842,11 @@
       <div class="ls-filter-inner">
         <button class="ls-filter-btn active" data-cat="all">All</button>
         <button class="ls-filter-btn" data-cat="creativity">Creativity</button>
-        <button class="ls-filter-btn" data-cat="productivity">
-          Productivity
-        </button>
-        <button class="ls-filter-btn" data-cat="motivation">Motivation</button>
-        <button class="ls-filter-btn" data-cat="life-lessons">
-          Life Lessons
-        </button>
-        <button class="ls-filter-btn" data-cat="decision-making">
-          Decision Making
-        </button>
+        <button class="ls-filter-btn" data-cat="Growth">Growth</button>
+        <button class="ls-filter-btn" data-cat="motivation">Wellness</button>
+        <button class="ls-filter-btn" data-cat="life">Life</button>
+        <button class="ls-filter-btn" data-cat="culinary">Culinary</button>
+
         <button class="ls-filter-btn" data-cat="self-improvement">
           Self-Improvement
         </button>
@@ -866,23 +860,20 @@
       <p class="ls-featured-label">Featured Essay</p>
       <div class="ls-featured-card">
         <div class="ls-featured-img-wrap">
-          <div
-            class="ph-warm"
-            style="width: 100%; height: 100%; position: absolute; inset: 0"
-          ></div>
-          <!-- Replace with actual image: <img src="assets/lifestyle-featured.jpg" alt="…"/> -->
+          <img src="assets/lifestyle/vipassana.jpg" alt="Vipassana" />
         </div>
         <div class="ls-featured-body">
           <p class="ls-featured-cat">Self-Improvement</p>
           <h2 class="ls-featured-title">
-            <a href="#">The Quiet Art of Doing Less, Better</a>
+            <a href="#"
+              >Equanimity in Practice: Silence, Sensation and Awareness</a
+            >
           </h2>
           <p class="ls-featured-excerpt">
-            Somewhere between our first to-do list and our tenth productivity
-            app, most of us lost the thread. We optimised for output and called
-            it growth. But a different question has been following me: what if
-            the most important work isn't about adding more, but about removing
-            what was never really ours?
+            What felt like doing nothing at first slowly revealed itself as
+            something far more demanding. To sit, to notice, to not react —
+            again and again — is its own kind of work. Beneath the restlessness
+            and discomfort, a quiet discipline began to take shape.
           </p>
           <div class="ls-featured-meta">
             <span>March 18, 2026</span>
@@ -924,10 +915,10 @@
             <p class="ls-cat-count">12 essays</p>
           </a>
 
-          <a href="#" class="ls-cat-cell js-reveal" data-cat="productivity">
+          <a href="#" class="ls-cat-cell js-reveal" data-cat="Growth">
             <span class="ls-cat-num">02</span>
             <span class="ls-cat-icon">◎</span>
-            <p class="ls-cat-name">Productivity</p>
+            <p class="ls-cat-name">Growth</p>
             <p class="ls-cat-desc">
               Not hustle culture. Systems that respect your attention and
               protect your time.
@@ -946,20 +937,20 @@
             <p class="ls-cat-count">7 essays</p>
           </a>
 
-          <a href="#" class="ls-cat-cell js-reveal" data-cat="life-lessons">
+          <a href="#" class="ls-cat-cell js-reveal" data-cat="life">
             <span class="ls-cat-num">04</span>
             <span class="ls-cat-icon">◇</span>
-            <p class="ls-cat-name">Life Lessons</p>
+            <p class="ls-cat-name">Life</p>
             <p class="ls-cat-desc">
               Patterns noticed slowly, ideas that only clarify in retrospect.
             </p>
             <p class="ls-cat-count">15 essays</p>
           </a>
 
-          <a href="#" class="ls-cat-cell js-reveal" data-cat="decision-making">
+          <a href="#" class="ls-cat-cell js-reveal" data-cat="culinary">
             <span class="ls-cat-num">05</span>
             <span class="ls-cat-icon">⊕</span>
-            <p class="ls-cat-name">Decision Making</p>
+            <p class="ls-cat-name">Culinary</p>
             <p class="ls-cat-desc">
               Frameworks and instincts for choices that actually matter — big
               and small.
@@ -1018,16 +1009,16 @@
         </article>
 
         <!-- Card 2 -->
-        <article class="ls-card js-reveal" data-cat="decision-making">
+        <article class="ls-card js-reveal" data-cat="culinary">
           <div class="ls-card-img-wrap">
             <div
               class="ph-dusk"
               style="width: 100%; height: 100%; position: absolute; inset: 0"
             ></div>
-            <span class="ls-card-cat-badge">Decision Making</span>
+            <span class="ls-card-cat-badge">Culinary</span>
           </div>
           <div class="ls-card-body">
-            <p class="ls-card-cat">Decision Making</p>
+            <p class="ls-card-cat">Culinary</p>
             <h3 class="ls-card-title">
               <a href="#">The 10-10-10 Rule, Revisited</a>
             </h3>
@@ -1043,16 +1034,16 @@
         </article>
 
         <!-- Card 3 -->
-        <article class="ls-card js-reveal" data-cat="productivity">
+        <article class="ls-card js-reveal" data-cat="Growth">
           <div class="ls-card-img-wrap">
             <div
               class="ph-amber"
               style="width: 100%; height: 100%; position: absolute; inset: 0"
             ></div>
-            <span class="ls-card-cat-badge">Productivity</span>
+            <span class="ls-card-cat-badge">Growth</span>
           </div>
           <div class="ls-card-body">
-            <p class="ls-card-cat">Productivity</p>
+            <p class="ls-card-cat">Growth</p>
             <h3 class="ls-card-title">
               <a href="#">Single-Tasking as a Radical Act</a>
             </h3>
@@ -1068,16 +1059,16 @@
         </article>
 
         <!-- Card 4 -->
-        <article class="ls-card js-reveal" data-cat="life-lessons">
+        <article class="ls-card js-reveal" data-cat="life">
           <div class="ls-card-img-wrap">
             <div
               class="ph-clay"
               style="width: 100%; height: 100%; position: absolute; inset: 0"
             ></div>
-            <span class="ls-card-cat-badge">Life Lessons</span>
+            <span class="ls-card-cat-badge">Life</span>
           </div>
           <div class="ls-card-body">
-            <p class="ls-card-cat">Life Lessons</p>
+            <p class="ls-card-cat">Life</p>
             <h3 class="ls-card-title">
               <a href="#">What Travel Taught Me About Staying Home</a>
             </h3>
@@ -1093,16 +1084,16 @@
         </article>
 
         <!-- Card 5 -->
-        <article class="ls-card js-reveal" data-cat="motivation">
+        <article class="ls-card js-reveal" data-cat="wellness">
           <div class="ls-card-img-wrap">
             <div
               class="ph-slate"
               style="width: 100%; height: 100%; position: absolute; inset: 0"
             ></div>
-            <span class="ls-card-cat-badge">Motivation</span>
+            <span class="ls-card-cat-badge">Wellness</span>
           </div>
           <div class="ls-card-body">
-            <p class="ls-card-cat">Motivation</p>
+            <p class="ls-card-cat">Wellness</p>
             <h3 class="ls-card-title">
               <a href="#">You Don't Need Motivation. You Need Identity.</a>
             </h3>
