@@ -287,6 +287,108 @@ textarea {
   color: var(--accent);
 }
 
+/* ══════════════════════════════════════════
+   NEWSLETTER — REFINED
+══════════════════════════════════════════ */
+
+.newsletter {
+  background: var(--parchment);
+  padding: clamp(1.8rem, 3vw, 2.4rem) var(--pad-x); /* ↓ reduced height */
+  border-top: 1px solid var(--rule);
+}
+
+.newsletter-inner {
+  max-width: 560px; /* slightly tighter */
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Eyebrow */
+.nl-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.8rem; /* ↓ tighter */
+}
+
+/* Title */
+.nl-title {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem); /* ↓ reduced */
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+/* Description */
+.nl-desc {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink-60);
+  margin-bottom: 1.5rem; /* ↓ reduced */
+}
+
+/* Form */
+.nl-form {
+  display: flex;
+  max-width: 380px; /* ↓ tighter */
+  margin-inline: auto;
+  border: 1px solid var(--rule);
+  background: #fff;
+}
+
+/* Input */
+.nl-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0.7rem 1rem; /* ↓ tighter */
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink);
+  background: transparent;
+}
+
+.nl-input::placeholder {
+  color: var(--ink-35);
+}
+
+/* Button */
+.nl-btn {
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.2rem; /* ↓ smaller */
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.nl-btn:hover {
+  background: var(--accent-dk);
+}
+
+/* Note */
+.nl-note {
+  font-family: var(--sans);
+  font-size: 0.58rem;
+  color: var(--ink-35);
+  margin-top: 0.8rem; /* ↓ tighter */
+  letter-spacing: 0.05em;
+}
+
+
 /* Burger (mobile only) */
 .burger {
   display: none;

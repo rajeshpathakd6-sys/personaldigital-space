@@ -1376,8 +1376,7 @@
 
       <!-- Hero copy -->
       <div class="hero-inner">
-        <span class="hero-eyebrow">Travel · Lifestyle · Reflections</span>
-        <h1 class="hero-title">Every journey<br />leaves a <em>mark.</em></h1>
+        <h1 class="hero-title">Every journey<br />leaves a <em>mark</em></h1>
         <p class="hero-desc">
           We're Aditi &amp; Rajesh — documenting slow travel, honest
           experiences, and the meaning we carry forward. From Asia to Africa and
@@ -1462,7 +1461,7 @@
           <!-- All posts in data — JS reads these and paginates -->
           <div id="postsGrid" class="posts-grid">
             <!-- Page 1 (visible by default) -->
-            <a href="./thailand.html" class="grid-post-card" data-page="1">
+            <a href="./thailand.html" class="grid-post-card">
               <div class="grid-post-card-img-wrap">
                 <img src="assets/thailand.JPG" alt="Thailand" loading="eager" />
               </div>
@@ -1479,7 +1478,7 @@
                 </div>
               </div>
             </a>
-            <a href="./japan.html" class="grid-post-card" data-page="1">
+            <a href="./japan.html" class="grid-post-card">
               <div class="grid-post-card-img-wrap">
                 <img src="assets/japan.JPG" alt="Japan" loading="eager" />
               </div>
@@ -1496,7 +1495,8 @@
                 </div>
               </div>
             </a>
-            <a href="./kenya.html" class="grid-post-card" data-page="1">
+
+            <a href="./kenya.html" class="grid-post-card">
               <div class="grid-post-card-img-wrap">
                 <img
                   src="assets/kenya.JPG"
@@ -1518,7 +1518,7 @@
                 </div>
               </div>
             </a>
-            <a href="./maldives.html" class="grid-post-card" data-page="1">
+            <a href="./maldives.html" class="grid-post-card">
               <div class="grid-post-card-img-wrap">
                 <img src="assets/maldives.jpg" alt="Maldives" loading="eager" />
               </div>
@@ -1536,8 +1536,7 @@
               </div>
             </a>
 
-            <!-- Page 2 (hidden by default via JS) -->
-            <a href="./popularpost1.html" class="grid-post-card" data-page="2">
+            <a href="./popularpost1.html" class="grid-post-card">
               <div class="grid-post-card-img-wrap">
                 <img src="assets/popularpost1.JPG" alt="Post" loading="lazy" />
               </div>
@@ -1555,7 +1554,7 @@
                 </div>
               </div>
             </a>
-            <a href="./popularpost2.html" class="grid-post-card" data-page="2">
+            <a href="./popularpost2.html" class="grid-post-card">
               <div class="grid-post-card-img-wrap">
                 <img src="assets/popularpost2.JPG" alt="Post" loading="lazy" />
               </div>
@@ -1574,7 +1573,8 @@
                 </div>
               </div>
             </a>
-            <a href="./popularpost3.html" class="grid-post-card" data-page="2">
+
+            <a href="./popularpost3.html" class="grid-post-card">
               <div class="grid-post-card-img-wrap">
                 <img src="assets/popularpost3.JPG" alt="Post" loading="lazy" />
               </div>
@@ -1594,7 +1594,7 @@
                 </div>
               </div>
             </a>
-            <a href="./popularpost4.html" class="grid-post-card" data-page="2">
+            <a href="./popularpost4.html" class="grid-post-card">
               <div class="grid-post-card-img-wrap">
                 <img src="assets/popularpost4.JPG" alt="Post" loading="lazy" />
               </div>
@@ -1607,6 +1607,31 @@
                 </p>
                 <div class="grid-post-card-footer">
                   <span class="grid-post-card-date">Apr 2025</span>
+                  <span class="grid-post-card-arrow">Read →</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Use this for adding any new posts but this will be at the top-->
+            <a href="#" class="grid-post-card">
+              <div class="grid-post-card-img-wrap">
+                <img
+                  src="assets/lifestyle/vipassana.jpg"
+                  alt="Vipassana"
+                  loading="eager"
+                />
+              </div>
+              <div class="grid-post-card-body">
+                <span class="grid-post-card-tag">Lifestyle · Growth</span>
+                <h3 class="grid-post-card-title">
+                  Vipassana Retreat | February 2026
+                </h3>
+                <p class="grid-post-card-excerpt">
+                  Ten days of silence, and a lifetime of noise began to settle.
+                  What remained was not answers, but a different way of seeing.
+                </p>
+                <div class="grid-post-card-footer">
+                  <span class="grid-post-card-date">Jan 1, 2026</span>
                   <span class="grid-post-card-arrow">Read →</span>
                 </div>
               </div>
@@ -1660,22 +1685,6 @@
               <span class="stat-label">Years</span>
             </div>
           </div>
-        </div>
-
-        <div class="widget widget--newsletter" id="newsletter">
-          <h4 class="widget-title">Never Miss a Post</h4>
-          <p class="widget-text">
-            Get new posts delivered straight to your inbox.
-          </p>
-          <input
-            type="email"
-            placeholder="Your email address"
-            class="widget-email-input"
-          />
-          <button class="widget-subscribe-btn" id="sidebarSubBtn">
-            Subscribe
-          </button>
-          <p class="widget-fine">No spam. Unsubscribe anytime.</p>
         </div>
 
         <div class="widget">
@@ -1893,6 +1902,31 @@
       </div>
     </div>
 
+    <!-- ═══════════════════════════════════════
+     NEWSLETTER
+═══════════════════════════════════════ -->
+    <section class="newsletter" id="newsletter">
+      <div class="newsletter-inner reveal">
+        <span class="nl-eyebrow">Subscribe to our Newsletter!</span>
+        <h2 class="nl-title">For quieter thoughts and better living</h2>
+        <p class="nl-desc">
+          New posts, occasional reflections, nothing formulaic. Sent only when
+          there's something worth saying.
+        </p>
+        <div class="nl-form">
+          <input
+            type="email"
+            class="nl-input"
+            placeholder="Your email address"
+          />
+          <button class="nl-btn" type="button">Subscribe</button>
+        </div>
+        <p class="nl-note">
+          No spam. Unsubscribe any time. Read by 4,200 thoughtful people.
+        </p>
+      </div>
+    </section>
+
     <!-- ── FOOTER ── -->
     <footer class="site-footer">
       <div class="footer-inner">
@@ -1975,8 +2009,8 @@
     <script src="script.js"></script>
     <script>
       /* ═══════════════════════════════════════════
-       INDEX PAGE — Interactive JS
-    ═══════════════════════════════════════════ */
+                   INDEX PAGE — Interactive JS
+                ═══════════════════════════════════════════ */
 
       /* ── 1. Hero Crossfade + Ken Burns Slideshow ── */
       (function () {
@@ -2029,68 +2063,69 @@
         if (!grid) return;
 
         const cards = Array.from(grid.querySelectorAll(".grid-post-card"));
-        const perPage = 4;
+        const perPage = 2;
         const pages = Math.ceil(cards.length / perPage);
         let current = 1;
 
         function buildPagination() {
           paginationNav.innerHTML = "";
 
-          // Previous button (only show if not on page 1 — keep space consistent via disabled)
+          // Prev
           const prev = document.createElement("button");
           prev.className = "page-btn";
           prev.textContent = "← Prev";
           prev.disabled = current === 1;
-          prev.addEventListener("click", () => showPage(current - 1));
+          prev.onclick = () => showPage(current - 1);
           paginationNav.appendChild(prev);
 
-          // Numbered page buttons with ellipsis
-          for (let p = 1; p <= pages; p++) {
-            // Show: first, last, current and neighbors; ellipsis elsewhere
-            const showBtn =
-              p === 1 || p === pages || Math.abs(p - current) <= 1;
-            const showEllipsisBefore = p === current - 2 && p > 2;
-            const showEllipsisAfter = p === current + 2 && p < pages - 1;
+          // 👇 Pair logic (1-2, 3-4, 5-6...)
+          const startPage = Math.floor((current - 1) / 2) * 2 + 1;
+          const endPage = Math.min(startPage + 1, pages);
 
-            if (showEllipsisBefore || showEllipsisAfter) {
-              const ell = document.createElement("span");
-              ell.className = "page-ellipsis";
-              ell.textContent = "…";
-              paginationNav.appendChild(ell);
-            }
-
-            if (showBtn) {
-              const btn = document.createElement("button");
-              btn.className =
-                "page-btn" + (p === current ? " page-btn--active" : "");
-              btn.textContent = p;
-              btn.addEventListener("click", () => showPage(p));
-              paginationNav.appendChild(btn);
-            }
+          for (let p = startPage; p <= endPage; p++) {
+            const btn = document.createElement("button");
+            btn.className =
+              "page-btn" + (p === current ? " page-btn--active" : "");
+            btn.textContent = p;
+            btn.onclick = () => showPage(p);
+            paginationNav.appendChild(btn);
           }
 
-          // Next button
+          // ✅ ALWAYS show ellipsis if NOT last group
+          if (endPage < pages) {
+            const ell = document.createElement("span");
+            ell.className = "page-ellipsis";
+            ell.textContent = "...";
+            paginationNav.appendChild(ell);
+          }
+
+          // Next
           const next = document.createElement("button");
           next.className = "page-btn page-btn--next";
           next.innerHTML = "Next →";
           next.disabled = current === pages;
-          next.addEventListener("click", () => showPage(current + 1));
+          next.onclick = () => showPage(current + 1);
           paginationNav.appendChild(next);
         }
 
-        function showPage(p) {
-          current = Math.max(1, Math.min(p, pages));
-          cards.forEach((card) => {
-            const cardPage = parseInt(card.dataset.page, 10);
-            card.style.display = cardPage === current ? "" : "none";
+        function showPage(page) {
+          current = Math.max(1, Math.min(page, pages));
+
+          const start = (current - 1) * perPage;
+          const end = start + perPage;
+
+          cards.forEach((card, index) => {
+            if (index >= start && index < end) {
+              card.style.display = "flex"; // IMPORTANT (not "")
+            } else {
+              card.style.display = "none";
+            }
           });
+
           buildPagination();
-          const sectionEl = grid.closest(".js-reveal");
-          if (sectionEl && current > 1) {
-            sectionEl.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
         }
 
+        // INIT
         showPage(1);
       })();
     </script>
