@@ -400,13 +400,6 @@
       paginationNav.appendChild(ell);
     }
 
-    // ── Next button ───────────────────────────────────────────────
-    const next = document.createElement("button");
-    next.className = "page-btn page-btn--next";
-    next.textContent = "Next →";
-    next.disabled = current === pages;
-    next.onclick = () => showPage(current + 1);
-    paginationNav.appendChild(next);
   }
 
   function showPage(page) {
@@ -469,12 +462,6 @@
       paginationNav.appendChild(ell);
     }
 
-    const next = document.createElement("button");
-    next.className = "page-btn page-btn--next";
-    next.textContent = "Next →";
-    next.disabled = current === pages;
-    next.onclick = () => showPage(current + 1);
-    paginationNav.appendChild(next);
   }
 
   function showPage(page) {
@@ -545,6 +532,10 @@
   // Close when a dropdown link is clicked
   document.querySelectorAll(".ls-dd-link, .ls-dd-all").forEach((l) => {
     l.addEventListener("click", closeAll);
+  });
+  // Close on any click outside a nav item (use mousedown to avoid racing with btn click)
+  document.addEventListener("mousedown", (e) => {
+    if (!e.target.closest(".ls-nav-item")) closeAll();
   });
 })();
 

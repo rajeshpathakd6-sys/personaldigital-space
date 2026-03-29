@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Growth · Becoming Someone Better · AdiRaj</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* BEIGE HERO */
+    .sub-hero{position:relative;padding:calc(var(--total-top) + 5rem) var(--pad-x) 4.5rem;background:var(--off-white);overflow:hidden;border-bottom:1px solid var(--rule);}
+    .sub-hero-inner{position:relative;max-width:var(--max-w);margin:0 auto;}
+    .sub-breadcrumb{font-family:var(--sans);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:1.5rem;}
+    .sub-breadcrumb a{color:var(--accent);text-decoration:none;}
+    .sub-hero-title{font-family:var(--serif);font-size:clamp(2.4rem,5.5vw,4.5rem);font-weight:400;line-height:1.08;color:var(--ink);}
+    .sub-hero-title em{font-style:italic;color:var(--accent);}
+    .sub-hero-rule{width:48px;height:2px;background:var(--accent);margin:1.5rem 0;}
+    .sub-hero-desc{font-family:var(--sans);font-size:1rem;color:var(--ink-soft);max-width:540px;line-height:1.75;}
+    .sub-hero-themes{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;}
+    .sub-theme-pill{font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.4rem .9rem;border:1px solid var(--rule);border-radius:20px;color:var(--ink-soft);background:var(--white);}
+
+    /* TABS */
+    .sub-tabs{background:var(--white);border-bottom:1px solid var(--rule);padding:.75rem var(--pad-x);position:sticky;top:calc(var(--top-bar-h) + var(--header-h) + var(--nav-h));z-index:10;}
+    .sub-tabs-inner{max-width:var(--max-w);margin:0 auto;display:flex;gap:.5rem;flex-wrap:wrap;}
+    .sub-tab{font-family:var(--sans);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:.45rem 1.1rem;border:1px solid var(--rule);background:transparent;color:var(--ink-soft);border-radius:2px;cursor:pointer;transition:all .2s;}
+    .sub-tab:hover,.sub-tab.active{background:var(--ink);color:var(--white);border-color:var(--ink);}
+
+    /* 3-COL CARD GRID */
+    .sub-sec{padding:4rem var(--pad-x) 2rem;background:var(--beige);}
+    .sub-sec--white{padding:3rem var(--pad-x) 5rem;background:var(--white);}
+    .sub-wrap{max-width:var(--max-w);margin:0 auto;}
+    .sub-sec-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--rule);}
+    .sub-sec-hdr h2{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--ink);}
+    .sub-sec-hdr h2 em{font-style:italic;color:var(--accent);}
+    .sub-count{font-family:var(--sans);font-size:.8rem;color:var(--ink-muted);}
+    .sub-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    @media(max-width:900px){.sub-grid3{grid-template-columns:1fr 1fr;}}
+    @media(max-width:580px){.sub-grid3{grid-template-columns:1fr;}}
+    .sub-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:inherit;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
+    .sub-card--beige{background:var(--beige);}
+    .sub-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+    .sub-card-img{aspect-ratio:16/10;overflow:hidden;}
+    .sub-card-ph{width:100%;height:100%;}
+    .ph-stone{background:linear-gradient(135deg,#b5a99a 0%,#8c7d6e 100%);}
+    .ph-slate{background:linear-gradient(135deg,#7a8a9a 0%,#5a6a7a 100%);}
+    .ph-warm{background:linear-gradient(135deg,#d4a574 0%,#b07d45 100%);}
+    .ph-sage{background:linear-gradient(135deg,#8fad8f 0%,#6b8f6b 100%);}
+    .ph-dusk{background:linear-gradient(135deg,#9a8ab0 0%,#7a6a90 100%);}
+    .ph-blush{background:linear-gradient(135deg,#d4a0a0 0%,#b07070 100%);}
+    .ph-moss{background:linear-gradient(135deg,#7a9a6a 0%,#5a7a4a 100%);}
+    .ph-ink{background:linear-gradient(135deg,#4a4a5a 0%,#2a2a3a 100%);}
+    .sub-card-body{padding:1.25rem 1.4rem 1.4rem;display:flex;flex-direction:column;flex:1;}
+    .sub-card-tag{display:inline-block;font-family:var(--sans);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;background:var(--beige);color:var(--ink-soft);padding:.2rem .5rem;border-radius:2px;margin-bottom:.6rem;}
+    .sub-card-title{font-family:var(--serif);font-size:1.1rem;font-weight:400;line-height:1.35;color:var(--ink);margin-bottom:.5rem;flex:1;}
+    .sub-card-excerpt{font-family:var(--sans);font-size:.85rem;color:var(--ink-soft);line-height:1.6;margin-bottom:1rem;}
+    .sub-card-meta{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--rule);padding-top:.75rem;margin-top:auto;}
+    .sub-card-date{font-family:var(--sans);font-size:.75rem;color:var(--ink-muted);}
+    .sub-card-read{font-family:var(--sans);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);}
+
+    /* BIG FEATURE CARD */
+    .sub-feat{display:block;position:relative;aspect-ratio:21/8;overflow:hidden;border-radius:var(--radius);text-decoration:none;margin-bottom:3rem;}
+    @media(max-width:700px){.sub-feat{aspect-ratio:4/3;}}
+    .sub-feat-ph{width:100%;height:100%;}
+    .sub-feat-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,8,.88) 0%,rgba(10,10,8,.3) 60%,transparent 100%);}
+    .sub-feat-body{position:absolute;top:50%;left:3rem;transform:translateY(-50%);max-width:480px;}
+    @media(max-width:580px){.sub-feat-body{left:1.5rem;top:auto;bottom:1.5rem;transform:none;}}
+    .sub-feat-tag{font-family:var(--sans);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-lt);display:block;margin-bottom:.6rem;}
+    .sub-feat-title{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2rem);font-weight:400;color:var(--white);line-height:1.2;margin-bottom:.75rem;}
+    .sub-feat-excerpt{font-family:var(--sans);font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:1.25rem;}
+    .sub-feat-cta{font-family:var(--sans);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-lt);display:flex;align-items:center;gap:.4rem;}
+  </style>
+</head>
+<body>
+  <div class="top-bar"><div class="top-bar-inner"><div class="top-bar-left"><a href="#" class="tb-icon" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a></div><div class="top-bar-right"><a href="./index.html" class="tb-link">Home</a><a href="./workwithus.html" class="tb-link">Work With Us</a><span class="tb-sep">|</span><a href="./contact.html" class="tb-link">Contact</a></div></div></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="logo-wrap"><a href="index.html" class="logo"><span class="logo-icon" aria-hidden="true"><img src="assets/logo.png" alt="AdiRaj monogram" class="logo-img"/></span><span class="logo-text-wrap"><span class="logo-text">AdiRaj<span class="logo-tagline">Routes &amp; Reflections</span></span></span></a></div>
+      <div class="header-actions"><button class="search-toggle" id="searchToggle" aria-label="Search"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></button></div>
+    </div>
+    <nav class="cat-nav" id="catNav"><div class="cat-nav-inner">
+      <a href="index.html" class="cat-nav-link">All Posts</a>
+      <a href="./travel.html" class="cat-nav-link">Travel</a>
+      <a href="./lifestyle.html" class="cat-nav-link active">Lifestyle</a>
+      <a href="./resources.html" class="cat-nav-link">Resources</a>
+      <a href="./studio.html" class="cat-nav-link">Studio</a>
+      <a href="./about.html" class="cat-nav-link">About</a>
+    </div></nav>
+  </header>
+  <div class="search-bar" id="searchBar"><div class="search-bar-inner"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg><input type="search" placeholder="Search growth posts…" id="searchInput"/><button class="search-close" id="searchClose" aria-label="Close">✕</button></div></div>
+  <div class="mob-menu" id="mobMenu"><button class="mob-close" id="mobClose" aria-label="Close">✕</button><nav class="mob-nav"><a href="index.html">All Posts</a><a href="./travel.html">Travel</a><a href="./lifestyle.html">Lifestyle</a><div class="mob-divider"></div><a href="./about.html">About</a></nav></div>
+
+  <!-- HERO -->
+  <section class="sub-hero">
+    <div class="sub-hero-inner">
+      <p class="sub-breadcrumb"><a href="lifestyle.html">Lifestyle</a> / Growth</p>
+      <div class="sub-hero-rule"></div>
+      <h1 class="sub-hero-title">Becoming <em>someone better</em></h1>
+      <p class="sub-hero-desc">Systems, habits, identity, and the slow, unsexy work of actually changing. Nine pieces on the architecture of a better self.</p>
+      <div class="sub-hero-themes">
+        <span class="sub-theme-pill">Habits &amp; Systems</span>
+        <span class="sub-theme-pill">Mindset &amp; Identity</span>
+        <span class="sub-theme-pill">Deep Work</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABS -->
+  <div class="sub-tabs"><div class="sub-tabs-inner">
+    <button class="sub-tab active" onclick="filterG(this,'all')">All</button>
+    <button class="sub-tab" onclick="filterG(this,'habits')">Habits &amp; Systems</button>
+    <button class="sub-tab" onclick="filterG(this,'mindset')">Mindset &amp; Identity</button>
+    <button class="sub-tab" onclick="filterG(this,'deepwork')">Deep Work</button>
+  </div></div>
+
+  <!-- FEATURED -->
+  <div class="sub-sec">
+    <div class="sub-wrap">
+      <a href="#" class="sub-feat js-reveal" data-cat="habits">
+        <div class="sub-feat-ph ph-stone"></div>
+        <div class="sub-feat-overlay"></div>
+        <div class="sub-feat-body">
+          <span class="sub-feat-tag">Habits &amp; Systems · Editor's Pick</span>
+          <h2 class="sub-feat-title">The Compound Effect of Small Discomforts</h2>
+          <p class="sub-feat-excerpt">Every choice to stay uncomfortable for five more minutes is a vote for who you're becoming. A case for voluntary hardship.</p>
+          <span class="sub-feat-cta">Read Essay <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="sub-sec--white">
+    <div class="sub-wrap">
+      <div class="sub-sec-hdr"><h2>All <em>Growth</em> pieces</h2><span class="sub-count" id="gCount">9 pieces</span></div>
+      <div class="sub-grid3" id="gGrid">
+
+        <a href="#" class="sub-card js-reveal" data-cat="mindset">
+          <div class="sub-card-img"><div class="sub-card-ph ph-slate"></div></div>
+          <div class="sub-card-body"><span class="sub-card-tag">Mindset</span><h2 class="sub-card-title">Motivation Is a Feeling. Identity Is a Story.</h2><p class="sub-card-excerpt">The difference between people who change and people who try to change is the story they tell about who they are.</p><div class="sub-card-meta"><span class="sub-card-date">Jan 19, 2026 · 6 min</span><span class="sub-card-read">Read →</span></div></div>
+        </a>
+
+        <a href="#" class="sub-card js-reveal" data-cat="deepwork">
+          <div class="sub-card-img"><div class="sub-card-ph ph-dusk"></div></div>
+          <div class="sub-card-body"><span class="sub-card-tag">Deep Work</span><h2 class="sub-card-title">On Finishing Things: A Love Letter to the Last 10%</h2><p class="sub-card-excerpt">The gap between nearly done and actually done is where most creative work dies. Here's how to close it.</p><div class="sub-card-meta"><span class="sub-card-date">Jan 8, 2026 · 5 min</span><span class="sub-card-read">Read →</span></div></div>
+        </a>
+
+        <a href="#" class="sub-card js-reveal" data-cat="mindset">
+          <div class="sub-card-img"><div class="sub-card-ph ph-warm"></div></div>
+          <div class="sub-card-body"><span class="sub-card-tag">Mindset</span><h2 class="sub-card-title">The Single Habit That Outperforms All Others</h2><p class="sub-card-excerpt">Not journaling. Not cold showers. Not waking up at 5am. Something quieter and far more consequential.</p><div class="sub-card-meta"><span class="sub-card-date">Dec 18, 2025 · 6 min</span><span class="sub-card-read">Read →</span></div></div>
+        </a>
+
+        <a href="#" class="sub-card js-reveal" data-cat="habits">
+          <div class="sub-card-img"><div class="sub-card-ph ph-sage"></div></div>
+          <div class="sub-card-body"><span class="sub-card-tag">Habits</span><h2 class="sub-card-title">Systems Over Goals: Why the Target Is the Wrong Thing to Aim At</h2><p class="sub-card-excerpt">Goals are outcomes. Systems are the architecture. One disappears when achieved; the other compounds.</p><div class="sub-card-meta"><span class="sub-card-date">Nov 30, 2025 · 7 min</span><span class="sub-card-read">Read →</span></div></div>
+        </a>
+
+        <a href="#" class="sub-card js-reveal" data-cat="deepwork">
+          <div class="sub-card-img"><div class="sub-card-ph ph-ink"></div></div>
+          <div class="sub-card-body"><span class="sub-card-tag">Deep Work</span><h2 class="sub-card-title">How I Restructured My Day Around a Single 3-Hour Block</h2><p class="sub-card-excerpt">Not a productivity system. A commitment to protecting the hours that actually move things forward.</p><div class="sub-card-meta"><span class="sub-card-date">Nov 15, 2025 · 5 min</span><span class="sub-card-read">Read →</span></div></div>
+        </a>
+
+        <a href="#" class="sub-card js-reveal" data-cat="mindset">
+          <div class="sub-card-img"><div class="sub-card-ph ph-blush"></div></div>
+          <div class="sub-card-body"><span class="sub-card-tag">Identity</span><h2 class="sub-card-title">On Patience: The Discipline Nobody Romanticises</h2><p class="sub-card-excerpt">Every framework for success talks about action. Almost none of them talk about the willingness to wait.</p><div class="sub-card-meta"><span class="sub-card-date">Oct 28, 2025 · 6 min</span><span class="sub-card-read">Read →</span></div></div>
+        </a>
+
+        <a href="#" class="sub-card js-reveal" data-cat="habits">
+          <div class="sub-card-img"><div class="sub-card-ph ph-moss"></div></div>
+          <div class="sub-card-body"><span class="sub-card-tag">Habits</span><h2 class="sub-card-title">The 2-Minute Rule Isn't About 2 Minutes</h2><p class="sub-card-excerpt">On why the smallest actions are really just permission structures for the bigger ones that follow.</p><div class="sub-card-meta"><span class="sub-card-date">Oct 10, 2025 · 4 min</span><span class="sub-card-read">Read →</span></div></div>
+        </a>
+
+        <a href="#" class="sub-card js-reveal" data-cat="deepwork">
+          <div class="sub-card-img"><div class="sub-card-ph ph-slate"></div></div>
+          <div class="sub-card-body"><span class="sub-card-tag">Deep Work</span><h2 class="sub-card-title">Reading Deeply in the Age of Skimming</h2><p class="sub-card-excerpt">What it means to actually finish a book — and why so few of us do it anymore.</p><div class="sub-card-meta"><span class="sub-card-date">Sep 22, 2025 · 5 min</span><span class="sub-card-read">Read →</span></div></div>
+        </a>
+
+        <a href="#" class="sub-card js-reveal" data-cat="mindset">
+          <div class="sub-card-img"><div class="sub-card-ph ph-stone"></div></div>
+          <div class="sub-card-body"><span class="sub-card-tag">Mindset</span><h2 class="sub-card-title">The Honest Case for Failure as Curriculum</h2><p class="sub-card-excerpt">Not the motivational kind. The real thing: embarrassing, public, and surprisingly instructive.</p><div class="sub-card-meta"><span class="sub-card-date">Sep 5, 2025 · 7 min</span><span class="sub-card-read">Read →</span></div></div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer"><div class="footer-inner">
+    <div class="footer-logo-wrap"><a href="index.html" class="logo footer-logo"><span class="logo-icon" aria-hidden="true"><img src="assets/logo.png" alt="AdiRaj monogram" class="logo-img"/></span><span class="logo-text-wrap"><span class="logo-text">AdiRaj<span class="logo-tagline">Routes &amp; Reflections</span></span></span></a></div>
+    <nav class="footer-nav"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./workwithus.html">Work With Us</a><a href="./contact.html">Contact</a><a href="#">Privacy Policy</a></nav>
+    <p class="footer-copy">© 2026 AdiRaj · Made with ♥</p>
+  </div></footer>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <script src="script.js"></script>
+  <script>
+    function filterG(btn, cat) {
+      document.querySelectorAll('.sub-tab').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      let c = 0;
+      document.querySelectorAll('[data-cat]').forEach(el=>{
+        const match = cat==='all' || el.dataset.cat===cat;
+        el.style.display = match ? '' : 'none';
+        if(match) c++;
+      });
+      document.getElementById('gCount').textContent = c + ' pieces';
+    }
+  </script>
+</body>
+</html>
