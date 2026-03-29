@@ -2271,7 +2271,7 @@ background: var(--white);
 }
 .about-eyebrow {
   display: inline-block;
-  font-family: var(--sans);
+  font-family: var(--serif);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -2282,7 +2282,7 @@ background: var(--white);
 .about-hero h1 {
   font-family: var(--serif);
   font-size: clamp(2.2rem, 6vw, 3.6rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.2;
   color: var(--ink);
   margin-bottom: 1.4rem;
@@ -2292,13 +2292,14 @@ background: var(--white);
   color: var(--accent);
 }
 .about-hero-intro {
-  font-family: var(--sans);
-  font-size: 1.05rem;
-  font-weight: 300;
-  line-height: 1.85;
-  color: var(--ink-soft);
-  max-width: 540px;
+    font-family: var(--serif);   /* switch to serif */
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+  line-height: 1.9;
+  color: #8e8a83;              /* softer muted tone */
+  max-width: 620px;           /* slightly wider */
   margin-inline: auto;
+  text-align: center;         /* ensure centered */
+  letter-spacing: 0.01em;
 }
 
 /* ── Portrait pair ── */
@@ -2346,88 +2347,79 @@ background: var(--white);
   color: var(--accent-lt);
 }
 
-/* ── Sections ── */
+/* ───────────────────────
+         SECTION
+      ─────────────────────── */
 .about-section {
-  margin-bottom: 2.5rem;
+  padding: clamp(2.5rem, 5vh, 4rem) 0;
+  border-bottom: 1px solid var(--rule);
 }
-.about-section + .about-section {
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--rule);
+.about-section:last-child {
+  border-bottom: none;
 }
+
+/* Label (keep premium but subtle) */
 .about-section-label {
-  font-family: var(--sans);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   margin-bottom: 1rem;
 }
+.about-section-label::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* Heading */
 .about-section h2 {
   font-family: var(--serif);
-  font-size: clamp(1.5rem, 4vw, 2.1rem);
-  font-weight: 400;
-  line-height: 1.3;
-  color: var(--ink);
-  margin-bottom: 1.6rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.25;
+  margin-bottom: 1.4rem;
 }
 .about-section h2 em {
-  font-style: italic;
+  color: var(--accent);
 }
+
+/* Body (keep readable, not too stylized) */
 .about-section p {
   font-family: var(--sans);
-  font-size: 0.975rem;
-  font-weight: 300;
+  font-size: 1rem;
   line-height: 1.9;
   color: var(--ink-soft);
-  margin-bottom: 1.1rem;
-}
-.about-section p:last-child {
-  margin-bottom: 0;
-}
-.about-section p strong {
-  font-weight: 700;
-  color: var(--ink);
 }
 
-.philosophy span {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.philosophy em {
-  color: #777;
-  font-style: italic;
-}
-
-/* ── Pull quote ── */
+/* Pull quote (soft highlight, not heavy box) */
 .about-pullquote {
+  margin: 2rem 0;
+  padding-left: 1.5rem;
   border-left: 2px solid var(--accent);
-  padding: 0.6rem 0 0.6rem 1.5rem;
-  margin: 2.25rem 0;
 }
 .about-pullquote p {
   font-family: var(--serif);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-style: italic;
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--ink);
-  margin: 0;
 }
 
 /* ── What You'll Find grid ── */
 .about-find-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 1.75rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 20px;
+  margin-top: 1.5rem;
 }
 .about-find-item {
   position: relative;
   border-radius: 4px;
   overflow: hidden;
-  height: 180px;
+  height: 240px;
   background-color: var(--beige);
   cursor: pointer;
 }
@@ -2609,12 +2601,14 @@ background: var(--white);
   line-height: 1.35;
   color: var(--ink);
   margin-bottom: 0.6rem;
+  letter-spacing: 0.1em;
 }
 .about-cta h2 em {
   font-style: italic;
+    letter-spacing: 0.07em;
 }
 .about-cta p {
-  font-family: var(--sans);
+  font-family: var(--serif);
   font-size: 0.875rem;
   font-weight: 300;
   line-height: 1.75;
@@ -2622,6 +2616,7 @@ background: var(--white);
   max-width: 400px;
   margin-inline: auto;
   margin-bottom: 1.25rem;
+    letter-spacing: 0.1em;
 }
 .about-cta-links {
   display: flex;
@@ -5394,7 +5389,7 @@ background: var(--white);
       }
       .ls-feat-ph {
         width: 100%;
-        height: 450px;
+        height: 480px;
         display: block;
       }
       .ls-feat-img {
@@ -7670,7 +7665,7 @@ background: var(--white);
 
   /* Lifestyle */
   .ls-page-hero { min-height: 240px; }
-  .ls-feat-ph   { height: 320px; }
+  .ls-feat-ph   { height: 480px; }
   .ls-grid-2,
   .ls-grid-3 { grid-template-columns: 1fr; }
   .ls-themes { grid-template-columns: repeat(2, 1fr); }
@@ -7704,6 +7699,21 @@ background: var(--white);
   .dest-pin-photo   { width: 48px; padding: 2px 2px 11px; }
   .dest-pin-img-area { height: 36px; }
   .dest-pin-label   { font-size: 0.28rem; height: 11px; }
+
+  .ls-feat-body {
+  padding: 1.5rem 1.25rem;
+  }
+.ls-feat-title {
+  font-size: 1.4rem;
+  }
+.ls-feat-excerpt {
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+  }
+.ls-feat-meta {
+  margin-top: 0.8rem;
+  padding-top: 0.6rem;
+  }
 }
 
 @media (max-width: 480px) {
