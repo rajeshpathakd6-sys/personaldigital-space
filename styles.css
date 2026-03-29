@@ -4922,7 +4922,7 @@ background: var(--white);
           flex: 0 0 calc(50% - 0.4rem);
         }
         .featured-card-img {
-          height: 240px;
+          height: 300px;
         }
         .explore-bar-label {
           width: 100%;
