@@ -399,7 +399,6 @@
       ell.textContent = "...";
       paginationNav.appendChild(ell);
     }
-
   }
 
   function showPage(page) {
@@ -461,7 +460,6 @@
       ell.textContent = "...";
       paginationNav.appendChild(ell);
     }
-
   }
 
   function showPage(page) {

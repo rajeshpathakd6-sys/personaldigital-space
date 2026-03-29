@@ -1,0 +1,1297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equanimity in Practice — AdiRaj</title>
+    <meta
+      name="description"
+      content="What felt like doing nothing at first slowly revealed itself as something far more demanding. Ten days of Vipassana at Dhamma Malwa, Indore."
+    />
+
+    <!-- Same fonts as lifestyle.html -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Shared site stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      /* ═══════════════════════════════════════════════
+         ARTICLE-SPECIFIC STYLES
+         CSS vars are from styles.css; fallbacks provided
+         so the page renders standalone too.
+      ═══════════════════════════════════════════════ */
+      :root {
+        --c-bg: #f5f2ee;
+        --c-white: #ffffff;
+        --c-ink: #1a1a18;
+        --c-ink-2: #3d3830;
+        --c-ink-3: #7a7267;
+        --c-accent: #b87d4b;
+        --c-accent-lt: #d4a574;
+        --c-rule: #ddd8d0;
+        --c-beige: #f0ebe3;
+        --c-dark-bg: #1c1a17;
+        --c-dark-text: #e8e3dc;
+        --ff-serif: "Playfair Display", Georgia, serif;
+        --ff-body: "Cormorant Garamond", Georgia, serif;
+        --ff-sans: "Lato", system-ui, sans-serif;
+        --header-h: 112px;
+      }
+
+      /* ── HERO ─────────────────────────────── */
+      .art-hero {
+        position: relative;
+        height: min(80vh, 520px);
+        overflow: hidden;
+        background: var(--c-dark-bg);
+        margin-top: var(--header-h);
+        margin: 0 auto;
+      }
+      .art-hero-ph {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          #2a2420 0%,
+          #1a1410 40%,
+          #0f1a15 100%
+        );
+      }
+      .art-hero-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.55;
+      }
+      .art-hero-scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(15, 12, 10, 0.88) 0%,
+          rgba(15, 12, 10, 0.45) 50%,
+          rgba(15, 12, 10, 0.15) 100%
+        );
+      }
+      .art-hero-inner {
+        position: absolute;
+        inset: 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        max-width: 720px; /* ✅ match article */
+        margin: 0 auto; /* ✅ center align */
+
+        padding: 3rem 2rem 3.25rem; /* ✅ same horizontal rhythm */
+      }
+      .art-hero-breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+        font-family: var(--ff-sans);
+        font-size: 0.68rem;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(232, 227, 220, 0.6);
+      }
+      .art-hero-breadcrumb a {
+        color: rgba(232, 227, 220, 0.6);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .art-hero-breadcrumb a:hover {
+        color: var(--c-accent-lt);
+      }
+      .art-hero-breadcrumb svg {
+        opacity: 0.5;
+        flex-shrink: 0;
+      }
+      .art-hero-tags {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+      .art-hero-tag {
+        font-family: var(--ff-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--c-accent-lt);
+        border: 1px solid rgba(212, 165, 116, 0.45);
+        padding: 0.25rem 0.7rem;
+        border-radius: 2px;
+      }
+      .art-hero-title {
+        font-family: var(--ff-serif);
+        font-weight: 700;
+        font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+        line-height: 1.15;
+        color: #f5f0e8;
+        margin-bottom: 1rem;
+        letter-spacing: -0.01em;
+      }
+      .art-hero-title em {
+        font-style: italic;
+        font-weight: 400;
+        color: var(--c-accent-lt);
+      }
+      .art-hero-excerpt {
+        font-family: var(--ff-body);
+        font-style: italic;
+        font-size: 1.15rem;
+        line-height: 1.65;
+        color: rgba(232, 227, 220, 0.78);
+        max-width: 620px;
+        margin-bottom: 1.5rem;
+      }
+      .art-hero-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+      .art-hero-date {
+        font-family: var(--ff-sans);
+        font-size: 0.72rem;
+        font-weight: 300;
+        letter-spacing: 0.08em;
+        color: rgba(232, 227, 220, 0.5);
+      }
+      .art-hero-dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: rgba(232, 227, 220, 0.3);
+        flex-shrink: 0;
+      }
+
+      /* ── ARTICLE BODY ─────────────────────── */
+      .art-wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 4rem 2rem 5rem;
+      }
+      .art-lead {
+        font-family: var(--ff-body);
+        font-size: 1.32rem;
+        line-height: 1.75;
+        color: var(--c-ink-2);
+        margin-bottom: 2.25rem;
+      }
+      .art-lead::first-letter {
+        font-family: var(--ff-serif);
+        font-size: 4.5rem;
+        font-weight: 700;
+        line-height: 0.78;
+        float: left;
+        margin-right: 0.1em;
+        margin-top: 0.08em;
+        color: var(--c-accent);
+      }
+      .art-body p {
+        font-family: var(--ff-body);
+        font-size: 1.15rem;
+        line-height: 1.85;
+        color: var(--c-ink-2);
+        margin-bottom: 1.65rem;
+      }
+      .art-body p em {
+        font-style: italic;
+        color: var(--c-ink);
+      }
+
+      .art-section-label {
+        font-family: var(--ff-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--c-accent);
+        display: block;
+        margin: 3.5rem 0 0.5rem;
+      }
+      .art-h2 {
+        font-family: var(--ff-serif);
+        font-weight: 400;
+        font-size: 1.75rem;
+        line-height: 1.3;
+        color: var(--c-ink);
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.01em;
+      }
+      .art-h2 em {
+        font-style: italic;
+      }
+
+      .art-rule {
+        width: 100%;
+        height: 1px;
+        background: var(--c-rule);
+        margin: 2.5rem 0;
+        border: none;
+      }
+
+      /* Pull quote */
+      .art-pullquote {
+        margin: 2.75rem 0;
+        padding: 2rem 2.25rem;
+        border-left: 3px solid var(--c-accent);
+        background: var(--c-beige);
+      }
+      .art-pullquote p {
+        font-family: var(--ff-serif) !important;
+        font-style: italic !important;
+        font-size: 1.4rem !important;
+        line-height: 1.55 !important;
+        color: var(--c-ink) !important;
+        margin: 0 !important;
+      }
+
+      /* Three pillars */
+      .art-pillars {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--c-rule);
+        border: 1px solid var(--c-rule);
+        margin: 2.5rem 0;
+      }
+      .art-pillar {
+        background: var(--c-white);
+        padding: 1.75rem 1.5rem;
+        text-align: center;
+      }
+      .art-pillar-word {
+        display: block;
+        font-family: var(--ff-serif);
+        font-style: italic;
+        font-size: 1.6rem;
+        color: var(--c-accent);
+        margin-bottom: 0.4rem;
+      }
+      .art-pillar-label {
+        display: block;
+        font-family: var(--ff-sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--c-ink-3);
+        margin-bottom: 0.75rem;
+      }
+      .art-pillar-desc {
+        font-family: var(--ff-body);
+        font-style: italic;
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: var(--c-ink-3);
+      }
+
+      /* Aside */
+      .art-aside {
+        float: right;
+        width: 230px;
+        margin: 0.25rem 0 1.5rem 2.5rem;
+        padding: 1.5rem;
+        background: var(--c-beige);
+        border-top: 2px solid var(--c-accent);
+      }
+      .art-aside-word {
+        display: block;
+        font-family: var(--ff-serif);
+        font-style: italic;
+        font-size: 1.5rem;
+        color: var(--c-accent);
+        margin-bottom: 0.4rem;
+      }
+      .art-aside-def {
+        font-family: var(--ff-sans);
+        font-size: 0.72rem;
+        font-weight: 300;
+        line-height: 1.65;
+        color: var(--c-ink-3);
+      }
+
+      /* Anicca dark block */
+      .art-dark-block {
+        background: var(--c-dark-bg);
+        color: var(--c-dark-text);
+        margin: 3rem -2rem;
+        padding: 3rem 2.5rem;
+        text-align: center;
+      }
+      .art-dark-word {
+        display: block;
+        font-family: var(--ff-serif);
+        font-style: italic;
+        font-size: 3.5rem;
+        font-weight: 400;
+        color: var(--c-accent-lt);
+        margin-bottom: 0.35rem;
+        letter-spacing: 0.02em;
+      }
+      .art-dark-sub {
+        display: block;
+        font-family: var(--ff-sans);
+        font-size: 0.62rem;
+        font-weight: 400;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(212, 165, 116, 0.55);
+        margin-bottom: 1.75rem;
+      }
+      .art-dark-text {
+        font-family: var(--ff-body);
+        font-style: italic;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        color: rgba(232, 227, 220, 0.78);
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      /* Timeline */
+      .art-timeline {
+        margin: 2rem 0;
+        position: relative;
+        padding-left: 2.5rem;
+      }
+      .art-timeline::before {
+        content: "";
+        position: absolute;
+        left: 0.65rem;
+        top: 0.5rem;
+        bottom: 0.5rem;
+        width: 1px;
+        background: linear-gradient(180deg, var(--c-accent), var(--c-rule));
+      }
+      .art-tl-entry {
+        position: relative;
+        margin-bottom: 1.5rem;
+      }
+      .art-tl-entry::before {
+        content: "";
+        position: absolute;
+        left: -1.9rem;
+        top: 0.45rem;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--c-accent);
+        border: 2px solid var(--c-bg);
+        box-shadow: 0 0 0 1px var(--c-accent);
+      }
+      .art-tl-label {
+        display: block;
+        font-family: var(--ff-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--c-accent);
+        margin-bottom: 0.25rem;
+      }
+      .art-tl-entry p {
+        font-family: var(--ff-body) !important;
+        font-size: 1rem !important;
+        line-height: 1.65 !important;
+        color: var(--c-ink-3) !important;
+        margin: 0 !important;
+      }
+
+      /* Closing */
+      .art-close {
+        text-align: center;
+        padding: 3rem 0 0;
+        border-top: 1px solid var(--c-rule);
+        margin-top: 3.5rem;
+      }
+      .art-close-ornament {
+        display: block;
+        font-family: var(--ff-sans);
+        font-size: 0.7rem;
+        letter-spacing: 0.5em;
+        color: var(--c-rule);
+        margin-bottom: 1.5rem;
+      }
+      .art-close-text {
+        font-family: var(--ff-serif);
+        font-style: italic;
+        font-size: 1.3rem;
+        line-height: 1.65;
+        color: var(--c-ink-2);
+        max-width: 520px;
+        margin: 0 auto 1.25rem;
+      }
+
+      /* Tags */
+      .art-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 2.5rem;
+        justify-content: center;
+      }
+      .art-tag {
+        font-family: var(--ff-sans);
+        font-size: 0.62rem;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--c-ink-3);
+        border: 1px solid var(--c-rule);
+        padding: 0.3rem 0.8rem;
+        text-decoration: none;
+        transition: all 0.2s;
+        border-radius: 2px;
+      }
+      .art-tag:hover {
+        color: var(--c-accent);
+        border-color: var(--c-accent);
+        background: var(--c-beige);
+      }
+
+      /* ── RELATED POSTS ────────────────────── */
+      .art-related {
+        background: var(--c-beige);
+        padding: 4rem 5vw;
+        border-top: 1px solid var(--c-rule);
+      }
+      .art-related-hdr {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .art-related-kicker {
+        font-family: var(--ff-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--c-accent);
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .art-related-title {
+        font-family: var(--ff-serif);
+        font-weight: 400;
+        font-size: 1.5rem;
+        color: var(--c-ink);
+        margin: 0;
+      }
+      .art-related-title em {
+        font-style: italic;
+      }
+      .art-related-more {
+        font-family: var(--ff-sans);
+        font-size: 0.72rem;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        color: var(--c-accent);
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .art-related-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .art-related-card {
+        background: var(--c-white);
+        text-decoration: none;
+        display: block;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .art-related-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
+      }
+      .arc-ph {
+        height: 180px;
+        width: 100%;
+      }
+      .ph-moss {
+        background: linear-gradient(135deg, #8b9d77, #6b7a5c);
+      }
+      .ph-dusk {
+        background: linear-gradient(135deg, #7a6a8a, #5a4a6a);
+      }
+      .ph-slate {
+        background: linear-gradient(135deg, #7a8a9a, #5a6a7a);
+      }
+      .arc-body {
+        padding: 1.25rem 1.25rem 1.5rem;
+      }
+      .arc-tag {
+        display: block;
+        font-family: var(--ff-sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--c-accent);
+        margin-bottom: 0.5rem;
+      }
+      .arc-title {
+        font-family: var(--ff-serif);
+        font-weight: 400;
+        font-size: 1.05rem;
+        line-height: 1.4;
+        color: var(--c-ink);
+        margin-bottom: 0.75rem;
+      }
+      .arc-title em {
+        font-style: italic;
+      }
+      .arc-date {
+        font-family: var(--ff-sans);
+        font-size: 0.68rem;
+        font-weight: 300;
+        color: var(--c-ink-3);
+        letter-spacing: 0.04em;
+      }
+
+      /* ── REVEAL ───────────────────────────── */
+      .js-reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
+      .js-reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ── RESPONSIVE ───────────────────────── */
+      @media (max-width: 720px) {
+        .art-hero {
+          height: auto;
+          min-height: 72vw;
+        }
+        .art-hero-title {
+          font-size: 1.7rem;
+        }
+        .art-hero-excerpt {
+          display: none;
+        }
+        .art-wrap {
+          padding: 2.5rem 1.25rem 3.5rem;
+        }
+        .art-dark-block {
+          margin: 2.5rem -1.25rem;
+        }
+        .art-pillars {
+          grid-template-columns: 1fr;
+        }
+        .art-aside {
+          float: none;
+          width: 100%;
+          margin: 0 0 1.5rem;
+        }
+        .art-related-grid {
+          grid-template-columns: 1fr;
+        }
+        .art-related-hdr {
+          flex-direction: column;
+          gap: 0.5rem;
+          margin-bottom: 1.5rem;
+        }
+        .art-related {
+          padding: 3rem 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR — identical to lifestyle.html -->
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <a href="#" class="tb-icon" aria-label="Instagram">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1.2"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </a>
+          <a href="#" class="tb-icon" aria-label="Pinterest">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="tb-icon" aria-label="Twitter/X">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="top-bar-right">
+          <a href="./index.html" class="tb-link">Home</a>
+          <a href="./workwithus.html" class="tb-link">Work With Us</a>
+          <span class="tb-sep">|</span>
+          <a href="./contact.html" class="tb-link">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SITE HEADER — identical to lifestyle.html -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="logo-wrap">
+          <a href="index.html" class="logo">
+            <span class="logo-icon" aria-hidden="true">
+              <img
+                src="assets/logo.png"
+                alt="AdiRaj monogram"
+                class="logo-img"
+              />
+            </span>
+            <span class="logo-text-wrap">
+              <span class="logo-text"
+                >AdiRaj<span class="logo-tagline"
+                  >Routes &amp; Reflections</span
+                ></span
+              >
+            </span>
+          </a>
+        </div>
+        <div class="header-actions">
+          <button class="search-toggle" id="searchToggle" aria-label="Search">
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <line x1="16.5" y1="16.5" x2="22" y2="22" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <nav class="cat-nav" id="catNav">
+        <div class="cat-nav-inner">
+          <a href="index.html" class="cat-nav-link">All Posts</a>
+          <a href="./travel.html" class="cat-nav-link">Travel</a>
+          <a href="./lifestyle.html" class="cat-nav-link active">Lifestyle</a>
+          <a href="./resources.html" class="cat-nav-link">Resources</a>
+          <a href="./studio.html" class="cat-nav-link">Studio</a>
+          <a href="./about.html" class="cat-nav-link">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Search bar -->
+    <div class="search-bar" id="searchBar">
+      <div class="search-bar-inner">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        >
+          <circle cx="11" cy="11" r="7" />
+          <line x1="16.5" y1="16.5" x2="22" y2="22" />
+        </svg>
+        <input
+          type="search"
+          placeholder="Search lifestyle, wellness, essays…"
+          id="searchInput"
+        />
+        <button class="search-close" id="searchClose" aria-label="Close">
+          ✕
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mob-menu" id="mobMenu">
+      <button class="mob-close" id="mobClose" aria-label="Close">✕</button>
+      <nav class="mob-nav">
+        <a href="index.html">All Posts</a>
+        <a href="./travel.html">Travel</a>
+        <a href="./lifestyle.html">Lifestyle</a>
+        <a href="./resources.html">Resources</a>
+        <a href="./studio.html">Studio</a>
+        <div class="mob-divider"></div>
+        <a href="./about.html">About</a>
+        <a href="./workwithus.html">Work With Us</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         ARTICLE HERO
+    ══════════════════════════════════════════ -->
+    <section class="art-hero">
+      <div class="art-hero-ph"></div>
+      <img
+        src="assets/lifestyle/vipassana.jpg"
+        alt="Vipassana — hourglass in dim light"
+        class="art-hero-img"
+        onerror="this.style.display = 'none'"
+      />
+      <div class="art-hero-scrim"></div>
+      <div class="art-hero-inner">
+        <div class="art-hero-breadcrumb">
+          <a href="./lifestyle.html">Lifestyle</a>
+          <svg
+            width="10"
+            height="10"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          >
+            <path d="M5 8h6M8 5l3 3-3 3" />
+          </svg>
+          <span>Life &amp; Philosophy</span>
+        </div>
+        <div class="art-hero-tags">
+          <span class="art-hero-tag">Life</span>
+          <span class="art-hero-tag">Philosophy</span>
+          <span class="art-hero-tag">Editor's Pick</span>
+        </div>
+        <h1 class="art-hero-title">
+          Equanimity in Practice:<br /><em
+            >Silence, Sensation &amp; Awareness</em
+          >
+        </h1>
+        <p class="art-hero-excerpt">
+          What felt like doing nothing at first slowly revealed itself as
+          something far more demanding. To sit, to notice, to not react — again
+          and again — is its own kind of work.
+        </p>
+        <div class="art-hero-meta">
+          <span class="art-hero-date">Dhamma Malwa · Indore</span>
+          <span class="art-hero-dot"></span>
+          <span class="art-hero-date">March 12, 2026</span>
+          <span class="art-hero-dot"></span>
+          <span class="art-hero-date">11 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         ARTICLE BODY
+    ══════════════════════════════════════════ -->
+    <div class="ls-sec ls-sec--offwhite" style="padding: 0">
+      <div class="art-wrap">
+        <p class="art-lead js-reveal">
+          There is a certain discomfort in silence that we rarely acknowledge.
+          Not the absence of noise — but the absence of escape. For ten days, I
+          sat with that discomfort. No phone. No conversations. No distractions.
+          Just breath, body, and a mind that refused to stay still.
+        </p>
+
+        <div class="art-body">
+          <p class="js-reveal">
+            This was my first Vipassana course at Dhamma Malwa, Indore. And
+            while I went in expecting a test of endurance, it quietly became
+            something else — a mirror.
+          </p>
+
+          <span class="art-section-label js-reveal">The Beginning</span>
+          <h2 class="art-h2 js-reveal">The Seed of <em>Curiosity</em></h2>
+
+          <p class="js-reveal">
+            I first heard about Vipassana back in 2019 from a friend who had
+            just completed the course. He didn't describe it as peaceful or
+            relaxing — if anything, quite the opposite. What stayed with me
+            wasn't the meditation itself, but the discipline. The idea of
+            <em>Seel</em> — of consciously restraining your actions, speech,
+            even intent. At the time, it felt extreme. Almost unnecessary.
+          </p>
+
+          <p class="js-reveal">
+            And yet, the thought lingered. Years passed. Life moved on. But
+            somewhere in the background, this quiet curiosity remained —
+            <em
+              >What happens when you actually live like that, even for a few
+              days?</em
+            >
+          </p>
+
+          <hr class="art-rule" />
+
+          <span class="art-section-label js-reveal">January 2026</span>
+          <h2 class="art-h2 js-reveal">A Fracture, <em>a Pause</em></h2>
+
+          <p class="js-reveal">
+            It was January 1st, 2026. The year had just begun — but not in the
+            way I had imagined. A severe right-hand radial neck fracture had
+            abruptly slowed everything down. What was meant to be a fresh,
+            energetic start turned into stillness — forced, uncomfortable, and
+            unfamiliar.
+          </p>
+
+          <p class="js-reveal">
+            But in that stillness, something shifted. For the first time in a
+            long while, I had space. Space to think. To reflect. To sit with
+            questions I had been quietly avoiding. And somewhere in that pause,
+            Vipassana returned — not as curiosity, but as a need.
+          </p>
+
+          <div class="art-pullquote js-reveal">
+            <p>
+              I told myself this would be a journey inward — into my
+              perspectives, impulses, aspirations. Maybe even answers I didn't
+              yet know how to ask.
+            </p>
+          </div>
+
+          <p class="js-reveal">
+            The course was already full. Only waitlist applications were being
+            accepted. Still, I filled out the form. There was a brief flutter of
+            nervousness — as if I had committed to something larger than I
+            understood. Like moving beyond hesitation. Like choosing discomfort
+            over inertia.
+          </p>
+
+          <p class="js-reveal">
+            Then, on an otherwise ordinary Thursday — just days before the
+            course — I received a call from Dhamma Malwa. A spot might open up.
+            And in that moment, something shifted instantly. A surge of
+            excitement. Almost euphoric. What had been a distant possibility
+            suddenly felt real.
+          </p>
+
+          <hr class="art-rule" />
+
+          <span class="art-section-label js-reveal">Arrival</span>
+          <h2 class="art-h2 js-reveal">
+            Noble Silence &amp; <em>the First Days</em>
+          </h2>
+
+          <div class="art-aside js-reveal">
+            <span class="art-aside-word">Noble Silence</span>
+            <p class="art-aside-def">
+              Complete abstention from all communication — verbal, gestural,
+              written. Observed from Day 1 through Day 10, creating the
+              conditions for deep inward attention.
+            </p>
+          </div>
+
+          <p class="js-reveal">
+            Dhamma Malwa felt simple. Intentionally so. Registration was
+            straightforward. Instructions were clear. And then came the first
+            real step — surrendering my phone. It sounds small. It isn't. That
+            moment felt like a quiet severance from the outside world. Then came
+            silence. Not just the absence of speech — but
+            <em>Noble Silence</em>. No conversations, no gestures, no eye
+            contact. Just yourself.
+          </p>
+
+          <p class="js-reveal">
+            Days began at 4 AM. Meditation filled most of the day, broken only
+            by simple meals and short breaks. No reading, no writing, no music —
+            no distractions of any kind. At first, the structure felt rigid. But
+            slowly, it became grounding. When life is reduced to something this
+            simple, you begin to notice what was always there — the restlessness
+            of the body, the impatience of the mind, the constant craving for
+            stimulation.
+          </p>
+
+          <p class="js-reveal">
+            I expected physical discomfort. What I didn't expect was the
+            intensity of my own mind. Thoughts looping endlessly. Old memories
+            resurfacing. Imaginary conversations. Sudden urges to quit. The real
+            challenge wasn't sitting still. It was observing — without reacting.
+          </p>
+
+          <hr class="art-rule" />
+
+          <span class="art-section-label js-reveal">The Framework</span>
+          <h2 class="art-h2 js-reveal">Three <em>Pillars</em></h2>
+
+          <p class="js-reveal">
+            The evening discourses became anchors. Each day, they helped make
+            sense of the internal chaos. The practice rests on three foundations
+            — not as beliefs to adopt, but as disciplines to be lived and
+            experienced directly.
+          </p>
+
+          <div class="art-pillars js-reveal">
+            <div class="art-pillar">
+              <span class="art-pillar-word">Seel</span>
+              <span class="art-pillar-label">Morality</span>
+              <p class="art-pillar-desc">
+                Steadies you. Restraint of action, speech, and intent — the
+                ethical ground from which everything else grows.
+              </p>
+            </div>
+            <div class="art-pillar">
+              <span class="art-pillar-word">Samādhi</span>
+              <span class="art-pillar-label">Concentration</span>
+              <p class="art-pillar-desc">
+                Sharpens you. The focusing of scattered attention into a single,
+                unwavering point of awareness.
+              </p>
+            </div>
+            <div class="art-pillar">
+              <span class="art-pillar-word">Paññā</span>
+              <span class="art-pillar-label">Wisdom</span>
+              <p class="art-pillar-desc">
+                Transforms you. Not through belief — but through direct,
+                experiential understanding of how things truly are.
+              </p>
+            </div>
+          </div>
+
+          <hr class="art-rule" />
+
+          <span class="art-section-label js-reveal">The Practice</span>
+          <h2 class="art-h2 js-reveal">Anapana, then <em>Vipassana</em></h2>
+
+          <p class="js-reveal">
+            The first few days were devoted to <em>Anapana</em> — observing the
+            breath. Simple in instruction. Difficult in execution. Just observe
+            the breath as it is. No control. No interference. Slowly, attention
+            sharpens. Then comes Vipassana. The focus shifts to bodily
+            sensations — pain, tingling, heat, pressure. Observe everything.
+            React to nothing.
+          </p>
+
+          <p class="js-reveal">
+            You begin to notice how quickly the mind labels everything:
+          </p>
+
+          <div class="art-timeline js-reveal">
+            <div class="art-tl-entry">
+              <span class="art-tl-label">Pleasant</span>
+              <p>
+                The mind reaches out — grasping, wanting to hold on, to extend
+                what feels good beyond its natural duration.
+              </p>
+            </div>
+            <div class="art-tl-entry">
+              <span class="art-tl-label">Unpleasant</span>
+              <p>
+                The mind pulls back — resisting, wanting to push away, to escape
+                what feels difficult before it passes on its own.
+              </p>
+            </div>
+            <div class="art-tl-entry">
+              <span class="art-tl-label">Equanimity</span>
+              <p>
+                Observing both — without reacting. This is where the practice
+                lives, and where suffering begins to loosen its grip.
+              </p>
+            </div>
+          </div>
+
+          <p class="js-reveal">
+            And in that process, you realize how automatic your reactions are.
+            Every sensation arises and passes away. Suffering begins when we
+            react — when we cling to the pleasant or resist the unpleasant.
+          </p>
+
+          <div class="art-dark-block js-reveal">
+            <span class="art-dark-word">Anicca</span>
+            <span class="art-dark-sub">Impermanence · Pāli</span>
+            <p class="art-dark-text">
+              Not as an idea — but as something to be experienced in the body,
+              moment by moment. Pain changes. Pleasure fades. Nothing stays. And
+              yet, the mind clings — or resists. Equanimity lies somewhere in
+              between.
+            </p>
+          </div>
+
+          <hr class="art-rule" style="margin-top: 3rem" />
+
+          <span class="art-section-label js-reveal">Subtle Shifts</span>
+          <h2 class="art-h2 js-reveal">
+            Sankharas &amp; <em>Quiet Changes</em>
+          </h2>
+
+          <p class="js-reveal">
+            The discourses also spoke about <em>Sankharas</em> — deep-rooted
+            mental imprints. Every reaction leaves a trace. Over time, these
+            shape how we experience life. Through Vipassana, by not reacting,
+            these patterns begin to loosen. Not intellectually — but
+            experientially. Subtle, but powerful.
+          </p>
+
+          <p class="js-reveal">
+            There wasn't a dramatic breakthrough. Instead, there were quiet
+            shifts. Sitting through discomfort. Watching urges pass. Finding
+            ease in silence. At some point, the mind slows — not because it is
+            forced to, but because it has less to chase.
+          </p>
+
+          <div class="art-pullquote js-reveal">
+            <p>
+              By the later days, something had changed. Not dramatically, but
+              noticeably. Less resistance. Less urgency. More space between
+              stimulus and response. A calm that didn't depend on external
+              conditions.
+            </p>
+          </div>
+
+          <p class="js-reveal">
+            Towards the end, <em>Metta</em> — loving-kindness — was introduced.
+            After turning inward for so long, you begin to extend that stillness
+            outward. A quiet wish for well-being — for yourself, for others. A
+            soft ending to an intense journey.
+          </p>
+
+          <hr class="art-rule" />
+
+          <span class="art-section-label js-reveal">Day 10</span>
+          <h2 class="art-h2 js-reveal">
+            Re-entry &amp; <em>What Remained</em>
+          </h2>
+
+          <p class="js-reveal">
+            On Day 10, silence ended. And talking felt strange. Voices seemed
+            louder. Conversations felt excessive. After days of inward focus,
+            the world felt almost overwhelming. There was relief — but also
+            hesitation. Back in daily life, nothing had changed. But something
+            within had.
+          </p>
+
+          <p class="js-reveal">
+            The calm doesn't always stay. The mind still reacts. But now, there
+            is awareness. A pause. A moment before reaction. And sometimes, that
+            is enough.
+          </p>
+
+          <div class="art-close js-reveal">
+            <span class="art-close-ornament">— ✦ —</span>
+            <p class="art-close-text">
+              Vipassana didn't transform my life overnight. But it showed me how
+              life can be lived — with a little more awareness, a little less
+              noise, and a little more balance. And that, in itself, feels like
+              a beginning.
+            </p>
+            <div class="art-tags">
+              <a href="#" class="art-tag">Vipassana</a>
+              <a href="#" class="art-tag">Meditation</a>
+              <a href="#" class="art-tag">Life</a>
+              <a href="#" class="art-tag">Philosophy</a>
+              <a href="#" class="art-tag">Wellness</a>
+              <a href="#" class="art-tag">Dhamma Malwa</a>
+              <a href="#" class="art-tag">Anicca</a>
+              <a href="#" class="art-tag">India</a>
+            </div>
+          </div>
+        </div>
+        <!-- /.art-body -->
+      </div>
+      <!-- /.art-wrap -->
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         RELATED POSTS
+    ══════════════════════════════════════════ -->
+    <div class="art-related">
+      <div class="art-related-hdr js-reveal">
+        <div>
+          <span class="art-related-kicker">Continue Reading</span>
+          <h2 class="art-related-title">More from <em>Lifestyle</em></h2>
+        </div>
+        <a href="./lifestyle.html" class="art-related-more">All Lifestyle →</a>
+      </div>
+      <div class="art-related-grid">
+        <a href="#" class="art-related-card js-reveal">
+          <div class="arc-ph ph-moss"></div>
+          <div class="arc-body">
+            <span class="arc-tag">Slow Living</span>
+            <h3 class="arc-title">
+              The Case for <em>Doing Less</em> More Deliberately
+            </h3>
+            <span class="arc-date">Mar 2, 2026 · 8 min</span>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="art-related-card js-reveal"
+          style="transition-delay: 0.08s"
+        >
+          <div class="arc-ph ph-dusk"></div>
+          <div class="arc-body">
+            <span class="arc-tag">Philosophy</span>
+            <h3 class="arc-title">
+              On <em>Enough</em>: A Personal Reckoning with Ambition
+            </h3>
+            <span class="arc-date">Feb 14, 2026 · 6 min</span>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="art-related-card js-reveal"
+          style="transition-delay: 0.16s"
+        >
+          <div class="arc-ph ph-slate"></div>
+          <div class="arc-body">
+            <span class="arc-tag">Wellness · Mind</span>
+            <h3 class="arc-title">
+              Stillness Is Not Emptiness:
+              <em>Meditation Without the Mysticism</em>
+            </h3>
+            <span class="arc-date">Jan 22, 2026 · 10 min</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- FOOTER — identical to lifestyle.html -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-logo-wrap">
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-icon" aria-hidden="true">
+              <img
+                src="assets/logo.png"
+                alt="AdiRaj monogram"
+                class="logo-img"
+              />
+            </span>
+            <span class="logo-text-wrap">
+              <span class="logo-text"
+                >AdiRaj<span class="logo-tagline"
+                  >Routes &amp; Reflections</span
+                ></span
+              >
+            </span>
+          </a>
+        </div>
+        <nav class="footer-nav">
+          <a href="./index.html">Home</a>
+          <a href="./about.html">About</a>
+          <a href="./workwithus.html">Work With Us</a>
+          <a href="./contact.html">Contact</a>
+          <a href="#">Privacy Policy</a>
+        </nav>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1.2"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter/X">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+          </a>
+        </div>
+        <p class="footer-copy">© 2026 AdiRaj · Made with ♥</p>
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path
+          d="M8 13V3M3 8l5-5 5 5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <script src="script.js"></script>
+    <script>
+      // Scroll reveal
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document.querySelectorAll(".js-reveal").forEach((el) => io.observe(el));
+
+      // Back to top
+      const btt = document.getElementById("backToTop");
+      if (btt) {
+        window.addEventListener("scroll", () =>
+          btt.classList.toggle("visible", scrollY > 400),
+        );
+        btt.addEventListener("click", () =>
+          window.scrollTo({ top: 0, behavior: "smooth" }),
+        );
+      }
+    </script>
+  </body>
+</html>
