@@ -7923,7 +7923,7 @@ background: var(--white);
   .hero { min-height: 460px; }
   .hero-title { font-size: 2.2rem; }
   .hero-dots { display: none; }
-  .featured-card-img { height: 240px; }
+  .featured-card-img { height: 300px; }
 
   /* Index grid: stack to 1 col, prevent overflow */
   .posts-grid {
