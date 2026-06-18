@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AdiRaj — Routes &amp; Reflections</title>
+    <meta
+      name="description"
+      content="Travel stories, slow journeys, and reflections from two curious wanderers. Destinations across Asia, Africa, and beyond."
+    />
+
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Single stylesheet (unchanged — split into layers in Phase 2) -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Visually hidden utility class for accessible labels -->
+    <style>
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="apple-touch-icon" href="./assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="AdiRaj — Routes &amp; Reflections" />
+    <meta
+      property="og:description"
+      content="Travel stories, slow journeys, and reflections from two curious wanderers. Destinations across Asia, Africa, and beyond."
+    />
+    <meta property="og:url" content="https://routesandreflections.in/" />
+    <meta
+      property="og:image"
+      content="https://routesandreflections.in/assets/japan.JPG"
+    />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AdiRaj — Routes &amp; Reflections" />
+    <meta
+      name="twitter:description"
+      content="Travel stories, slow journeys, and reflections from two curious wanderers. Destinations across Asia, Africa, and beyond."
+    />
+    <meta
+      name="twitter:image"
+      content="https://routesandreflections.in/assets/japan.JPG"
+    />
+  </head>
+
+  <body>
+    <!--
+      ┌─────────────────────────────────────────────────┐
+      │  WEB COMPONENTS — replace 7× duplicated blocks  │
+      │  Edit site-ribbon.js / site-header.js once and  │
+      │  all pages update automatically.                 │
+      └─────────────────────────────────────────────────┘
+    -->
+    <site-ribbon></site-ribbon>
+    <site-header active="home"></site-header>
+
+    <!-- ══════════════════════════════════════
+         HERO — full-bleed crossfade + Ken Burns
+    ══════════════════════════════════════ -->
+    <section class="hero">
+      <div class="hero-slides" id="heroSlides">
+        <div class="hero-slide active" data-caption="Taiwan · Asia">
+          <img
+            src="assets/taiwan.JPG"
+            alt="Taiwan lush landscapes"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-slide" data-caption="Japan · Asia">
+          <img src="assets/japan.JPG" alt="Japan countryside" loading="lazy" />
+        </div>
+        <div class="hero-slide" data-caption="Kenya · Africa">
+          <img src="assets/kenya.JPG" alt="Kenya Masai Mara" loading="lazy" />
+        </div>
+        <div class="hero-slide" data-caption="Maldives · Asia">
+          <img
+            src="assets/maldives.jpg"
+            alt="Maldives turquoise waters"
+            loading="lazy"
+          />
+        </div>
+        <div class="hero-slide" data-caption="Thailand · Asia">
+          <img
+            src="assets/thailand.JPG"
+            alt="Thailand temples"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="hero-vignette" aria-hidden="true"></div>
+
+      <div
+        class="hero-dots"
+        id="heroDots"
+        role="tablist"
+        aria-label="Photo slideshow"
+      >
+        <button
+          class="hero-dot active"
+          data-index="0"
+          aria-label="Photo 1"
+          role="tab"
+          aria-selected="true"
+        ></button>
+        <button
+          class="hero-dot"
+          data-index="1"
+          aria-label="Photo 2"
+          role="tab"
+          aria-selected="false"
+        ></button>
+        <button
+          class="hero-dot"
+          data-index="2"
+          aria-label="Photo 3"
+          role="tab"
+          aria-selected="false"
+        ></button>
+        <button
+          class="hero-dot"
+          data-index="3"
+          aria-label="Photo 4"
+          role="tab"
+          aria-selected="false"
+        ></button>
+        <button
+          class="hero-dot"
+          data-index="4"
+          aria-label="Photo 5"
+          role="tab"
+          aria-selected="false"
+        ></button>
+      </div>
+
+      <div class="hero-inner">
+        <h1 class="hero-title">Every journey<br />leaves a <em>mark</em></h1>
+        <p class="hero-desc">
+          We're Aditi &amp; Rajesh — documenting slow travel, honest
+          experiences, and the meaning we carry forward.
+        </p>
+        <div class="hero-cta-row">
+          <a href="./travel.html" class="hero-btn hero-btn--primary"
+            >Explore Destinations</a
+          >
+          <a href="./about.html" class="hero-btn hero-btn--ghost">Our Story</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         MAIN CONTENT + SIDEBAR
+    ══════════════════════════════════════ -->
+    <div class="page-wrap">
+      <main class="post-list" id="postList">
+        <div class="mag-front js-reveal">
+          <div class="mag-front-header">
+            <div class="mag-front-header-left">
+              <span class="mag-kicker">From the Journal</span>
+              <h2 class="mag-front-title">Latest <em>Reads</em></h2>
+            </div>
+          </div>
+
+          <a href="./lifestyle/wellness-vipassana.html" class="mag-hero">
+            <div class="mag-hero-img-wrap">
+              <img
+                src="./lifestyle/article-assets/vipassana.jpg"
+                alt="Equanimity in Practice — Vipassana retreat"
+                class="mag-hero-img"
+                loading="eager"
+              />
+              <div class="mag-hero-img-scrim"></div>
+            </div>
+            <div class="mag-hero-body">
+              <div class="mag-hero-top">
+                <div class="mag-hero-tags">
+                  <span class="mag-hero-tag">Wellness</span>
+                  <span class="mag-hero-tag">Mind</span>
+                </div>
+                <span class="mag-hero-badge">Editor's Pick</span>
+              </div>
+              <h2 class="mag-hero-title">
+                Equanimity in Practice: 10 Days of Vipassana
+              </h2>
+              <p class="mag-hero-excerpt">
+                Between stimulus and response there is space.
+              </p>
+              <div class="mag-hero-foot">
+                <span class="mag-hero-meta">Feb 28, 2026</span>
+                <span class="mag-hero-read">
+                  Continue Reading
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M3 8h10M9 4l4 4-4 4" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Paginated Posts Grid -->
+          <div class="js-reveal" style="margin-top: 2.5rem">
+            <div class="section-header">
+              <div><span class="section-kicker">Recent</span></div>
+            </div>
+            <div id="postsGrid" class="posts-grid">
+              <a
+                href="./lifestyle/life-bel-far-niente.html"
+                class="grid-post-card"
+              >
+                <div class="grid-post-card-img-wrap">
+                  <img
+                    src="./lifestyle/article-assets/bel-far-niente.jpg"
+                    alt="Bel Far Niente"
+                    loading="eager"
+                  />
+                </div>
+                <div class="grid-post-card-body">
+                  <span class="grid-post-card-tag">Life · Reflections</span>
+                  <h3 class="grid-post-card-title">Bel Far Niente</h3>
+                  <p class="grid-post-card-excerpt">
+                    And now we will count to twelve, and we will all keep still
+                  </p>
+                  <div class="grid-post-card-footer">
+                    <span class="grid-post-card-date">Jul 27, 2020</span>
+                    <span class="grid-post-card-arrow">Read →</span>
+                  </div>
+                </div>
+              </a>
+              <a href="./taiwan.html" class="grid-post-card">
+                <div class="grid-post-card-img-wrap">
+                  <img src="assets/taiwan.JPG" alt="Taiwan" loading="eager" />
+                </div>
+                <div class="grid-post-card-body">
+                  <span class="grid-post-card-tag">Travel · Asia</span>
+                  <h3 class="grid-post-card-title">
+                    Taiwan: The Kind of Place You Return To
+                  </h3>
+                  <p class="grid-post-card-excerpt">
+                    Taiwan unfolded gently for us — through local streets, night
+                    markets, and unplanned detours.
+                  </p>
+                  <div class="grid-post-card-footer">
+                    <span class="grid-post-card-date">Jan 1, 2026</span>
+                    <span class="grid-post-card-arrow">Read →</span>
+                  </div>
+                </div>
+              </a>
+              <a
+                href="./lifestyle/growth-logotherapy.html"
+                class="grid-post-card"
+              >
+                <div class="grid-post-card-img-wrap">
+                  <img
+                    src="./lifestyle/article-assets/logotherapy.jpg"
+                    alt="Logotherapy"
+                    loading="eager"
+                  />
+                </div>
+                <div class="grid-post-card-body">
+                  <span class="grid-post-card-tag">Growth · Meaning</span>
+                  <h3 class="grid-post-card-title">When Okay Isn't Enough</h3>
+                  <p class="grid-post-card-excerpt">
+                    Ultimately, man should not ask what the meaning of his life
+                    is, but rather must recognize that it is he who is asked.
+                  </p>
+                  <div class="grid-post-card-footer">
+                    <span class="grid-post-card-date">Apr 20, 2026</span>
+                    <span class="grid-post-card-arrow">Read →</span>
+                  </div>
+                </div>
+              </a>
+              <a href="./thailand.html" class="grid-post-card">
+                <div class="grid-post-card-img-wrap">
+                  <img
+                    src="assets/thailand.JPG"
+                    alt="Thailand"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="grid-post-card-body">
+                  <span class="grid-post-card-tag">Travel · Asia</span>
+                  <h3 class="grid-post-card-title">
+                    Thailand: A Layover That Became the Plan
+                  </h3>
+                  <p class="grid-post-card-excerpt">
+                    Thailand was more than its popular spots — we leaned into
+                    slower days, local corners, and places slightly off the map.
+                  </p>
+                  <div class="grid-post-card-footer">
+                    <span class="grid-post-card-date">Jan 31, 2026</span>
+                    <span class="grid-post-card-arrow">Read →</span>
+                  </div>
+                </div>
+              </a>
+              <a href="./japan.html" class="grid-post-card">
+                <div class="grid-post-card-img-wrap">
+                  <img src="assets/japan.JPG" alt="Japan" loading="lazy" />
+                </div>
+                <div class="grid-post-card-body">
+                  <span class="grid-post-card-tag">Travel · Asia</span>
+                  <h3 class="grid-post-card-title">
+                    Japan: It Stays With You Differently
+                  </h3>
+                  <p class="grid-post-card-excerpt">
+                    Beyond the cities, it was the countryside that stayed with
+                    us. Quiet towns, scenic train rides, and unhurried moments.
+                  </p>
+                  <div class="grid-post-card-footer">
+                    <span class="grid-post-card-date">Oct 5, 2024</span>
+                    <span class="grid-post-card-arrow">Read →</span>
+                  </div>
+                </div>
+              </a>
+              <a href="./kenya.html" class="grid-post-card">
+                <div class="grid-post-card-img-wrap">
+                  <img
+                    src="assets/kenya.JPG"
+                    alt="Kenya Masai Mara"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="grid-post-card-body">
+                  <span class="grid-post-card-tag">Travel · Africa</span>
+                  <h3 class="grid-post-card-title">Kenya: Coast and Mara</h3>
+                  <p class="grid-post-card-excerpt">
+                    Masai Mara felt like stepping into a world we'd only seen in
+                    documentaries — wide open skies, quiet mornings, and
+                    wildlife just there.
+                  </p>
+                  <div class="grid-post-card-footer">
+                    <span class="grid-post-card-date">Aug 20, 2023</span>
+                    <span class="grid-post-card-arrow">Read →</span>
+                  </div>
+                </div>
+              </a>
+              <a href="./maldives.html" class="grid-post-card">
+                <div class="grid-post-card-img-wrap">
+                  <img
+                    src="assets/maldives.jpg"
+                    alt="Maldives"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="grid-post-card-body">
+                  <span class="grid-post-card-tag">Travel · Asia</span>
+                  <h3 class="grid-post-card-title">Maldives | March 2023</h3>
+                  <p class="grid-post-card-excerpt">
+                    Maldives gave us the rare chance to pause completely — away
+                    from movement and plans, we embraced stillness and
+                    simplicity.
+                  </p>
+                  <div class="grid-post-card-footer">
+                    <span class="grid-post-card-date">Mar 31, 2023</span>
+                    <span class="grid-post-card-arrow">Read →</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- /#postsGrid -->
+
+            <nav
+              class="pagination pagination-wrap"
+              id="postsPagination"
+              aria-label="Posts pagination"
+            ></nav>
+          </div>
+        </div>
+        <!-- /.mag-front -->
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar" aria-label="Sidebar">
+        <div class="widget widget--about widget--about-v2">
+          <div class="about-photo-wrap">
+            <img
+              src="assets/profilephoto.JPG"
+              alt="Aditi and Rajesh"
+              class="about-photo"
+              loading="eager"
+            />
+          </div>
+          <div class="about-text">
+            <h3 class="about-name">Hi, We're AdiRaj!</h3>
+            <p>
+              Navigating life through travel, ideas &amp; curiosity. Documenting
+              what we see, feel &amp; learn along the way.
+            </p>
+            <a href="./about.html" class="widget-link">More About Us</a>
+          </div>
+        </div>
+
+        <div class="widget widget--newsletter">
+          <span class="widget-eyebrow">Subscribe</span>
+          <h4 class="widget-title">For quieter thoughts and better living</h4>
+          <p class="widget-newsletter-desc">
+            New posts. Quiet reflections. Only when it matters.
+          </p>
+          <form class="nl-form" aria-label="Newsletter signup">
+            <label for="sidebar-email" class="visually-hidden"
+              >Your email address</label
+            >
+            <input
+              type="email"
+              id="sidebar-email"
+              class="nl-input"
+              placeholder="Your email address"
+              required
+              autocomplete="email"
+            />
+            <button type="submit" class="nl-btn">Subscribe</button>
+          </form>
+          <p class="widget-newsletter-note">No spam. Unsubscribe any time.</p>
+        </div>
+
+        <div class="widget">
+          <h4 class="widget-title widget-eyebrow">Follow Along</h4>
+          <div class="insta-grid">
+            <a
+              href="https://www.instagram.com/adiraj.routesandreflections/"
+              class="insta-cell"
+              aria-label="Instagram post 1"
+              ><img src="assets/followalong1.JPG" alt="" loading="lazy"
+            /></a>
+            <a
+              href="https://www.instagram.com/adiraj.routesandreflections/"
+              class="insta-cell"
+              aria-label="Instagram post 2"
+              ><img src="assets/followalong2.JPG" alt="" loading="lazy"
+            /></a>
+            <a
+              href="https://www.instagram.com/adiraj.routesandreflections/"
+              class="insta-cell"
+              aria-label="Instagram post 3"
+              ><img src="assets/followalong3.JPG" alt="" loading="lazy"
+            /></a>
+            <a
+              href="https://www.instagram.com/adiraj.routesandreflections/"
+              class="insta-cell"
+              aria-label="Instagram post 4"
+              ><img src="assets/followalong4.JPG" alt="" loading="lazy"
+            /></a>
+            <a
+              href="https://www.instagram.com/adiraj.routesandreflections/"
+              class="insta-cell"
+              aria-label="Instagram post 5"
+              ><img src="assets/followalong5.JPG" alt="" loading="lazy"
+            /></a>
+            <a
+              href="https://www.instagram.com/adiraj.routesandreflections/"
+              class="insta-cell"
+              aria-label="Instagram post 6"
+              ><img src="assets/followalong6.JPG" alt="" loading="lazy"
+            /></a>
+          </div>
+          <a
+            href="https://www.instagram.com/adiraj.routesandreflections/"
+            class="widget-link widget-link--center"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Follow on Instagram</a
+          >
+        </div>
+      </aside>
+    </div>
+    <!-- /.page-wrap -->
+
+    <!-- TRAVEL TEASER -->
+    <section class="idx-teaser idx-teaser--travel">
+      <div class="idx-teaser-inner">
+        <div class="idx-teaser-editorial">
+          <h2 class="idx-teaser-title">
+            Some places stay<br />with you <em>long after</em><br />you leave.
+          </h2>
+          <p class="idx-teaser-desc">
+            Slow journeys across Asia and Africa — documented through honest
+            stories, photography, and the quiet moments that made us pause.
+          </p>
+          <div class="idx-teaser-stats">
+            <div class="idx-teaser-stat">
+              <span class="idx-teaser-stat-num">7</span
+              ><span class="idx-teaser-stat-label">Countries</span>
+            </div>
+            <div class="idx-teaser-stat">
+              <span class="idx-teaser-stat-num">2</span
+              ><span class="idx-teaser-stat-label">Continents</span>
+            </div>
+            <div class="idx-teaser-stat">
+              <span class="idx-teaser-stat-num">18+</span
+              ><span class="idx-teaser-stat-label">Itineraries</span>
+            </div>
+          </div>
+          <a href="./travel.html" class="idx-teaser-cta idx-teaser-cta--travel"
+            >Explore the Travel
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M3 8h10M9 4l4 4-4 4" /></svg
+          ></a>
+        </div>
+        <div class="idx-teaser-cards idx-teaser-cards--travel">
+          <a href="./japan.html" class="idx-tv-card idx-tv-card--tall">
+            <img
+              src="assets/japan.JPG"
+              alt="Japan"
+              class="idx-tv-card-img"
+              loading="lazy"
+            />
+            <div class="idx-tv-card-scrim" aria-hidden="true"></div>
+            <div class="idx-tv-card-body">
+              <span class="idx-tv-card-region">Asia</span>
+              <h3 class="idx-tv-card-name">Japan</h3>
+              <span class="idx-tv-card-sub">Places That Held Us Longer</span>
+            </div>
+          </a>
+          <div class="idx-tv-card-col">
+            <a href="./kenya.html" class="idx-tv-card idx-tv-card--half">
+              <img
+                src="assets/kenya.JPG"
+                alt="Kenya"
+                class="idx-tv-card-img"
+                loading="lazy"
+              />
+              <div class="idx-tv-card-scrim" aria-hidden="true"></div>
+              <div class="idx-tv-card-body">
+                <span class="idx-tv-card-region">Africa</span>
+                <h3 class="idx-tv-card-name">Kenya</h3>
+                <span class="idx-tv-card-sub">Coast, Mara, and the Rift</span>
+              </div>
+            </a>
+            <a href="./taiwan.html" class="idx-tv-card idx-tv-card--half">
+              <img
+                src="assets/taiwan.JPG"
+                alt="Taiwan"
+                class="idx-tv-card-img"
+                loading="lazy"
+              />
+              <div class="idx-tv-card-scrim" aria-hidden="true"></div>
+              <div class="idx-tv-card-body">
+                <span class="idx-tv-card-region">Asia</span>
+                <h3 class="idx-tv-card-name">Taiwan</h3>
+                <span class="idx-tv-card-sub">East Rift Valley</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIFESTYLE TEASER -->
+    <section class="idx-teaser idx-teaser--lifestyle">
+      <div class="idx-teaser-inner idx-teaser-inner--reversed">
+        <div class="idx-teaser-cards idx-teaser-cards--lifestyle">
+          <a
+            href="./lifestyle/life-not-everyday.html"
+            class="idx-ls-card idx-ls-card--feature"
+          >
+            <div class="idx-ls-card-ph ph-ink"></div>
+            <img
+              src="./lifestyle/article-assets/not-every-day-needs-to-mean-something.jpg"
+              alt="Not Every Day Needs to Mean Something"
+              class="idx-ls-card-img"
+              loading="lazy"
+              onerror="this.style.display = 'none'"
+            />
+            <div class="idx-ls-card-scrim" aria-hidden="true"></div>
+            <div class="idx-ls-card-body">
+              <span class="idx-ls-card-tag">Life · Reflections</span>
+              <h3 class="idx-ls-card-title">
+                Not Every Day Needs to Mean Something
+              </h3>
+              <span class="idx-ls-card-read">Read →</span>
+            </div>
+          </a>
+          <div class="idx-ls-smalls">
+            <a href="./lifestyle/life-boring.html" class="idx-ls-small">
+              <div class="idx-ls-small-img">
+                <img
+                  src="./lifestyle/article-assets/boring.jpg"
+                  alt="Boring"
+                  class="idx-ls-small-photo"
+                  loading="lazy"
+                  onerror="this.style.display = 'none'"
+                />
+                <div class="idx-ls-small-ph ph-blush"></div>
+              </div>
+              <div class="idx-ls-small-body">
+                <span class="idx-ls-small-tag">Life · Reflections</span>
+                <h4 class="idx-ls-small-title">Boring</h4>
+              </div>
+            </a>
+            <a href="./lifestyle/life-chai.html" class="idx-ls-small">
+              <div class="idx-ls-small-img">
+                <img
+                  src="./lifestyle/article-assets/chai.jpg"
+                  alt="Chai"
+                  class="idx-ls-small-photo"
+                  loading="lazy"
+                  onerror="this.style.display = 'none'"
+                />
+                <div class="idx-ls-small-ph ph-moss"></div>
+              </div>
+              <div class="idx-ls-small-body">
+                <span class="idx-ls-small-tag">Life · Slow Living</span>
+                <h4 class="idx-ls-small-title">Chai</h4>
+              </div>
+            </a>
+            <a href="./lifestyle/life-stupid-birds.html" class="idx-ls-small">
+              <div class="idx-ls-small-img">
+                <img
+                  src="./lifestyle/article-assets/stupid-birds.jpg"
+                  alt="Stupid Birds"
+                  class="idx-ls-small-photo"
+                  loading="lazy"
+                  onerror="this.style.display = 'none'"
+                />
+                <div class="idx-ls-small-ph ph-dusk"></div>
+              </div>
+              <div class="idx-ls-small-body">
+                <span class="idx-ls-small-tag">Life · Slow Living</span>
+                <h4 class="idx-ls-small-title">Stupid Birds</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="idx-teaser-editorial idx-teaser-editorial--lifestyle">
+          <h2 class="idx-teaser-title">
+            The art of living<br /><em>deliberately.</em>
+          </h2>
+          <p class="idx-teaser-desc">
+            Creativity, growth, wellness, food, and everything in between —
+            careful attention to what makes a life worth the living.
+          </p>
+          <a
+            href="./lifestyle.html"
+            class="idx-teaser-cta idx-teaser-cta--lifestyle"
+            >Explore the Lifestyle
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M3 8h10M9 4l4 4-4 4" /></svg
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDIO TEASER -->
+    <section class="idx-teaser idx-teaser--studio">
+      <div class="idx-st-orb idx-st-orb--1" aria-hidden="true"></div>
+      <div class="idx-st-orb idx-st-orb--2" aria-hidden="true"></div>
+      <div class="idx-teaser-inner">
+        <div class="idx-teaser-editorial idx-teaser-editorial--studio">
+          <h2 class="idx-teaser-title idx-teaser-title--light">
+            Where every journey<br />leaves <em>something</em><br />behind.
+          </h2>
+          <p class="idx-teaser-desc idx-teaser-desc--light">
+            Thoughtful objects for everyday living — handmade, curated,
+            intentional. Designed to bring calm, warmth, and meaning into your
+            space.
+          </p>
+          <a href="./studio.html" class="idx-teaser-cta idx-teaser-cta--studio"
+            >Explore the Studio
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M3 8h10M9 4l4 4-4 4" /></svg
+          ></a>
+        </div>
+        <div class="idx-teaser-cards idx-teaser-cards--studio">
+          <div class="idx-st-grid">
+            <div class="idx-st-tile idx-st-tile--wide">
+              <img
+                src="assets/studio/studio-art-big.jpg"
+                alt="Handcrafted studio objects"
+                class="idx-st-tile-img"
+                loading="lazy"
+              />
+              <div class="idx-st-tile-scrim" aria-hidden="true"></div>
+              <span class="idx-st-tile-label">Handcrafted Objects</span>
+            </div>
+            <div class="idx-st-tile">
+              <img
+                src="assets/studio/studio-art.jpg"
+                alt="Studio art"
+                class="idx-st-tile-img"
+                loading="lazy"
+                onerror="this.src = 'assets/taiwan.JPG'"
+              />
+            </div>
+            <div class="idx-st-tile idx-st-tile--coming">
+              <div class="idx-st-coming-content">
+                <span class="idx-st-coming-icon" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    width="28"
+                    height="28"
+                  >
+                    <path d="M8 12h24l-3 14H11L8 12z" />
+                    <circle cx="15" cy="30" r="2" />
+                    <circle cx="27" cy="30" r="2" />
+                    <path d="M5 8h4l4 14" />
+                  </svg>
+                </span>
+                <span class="idx-st-coming-label">Shop</span>
+                <span class="idx-st-coming-pill">Coming Soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      ┌──────────────────────────────────────────────────┐
+      │  WEB COMPONENT — site-footer renders footer +    │
+      │  back-to-top button. Copyright year is dynamic.  │
+      └──────────────────────────────────────────────────┘
+    -->
+    <site-footer></site-footer>
+
+    <!--
+      ┌──────────────────────────────────────────────────┐
+      │  ES MODULES — Web Components loaded first so     │
+      │  they paint with the initial HTML. Page JS runs  │
+      │  after components are defined.                   │
+      └──────────────────────────────────────────────────┘
+    -->
+    <script type="module" src="js/components/site-ribbon.js"></script>
+    <script type="module" src="js/components/site-header.js"></script>
+    <script type="module" src="js/components/site-footer.js"></script>
+    <script type="module" src="js/pages/index.js"></script>
+  </body>
+</html>

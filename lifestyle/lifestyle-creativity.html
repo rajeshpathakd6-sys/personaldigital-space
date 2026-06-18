@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creativity — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="On photography, design, writing, and the creative habits that shape how we see the world." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .sub-hero {
+        position: relative;
+        padding: calc(var(--total-top) + 5.5rem) var(--pad-x) 5rem;
+        background: #fff;
+        overflow: hidden;
+      }
+      .sub-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, #faf7f2 0%, #fff 50%, #f7f2ec 100%);
+      }
+      /* Decorative lines — editorial feel */
+      .sub-hero-lines {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 40%;
+        pointer-events: none;
+      }
+      .sub-hero-lines::before,
+      .sub-hero-lines::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(
+          180deg,
+          transparent 0%,
+          rgba(184, 118, 82, 0.15) 30%,
+          rgba(184, 118, 82, 0.15) 70%,
+          transparent 100%
+        );
+      }
+      .sub-hero-lines::before {
+        left: 0;
+      }
+      .sub-hero-lines::after {
+        left: 30%;
+      }
+      .sub-hero-inner {
+        position: relative;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+      @media (max-width: 760px) {
+        .sub-hero-inner {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .sub-hero-lines {
+          display: none;
+        }
+      }
+      .sub-breadcrumb {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #a09888;
+        margin-bottom: 1.5rem;
+      }
+      .sub-breadcrumb a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .sub-breadcrumb a:hover {
+        text-decoration: underline;
+      }
+      .sub-hero-eyebrow {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .sub-hero-title {
+        font-family: var(--serif);
+        font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+        font-weight: 400;
+        line-height: 1.08;
+        color: #1a1a18;
+        margin: 0 0 1.5rem;
+      }
+      .sub-hero-title em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .sub-hero-rule {
+        width: 48px;
+        height: 1px;
+        background: var(--accent);
+        margin-bottom: 1.5rem;
+      }
+      .sub-hero-desc {
+        font-family: var(--sans);
+        font-size: 1rem;
+        color: #6a6058;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+      .sub-hero-quote {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        font-style: italic;
+        color: #4a4038;
+        line-height: 1.65;
+        padding-left: 1.25rem;
+        border-left: 2px solid var(--accent);
+        margin: 0;
+      }
+
+      .sp-sec {
+        background: #f7f3ee;
+        padding: 4rem var(--pad-x) 6rem;
+      }
+      .sp-wrap {
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+      .sp-sec-hdr {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 2.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #ebe6de;
+      }
+      .sp-kicker {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+      .sp-sec-title {
+        font-family: var(--serif);
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: #1a1a18;
+        margin: 0;
+      }
+      .sp-sec-title em {
+        font-style: italic;
+      }
+      .sp-count {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        color: #a09888;
+      }
+      .sp-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+      @media (max-width: 960px) {
+        .sp-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 580px) {
+        .sp-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .sc {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border: 1px solid #ebe6de;
+        border-radius: 3px;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        transition:
+          transform 0.28s ease,
+          box-shadow 0.28s ease;
+      }
+      .sc:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+      }
+      .sc-img {
+        aspect-ratio: 16/10;
+        overflow: hidden;
+        position: relative;
+        background: #ede8e1;
+      }
+      .sc-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      .sc:hover .sc-img img {
+        transform: scale(1.04);
+      }
+      .sc-ph {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+      }
+      .ph-slate {
+        background: linear-gradient(135deg, #7a8a9a, #5a6a7a);
+      }
+      .ph-sage {
+        background: linear-gradient(135deg, #8fad8f, #5a7a5a);
+      }
+      .ph-blush {
+        background: linear-gradient(135deg, #d4a0a0, #a87070);
+      }
+      .ph-moss {
+        background: linear-gradient(135deg, #7a9a6a, #4a7040);
+      }
+      .ph-ink {
+        background: linear-gradient(135deg, #4a5060, #2a3040);
+      }
+      .ph-warm {
+        background: linear-gradient(135deg, #d4a574, #a87040);
+      }
+      .ph-dusk {
+        background: linear-gradient(135deg, #9a8ab0, #7060a0);
+      }
+      .sc-body {
+        padding: 1.5rem 1.5rem 1.25rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .sc-cat {
+        font-family: var(--sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.6rem;
+        font-weight: 700;
+      }
+      .sc-title {
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-weight: 400;
+        line-height: 1.4;
+        color: #1a1a18;
+        margin: 0 0 0.75rem;
+      }
+      .sc-excerpt {
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        color: #7a7068;
+        line-height: 1.7;
+        margin: 0 0 auto;
+      }
+      .sc-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid #f0ebe3;
+      }
+      .sc-date {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        color: #a09888;
+        letter-spacing: 0.04em;
+      }
+      .sc-read {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        color: var(--accent);
+        letter-spacing: 0.08em;
+        font-weight: 700;
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link rel="apple-touch-icon" href="../assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/lifestyle/lifestyle-creativity.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Creativity — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="On photography, design, writing, and the creative habits that shape how we see the world." />
+    <meta property="og:url" content="https://routesandreflections.in/lifestyle/lifestyle-creativity.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Creativity — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="On photography, design, writing, and the creative habits that shape how we see the world." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body>
+    <site-ribbon depth=".."></site-ribbon>
+    <site-header active="lifestyle" depth=".."></site-header>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="sub-hero">
+      <div class="sub-hero-lines"></div>
+      <div class="sub-hero-inner">
+        <div>
+          <p class="sub-breadcrumb">
+            <a href="../lifestyle.html">Lifestyle</a> &nbsp;/&nbsp; Creativity
+          </p>
+          <span class="sub-hero-eyebrow">Category</span>
+          <h1 class="sub-hero-title">On<br /><em>making things.</em></h1>
+          <div class="sub-hero-rule"></div>
+          <p class="sub-hero-desc">
+            On craft, photography, writing, and the strange courage it takes to
+            make anything at all — from images to sentences to habits.
+          </p>
+        </div>
+        <div>
+          <blockquote class="sub-hero-quote">
+            "The first draft is just you telling yourself the story."<br /><br />—
+            Terry Pratchett
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ POSTS ═══ -->
+    <section class="sp-sec">
+      <div class="sp-wrap">
+        <div class="sp-sec-hdr">
+          <div>
+            <span class="sp-kicker">Creativity</span>
+            <h2 class="sp-sec-title">All <em>Creativity</em> Essays</h2>
+          </div>
+          <span class="sp-count">4 posts</span>
+        </div>
+        <div class="sp-grid">
+          <a
+            href="../lifestyle/creativity-the-three-decisions-behind-every-photo.html"
+            class="sc"
+          >
+            <div class="sc-img">
+              <div class="sc-ph ph-slate"></div>
+              <img
+                src="../lifestyle/article-assets/the-three-decisions-behind-every-photo.jpg"
+                alt="Three Decisions"
+                loading="eager"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+            <div class="sc-body">
+              <span class="sc-cat">Creativity · Photography</span>
+              <h2 class="sc-title">The Three Decisions Behind Every Photo</h2>
+              <p class="sc-excerpt">
+                Every image you've ever admired was the result of three choices
+                made in a fraction of a second.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Mar 26, 2026 · 6 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="sc">
+            <div class="sc-img"><div class="sc-ph ph-sage"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Creativity · Making</span>
+              <h2 class="sc-title">
+                Making Things By Hand in a World That Doesn't Need You To
+              </h2>
+              <p class="sc-excerpt">
+                On why manual craft is not nostalgic — it is necessary, and
+                deeply subversive.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Mar 2, 2026 · 8 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="sc">
+            <div class="sc-img"><div class="sc-ph ph-blush"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Creativity · Writing</span>
+              <h2 class="sc-title">
+                How to Write Every Day Without Burning Out
+              </h2>
+              <p class="sc-excerpt">
+                Not discipline. Not motivation. Something quieter and far more
+                durable.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Feb 14, 2026 · 6 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="sc">
+            <div class="sc-img"><div class="sc-ph ph-ink"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Creativity · Photography</span>
+              <h2 class="sc-title">
+                Seeing Slowly: What Street Photography Taught Me About Attention
+              </h2>
+              <p class="sc-excerpt">
+                A camera changes not just what you look at, but how long you're
+                willing to look.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Jan 22, 2026 · 7 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PREMIUM FOOTER ── -->
+
+    <site-footer depth=".."></site-footer>
+
+    <script type="module" src="../js/components/site-ribbon.js"></script>
+    <script type="module" src="../js/components/site-header.js"></script>
+    <script type="module" src="../js/components/site-footer.js"></script>
+    <script type="module" src="../js/pages/lifestyle-category.js"></script>
+  </body>
+</html>

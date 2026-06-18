@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Returning to Yourself — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="Not a reset, not a method — just a quiet way of coming back to who you are." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      :root {
+        --wl-sage: #7b9e87;
+        --wl-sage-deep: #4e7560;
+        --wl-rose: #c0847a;
+        --wl-rose-light: #dba89f;
+        --wl-body-bg: #fdfcfa;
+        --wl-text: #252b24;
+        --wl-muted: #7a817a;
+        --wl-border: #e0e8e2;
+        --wl-cream: #f4f2ee;
+      }
+
+      body {
+        background: var(--wl-body-bg);
+      }
+
+      /* ── HERO — sage sanctuary ── */
+      .art-hero {
+        position: relative;
+        height: clamp(460px, 56vw, 600px);
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        background: linear-gradient(
+          150deg,
+          #1a2a24 0%,
+          #243b31 55%,
+          #182822 100%
+        );
+      }
+      .art-hero-photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.25;
+        filter: saturate(0.6) brightness(0.85);
+      }
+      .art-hero-glow {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            ellipse 75% 60% at 15% 60%,
+            rgba(94, 148, 115, 0.3) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 40% 40% at 85% 30%,
+            rgba(192, 132, 122, 0.12) 0%,
+            transparent 60%
+          );
+        animation: wlGlowBreath 12s ease-in-out infinite alternate;
+      }
+      @keyframes wlGlowBreath {
+        from {
+          opacity: 0.6;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .art-hero-scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(10, 17, 12, 0.95) 0%,
+          rgba(10, 17, 12, 0.2) 60%,
+          transparent 100%
+        );
+      }
+      .art-hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 0 2rem 4.5rem;
+        width: 100%;
+      }
+      .art-category-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 1.5rem;
+      }
+      .art-category-badge .line {
+        display: inline-block;
+        width: 36px;
+        height: 1px;
+        background: var(--wl-sage);
+      }
+      .art-category-badge .label {
+        font-family: var(--sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--wl-sage);
+      }
+      .art-hero-title {
+        font-family: var(--serif);
+        font-size: clamp(2.3rem, 5.5vw, 4.2rem);
+        font-weight: 400;
+        color: #eef4f0;
+        line-height: 1.12;
+        margin: 0 0 1.2rem;
+        letter-spacing: -0.005em;
+        max-width: 680px;
+      }
+      .art-hero-title em {
+        font-style: italic;
+        color: #a8cbb6;
+      }
+      .art-hero-tagline {
+        font-family: var(--serif);
+        font-size: 1.18rem;
+        font-weight: 300;
+        font-style: italic;
+        color: rgba(238, 244, 240, 0.62);
+        max-width: 500px;
+        margin: 0;
+        line-height: 1.75;
+      }
+
+      /* ── Author Strip ── */
+      .art-author-strip {
+        background: var(--wl-cream);
+        border-bottom: 1px solid var(--wl-border);
+      }
+      .art-author-inner {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      .art-author-left {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+      }
+      .art-author-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--wl-sage),
+          var(--wl-sage-deep)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 700;
+      }
+      .art-author-info {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .art-author-name {
+        font-family: var(--sans);
+        font-size: 0.84rem;
+        font-weight: 700;
+        color: var(--wl-text);
+      }
+      .art-author-name a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(123, 158, 135, 0.4);
+        transition: border-color 0.2s;
+      }
+      .art-author-name a:hover {
+        border-color: var(--wl-sage);
+      }
+      .art-author-meta {
+        font-family: var(--sans);
+        font-size: 0.73rem;
+        color: var(--wl-muted);
+      }
+      .art-author-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .art-read-time {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        color: var(--wl-muted);
+        border-left: 1px solid var(--wl-border);
+        padding-left: 1rem;
+        letter-spacing: 0.04em;
+      }
+      .art-author-substack {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--wl-sage-deep);
+        text-decoration: none;
+        padding: 0.38rem 1rem;
+        border: 1px solid var(--wl-sage);
+        border-radius: 2px;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        white-space: nowrap;
+      }
+      .art-author-substack:hover {
+        background: var(--wl-sage);
+        color: #fff;
+      }
+
+      /* ── Back ── */
+      .art-back {
+        display: block;
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--wl-muted);
+        padding: 1rem 2rem;
+        max-width: 820px;
+        margin: 0 auto;
+        transition: color 0.2s;
+        border-bottom: 1px solid var(--wl-border);
+        text-decoration: none;
+      }
+      .art-back:hover {
+        color: var(--wl-sage-deep);
+      }
+
+      /* ── Body ── */
+      .art-body-wrap {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 4.5rem 2rem 6rem;
+        animation: wlFadeUp 0.8s ease 0.1s both;
+      }
+      @keyframes wlFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .art-body-wrap p {
+        font-family: "Libre Baskerville", serif;
+        font-size: 1.06rem;
+        line-height: 2.05;
+        color: var(--wl-text);
+        margin: 0 0 2rem;
+      }
+      .art-body-wrap p em {
+        font-style: italic;
+        color: var(--wl-sage-deep);
+      }
+      .art-dropcap::first-letter {
+        font-family: var(--serif);
+        font-size: 4.8rem;
+        font-weight: 700;
+        float: left;
+        line-height: 0.76;
+        margin: 0.1em 0.12em 0 0;
+        color: var(--wl-sage);
+      }
+
+      /* Centered, airy pull quote */
+      .art-pull-quote {
+        text-align: center;
+        padding: 3rem 3rem;
+        margin: 3rem 0;
+        position: relative;
+      }
+      .art-pull-quote::before {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 1px;
+        background: var(--wl-rose);
+        margin: 0 auto 1.8rem;
+      }
+      .art-pull-quote::after {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 1px;
+        background: var(--wl-rose);
+        margin: 1.8rem auto 0;
+      }
+      .art-pull-quote p {
+        font-family: var(--serif) !important;
+        font-size: 1.6rem !important;
+        font-style: italic;
+        font-weight: 300;
+        color: var(--wl-sage-deep) !important;
+        line-height: 1.6 !important;
+        margin: 0 !important;
+        max-width: 540px;
+        margin: 0 auto !important;
+      }
+
+      /* Body subheading */
+      .art-body-wrap h2 {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 400;
+        font-style: italic;
+        color: var(--wl-sage-deep);
+        margin: 3.5rem 0 1.4rem;
+        letter-spacing: 0.01em;
+      }
+
+      /* Botanical ornament divider */
+      .art-divider {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin: 4rem 0;
+        opacity: 0.35;
+      }
+      .art-divider::before,
+      .art-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--wl-sage);
+      }
+      .art-divider span {
+        font-size: 1rem;
+        color: var(--wl-sage);
+      }
+      .art-end-mark {
+        text-align: center;
+        margin: 3.5rem 0 0;
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--wl-muted);
+        letter-spacing: 0.15em;
+      }
+
+      /* Practice box */
+      .art-practice-box {
+        border: 1px solid var(--wl-border);
+        background: rgba(123, 158, 135, 0.05);
+        padding: 2rem 2.5rem;
+        margin: 3rem 0;
+        position: relative;
+      }
+      .art-practice-box::before {
+        content: "Practice";
+        position: absolute;
+        top: -0.6rem;
+        left: 2rem;
+        background: var(--wl-body-bg);
+        padding: 0 0.8rem;
+        font-family: var(--sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--wl-sage);
+      }
+      .art-practice-box p {
+        font-size: 1rem !important;
+        line-height: 1.85 !important;
+        margin-bottom: 0.8rem !important;
+      }
+      .art-practice-box p:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      /* ── Continue Reading ── */
+      .art-section-label {
+        display: block;
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--wl-sage);
+        margin-bottom: 0.4rem;
+      }
+      .art-continue {
+        background: #f0f4f1;
+        border-top: 1px solid var(--wl-border);
+        padding: 5rem 2rem;
+      }
+      .art-continue-inner {
+        max-width: 820px;
+        margin: 0 auto;
+      }
+      .art-continue-head {
+        margin-bottom: 2.8rem;
+      }
+      .art-continue-title {
+        font-family: var(--serif);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 400;
+        color: var(--wl-text);
+        margin: 0.4rem 0 0;
+      }
+      .art-continue-title em {
+        font-style: italic;
+        color: var(--wl-sage-deep);
+      }
+      .art-continue-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .art-card {
+        background: #fff;
+        border: 1px solid var(--wl-border);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .art-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 36px rgba(37, 43, 36, 0.07);
+      }
+      .art-card a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
+      .art-card-img-wrap {
+        overflow: hidden;
+        height: 180px;
+        background: #d8e6dc;
+      }
+      .art-card-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+      .art-card:hover .art-card-img-wrap img {
+        transform: scale(1.05);
+      }
+      .art-card-body {
+        padding: 1.3rem 1.5rem 1.7rem;
+      }
+      .art-card-tag {
+        display: inline-block;
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--wl-sage);
+        margin-bottom: 0.5rem;
+      }
+      .art-card-title {
+        font-family: var(--serif);
+        font-size: 1.08rem;
+        font-weight: 400;
+        color: var(--wl-text);
+        line-height: 1.38;
+        margin: 0;
+      }
+
+      @media (max-width: 640px) {
+        .art-hero-inner,
+        .art-author-inner,
+        .art-body-wrap,
+        .art-continue {
+          padding-left: 1.3rem;
+          padding-right: 1.3rem;
+        }
+        .art-back {
+          padding-left: 1.3rem;
+        }
+        .art-continue-grid {
+          grid-template-columns: 1fr;
+        }
+        .art-hero {
+          height: clamp(360px, 62vw, 460px);
+        }
+        .art-pull-quote {
+          padding: 2.5rem 1rem;
+        }
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link rel="apple-touch-icon" href="../assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/lifestyle/wellness-returning-to-yourself.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Returning to Yourself — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Not a reset, not a method — just a quiet way of coming back to who you are." />
+    <meta property="og:url" content="https://routesandreflections.in/lifestyle/wellness-returning-to-yourself.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Returning to Yourself — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Not a reset, not a method — just a quiet way of coming back to who you are." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body>
+    <site-ribbon depth=".."></site-ribbon>
+    <site-header active="lifestyle" depth=".."></site-header>
+
+    <!-- ══ ARTICLE HERO ══ -->
+    <section class="art-hero">
+      <img
+        src="./article-assets/returning-to-yourself.jpg"
+        alt="Stillness"
+        class="art-hero-photo"
+        onerror="this.style.display = 'none'"
+      />
+      <div class="art-hero-glow"></div>
+      <div class="art-hero-scrim"></div>
+      <div class="art-hero-inner">
+        <div class="art-category-badge">
+          <span class="line"></span>
+          <span class="label">Wellness · Mind</span>
+        </div>
+        <h1 class="art-hero-title">Returning to <em>Yourself</em></h1>
+      </div>
+    </section>
+
+    <!-- ══ AUTHOR STRIP ══ -->
+    <div class="art-author-strip">
+      <div class="art-author-inner">
+        <div class="art-author-left">
+          <div class="art-author-avatar">R</div>
+          <div class="art-author-info">
+            <span class="art-author-name"
+              >By <a href="../about.html">Rajesh Pathak</a></span
+            >
+            <span class="art-author-meta">April 16, 2026</span>
+          </div>
+        </div>
+        <div class="art-author-right">
+          <a
+            href="https://substack.com/@rajeshpathakd6"
+            class="art-author-substack"
+            >Read on Substack ↗</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <a href="../lifestyle.html" class="art-back">← Back to Lifestyle</a>
+
+    <main class="art-body-wrap" id="articleBody">
+      <p class="art-dropcap">
+        Lately, I’ve been thinking about wellness differently. Not as routines
+        to follow or habits to optimise, but as something to return to.
+      </p>
+
+      <p>
+        Because you can do all the “right” things—eat well, stay active, keep
+        busy—and still feel a little off, a little disconnected.
+      </p>
+
+      <p>
+        When I started looking at my life, it didn’t come as one clear picture.
+        It came in fragments.
+      </p>
+
+      <p>
+        Work—what it gives, what it takes.<br />
+        People—who feels like home, who feels distant now.<br />
+        Time—where it goes without noticing.<br />
+        Energy—what drains it, what restores it.
+      </p>
+
+      <p>
+        Some things were obvious. Others I kept avoiding. And that avoidance
+        itself said enough.
+      </p>
+
+      <div class="art-pull-quote">
+        <p>
+          The hardest part isn’t figuring out what’s not working, but being
+          honest about it.
+        </p>
+      </div>
+
+      <p>
+        I’ve come to see that wellness has less to do with control and more to
+        do with awareness. Less about ambition, more about alignment.
+      </p>
+
+      <p>
+        It’s not about adding more into life; it’s about letting go of what
+        doesn’t feel right—the constant rush, the unnecessary noise, the need to
+        always be in control, the pressure to be the best at everything.
+      </p>
+
+      <p>
+        And choosing, even in small ways, a different pace. A slower
+        conversation. A deeper breath. A moment of pause before reacting.
+      </p>
+
+      <p>
+        There are things we keep postponing—conversations, decisions, small
+        changes—not because we can’t handle them, but because it’s easier to
+        keep going as we are.
+      </p>
+
+      <p>
+        But when you sit with yourself long enough, you can’t really pretend
+        anymore. Not harshly. Just gently honest.
+      </p>
+
+      <div class="art-pull-quote">
+        <p>You don’t force clarity. You allow honesty.</p>
+      </div>
+
+      <p>
+        I didn’t walk away from this with big plans or dramatic decisions. Just
+        small shifts.
+      </p>
+
+      <p>
+        Spending less time where I feel drained. Holding on longer to what feels
+        calm. Nothing that looks impressive from the outside, but enough to feel
+        different on the inside.
+      </p>
+
+      <p>
+        And I’ve realised this isn’t something you do once. You drift. Life
+        changes. You change.
+      </p>
+
+      <p>
+        So I come back to this every now and then—on quiet evenings, during
+        travel, in moments when life feels a little too loud.
+      </p>
+
+      <p>
+        Spirituality, I’ve found, doesn’t always look like something external.
+        It’s not always rituals or practices or answers.
+      </p>
+
+      <p>Sometimes, it’s just presence.</p>
+
+      <p>
+        Being fully there in a conversation, in a quiet walk, in a moment where
+        nothing special is happening. And yet, it feels complete.
+      </p>
+
+      <div class="art-pull-quote">
+        <p>
+          Most of the time, you’re not lost. You’ve just been moving for too
+          long without really looking.
+        </p>
+      </div>
+
+      <p>
+        Maybe that’s all this really is. Not a method. Not a reset. Just a quiet
+        way of coming back to yourself.
+      </p>
+
+      <div class="art-divider"><span>❧</span></div>
+      <p class="art-end-mark">— end —</p>
+    </main>
+
+    <!-- ══ CONTINUE READING ══ -->
+    <section class="art-continue">
+      <div class="art-continue-inner">
+        <div class="art-continue-head">
+          <span class="art-section-label">Continue Reading</span>
+          <h2 class="art-continue-title">More from <em>Wellness</em></h2>
+        </div>
+        <div class="art-continue-grid">
+          <article class="art-card">
+            <a href="../lifestyle/wellness-the-quiet-power.html">
+              <div class="art-card-img-wrap">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: url(&quot;../lifestyle/article-assets/wellnessplaceholder3.jpg&quot;)
+                      center/cover no-repeat;
+                  "
+                ></div>
+              </div>
+              <div class="art-card-body">
+                <span class="art-card-tag">Balance</span>
+                <h3 class="art-card-title">
+                  The Quiet Power of Positive Thinking
+                </h3>
+              </div>
+            </a>
+          </article>
+          <article class="art-card">
+            <a href="../lifestyle/wellness-vipassana.html">
+              <div class="art-card-img-wrap">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: url(&quot;../lifestyle/article-assets/vipassana.jpg&quot;)
+                      center/cover no-repeat;
+                  "
+                ></div>
+              </div>
+              <div class="art-card-body">
+                <span class="art-card-tag">Mind</span>
+                <h3 class="art-card-title">
+                  Equanimity in Practice: 10 Days of Vipassana
+                </h3>
+              </div>
+            </a>
+          </article>
+          <article class="art-card">
+            <a href="./wellness-your-mind-needs-care-too.html">
+              <div class="art-card-img-wrap">
+                <div
+                  style="
+                    width: 100%;
+                    height: 150%;
+                    background: url(&quot;../lifestyle/article-assets/mentalhealth.jpg&quot;)
+                      center/cover no-repeat;
+                  "
+                ></div>
+              </div>
+              <div class="art-card-body">
+                <span class="art-card-tag">Mental Health</span>
+                <h3 class="art-card-title">Your Mind Needs Care Too</h3>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+
+    <site-footer depth=".."></site-footer>
+
+    <script type="module" src="../js/components/site-ribbon.js"></script>
+    <script type="module" src="../js/components/site-header.js"></script>
+    <script type="module" src="../js/components/site-footer.js"></script>
+    <script type="module" src="../js/pages/lifestyle-article.js"></script>
+  </body>
+</html>

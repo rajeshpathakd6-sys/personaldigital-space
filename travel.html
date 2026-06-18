@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel — AdiRaj Routes &amp; Reflections</title>
+    <meta name="description" content="Slow journeys across Asia and Africa — documented through honest stories, photography, and the quiet moments that made us pause." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="apple-touch-icon" href="./assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/travel.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Travel — AdiRaj Routes &amp; Reflections" />
+    <meta property="og:description" content="Slow journeys across Asia and Africa — documented through honest stories, photography, and the quiet moments that made us pause." />
+    <meta property="og:url" content="https://routesandreflections.in/travel.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Travel — AdiRaj Routes &amp; Reflections" />
+    <meta name="twitter:description" content="Slow journeys across Asia and Africa — documented through honest stories, photography, and the quiet moments that made us pause." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body>
+    <site-ribbon></site-ribbon>
+    <site-header active="travel"></site-header>
+
+    <!-- ── PAGE HERO SLIDESHOW ── -->
+    <section class="dest-page-hero dest-hero-v2">
+      <div class="dhv2-slides" aria-hidden="true">
+        <div class="dhv2-slide dhv2-slide--active" style="background-image:url('./travel/slideshow/1.JPG')"></div>
+        <div class="dhv2-slide" style="background-image:url('./travel/slideshow/2.JPG')"></div>
+        <div class="dhv2-slide" style="background-image:url('./travel/slideshow/3.JPG')"></div>
+        <div class="dhv2-slide" style="background-image:url('./travel/slideshow/4.JPG')"></div>
+        <div class="dhv2-slide" style="background-image:url('./travel/slideshow/5.JPG')"></div>
+      </div>
+      <div class="dhv2-overlay" aria-hidden="true"></div>
+      <div class="dest-page-hero-content dhv2-content">
+        <div class="dhv2-kicker" aria-hidden="true"><span class="dhv2-kicker-line"></span><span>Our Journeys</span><span class="dhv2-kicker-line"></span></div>
+        <h1 class="dhv2-title">Some places stay with you<br /><em>long after you leave.</em></h1>
+        <p class="dhv2-body">For us, travel is about moments that slowed us down — the unexpected turns, the quiet streets, the feeling of discovering something together. These are ours.</p>
+        <div class="dhv2-cta-row">
+          <a href="#destinations" class="dhv2-btn dhv2-btn--primary">Explore Destinations</a>
+          <a href="#itineraries" class="dhv2-btn dhv2-btn--ghost">View Itineraries</a>
+        </div>
+        <div class="dhv2-scroll-nudge" aria-hidden="true"><span>Scroll</span><div class="dhv2-scroll-line"></div></div>
+      </div>
+    </section>
+
+    <!-- ── MAP + SIDEBAR ── -->
+    <div class="dest-top-section" id="destinations">
+      <div class="dest-sidebar-list-wrap">
+        <div class="dest-sidebar-box">
+          <span class="dest-sidebar-expand-label">Click to Expand</span>
+          <div class="dest-sidebar-items">
+            <div class="dest-accordion-item">
+              <div class="dest-sidebar-item" data-region="africa"><span class="dest-sidebar-item-num">1</span><span class="dest-sidebar-item-diamond" aria-hidden="true"></span><span class="dest-sidebar-item-name">Africa</span></div>
+              <div class="dest-accordion-content"><a href="destinations/africa-kenya.html">Kenya</a><a href="destinations/africa.html" class="dest-acc-all">All of Africa →</a></div>
+            </div>
+            <div class="dest-accordion-item">
+              <div class="dest-sidebar-item" data-region="asia"><span class="dest-sidebar-item-num">2</span><span class="dest-sidebar-item-diamond" aria-hidden="true"></span><span class="dest-sidebar-item-name">Asia</span></div>
+              <div class="dest-accordion-content">
+                <a href="destinations/asia-india.html">India</a>
+                <a href="destinations/asia-japan.html">Japan</a>
+                <a href="destinations/asia-maldives.html">Maldives</a>
+                <a href="destinations/asia-srilanka.html">Sri Lanka</a>
+                <a href="destinations/asia-taiwan.html">Taiwan</a>
+                <a href="destinations/asia-thailand.html">Thailand</a>
+                <a href="destinations/asia.html" class="dest-acc-all">All of Asia →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-map-area">
+        <div class="dest-map-filters">
+          <label for="destFilterSelect" class="visually-hidden">Filter by region</label>
+          <select class="dest-map-select" id="destFilterSelect">
+            <option value="">All Visited</option>
+            <option value="africa">Africa</option>
+            <option value="asia">Asia</option>
+          </select>
+        </div>
+        <div class="dest-map-canvas">
+          <img src="assets/worldmapbackground.jpg" alt="World map showing our visited destinations" class="dest-map-img" draggable="false" loading="eager" />
+          <div class="dest-map-pin-layer" role="list" aria-label="Destination pins">
+            <a href="destinations/asia-india.html" class="dest-pin" data-pin-id="pin-india" data-region="asia" role="listitem">
+              <div class="dest-pin-photo"><div class="dest-pin-img-area bg-india"></div><div class="dest-pin-label">India</div></div>
+            </a>
+            <a href="destinations/asia-japan.html" class="dest-pin" data-pin-id="pin-japan" data-region="asia" role="listitem">
+              <div class="dest-pin-photo"><div class="dest-pin-img-area bg-japan"></div><div class="dest-pin-label">Japan</div></div>
+            </a>
+            <a href="destinations/asia-taiwan.html" class="dest-pin" data-pin-id="pin-taiwan" data-region="asia" role="listitem">
+              <div class="dest-pin-photo"><div class="dest-pin-img-area bg-taiwan"></div><div class="dest-pin-label">Taiwan</div></div>
+            </a>
+            <a href="destinations/asia-thailand.html" class="dest-pin" data-pin-id="pin-thailand" data-region="asia" role="listitem">
+              <div class="dest-pin-photo"><div class="dest-pin-img-area bg-thailand"></div><div class="dest-pin-label">Thailand</div></div>
+            </a>
+            <a href="destinations/africa-kenya.html" class="dest-pin" data-pin-id="pin-kenya" data-region="africa" role="listitem">
+              <div class="dest-pin-photo"><div class="dest-pin-img-area bg-kenya"></div><div class="dest-pin-label">Kenya</div></div>
+            </a>
+            <a href="destinations/asia-maldives.html" class="dest-pin" data-pin-id="pin-maldives" data-region="asia" role="listitem">
+              <div class="dest-pin-photo"><div class="dest-pin-img-area bg-maldives"></div><div class="dest-pin-label">Maldives</div></div>
+            </a>
+            <a href="destinations/asia-srilanka.html" class="dest-pin" data-pin-id="pin-srilanka" data-region="asia" role="listitem">
+              <div class="dest-pin-photo"><div class="dest-pin-img-area bg-srilanka"></div><div class="dest-pin-label">Sri Lanka</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── POPULAR DESTINATIONS SLIDER ── -->
+    <section class="dest-popular-section" id="popular">
+      <div class="dest-popular-inner">
+        <div class="dest-pop-header">
+          <div class="dest-pop-header-text">
+            <p class="misc-reads-kicker">Places That Stayed With Us</p>
+            <h2 class="dest-section-title">Our Favorite <em>Destinations</em></h2>
+          </div>
+          <div class="dest-pop-nav-btns">
+            <button class="dest-pop-nav-btn" id="destPopPrev" aria-label="Previous destinations">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="dest-pop-nav-btn" id="destPopNext" aria-label="Next destinations">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="dest-pop-slider-wrap">
+          <div class="dest-pop-track" id="destPopTrack">
+            <a href="./destinations/japan-kamikochi.html" class="dest-pop-card"><div class="dest-pop-card-img"><div class="dest-pop-card-img-bg" style="background-image:url('assets/japan.JPG')"></div><span class="dest-pop-card-country">Japan</span><span class="dest-pop-card-index">01</span></div><div class="dest-pop-card-label"><span>Kamikochi</span></div><div class="dest-pop-card-arrow"><svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div></a>
+            <a href="./destinations/taiwan-east-rift-valley.html" class="dest-pop-card"><div class="dest-pop-card-img"><div class="dest-pop-card-img-bg" style="background-image:url('assets/taiwan.JPG')"></div><span class="dest-pop-card-country">Taiwan</span><span class="dest-pop-card-index">02</span></div><div class="dest-pop-card-label"><span>East Rift Valley</span></div><div class="dest-pop-card-arrow"><svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div></a>
+            <a href="./destinations/kenya-diani.html" class="dest-pop-card"><div class="dest-pop-card-img"><div class="dest-pop-card-img-bg" style="background-image:url('assets/kenya.JPG')"></div><span class="dest-pop-card-country">Kenya</span><span class="dest-pop-card-index">03</span></div><div class="dest-pop-card-label"><span>Diani</span></div><div class="dest-pop-card-arrow"><svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div></a>
+            <a href="./destinations/thailand-koh-kradan.html" class="dest-pop-card"><div class="dest-pop-card-img"><div class="dest-pop-card-img-bg" style="background-image:url('assets/thailand.JPG')"></div><span class="dest-pop-card-country">Thailand</span><span class="dest-pop-card-index">04</span></div><div class="dest-pop-card-label"><span>Koh Kardan</span></div><div class="dest-pop-card-arrow"><svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div></a>
+            <a href="itineraries/india-hub.html" class="dest-pop-card"><div class="dest-pop-card-img"><div class="dest-pop-card-img-bg" style="background-image:url('assets/india.jpg')"></div><span class="dest-pop-card-country">India</span><span class="dest-pop-card-index">05</span></div><div class="dest-pop-card-label"><span>Spiti Valley</span></div><div class="dest-pop-card-arrow"><svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div></a>
+            <a href="maldives.html" class="dest-pop-card"><div class="dest-pop-card-img"><div class="dest-pop-card-img-bg" style="background-image:url('assets/maldives.jpg')"></div><span class="dest-pop-card-country">Maldives</span><span class="dest-pop-card-index">06</span></div><div class="dest-pop-card-label"><span>Centara Ras Fushi</span></div><div class="dest-pop-card-arrow"><svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div></a>
+            <a href="itineraries/srilanka-10days.html" class="dest-pop-card"><div class="dest-pop-card-img"><div class="dest-pop-card-img-bg" style="background-image:url('assets/srilanka.jpg'); background-color:#1f8a70"></div><span class="dest-pop-card-country">Sri Lanka</span><span class="dest-pop-card-index">07</span></div><div class="dest-pop-card-label"><span>Sigiriya &amp; Ella</span></div><div class="dest-pop-card-arrow"><svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 4h12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div></a>
+          </div>
+        </div>
+        <div class="dest-pop-dots" id="destPopDots" role="tablist" aria-label="Destination slides"></div>
+      </div>
+    </section>
+
+    <!-- ── TRAVEL RESOURCES TEASER ── -->
+    <section class="tr-res-section" id="travel-resources">
+      <div class="tr-res-topline" aria-hidden="true"></div>
+      <div class="tr-res-inner">
+        <div class="tr-res-left">
+          <p class="misc-reads-kicker">Travel Tools &amp; Resources</p>
+          <h2 class="tr-res-title">Everything we use<br /><em>to plan our trips</em></h2>
+          <p class="tr-res-body">From the apps on our phones to the gear in our bags — these are the tools, platforms, and products that genuinely make a difference. Tested across continents. No fluff, just honest picks.</p>
+          <a href="resources.html" class="tr-res-cta-btn">Browse All Resources <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </div>
+        <div class="tr-res-right">
+          <a href="resources.html#flights" class="tr-res-card"><div class="tr-res-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></div><div class="tr-res-card-text"><span class="tr-res-card-title">Flights &amp; Stays</span><span class="tr-res-card-sub">Where we book every time</span></div><svg class="tr-res-card-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a href="resources.html#packing" class="tr-res-card"><div class="tr-res-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div><div class="tr-res-card-text"><span class="tr-res-card-title">Packing Essentials</span><span class="tr-res-card-sub">Our carry-on formula</span></div><svg class="tr-res-card-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a href="resources.html#money" class="tr-res-card"><div class="tr-res-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><div class="tr-res-card-text"><span class="tr-res-card-title">Money &amp; Connectivity</span><span class="tr-res-card-sub">Zero forex fees, global eSIMs</span></div><svg class="tr-res-card-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a href="resources.html#photography" class="tr-res-card"><div class="tr-res-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="tr-res-card-text"><span class="tr-res-card-title">Photography Gear</span><span class="tr-res-card-sub">What's always in our bag</span></div><svg class="tr-res-card-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a href="resources.html" class="tr-res-card tr-res-card--wide"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg><span class="tr-res-card-wide-label">View the complete resources guide</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ITINERARY SLIDER ── -->
+    <section class="itin-section" id="itineraries">
+      <div class="itin-section-inner">
+        <div class="itin-header">
+          <div class="itin-header-text">
+            <p class="misc-reads-kicker">Curated Itineraries</p>
+            <h2 class="itin-title">Our Travel <em>Itineraries</em></h2>
+            <p class="itin-subtitle">Curated from our own travels, these day-by-day guides are here to make your journey simpler, smoother, and more meaningful.</p>
+          </div>
+          <div class="itin-nav-btns">
+            <button class="itin-nav-btn" id="itinPrev" aria-label="Previous itineraries"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="itin-nav-btn" id="itinNext" aria-label="Next itineraries"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+        </div>
+        <div class="itin-slider-wrap">
+          <div class="itin-track" id="itinTrack">
+            <a href="itineraries/srilanka-10days.html" class="itin-card"><div class="itin-card-img" style="background-image:url('assets/travel/thailand-itinerary.JPG')"><span class="itin-badge">10 Days</span></div><div class="itin-card-body"><p class="itin-card-region">Asia · Srilanka</p><h3 class="itin-card-title">Srilanka: A Little Bit of Everything</h3><p class="itin-card-desc">From Sigiriya sunrises and Trincomalee's turquoise waters to Ceylon tea estates and the iconic train ride to Ella.</p><div class="itin-card-meta"><span>🗓 10 Days</span><span>👫👫👫 Family</span><span>LKR</span></div><span class="itin-card-cta">View Itinerary →</span></div></a>
+            <a href="itineraries/japan-14days.html" class="itin-card"><div class="itin-card-img" style="background-image:url('assets/travel/japan-itinerary.jpg')"><span class="itin-badge">14 Days</span></div><div class="itin-card-body"><p class="itin-card-region">Asia · Japan</p><h3 class="itin-card-title">Japan: The Trip That Stayed With Us</h3><p class="itin-card-desc">From quiet walks in Oirase Gorge and misty mornings in Kamikochi to getting lost in Tokyo's energy.</p><div class="itin-card-meta"><span>🗓 14 Days</span><span>👫 Couple</span><span>¥¥¥</span></div><span class="itin-card-cta">View Itinerary →</span></div></a>
+            <a href="itineraries/taiwan-10days.html" class="itin-card"><div class="itin-card-img" style="background-image:url('assets/travel/taiwan-itinerary.JPG')"><span class="itin-badge">10 Days</span></div><div class="itin-card-body"><p class="itin-card-region">Asia · Taiwan</p><h3 class="itin-card-title">Taiwan: The Underrated Gem</h3><p class="itin-card-desc">A gentle blend of city life, nature, and culinary discovery.</p><div class="itin-card-meta"><span>🗓 10 Days</span><span>👫 Couple</span><span>$$</span></div><span class="itin-card-cta">View Itinerary →</span></div></a>
+            <a href="itineraries/kenya-7days.html" class="itin-card"><div class="itin-card-img" style="background-image:url('assets/travel/kenya-itinerary.jpg')"><span class="itin-badge">8 Days</span></div><div class="itin-card-body"><p class="itin-card-region">Africa · Kenya</p><h3 class="itin-card-title">Kenya: Wild, Vast, Unforgettable</h3><p class="itin-card-desc">An expansive journey through untamed landscapes and rich wildlife, balanced by moments of stillness along the coast.</p><div class="itin-card-meta"><span>🗓 8 Days</span><span>👫 Couple</span><span>$$$</span></div><span class="itin-card-cta">View Itinerary →</span></div></a>
+            <a href="itineraries/thailand-8days.html" class="itin-card"><div class="itin-card-img" style="background-image:url('assets/travel/thailand-itinerary.jpg')"><span class="itin-badge">8 Days</span></div><div class="itin-card-body"><p class="itin-card-region">Asia · Thailand</p><h3 class="itin-card-title">Thailand: Bangkok &amp; Beyond</h3><p class="itin-card-desc">A seamless blend of vibrant streets, island escapes, and quiet natural beauty.</p><div class="itin-card-meta"><span>🗓 8 Days</span><span>👫 Couple</span><span>$$</span></div><span class="itin-card-cta">View Itinerary →</span></div></a>
+            <a href="itineraries/maldives-5days.html" class="itin-card"><div class="itin-card-img" style="background-image:url('assets/travel/maldives-itinerary.jpg')"><span class="itin-badge">5 Days</span></div><div class="itin-card-body"><p class="itin-card-region">Asia · Maldives</p><h3 class="itin-card-title">Maldives: Overwater Escape</h3><p class="itin-card-desc">How to do the Maldives without breaking the bank — our honest guide to atolls, snorkelling and sunset dinners.</p><div class="itin-card-meta"><span>🗓 5 Days</span><span>👫 Couple</span><span>$$$$</span></div><span class="itin-card-cta">View Itinerary →</span></div></a>
+            <a href="itineraries/india-hub.html" class="itin-card"><div class="itin-card-img" style="background-image:url('assets/india.jpg')"><span class="itin-badge">Journeys</span></div><div class="itin-card-body"><p class="itin-card-region">Asia · India</p><h3 class="itin-card-title">India: Familiar, Yet Always New</h3><p class="itin-card-desc">A journey through contrasts — from historic grandeur to coastal calm.</p><div class="itin-card-meta"><span>$$</span></div><span class="itin-card-cta">View Itinerary →</span></div></a>
+          </div>
+        </div>
+        <div class="itin-dots" id="itinDots" role="tablist" aria-label="Itinerary slides"></div>
+      </div>
+    </section>
+
+    <!-- ── ACCOMMODATION TEASER ── -->
+    <section class="accom-teaser" id="accommodation">
+      <div class="accom-teaser-inner">
+        <div class="accom-teaser-text">
+          <p class="misc-reads-kicker">Curated Stay Selections</p>
+          <h2 class="accom-teaser-title">Accommodation<br /><em>Recommendations</em></h2>
+          <p class="accom-teaser-body">From overwater bungalows to ryokans tucked in the Japanese Alps — places that became part of the story. Hotels, guesthouses, and hidden gems we'd book again without hesitation.</p>
+          <div class="accom-type-row">
+            <span class="accom-type-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> Hotels</span>
+            <span class="accom-type-pill">Boutique Stays</span>
+            <span class="accom-type-pill">Overwater Villas</span>
+            <span class="accom-type-pill">Eco Lodges</span>
+          </div>
+          <a href="accommodation.html" class="accom-teaser-cta">Explore All Stays <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <div class="accom-stat-row">
+            <div class="accom-stat-item"><span class="accom-stat-n">18+</span><span class="accom-stat-l">Stays reviewed</span></div>
+            <div class="accom-stat-sep" aria-hidden="true"></div>
+            <div class="accom-stat-item"><span class="accom-stat-n">7</span><span class="accom-stat-l">Countries</span></div>
+            <div class="accom-stat-sep" aria-hidden="true"></div>
+            <div class="accom-stat-item"><span class="accom-stat-n">100%</span><span class="accom-stat-l">Personally tested</span></div>
+          </div>
+        </div>
+        <div class="accom-teaser-cards">
+          <a href="accommodation.html#maldives" class="accom-feat-card"><div class="accom-feat-card-img" style="background-image:url('assets/maldives.jpg')"><div class="accom-feat-card-img-overlay" aria-hidden="true"></div><span class="accom-feat-card-tag">Maldives</span></div><div class="accom-feat-card-body"><p class="accom-feat-card-type">Overwater Resort</p><h3 class="accom-feat-card-name">Centara Ras Fushi</h3><div class="accom-feat-card-footer"><span class="accom-feat-card-rating">★★★★★</span><span class="accom-feat-card-link">Read review →</span></div></div></a>
+          <a href="accommodation.html#japan" class="accom-feat-card"><div class="accom-feat-card-img" style="background-image:url('assets/japan.JPG')"><div class="accom-feat-card-img-overlay" aria-hidden="true"></div><span class="accom-feat-card-tag">Japan</span></div><div class="accom-feat-card-body"><p class="accom-feat-card-type">Mountain Ryokan</p><h3 class="accom-feat-card-name">Nishi-itoya, Kamikochi</h3><div class="accom-feat-card-footer"><span class="accom-feat-card-rating">★★★★★</span><span class="accom-feat-card-link">Read review →</span></div></div></a>
+          <a href="accommodation.html#kenya" class="accom-feat-card"><div class="accom-feat-card-img" style="background-image:url('assets/kenya.JPG')"><div class="accom-feat-card-img-overlay" aria-hidden="true"></div><span class="accom-feat-card-tag">Kenya</span></div><div class="accom-feat-card-body"><p class="accom-feat-card-type">Beachfront Resort</p><h3 class="accom-feat-card-name">Diani Reef Beach Resort</h3><div class="accom-feat-card-footer"><span class="accom-feat-card-rating">★★★★★</span><span class="accom-feat-card-link">Read review →</span></div></div></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MISC READS ── -->
+    <section class="misc-reads-section" id="misc-reads">
+      <div class="misc-reads-inner">
+        <div class="misc-reads-header">
+          <div class="misc-reads-header-text">
+            <p class="misc-reads-kicker">Beyond Destinations</p>
+            <h2 class="misc-reads-title">Reads for the <em>Modern Traveller</em></h2>
+            <p class="misc-reads-subtitle">Tips, musings, and honest stories — for those who want to travel smarter, slower, and more intentionally.</p>
+          </div>
+          <a href="misc-reads.html" class="misc-reads-view-all">View All Articles <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </div>
+        <div class="misc-reads-grid">
+          <a href="./travel/articles/digital-nomad-tips.html" class="misc-cat-card"><div class="misc-cat-card-img"><div class="misc-cat-card-img-bg" style="background-image:url('assets/travel/japan-itinerary.jpg')"></div><div class="misc-cat-card-overlay" aria-hidden="true"></div><span class="misc-cat-card-tag">Remote Work</span></div><div class="misc-cat-card-body"><span class="misc-cat-label">For Remote Work</span><h3 class="misc-cat-title">Digital Nomad Tips</h3><span class="misc-cat-cta">Read more <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div></a>
+          <a href="./travel/articles/blogging-vlogging.html" class="misc-cat-card"><div class="misc-cat-card-img"><div class="misc-cat-card-img-bg" style="background-image:url('assets/taiwan.JPG')"></div><div class="misc-cat-card-overlay" aria-hidden="true"></div><span class="misc-cat-card-tag">Blogging</span></div><div class="misc-cat-card-body"><span class="misc-cat-label">Travel Planning</span><h3 class="misc-cat-title">Blogging &amp; Vlogging</h3><span class="misc-cat-cta">Read more <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div></a>
+          <a href="./travel/articles/social-media-travel.html" class="misc-cat-card"><div class="misc-cat-card-img"><div class="misc-cat-card-img-bg" style="background-image:url('assets/india.jpg')"></div><div class="misc-cat-card-overlay" aria-hidden="true"></div><span class="misc-cat-card-tag">Social Media</span></div><div class="misc-cat-card-body"><span class="misc-cat-label">Social Media Tips</span><h3 class="misc-cat-title">Growing Your Travel Account</h3><span class="misc-cat-cta">Read more <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div></a>
+          <a href="./travel/articles/what-travel-teaches-you.html" class="misc-cat-card"><div class="misc-cat-card-img"><div class="misc-cat-card-img-bg" style="background-image:url('assets/thailand.JPG')"></div><div class="misc-cat-card-overlay" aria-hidden="true"></div><span class="misc-cat-card-tag">Growth</span></div><div class="misc-cat-card-body"><span class="misc-cat-label">Personal Development</span><h3 class="misc-cat-title">What Travel Teaches You</h3><span class="misc-cat-cta">Read more <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <site-footer></site-footer>
+
+    <script type="module" src="js/components/site-ribbon.js"></script>
+    <script type="module" src="js/components/site-header.js"></script>
+    <script type="module" src="js/components/site-footer.js"></script>
+    <script type="module" src="js/pages/travel.js"></script>
+  </body>
+</html>

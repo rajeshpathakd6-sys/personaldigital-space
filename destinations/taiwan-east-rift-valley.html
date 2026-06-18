@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>East Rift Valley, Taiwan — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="Cycling through Taiwan's East Rift Valley — rice paddies, mountain light, and the most peaceful stretch of road we've ever ridden." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      :root {
+        --e-ink: #191e19;
+        --e-soft: #3a4a38;
+        --e-muted: #7a8878;
+        --e-rule: #d4ddd2;
+        --e-bg: #f5f8f4;
+        --e-white: #ffffff;
+        --e-accent: #5a7e52;
+        --e-accent-lt: #9fc494;
+        --e-warm: #c0815a;
+        --e-serif: var(--serif);
+        --e-alt: var(--serif);
+        --e-sans: var(--sans);
+      }
+
+      body {
+        background: var(--e-bg);
+      }
+
+      /* ── HERO ── */
+      .e-hero {
+        position: relative;
+        height: 96vh;
+        min-height: 620px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 5.5rem;
+      }
+      .e-hero-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url("../travel/assets/east-rift-valley.JPG");
+        background-size: cover;
+        background-position: center 40%;
+        transform: scale(1.05);
+        transition: transform 10s ease-out;
+      }
+      .e-hero-bg.loaded {
+        transform: scale(1);
+      }
+      .e-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          175deg,
+          rgba(5, 18, 5, 0.06) 0%,
+          rgba(5, 18, 5, 0.06) 35%,
+          rgba(5, 18, 5, 0.55) 70%,
+          rgba(5, 18, 5, 0.82) 100%
+        );
+      }
+      .e-hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 860px;
+        padding: 0 2rem;
+        animation: eFadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      @keyframes eFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(36px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .e-hero-eyebrow {
+        font-family: var(--e-sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+        color: var(--e-accent-lt);
+        margin-bottom: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.9rem;
+      }
+      .e-hero-eyebrow::before,
+      .e-hero-eyebrow::after {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: var(--e-accent-lt);
+        opacity: 0.6;
+      }
+      .e-hero h1 {
+        font-family: var(--e-alt);
+        font-size: clamp(2.8rem, 7vw, 5.8rem);
+        font-weight: 300;
+        font-style: italic;
+        color: #fff;
+        line-height: 1.08;
+        margin-bottom: 1.4rem;
+      }
+      .e-hero-sub {
+        font-family: var(--e-sans);
+        font-size: 0.88rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.7);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        line-height: 1.6;
+      }
+      .e-hero-meta {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        gap: 2.8rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+        animation: eFadeUp 1.2s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      .e-hero-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: var(--e-sans);
+        font-size: 0.7rem;
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.58);
+      }
+      .e-hero-meta-divider {
+        width: 1px;
+        height: 18px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* ── LAYOUT ── */
+      .e-layout {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 5rem 2rem 7rem;
+        display: grid;
+        grid-template-columns: 1fr 310px;
+        gap: 4rem;
+        align-items: start;
+      }
+      @media (max-width: 920px) {
+        .e-layout {
+          grid-template-columns: 1fr;
+        }
+        .e-sidebar {
+          display: none;
+        }
+      }
+
+      /* ── ARTICLE ── */
+      .e-article-intro {
+        font-family: var(--e-alt);
+        font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--e-soft);
+        line-height: 1.78;
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--e-rule);
+      }
+      .e-article p {
+        font-family: var(--e-sans);
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--e-soft);
+        line-height: 1.95;
+        margin-bottom: 1.7rem;
+      }
+      .e-article p strong {
+        font-weight: 700;
+        color: var(--e-ink);
+      }
+
+      .e-section-head {
+        margin: 3.5rem 0 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .e-section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--e-rule);
+      }
+      .e-section-head-label {
+        font-family: var(--e-sans);
+        font-size: 0.63rem;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--e-muted);
+        white-space: nowrap;
+      }
+      .e-section-head-line-right {
+        flex: 0.12;
+      }
+
+      .e-pullquote {
+        margin: 3.2rem 0;
+        padding: 2.2rem 2.5rem;
+        border-left: 3px solid var(--e-accent);
+        background: rgba(90, 126, 82, 0.05);
+      }
+      .e-pullquote p {
+        font-family: var(--e-alt);
+        font-size: clamp(1.15rem, 2vw, 1.35rem);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--e-soft) !important;
+        line-height: 1.7 !important;
+        margin-bottom: 0 !important;
+      }
+
+      /* ── PHOTOS ── */
+      .e-photo-full {
+        margin: 2.8rem -2rem;
+        overflow: hidden;
+        background: var(--e-rule);
+      }
+      .e-photo-full img {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        display: block;
+      }
+      .e-photo-placeholder-full {
+        width: 100%;
+        height: 520px;
+        background: linear-gradient(135deg, #d8e8d4 0%, #c4d8c0 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      .e-photo-placeholder-full svg {
+        opacity: 0.3;
+      }
+      .e-photo-placeholder-full span {
+        font-family: var(--e-sans);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--e-muted);
+      }
+
+      .e-photo-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin: 2.8rem 0;
+      }
+      .e-photo-grid-3 {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 1.2rem;
+        margin: 2.8rem 0;
+      }
+      .e-photo-item {
+        overflow: hidden;
+        background: var(--e-rule);
+      }
+      .e-photo-item img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+      .e-photo-item:hover img {
+        transform: scale(1.03);
+      }
+      .e-photo-placeholder {
+        width: 100%;
+        height: 320px;
+        background: linear-gradient(135deg, #d8e8d4 0%, #c4d8c0 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+      }
+      .e-photo-placeholder svg {
+        opacity: 0.28;
+      }
+      .e-photo-placeholder span {
+        font-family: var(--e-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--e-muted);
+      }
+      .e-photo-caption {
+        font-family: var(--e-sans);
+        font-size: 0.72rem;
+        color: var(--e-muted);
+        letter-spacing: 0.06em;
+        text-align: center;
+        margin-top: -1.2rem;
+        margin-bottom: 2.8rem;
+        font-style: italic;
+      }
+
+      .e-practical {
+        margin: 3.5rem 0;
+        border: 1px solid var(--e-rule);
+        background: var(--e-white);
+      }
+      .e-practical-head {
+        padding: 1.2rem 1.8rem;
+        border-bottom: 1px solid var(--e-rule);
+        font-family: var(--e-sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--e-muted);
+        background: #f7faf6;
+      }
+      .e-practical-item {
+        padding: 1.2rem 1.8rem;
+        border-bottom: 1px solid var(--e-rule);
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        gap: 1.2rem;
+        align-items: baseline;
+      }
+      .e-practical-item:last-child {
+        border-bottom: none;
+      }
+      .e-practical-label {
+        font-family: var(--e-sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--e-ink);
+        padding-top: 2px;
+      }
+      .e-practical-value {
+        font-family: var(--e-sans);
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: var(--e-soft);
+        line-height: 1.6;
+      }
+
+      /* ── SIDEBAR ── */
+      .e-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .e-sidebar-card {
+        border: 1px solid var(--e-rule);
+        background: var(--e-white);
+        overflow: hidden;
+      }
+      .e-sidebar-card-head {
+        padding: 1rem 1.4rem;
+        border-bottom: 1px solid var(--e-rule);
+        font-family: var(--e-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--e-muted);
+        background: #f7faf6;
+      }
+      .e-sidebar-card-body {
+        padding: 1.2rem 1.4rem;
+      }
+      .e-sidebar-card-body p {
+        font-family: var(--e-sans);
+        font-size: 0.88rem;
+        font-weight: 300;
+        color: var(--e-soft);
+        line-height: 1.7;
+      }
+      .e-sidebar-fact {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 0.65rem 0;
+        border-bottom: 1px solid var(--e-rule);
+        gap: 1rem;
+      }
+      .e-sidebar-fact:last-child {
+        border-bottom: none;
+      }
+      .e-sidebar-fact-label {
+        font-family: var(--e-sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--e-muted);
+        flex-shrink: 0;
+      }
+      .e-sidebar-fact-value {
+        font-family: var(--e-sans);
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: var(--e-ink);
+        text-align: right;
+      }
+      .e-sidebar-photo-placeholder {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #d8e8d4 0%, #c4d8c0 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .e-sidebar-photo-placeholder span {
+        font-family: var(--e-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--e-muted);
+      }
+      .e-sidebar-tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1.2rem 1.4rem;
+      }
+      .e-sidebar-tag {
+        font-family: var(--e-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--e-soft);
+        background: #edf4eb;
+        padding: 4px 10px;
+        border: 1px solid var(--e-rule);
+      }
+
+      /* ── RELATED ── */
+      .e-related {
+        background: #1a201a;
+        padding: 5rem 2rem;
+      }
+      .e-related-inner {
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+      .e-related-eyebrow {
+        font-family: var(--e-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.38em;
+        text-transform: uppercase;
+        color: var(--e-accent-lt);
+        margin-bottom: 0.8rem;
+      }
+      .e-related h2 {
+        font-family: var(--e-alt);
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        font-weight: 300;
+        font-style: italic;
+        color: #fff;
+        margin-bottom: 3rem;
+      }
+      .e-related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+      .e-related-card {
+        display: block;
+        text-decoration: none;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+      .e-related-card:hover {
+        transform: translateY(-4px);
+      }
+      .e-related-card-img {
+        position: relative;
+        height: 240px;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+      }
+      .e-related-card-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 40%,
+          rgba(0, 0, 0, 0.7) 100%
+        );
+      }
+      .e-related-card-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1;
+        font-family: var(--e-sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.45);
+        padding: 4px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .e-related-card-body {
+        padding: 1.4rem;
+        background: #242a24;
+      }
+      .e-related-card-title {
+        font-family: var(--e-serif);
+        font-size: 1.1rem;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .e-related-card-desc {
+        font-family: var(--e-sans);
+        font-size: 0.82rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.6;
+      }
+
+      .js-reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .js-reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link rel="apple-touch-icon" href="../assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/destinations/taiwan-east-rift-valley.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="East Rift Valley, Taiwan — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Cycling through Taiwan's East Rift Valley — rice paddies, mountain light, and the most peaceful stretch of road we've ever ridden." />
+    <meta property="og:url" content="https://routesandreflections.in/destinations/taiwan-east-rift-valley.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="East Rift Valley, Taiwan — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Cycling through Taiwan's East Rift Valley — rice paddies, mountain light, and the most peaceful stretch of road we've ever ridden." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body class="dest-page">
+    <site-ribbon depth=".."></site-ribbon>
+    <site-header active="travel" depth=".."></site-header>
+
+    <!-- HERO -->
+    <section class="e-hero">
+      <div class="e-hero-bg" id="heroBg"></div>
+      <div class="e-hero-content">
+        <div class="e-hero-eyebrow">
+          Taiwan &nbsp;·&nbsp; East Coast &nbsp;·&nbsp; Hualien – Taitung
+        </div>
+        <h1>East Rift Valley</h1>
+        <p class="e-hero-sub">The quiet road between two mountain ranges</p>
+      </div>
+      <div class="e-hero-meta">
+        <div class="e-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg
+          >Hualien to Taitung
+        </div>
+        <div class="e-hero-meta-divider"></div>
+        <div class="e-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" /></svg
+          >3–4 Days Cycling
+        </div>
+        <div class="e-hero-meta-divider"></div>
+        <div class="e-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path d="M12 2v20M2 12h20" /></svg
+          >~200 km Route
+        </div>
+        <div class="e-hero-meta-divider"></div>
+        <div class="e-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" /></svg
+          >Oct–Nov Sweet Spot
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN LAYOUT -->
+    <main class="e-layout">
+      <article class="e-article">
+        <p class="e-article-intro js-reveal">
+          Taiwan's east coast is separated from the west by the Central Mountain
+          Range — a spine of peaks rising above 3,900 metres — and from the
+          Pacific by a narrow strip of coastal cliffs and lowland. Between them,
+          pressed into the space where two tectonic plates still actively
+          collide, lies the East Rift Valley: 160 kilometres of paddy fields,
+          indigenous communities, fruit orchards, and roads so quiet that
+          cycling them feels like having a country to yourself.
+        </p>
+
+        <div class="e-photo-full js-reveal">
+          <img
+            src="../travel/assets/east-rift-valley2.JPG"
+            alt="Nan-an Visitor Center "
+          />
+        </div>
+
+        <div class="e-section-head js-reveal">
+          <div class="e-section-head-line"></div>
+          <div class="e-section-head-label">The Route</div>
+          <div class="e-section-head-line-right e-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          The standard route runs 200 kilometres from
+          <strong>Hualien to Taitung</strong>, with most cyclists completing it
+          in three days — though four is far better. The valley offers two
+          parallel choices: Provincial Highway 9, wider and flatter but carrying
+          more traffic; and <strong>County Highway 193</strong>, which most
+          cyclists who've done both will tell you is the one that matters.
+          Highway 193 is narrower, quieter, and runs along the base of the
+          Coastal Mountain Range's western face. Once you turn onto it from
+          Hualien, you have the road almost entirely to yourself.
+        </p>
+
+        <p class="js-reveal">
+          Rent your bike from <strong>Giant near Hualien Station</strong> —
+          they've perfected the one-way rental, with a twin store in Taitung
+          that accepts the bike back. You don't transport anything. The bike
+          comes with panniers, a computer, lights, a pump, and a lock. For most
+          of the 193 route, the road surface is good enough for a flat-bar road
+          bike; e-bikes are available if you want assistance on the climbs
+          toward Shoufeng or the crossing to the coast.
+        </p>
+
+        <div class="e-pullquote js-reveal">
+          <p>
+            "County Road 193 is the kind of road you dream about finding — quiet
+            enough to hear the irrigation water running through channels
+            alongside you, with the Central Mountain Range filling the entire
+            western horizon in cloud and green."
+          </p>
+        </div>
+
+        <div class="e-photo-grid-2 js-reveal">
+          <div class="e-photo-item">
+            <img
+              src="../travel/assets/east-rift-valley3.JPG"
+              alt="Kecheng Iron Bridge"
+            />
+          </div>
+          <div class="e-photo-item">
+            <img
+              src="../travel/assets/east-rift-valley4.JPG"
+              alt="County Road 193"
+            />
+          </div>
+        </div>
+
+        <div class="e-section-head js-reveal">
+          <div class="e-section-head-line"></div>
+          <div class="e-section-head-label">What You Pass Through</div>
+          <div class="e-section-head-line-right e-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          The valley's character changes as you move south. The northern
+          section, from Hualien through Ruisui, is broader and more agricultural
+          — the famous Liyu Lake sits just outside Hualien at the base of the
+          Central Mountains, a calm expanse surrounded by forested hills that
+          makes an excellent warm-up ride on your first morning. The central
+          section, through <strong>Guangfu and Fuyuan National Forest</strong>,
+          passes through Amis indigenous communities; the Fuyuan area is famous
+          for its hotspring guesthouses.
+        </p>
+
+        <p class="js-reveal">
+          The southern section contains the valley's most celebrated stretch:
+          <strong>Chishang</strong>, where Taiwan's finest rice has been grown
+          for centuries (the Emperor of Japan is said to have prized it). The
+          <em>Brown Boulevard</em> — a tree-lined avenue running through the
+          paddy fields between Chishang and the coastal mountains — is the kind
+          of cycling road that ends up on postcards. In late October, when the
+          rice is harvested and the fields turn gold before replanting, the
+          light in the afternoon is extraordinary.
+        </p>
+
+        <p class="js-reveal">
+          From the valley, a road climbs east over the Coastal Mountain Range
+          and descends to the Pacific. The crossing adds elevation — about 200
+          metres of climbing — but deposits you on <strong>Highway 11</strong>,
+          one of Taiwan's great coastal roads, where you ride along sea cliffs
+          above the open Pacific. Some cyclists do the entire route this way:
+          valley south to Chenggong, cross the mountains, then coast back north.
+          The best of both.
+        </p>
+
+        <div class="e-photo-full js-reveal">
+          <img
+            src="../travel/assets/east-rift-valley-cycle.JPG"
+            alt="Cycling Route"
+          />
+        </div>
+
+        <div class="e-section-head js-reveal">
+          <div class="e-section-head-line"></div>
+          <div class="e-section-head-label">Where to Stay</div>
+          <div class="e-section-head-line-right e-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          The valley's accommodation is part of the experience.
+          <strong>Farm stays (minshuku)</strong> — family-run guesthouses, often
+          attached to working farms — are scattered along the route and are far
+          more interesting than the chain hotels in the larger towns. Book these
+          in advance; they're small, often only have a handful of rooms, and the
+          good ones fill up. The host will typically prepare a meal using
+          produce from their own land. Staying at a farmstay in the Chishang
+          area — with the paddy fields literally outside your window and the
+          sound of irrigation channels at night — is worth planning around.
+        </p>
+
+        <p class="js-reveal">
+          If you want to extend the journey, both Hualien and Taitung are
+          excellent cities to spend a day in. Hualien is the gateway to
+          <strong>Taroko Gorge</strong> — an extraordinary marble gorge that
+          deserves a dedicated half-day at minimum. Taitung is a relaxed coastal
+          city with a slower pace and good food; it's also the departure point
+          for ferries to Lyudao (Green Island) and Lanyu (Orchid Island), both
+          worth adding to a longer east Taiwan itinerary.
+        </p>
+
+        <div class="e-pullquote js-reveal">
+          <p>
+            "Start Taroko early — very early. The gorge is extraordinary before
+            8 AM, when the light comes sideways through the marble walls and the
+            tourist buses haven't yet arrived. After 10 AM it's still
+            spectacular, but you're sharing it with everyone."
+          </p>
+        </div>
+
+        <div class="e-photo-grid-3 js-reveal">
+          <div class="e-photo-item">
+            <img src="../travel/assets/east-rift-valley5.JPG" alt="River" />
+          </div>
+          <div class="e-photo-item">
+            <img
+              src="../travel/assets/east-rift-valley-waterfall.JPG"
+              alt="Waterfall"
+            />
+          </div>
+        </div>
+
+        <div class="e-section-head js-reveal">
+          <div class="e-section-head-line"></div>
+          <div class="e-section-head-label">The Best Time to Go</div>
+          <div class="e-section-head-line-right e-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          <strong>October through November</strong> is the cycling sweet spot:
+          the summer heat has broken, the typhoon season is largely over, and
+          the rice harvest in the valley creates a brief golden window where the
+          paddy fields are luminous before planting begins again. The Taitung
+          Hot Air Balloon Festival runs in July and draws international
+          visitors; if you're cycling then, start before 7 AM to avoid the day's
+          heat and afternoon thunderstorms.
+        </p>
+
+        <p class="js-reveal">
+          Winter (December–February) sees the valley less crowded and more
+          affordable, but also more prone to northeast monsoon winds on the
+          coast road. Spring brings the valley green and beautiful, though rain
+          is a possibility any time on Taiwan's east side. In all seasons,
+          starting each day's ride by 7–8 AM means you finish before the
+          afternoon heat or rain.
+        </p>
+
+        <div class="e-practical js-reveal">
+          <div class="e-practical-head">Practical Notes</div>
+          <div class="e-practical-item">
+            <div class="e-practical-label">Bike Rental</div>
+            <div class="e-practical-value">
+              Giant near Hualien Station offers the most seamless one-way rental
+              — bike drops at the Taitung store. Reserve online in advance (the
+              chat feature works). Includes panniers, computer, pump, lock. No
+              helmet included; buy or bring your own.
+            </div>
+          </div>
+          <div class="e-practical-item">
+            <div class="e-practical-label">Route Choice</div>
+            <div class="e-practical-value">
+              County Road 193 over Highway 9 for the quieter valley experience.
+              For coastal scenery, cross the Coastal Mountains to Highway 11 for
+              the Pacific leg. A loop combining both is ideal if you have 4–5
+              days.
+            </div>
+          </div>
+          <div class="e-practical-item">
+            <div class="e-practical-label">Getting to Hualien</div>
+            <div class="e-practical-value">
+              Train from Taipei on the Taroko or Puyuma Express — 2 hrs, book
+              several weeks ahead as trains fill completely on weekends. You can
+              ship luggage ahead from the Taipei station baggage counter for a
+              nominal fee.
+            </div>
+          </div>
+          <div class="e-practical-item">
+            <div class="e-practical-label">Accommodation</div>
+            <div class="e-practical-value">
+              Book farm stays (minshuku) and guesthouses 2–3 weeks ahead,
+              particularly in Chishang. The valley towns are small; walk-in
+              accommodation is scarce in peak season. Day 2 stop in Ruisui or
+              Guangfu; Day 3 in Chishang; arrive Taitung Day 4.
+            </div>
+          </div>
+          <div class="e-practical-item">
+            <div class="e-practical-label">Food</div>
+            <div class="e-practical-value">
+              Chishang rice bowl (a simple bowl of local rice with toppings) is
+              obligatory. 7-Elevens appear with surprising frequency even in
+              small valley towns — reliable for snacks and cold drinks. Look for
+              local sticky rice vendors near Guangfu.
+            </div>
+          </div>
+          <div class="e-practical-item">
+            <div class="e-practical-label">Our Take</div>
+            <div class="e-practical-value">
+              This route rewards those who slow down. The physical riding is
+              modest — the valley is largely flat, and the climbs are
+              manageable. The point is what happens at cycling speed:
+              conversations with vendors on the road, fruit handed to you at a
+              farm gate, the valley light changing through an afternoon. You
+              don't need to be a serious cyclist to do this. You just need to
+              want it slowly.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="e-sidebar">
+        <div class="e-sidebar-card">
+          <div class="e-sidebar-card-head">Quick Facts</div>
+          <div class="e-sidebar-card-body">
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Country</span
+              ><span class="e-sidebar-fact-value">Taiwan</span>
+            </div>
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Route</span
+              ><span class="e-sidebar-fact-value">Hualien → Taitung</span>
+            </div>
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Distance</span
+              ><span class="e-sidebar-fact-value">~200 km total</span>
+            </div>
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Duration</span
+              ><span class="e-sidebar-fact-value">3–4 cycling days</span>
+            </div>
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Best Season</span
+              ><span class="e-sidebar-fact-value">Oct – Nov</span>
+            </div>
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Difficulty</span
+              ><span class="e-sidebar-fact-value">Moderate (mostly flat)</span>
+            </div>
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Bike Rental</span
+              ><span class="e-sidebar-fact-value">Giant, Hualien Stn.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="e-sidebar-card">
+          <img
+            src="../travel/assets/east-rift-valley-us.JPG"
+            alt="East Rift Valley and Us"
+          />
+          <div class="e-sidebar-card-body">
+            <p>
+              The East Rift Valley sits between Taiwan's Central Mountain Range
+              (west) and the Coastal Mountain Range (east). It's one of the most
+              fertile agricultural valleys in Asia — and one of the
+              least-visited by international travellers.
+            </p>
+          </div>
+        </div>
+
+        <div class="e-sidebar-card">
+          <div class="e-sidebar-card-head">Don't Miss</div>
+          <div class="e-sidebar-card-body">
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">County Rd 193</span
+              ><span class="e-sidebar-fact-value">The quiet road</span>
+            </div>
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Brown Boulevard</span
+              ><span class="e-sidebar-fact-value">Chishang, late Oct</span>
+            </div>
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Taroko Gorge</span
+              ><span class="e-sidebar-fact-value">Before 8 AM</span>
+            </div>
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Chishang Rice Bowl</span
+              ><span class="e-sidebar-fact-value">At source</span>
+            </div>
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Liyu Lake</span
+              ><span class="e-sidebar-fact-value">Warm-up ride</span>
+            </div>
+            <div class="e-sidebar-fact">
+              <span class="e-sidebar-fact-label">Pacific Coast</span
+              ><span class="e-sidebar-fact-value">Highway 11 descent</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- RELATED -->
+    <section class="e-related">
+      <div class="e-related-inner">
+        <div class="e-related-eyebrow">Explore More</div>
+        <h2>More from Asia</h2>
+        <div class="e-related-grid">
+          <a href="japan-kamikochi.html" class="e-related-card">
+            <div class="e-related-card-img" style="background: #3a4a3a">
+              <span class="e-related-card-badge">Japan</span>
+            </div>
+            <div class="e-related-card-body">
+              <div class="e-related-card-title">Kamikochi</div>
+              <div class="e-related-card-desc">
+                A night in the Japanese Alps — the valley that closes for winter
+                and rewards those who stay.
+              </div>
+            </div>
+          </a>
+          <a href="../itineraries/taiwan-10days.html" class="e-related-card">
+            <div class="e-related-card-img" style="background: #2a3a4a">
+              <span class="e-related-card-badge">Taiwan</span>
+            </div>
+            <div class="e-related-card-body">
+              <div class="e-related-card-title">Taiwan: 10 Days</div>
+              <div class="e-related-card-desc">
+                Our complete Taiwan itinerary — from Taipei through the
+                mountains and down the east coast.
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <site-footer depth=".."></site-footer>
+
+    <script type="module" src="../js/components/site-ribbon.js"></script>
+    <script type="module" src="../js/components/site-header.js"></script>
+    <script type="module" src="../js/components/site-footer.js"></script>
+    <script type="module" src="../js/pages/destination.js"></script>
+  </body>
+</html>

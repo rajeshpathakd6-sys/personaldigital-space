@@ -1,0 +1,1633 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Resources — AdiRaj Routes &amp; Reflections</title>
+    <meta name="description" content="The tools, platforms, gear and services we personally use and trust to plan every trip — booking, flights, stays, insurance, packing, money and connectivity." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="apple-touch-icon" href="./assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/resources.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Travel Resources — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="The tools, platforms, gear and services we personally use and trust to plan every trip." />
+    <meta property="og:url" content="https://routesandreflections.in/resources.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Travel Resources — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="The tools, platforms, gear and services we personally use and trust to plan every trip." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <style>
+      .visually-hidden {
+        position: absolute;
+        width: 1px; height: 1px;
+        padding: 0; margin: -1px;
+        overflow: hidden; clip: rect(0,0,0,0);
+        white-space: nowrap; border: 0;
+      }
+      /* ═══════════════════════════════════════════════════
+         RESOURCES PAGE — styles mirroring lifestyle.html
+      ═══════════════════════════════════════════════════ */
+
+      /* ── Page hero (mirrors ls-page-hero) ── */
+      .res-page-hero {
+        position: relative;
+        height: clamp(340px, 48vh, 520px);
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+      }
+      .res-hero-bg {
+        position: absolute;
+        inset: 0;
+        background: var(--ink);
+      }
+      .res-hero-glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 70% 60% at 60% 40%,
+          rgba(192, 129, 90, 0.22) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .res-hero-photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.35;
+      }
+      .res-hero-scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(26, 24, 20, 0.92) 0%,
+          rgba(26, 24, 20, 0.3) 60%,
+          transparent 100%
+        );
+      }
+      .res-hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: var(--max-w);
+        margin-inline: auto;
+        padding: 0 var(--pad-x) 3rem;
+        width: 100%;
+      }
+      .res-hero-kicker {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.85rem;
+      }
+      .res-hero-title {
+        font-family: var(--serif);
+        font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+        font-weight: 400;
+        color: var(--white);
+        line-height: 1.18;
+        max-width: 600px;
+        margin-bottom: 1rem;
+      }
+      .res-hero-title em {
+        font-style: italic;
+        color: var(--accent-lt);
+      }
+      .res-hero-desc {
+        font-family: var(--sans);
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.62);
+        max-width: 480px;
+        line-height: 1.8;
+      }
+
+      /* ── Sub-nav — simple anchor links ── */
+      .res-subnav {
+        background: var(--white);
+        border-bottom: 1px solid var(--rule);
+        position: sticky;
+        top: calc(var(--header-h) + var(--nav-h));
+        z-index: 50;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .res-subnav::-webkit-scrollbar {
+        display: none;
+      }
+      .res-subnav-inner {
+        max-width: var(--max-w);
+        margin-inline: auto;
+        padding-inline: var(--pad-x);
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        height: 48px;
+        white-space: nowrap;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .res-subnav-inner::-webkit-scrollbar {
+        display: none;
+      }
+      .res-nav-link {
+        display: flex;
+        align-items: center;
+        padding: 0 1.1rem;
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        border-bottom: 2px solid transparent;
+        text-decoration: none;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+        white-space: nowrap;
+        height: 100%;
+      }
+      .res-nav-link:hover,
+      .res-nav-link.res-active {
+        color: var(--ink);
+        border-bottom-color: var(--accent);
+      }
+
+      /* ── Shared section layout (mirrors ls-sec, ls-wrap) ── */
+      .res-sec {
+        padding: 4.5rem 0;
+      }
+      .res-sec--offwhite {
+        background: var(--offwhite, #faf9f7);
+      }
+      .res-sec--dark {
+        background: var(--ink);
+      }
+      .res-sec--white {
+        background: var(--white);
+      }
+      .res-wrap {
+        max-width: var(--max-w);
+        margin-inline: auto;
+        padding-inline: var(--pad-x);
+      }
+
+      /* Section header (mirrors ls-sec-hdr) */
+      .res-sec-hdr {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+      }
+      .res-sec-hdr--dark {
+      }
+      .res-kicker {
+        font-family: var(--sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+      .res-kicker--lt {
+        color: var(--accent-lt);
+      }
+      .res-sec-title {
+        font-family: var(--serif);
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+        font-weight: 400;
+        color: var(--ink);
+        line-height: 1.2;
+      }
+      .res-sec-title--lt {
+        color: var(--white);
+      }
+      .res-sec-title em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .res-sec-title--lt em {
+        color: var(--accent-lt);
+      }
+      .res-sec-more {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        white-space: nowrap;
+        transition: color 0.2s;
+        flex-shrink: 0;
+      }
+      .res-sec-more:hover {
+        color: var(--accent-hover);
+      }
+      .res-sec-more--lt {
+        color: var(--accent-lt);
+      }
+
+      /* ── Card grid (mirrors ls-mag-grid) ── */
+      .res-card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+      }
+      .res-card-grid--3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      /* Resource card (refined, matches site aesthetic) */
+      .res-card {
+        background: var(--white);
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        padding: 1.6rem 1.5rem 1.7rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s,
+          transform 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .res-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--accent);
+        transition: height 0.25s;
+      }
+      .res-card:hover {
+        border-color: var(--accent-lt);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+      }
+      .res-card:hover::before {
+        height: 100%;
+      }
+
+      /* Dark variant */
+      .res-card--dark {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      .res-card--dark:hover {
+        border-color: rgba(192, 129, 90, 0.4);
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .res-card--dark::before {
+        background: var(--accent-lt);
+      }
+
+      /* Wide card */
+      .res-card--wide {
+        grid-column: 1 / -1;
+      }
+
+      .res-card-badge {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      .res-card-badge--fav::before {
+        content: "★";
+        font-size: 0.6rem;
+      }
+      .res-card-badge--lt {
+        color: var(--accent-lt);
+      }
+      .res-card-badge--lt.res-card-badge--fav::before {
+        color: var(--accent-lt);
+      }
+
+      .res-card h3 {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.3;
+      }
+      .res-card--dark h3 {
+        color: var(--white);
+      }
+      .res-card p {
+        font-family: var(--sans);
+        font-size: 0.875rem;
+        font-weight: 300;
+        line-height: 1.75;
+        color: var(--ink-soft);
+        flex: 1;
+        margin: 0;
+      }
+      .res-card--dark p {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .res-card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-top: 0.4rem;
+        transition:
+          gap 0.2s,
+          color 0.2s;
+      }
+      .res-card-link:hover {
+        color: var(--accent-hover);
+        gap: 0.6rem;
+      }
+      .res-card-link--lt {
+        color: var(--accent-lt);
+      }
+      .res-card-link--lt:hover {
+        color: #e8c5a8;
+      }
+      .res-card-link svg {
+        width: 10px;
+        height: 10px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex-shrink: 0;
+      }
+
+      /* ── Tip box ── */
+      .res-tip {
+        background: var(--beige);
+        border-left: 3px solid var(--accent);
+        border-radius: 0 4px 4px 0;
+        padding: 1rem 1.25rem;
+        margin-top: 1.75rem;
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+      .res-tip--dark {
+        background: rgba(255, 255, 255, 0.05);
+        border-left-color: var(--accent-lt);
+      }
+      .res-tip-icon {
+        font-size: 1rem;
+        flex-shrink: 0;
+        margin-top: 0.15rem;
+      }
+      .res-tip p {
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 400;
+        line-height: 1.7;
+        color: var(--ink-soft);
+        margin: 0;
+      }
+      .res-tip--dark p {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .res-tip p strong {
+        color: var(--ink);
+        font-weight: 700;
+      }
+      .res-tip--dark p strong {
+        color: var(--white);
+      }
+
+      /* ── Checklist (packing) ── */
+      .res-checklist {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.6rem 1rem;
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+        background: var(--offwhite, #faf9f7);
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+      }
+      .res-checklist-label {
+        grid-column: 1 / -1;
+        font-family: var(--sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+        margin-bottom: 0.25rem;
+      }
+      .res-checklist-item {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        font-family: var(--sans);
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: var(--ink-soft);
+      }
+      .res-checklist-item::before {
+        content: "";
+        width: 14px;
+        height: 14px;
+        border: 1.5px solid var(--accent-lt);
+        border-radius: 2px;
+        flex-shrink: 0;
+      }
+
+      /* ── Category theme blocks (mirrors ls-themes) ── */
+      .res-themes {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .res-theme {
+        padding: 2rem 1.25rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        transition: background 0.2s;
+        text-decoration: none;
+      }
+      .res-theme:last-child {
+        border-right: none;
+      }
+      .res-theme:hover {
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .res-theme-num {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.15);
+        line-height: 1;
+        margin-bottom: 0.25rem;
+      }
+      .res-theme-icon {
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
+      }
+      .res-theme-name {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+      .res-theme-desc {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.5;
+      }
+
+      /* ── Featured panel (like ls-feat) ── */
+      .res-feat {
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        min-height: 380px;
+        display: flex;
+        align-items: flex-end;
+        background: var(--ink);
+        text-decoration: none;
+      }
+      .res-feat-ph {
+        position: absolute;
+        inset: 0;
+      }
+      .ph-map {
+        background: linear-gradient(135deg, #2d4a3e 0%, #1a2f26 100%);
+      }
+      .res-feat-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(26, 24, 20, 0.95) 0%,
+          rgba(26, 24, 20, 0.3) 55%,
+          transparent 100%
+        );
+      }
+      .res-feat-badge {
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--white);
+        background: var(--accent);
+        padding: 0.3rem 0.7rem;
+        border-radius: 2px;
+      }
+      .res-feat-body {
+        position: relative;
+        z-index: 2;
+        padding: 2rem;
+        width: 100%;
+      }
+      .res-feat-tags {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+      .res-feat-tag {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 0.2rem 0.55rem;
+        border-radius: 2px;
+      }
+      .res-feat-title {
+        font-family: var(--serif);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 400;
+        color: var(--white);
+        line-height: 1.25;
+        margin-bottom: 0.75rem;
+      }
+      .res-feat-title em {
+        font-style: italic;
+        color: var(--accent-lt);
+      }
+      .res-feat-excerpt {
+        font-family: var(--sans);
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.7;
+        max-width: 520px;
+        margin-bottom: 1.25rem;
+      }
+      .res-feat-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .res-feat-date {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.45);
+        letter-spacing: 0.04em;
+      }
+      .res-feat-read {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent-lt);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: gap 0.2s;
+      }
+      .res-feat:hover .res-feat-read {
+        gap: 0.7rem;
+      }
+
+      /* ── Two-panel row (like ls-panels) ── */
+      .res-panels {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+      }
+      .res-panel {
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        min-height: 280px;
+        display: flex;
+        align-items: flex-end;
+        text-decoration: none;
+        background: var(--ink);
+      }
+      .res-panel-ph {
+        position: absolute;
+        inset: 0;
+      }
+      .ph-forest {
+        background: linear-gradient(135deg, #1e3a2f 0%, #0d1f19 100%);
+      }
+      .ph-amber {
+        background: linear-gradient(135deg, #4a2e12 0%, #2a1a08 100%);
+      }
+      .ph-slate {
+        background: linear-gradient(135deg, #1a2540 0%, #0d1525 100%);
+      }
+      .ph-sage {
+        background: linear-gradient(135deg, #2d3d2e 0%, #1a2519 100%);
+      }
+      .ph-warm {
+        background: linear-gradient(135deg, #3d2a1a 0%, #251808 100%);
+      }
+      .ph-stone {
+        background: linear-gradient(135deg, #2d2820 0%, #1a1510 100%);
+      }
+      .res-panel-scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(26, 24, 20, 0.92) 0%,
+          rgba(26, 24, 20, 0.1) 60%,
+          transparent 100%
+        );
+      }
+      .res-panel-body {
+        position: relative;
+        z-index: 2;
+        padding: 1.5rem;
+        width: 100%;
+      }
+      .res-panel-label {
+        margin-bottom: 0.6rem;
+      }
+      .res-panel-label span {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        padding: 0.2rem 0.55rem;
+        border-radius: 2px;
+      }
+      .res-panel-title {
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-weight: 400;
+        color: var(--white);
+        line-height: 1.3;
+        margin-bottom: 0.4rem;
+      }
+      .res-panel-title em {
+        font-style: italic;
+        color: var(--accent-lt);
+      }
+      .res-panel-desc {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+      }
+      .res-panel-rule {
+        width: 28px;
+        height: 1px;
+        background: var(--accent);
+        margin-bottom: 0.75rem;
+      }
+      .res-panel-cta {
+        font-family: var(--sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent-lt);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: gap 0.2s;
+      }
+      .res-panel:hover .res-panel-cta {
+        gap: 0.7rem;
+      }
+
+      /* ── Newsletter CTA ── */
+      .res-newsletter {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        padding: 2.5rem 2rem;
+        text-align: center;
+        margin-top: 3rem;
+      }
+      .res-newsletter .widget-title {
+        font-family: var(--sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent-lt);
+        display: block;
+        margin-bottom: 0.75rem;
+      }
+      .res-newsletter h3 {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--white);
+        margin-bottom: 0.65rem;
+        line-height: 1.35;
+      }
+      .res-newsletter h3 em {
+        font-style: italic;
+        color: var(--accent-lt);
+      }
+      .res-newsletter p {
+        font-family: var(--sans);
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        max-width: 420px;
+        margin-inline: auto;
+      }
+      .res-newsletter .newsletter-form {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .res-newsletter .newsletter-form input {
+        flex: 1;
+        min-width: 200px;
+        padding: 0.8rem 1.1rem;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 2px;
+        color: var(--white);
+        font-family: var(--sans);
+        font-size: 0.875rem;
+        font-weight: 300;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .res-newsletter .newsletter-form input::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .res-newsletter .newsletter-form input:focus {
+        border-color: var(--accent);
+      }
+      .res-newsletter .newsletter-form button {
+        background: var(--accent);
+        color: var(--white);
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 0.8rem 1.6rem;
+        border-radius: 2px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      .res-newsletter .newsletter-form button:hover {
+        background: var(--accent-hover);
+      }
+      .res-newsletter .widget-fine {
+        color: rgba(255, 255, 255, 0.3);
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        margin-top: 0.75rem;
+        display: block;
+      }
+
+      /* ── Light newsletter CTA ── */
+      .res-newsletter-light {
+        max-width: 560px;
+        margin-inline: auto;
+        text-align: center;
+        padding: 3rem 2rem;
+        border: 1px solid var(--rule);
+        border-radius: 6px;
+        background: var(--white);
+      }
+      .res-nl-kicker {
+        font-family: var(--sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.75rem;
+      }
+      .res-nl-title {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--ink);
+        margin-bottom: 0.65rem;
+        line-height: 1.35;
+      }
+      .res-nl-title em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .res-nl-desc {
+        font-family: var(--sans);
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: var(--ink-soft);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+      .res-nl-form {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .res-nl-form input {
+        flex: 1;
+        min-width: 200px;
+        padding: 0.8rem 1.1rem;
+        border: 1px solid var(--rule);
+        background: var(--offwhite, #faf9f7);
+        border-radius: 2px;
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 0.875rem;
+        font-weight: 300;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .res-nl-form input:focus {
+        border-color: var(--accent);
+      }
+      .res-nl-form button {
+        background: var(--accent);
+        color: var(--white);
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 0.8rem 1.6rem;
+        border-radius: 2px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      .res-nl-form button:hover {
+        background: var(--accent-hover);
+      }
+      .res-nl-fine {
+        display: block;
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        color: var(--ink-muted);
+        margin-top: 0.75rem;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 900px) {
+        .res-themes {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .res-card-grid--3 {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        .res-card-grid,
+        .res-card-grid--3,
+        .res-panels {
+          grid-template-columns: 1fr;
+        }
+        .res-card--wide {
+          grid-column: auto;
+        }
+        .res-themes {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .res-checklist {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <site-ribbon></site-ribbon>
+    <site-header active="travel"></site-header>
+
+    <section class="res-page-hero">
+          <div class="res-hero-bg"></div>
+          <div class="res-hero-glow"></div>
+          <img
+            src="assets/taiwan.JPG"
+            alt=""
+            class="res-hero-photo"
+            onerror="this.style.display = 'none'"
+          />
+          <div class="res-hero-scrim"></div>
+          <div class="res-hero-inner">
+            <span class="res-hero-kicker">Travel Resources</span>
+            <h1 class="res-hero-title">
+              Everything you need to<br /><em>plan your next trip.</em>
+            </h1>
+            <p class="res-hero-desc">
+              Tools, platforms, gear, and services we personally use and trust —
+              curated from years of living out of a backpack.
+            </p>
+          </div>
+        </section>
+    
+        <!-- ══════════════════════════════════════════
+         RESOURCES SUB-NAV — simple anchor links
+        ══════════════════════════════════════════ -->
+        <nav class="res-subnav" id="resSubnav" aria-label="Resource categories">
+          <div class="res-subnav-inner">
+            <a href="#" class="res-nav-link res-active">All</a>
+            <a href="#planning" class="res-nav-link">Planning</a>
+            <a href="#flights" class="res-nav-link">Flights</a>
+            <a href="#stays" class="res-nav-link">Stays</a>
+            <a href="#insurance" class="res-nav-link">Insurance</a>
+            <a href="#packing" class="res-nav-link">Packing</a>
+            <a href="#money" class="res-nav-link">Money &amp; Connectivity</a>
+          </div>
+        </nav>
+    
+        <!-- ══════════════════════════════════════════
+         1. FEATURED GUIDE — off-white
+        ══════════════════════════════════════════ -->
+        <div class="res-sec res-sec--offwhite">
+          <div class="res-wrap">
+            <div class="res-sec-hdr js-reveal">
+              <div>
+                <span class="res-kicker">Featured</span>
+                <h2 class="res-sec-title">Our <em>Essential Stack</em></h2>
+              </div>
+              <a href="#planning" class="res-sec-more">All Resources →</a>
+            </div>
+            <a href="#planning" class="res-feat js-reveal">
+              <div class="res-feat-ph ph-map"></div>
+              <div class="res-feat-overlay"></div>
+              <span class="res-feat-badge">Most Used</span>
+              <div class="res-feat-body">
+                <div class="res-feat-tags">
+                  <span class="res-feat-tag">Planning</span>
+                  <span class="res-feat-tag">Tools</span>
+                </div>
+                <h2 class="res-feat-title">
+                  The 10 Tools We Use on <em>Every Single Trip</em>
+                </h2>
+                <p class="res-feat-excerpt">
+                  After years of travelling, these are the platforms, apps, and
+                  services that have earned a permanent spot in our workflow — from
+                  booking the first flight to navigating a new city with no Wi-Fi.
+                </p>
+                <div class="res-feat-meta">
+                  <span class="res-feat-date">Updated March 2026 · 8 min read</span>
+                  <span class="res-feat-read">
+                    Read the Guide
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    >
+                      <path d="M3 8h10M9 4l4 4-4 4" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+    
+        <!-- ══════════════════════════════════════════
+         2. TRIP PLANNING — off-white
+        ══════════════════════════════════════════ -->
+        <div class="res-sec res-sec--offwhite" style="padding-top: 0" id="planning">
+          <div class="res-wrap">
+            <div class="res-sec-hdr js-reveal">
+              <div>
+                <span class="res-kicker">Plan</span>
+                <h2 class="res-sec-title">Trip <em>Planning</em></h2>
+              </div>
+            </div>
+            <div class="res-card-grid js-reveal">
+              <div class="res-card">
+                <span class="res-card-badge res-card-badge--fav"
+                  >Our Favourite</span
+                >
+                <h3>Google Maps</h3>
+                <p>
+                  Our most-used planning tool, hands down. We build custom maps with
+                  pinned hotels, restaurants, and sights before every trip. Offline
+                  maps are a lifesaver in low-signal areas.
+                </p>
+                <a
+                  href="https://maps.google.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit Google Maps
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card">
+                <span class="res-card-badge">Itinerary Builder</span>
+                <h3>Wanderlog</h3>
+                <p>
+                  A brilliant free tool to create visual, collaborative itineraries.
+                  We use it to organise driving routes, estimate travel times, and
+                  share plans with each other before departure.
+                </p>
+                <a
+                  href="https://wanderlog.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit Wanderlog
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card">
+                <span class="res-card-badge">Getting Around</span>
+                <h3>Rome2Rio</h3>
+                <p>
+                  Enter any two locations and Rome2Rio shows every possible route —
+                  plane, train, bus, ferry, car — with estimated costs. Perfect for
+                  comparing options in unfamiliar countries.
+                </p>
+                <a
+                  href="https://rome2rio.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit Rome2Rio
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card">
+                <span class="res-card-badge">Car Rentals</span>
+                <h3>Rentalcars.com</h3>
+                <p>
+                  We compare car rental prices across dozens of suppliers in one
+                  search. Especially useful in places like Hokkaido or the Azores
+                  where having your own wheels makes all the difference.
+                </p>
+                <a
+                  href="https://rentalcars.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit Rentalcars
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card">
+                <span class="res-card-badge">Tours &amp; Activities</span>
+                <h3>Klook</h3>
+                <p>
+                  When we want a guided experience or need transfers sorted, Klook
+                  is our go-to, especially across Asia. Good prices, instant
+                  confirmation, and easy mobile vouchers.
+                </p>
+                <a
+                  href="https://klook.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit Klook
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card">
+                <span class="res-card-badge">Visa Info</span>
+                <h3>Visa HQ / iVisa</h3>
+                <p>
+                  We always double-check visa requirements before booking. iVisa
+                  handles e-visas and visa-on-arrival applications for a growing
+                  list of countries with a clean, fast interface.
+                </p>
+                <a
+                  href="https://ivisa.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit iVisa
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- ══════════════════════════════════════════
+         3. FLIGHTS — dark section
+        ══════════════════════════════════════════ -->
+        <div class="res-sec res-sec--dark" id="flights">
+          <div class="res-wrap">
+            <div class="res-sec-hdr res-sec-hdr--dark js-reveal">
+              <div>
+                <span class="res-kicker res-kicker--lt">Search</span>
+                <h2 class="res-sec-title res-sec-title--lt">
+                  Finding <em>Flights</em>
+                </h2>
+              </div>
+            </div>
+            <div class="res-card-grid js-reveal">
+              <div class="res-card res-card--dark">
+                <span class="res-card-badge res-card-badge--lt res-card-badge--fav"
+                  >We Always Check First</span
+                >
+                <h3>Google Flights</h3>
+                <p>
+                  Excellent for tracking prices over time and spotting cheap dates
+                  with the calendar view. The price graph makes it obvious when to
+                  book and when to wait.
+                </p>
+                <a
+                  href="https://flights.google.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link res-card-link--lt"
+                  >Visit Google Flights
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card res-card--dark">
+                <span class="res-card-badge res-card-badge--lt"
+                  >Price Comparison</span
+                >
+                <h3>Skyscanner</h3>
+                <p>
+                  Great for open-jaw searches and "everywhere" searches when we're
+                  flexible on destination. Often catches deals that Google Flights
+                  misses on budget carriers.
+                </p>
+                <a
+                  href="https://skyscanner.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link res-card-link--lt"
+                  >Visit Skyscanner
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+            </div>
+            <div class="res-tip res-tip--dark js-reveal">
+              <span class="res-tip-icon">💡</span>
+              <p>
+                <strong>Our tip:</strong> Always book directly with the airline
+                after finding the price on a comparison site. It makes seat
+                selection, rebooking, and refunds far simpler if anything changes.
+              </p>
+            </div>
+          </div>
+        </div>
+    
+        <!-- ══════════════════════════════════════════
+         4. STAYS — white
+        ══════════════════════════════════════════ -->
+        <div class="res-sec res-sec--white" id="stays">
+          <div class="res-wrap">
+            <div class="res-sec-hdr js-reveal">
+              <div>
+                <span class="res-kicker">Accommodation</span>
+                <h2 class="res-sec-title">Where to <em>Stay</em></h2>
+              </div>
+            </div>
+            <div class="res-card-grid js-reveal">
+              <div class="res-card">
+                <span class="res-card-badge res-card-badge--fav"
+                  >Best for Hotels</span
+                >
+                <h3>Booking.com</h3>
+                <p>
+                  Our first stop for hotels. Free cancellation filters, genuine
+                  guest reviews, and often the widest selection. We almost always
+                  find something solid here even for last-minute trips.
+                </p>
+                <a
+                  href="https://booking.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit Booking.com
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card">
+                <span class="res-card-badge">Apartments &amp; Homes</span>
+                <h3>Airbnb</h3>
+                <p>
+                  For longer stays, we lean on Airbnb. Having a kitchen and feeling
+                  at home in a neighbourhood beats a hotel room when you're staying
+                  five nights or more in one spot.
+                </p>
+                <a
+                  href="https://airbnb.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit Airbnb
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card">
+                <span class="res-card-badge">Great for Asia</span>
+                <h3>Agoda</h3>
+                <p>
+                  Often has lower prices than Booking.com for accommodation across
+                  Southeast and East Asia. Worth a quick comparison check,
+                  especially for Japan and Thailand.
+                </p>
+                <a
+                  href="https://agoda.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit Agoda
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card">
+                <span class="res-card-badge">Unique Stays</span>
+                <h3>Hipcamp</h3>
+                <p>
+                  When we want something a little different — cabins, glamping, farm
+                  stays — Hipcamp consistently surprises us with beautiful,
+                  under-the-radar options away from crowds.
+                </p>
+                <a
+                  href="https://hipcamp.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit Hipcamp
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- ══════════════════════════════════════════
+         5. INSURANCE — dark
+        ══════════════════════════════════════════ -->
+        <div class="res-sec res-sec--dark" id="insurance">
+          <div class="res-wrap">
+            <div class="res-sec-hdr res-sec-hdr--dark js-reveal">
+              <div>
+                <span class="res-kicker res-kicker--lt">Protection</span>
+                <h2 class="res-sec-title res-sec-title--lt">
+                  Travel <em>Insurance</em>
+                </h2>
+              </div>
+            </div>
+            <div class="res-card-grid js-reveal">
+              <div class="res-card res-card--dark res-card--wide">
+                <span class="res-card-badge res-card-badge--lt res-card-badge--fav"
+                  >Non-Negotiable</span
+                >
+                <h3>SafetyWing</h3>
+                <p>
+                  If you travel frequently or for extended periods, SafetyWing's
+                  subscription-based model is hard to beat. Coverage kicks in
+                  globally, it's affordable, and renewing while abroad is seamless.
+                  We've had it active on every trip for the past two years.
+                </p>
+                <a
+                  href="https://safetywing.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link res-card-link--lt"
+                  >Visit SafetyWing
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card res-card--dark">
+                <span class="res-card-badge res-card-badge--lt">Single Trips</span>
+                <h3>World Nomads</h3>
+                <p>
+                  Good for shorter, adventure-heavy trips. They cover a wide range
+                  of activities like hiking, diving, and motorbiking that many
+                  standard insurers exclude.
+                </p>
+                <a
+                  href="https://worldnomads.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link res-card-link--lt"
+                  >Visit World Nomads
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card res-card--dark">
+                <span class="res-card-badge res-card-badge--lt">Comprehensive</span>
+                <h3>HeyMondo</h3>
+                <p>
+                  Competitive pricing and reliable claims handling. Particularly
+                  strong for medical coverage and the app makes everything from
+                  extensions to claims easy to manage on the go.
+                </p>
+                <a
+                  href="https://heymondo.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link res-card-link--lt"
+                  >Visit HeyMondo
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+            </div>
+            <div class="res-tip res-tip--dark js-reveal">
+              <span class="res-tip-icon">⚠️</span>
+              <p>
+                <strong>Please don't skip this.</strong> Every seasoned traveller we
+                know has a story about needing insurance at least once. A single
+                medical evacuation can cost more than years of premiums.
+              </p>
+            </div>
+          </div>
+        </div>
+    
+        <!-- ══════════════════════════════════════════
+         6. PACKING — off-white
+        ══════════════════════════════════════════ -->
+        <div class="res-sec res-sec--offwhite" id="packing">
+          <div class="res-wrap">
+            <div class="res-sec-hdr js-reveal">
+              <div>
+                <span class="res-kicker">Gear</span>
+                <h2 class="res-sec-title">Packing <em>Essentials</em></h2>
+              </div>
+            </div>
+            <div class="res-card-grid js-reveal">
+              <div class="res-card">
+                <span class="res-card-badge res-card-badge--fav">Our Carry-On</span>
+                <h3>Osprey Farpoint 40</h3>
+                <p>
+                  The bag we've used for three years straight. Fits in overhead bins
+                  globally, has a separate laptop sleeve, and the hip belt makes it
+                  comfortable for long transit days.
+                </p>
+                <a
+                  href="https://ospreypacks.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Shop Osprey
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card">
+                <span class="res-card-badge">Organisation</span>
+                <h3>Eagle Creek Packing Cubes</h3>
+                <p>
+                  Compressing cubes that genuinely make a difference. We pack by
+                  category (tops, bottoms, cables) and can unpack into a drawer in
+                  minutes wherever we land.
+                </p>
+                <a
+                  href="https://eaglecreek.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Shop Eagle Creek
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+            </div>
+            <!-- Packing checklist -->
+            <div class="res-checklist js-reveal">
+              <span class="res-checklist-label">Our Always-In-The-Bag List</span>
+              <span class="res-checklist-item">Noise-cancelling headphones</span>
+              <span class="res-checklist-item">Universal travel adapter</span>
+              <span class="res-checklist-item">Power bank (20,000 mAh)</span>
+              <span class="res-checklist-item">Microfibre towel</span>
+              <span class="res-checklist-item">Small first-aid kit</span>
+              <span class="res-checklist-item">Reusable water bottle</span>
+              <span class="res-checklist-item">Padlock (for lockers)</span>
+              <span class="res-checklist-item">Document folder</span>
+              <span class="res-checklist-item">Sunscreen SPF 50+</span>
+              <span class="res-checklist-item">Day pack / tote bag</span>
+              <span class="res-checklist-item">Ziplock bags (all sizes)</span>
+              <span class="res-checklist-item">Laundry bag</span>
+            </div>
+          </div>
+        </div>
+    
+        <!-- ══════════════════════════════════════════
+         7. MONEY & CONNECTIVITY — two-panel dark
+        ══════════════════════════════════════════ -->
+        <div class="res-sec res-sec--dark" id="money">
+          <div class="res-wrap">
+            <div class="res-sec-hdr res-sec-hdr--dark js-reveal">
+              <div>
+                <span class="res-kicker res-kicker--lt">Finance &amp; Comms</span>
+                <h2 class="res-sec-title res-sec-title--lt">
+                  Money &amp; <em>Connectivity</em>
+                </h2>
+              </div>
+            </div>
+            <div class="res-panels js-reveal">
+              <a
+                href="https://wise.com"
+                target="_blank"
+                rel="noopener"
+                class="res-panel"
+              >
+                <div class="res-panel-ph ph-forest"></div>
+                <div class="res-panel-scrim"></div>
+                <div class="res-panel-body">
+                  <div class="res-panel-label"><span>Zero Forex Fees</span></div>
+                  <h3 class="res-panel-title">Wise <em>(TransferWise)</em></h3>
+                  <p class="res-panel-desc">
+                    The real exchange rate with minimal fees — saved us considerably
+                    over years of travel.
+                  </p>
+                  <div class="res-panel-rule"></div>
+                  <span class="res-panel-cta"
+                    >Visit Wise
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    >
+                      <path d="M3 8h10M9 4l4 4-4 4" /></svg
+                  ></span>
+                </div>
+              </a>
+              <a
+                href="https://revolut.com"
+                target="_blank"
+                rel="noopener"
+                class="res-panel"
+              >
+                <div class="res-panel-ph ph-amber"></div>
+                <div class="res-panel-scrim"></div>
+                <div class="res-panel-body">
+                  <div class="res-panel-label"><span>Multi-Currency</span></div>
+                  <h3 class="res-panel-title"><em>Revolut</em></h3>
+                  <p class="res-panel-desc">
+                    Great for holding multiple currencies with instant spending
+                    notifications.
+                  </p>
+                  <div class="res-panel-rule"></div>
+                  <span class="res-panel-cta"
+                    >Visit Revolut
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    >
+                      <path d="M3 8h10M9 4l4 4-4 4" /></svg
+                  ></span>
+                </div>
+              </a>
+            </div>
+            <div class="res-tip res-tip--dark" style="margin-top: 1.25rem">
+              <span class="res-tip-icon">💡</span>
+              <p>
+                <strong>Pro tip:</strong> Always carry a small amount of local cash
+                for your first day — taxis from the airport, market snacks, tips.
+                ATMs aren't always accessible right when you land.
+              </p>
+            </div>
+          </div>
+        </div>
+    
+        <!-- ══════════════════════════════════════════
+         8. CONNECTIVITY — off-white (different from dark Money section above)
+        ══════════════════════════════════════════ -->
+        <div class="res-sec res-sec--white" id="connectivity">
+          <div class="res-wrap">
+            <div class="res-sec-hdr js-reveal">
+              <div>
+                <span class="res-kicker">Stay Online</span>
+                <h2 class="res-sec-title">Staying <em>Connected</em></h2>
+              </div>
+            </div>
+            <div class="res-card-grid js-reveal">
+              <div class="res-card">
+                <span class="res-card-badge res-card-badge--fav"
+                  >No More SIM Swaps</span
+                >
+                <h3>Airalo eSIM</h3>
+                <p>
+                  We switched to eSIMs a couple of years ago and haven't looked
+                  back. Airalo has affordable data plans for most countries, and you
+                  can activate them on the plane before landing.
+                </p>
+                <a
+                  href="https://airalo.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit Airalo
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+              <div class="res-card">
+                <span class="res-card-badge">VPN</span>
+                <h3>NordVPN</h3>
+                <p>
+                  Useful when connecting to public Wi-Fi at airports, cafés, and
+                  hotels. We also use it to access home streaming services while
+                  abroad, which is a bonus.
+                </p>
+                <a
+                  href="https://nordvpn.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="res-card-link"
+                  >Visit NordVPN
+                  <svg viewBox="0 0 12 12">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" /></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <site-footer></site-footer>
+
+    <script type="module" src="js/components/site-ribbon.js"></script>
+    <script type="module" src="js/components/site-header.js"></script>
+    <script type="module" src="js/components/site-footer.js"></script>
+    <script type="module" src="js/pages/shared-pages.js"></script>
+  </body>
+</html>

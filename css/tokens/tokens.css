@@ -1,0 +1,54 @@
+/* ════════════════════════════════════════════
+   DESIGN TOKENS — change brand values here only
+   All other CSS files reference these variables.
+════════════════════════════════════════════ */
+:root {
+  /* ── Colour palette ── */
+  --white:      #ffffff;
+  --off-white:  #fafaf8;
+  --bg:         #f7f5f2;
+  --beige:      #f0ebe3;
+  --parchment:  #f5f1ea;
+  --parch-dk:   #ede5d5;
+  --rule:       #e2ddd8;
+
+  --ink:        #1a1a18;
+  --ink-deep:   #0e0d0b;
+  --ink-soft:   #444240;
+  --ink-muted:  #888480;
+  --ink-60:     rgba(26, 26, 24, 0.6);
+  --ink-35:     rgba(26, 26, 24, 0.35);
+
+  /* Brand accent — change this one variable to rebrand */
+  --accent:       #c0815a;
+  --accent-lt:    #e8c4a8;
+  --accent-hover: #a86a45;
+  --accent-dk:    #8c5a3c;
+
+  /* Studio gold palette */
+  --gold:    #b8924a;
+  --gold-lt: #dfc07a;
+  --gold-dk: #7a5f2a;
+
+  /* ── Typography ── */
+  --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --sans:  "Lato", "Helvetica Neue", Arial, sans-serif;
+
+  /* ── Layout ── */
+  --max-w:     1200px;
+  --pad-x:     clamp(1rem, 4vw, 3rem);
+  --sidebar-w: 300px;
+  --gap:       2rem;
+
+  /* Header height tokens (used for sticky offsets) */
+  --top-bar-h: 36px;
+  --header-h:  90px;
+  --nav-h:     44px;
+  --total-top: calc(var(--top-bar-h) + var(--header-h) + var(--nav-h));
+
+  /* ── Decoration ── */
+  --radius:    2px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --ease:      cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Power of Mindset — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="How we think about our abilities shapes everything we do. On Carol Dweck's growth mindset — and why it matters." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      :root {
+        --gm-purple: #9b7fc4;
+        --gm-purple-light: #c4a8e8;
+        --gm-purple-pale: #f0eaf8;
+        --gm-yellow: #f5c842;
+        --gm-yellow-dark: #d4a820;
+        --gm-yellow-pale: #fdf7e0;
+        --gm-body-bg: #fdfcff;
+        --gm-text: #2a1f3d;
+        --gm-muted: #7a7090;
+        --gm-border: #e4ddf2;
+        --gm-growth-bg: #eef5e8;
+        --gm-growth: #5a9068;
+        --gm-fixed-bg: #f5eaea;
+        --gm-fixed: #b05858;
+      }
+
+      body {
+        background: var(--gm-body-bg);
+      }
+
+      /* ── Reading Progress ── */
+      .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background: linear-gradient(
+          to right,
+          var(--gm-purple),
+          var(--gm-yellow)
+        );
+        z-index: 9999;
+        transition: width 0.08s linear;
+      }
+
+      /* ── HERO ── */
+      .art-hero {
+        position: relative;
+        height: clamp(480px, 58vw, 620px);
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        background: linear-gradient(
+          145deg,
+          #f0eaf8 0%,
+          #e8e0f5 50%,
+          #f8f0fc 100%
+        );
+      }
+      .art-hero-photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.22;
+        filter: saturate(0.8) brightness(1.05);
+      }
+
+      .art-hero-visual {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 4rem;
+        opacity: 0.12;
+        pointer-events: none;
+      }
+      .art-hero-visual svg {
+        width: min(50vw, 500px);
+        height: auto;
+      }
+      .art-hero-dots {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          rgba(155, 127, 196, 0.08) 1px,
+          transparent 0
+        );
+        background-size: 20px 20px;
+        pointer-events: none;
+      }
+      .art-hero-glow {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            ellipse 60% 60% at 85% 25%,
+            rgba(155, 127, 196, 0.22) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 40% 50% at 15% 70%,
+            rgba(245, 200, 66, 0.12) 0%,
+            transparent 60%
+          );
+        animation: gmGlowBreath 10s ease-in-out infinite alternate;
+      }
+      @keyframes gmGlowBreath {
+        from {
+          opacity: 0.7;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .art-hero-scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(253, 252, 255, 0.97) 0%,
+          rgba(253, 252, 255, 0.35) 55%,
+          transparent 100%
+        );
+      }
+      .art-hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 2.5rem 4.5rem;
+        width: 100%;
+      }
+      .art-category-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 1.6rem;
+      }
+      .art-category-badge .line {
+        display: inline-block;
+        width: 36px;
+        height: 1.5px;
+        background: var(--gm-purple);
+      }
+      .art-category-badge .label {
+        font-family: var(--sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gm-purple);
+      }
+      .art-hero-title {
+        font-family: var(--serif);
+        font-size: clamp(2.3rem, 5.8vw, 4.5rem);
+        font-weight: 700;
+        color: var(--gm-text);
+        line-height: 1.06;
+        margin: 0 0 1.2rem;
+        letter-spacing: -0.02em;
+        max-width: 760px;
+      }
+      .art-hero-title em {
+        font-style: italic;
+        color: var(--gm-purple);
+      }
+      .art-hero-tagline {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.18rem;
+        font-style: italic;
+        color: rgba(42, 31, 61, 0.6);
+        max-width: 520px;
+        margin: 0;
+        line-height: 1.7;
+      }
+
+      /* ── Author Strip ── */
+      .art-author-strip {
+        background: var(--gm-purple-pale);
+        border-bottom: 1px solid var(--gm-border);
+      }
+      .art-author-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 1.5rem 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      .art-author-left {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+      }
+      .art-author-avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--gm-purple), #7050a8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 700;
+      }
+      .art-author-info {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .art-author-name {
+        font-family: var(--sans);
+        font-size: 0.84rem;
+        font-weight: 700;
+        color: var(--gm-text);
+      }
+      .art-author-name a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(155, 127, 196, 0.4);
+        transition: border-color 0.2s;
+      }
+      .art-author-name a:hover {
+        border-color: var(--gm-purple);
+      }
+      .art-author-meta {
+        font-family: var(--sans);
+        font-size: 0.73rem;
+        color: var(--gm-muted);
+      }
+      .art-author-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .art-read-time {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        color: var(--gm-muted);
+        border-left: 1px solid var(--gm-border);
+        padding-left: 1rem;
+        letter-spacing: 0.04em;
+      }
+      .art-author-substack {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gm-purple);
+        text-decoration: none;
+        padding: 0.38rem 1rem;
+        border: 1.5px solid var(--gm-purple);
+        border-radius: 20px;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        white-space: nowrap;
+      }
+      .art-author-substack:hover {
+        background: var(--gm-purple);
+        color: #fff;
+      }
+
+      .art-back {
+        display: block;
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gm-muted);
+        padding: 1rem 2.5rem;
+        max-width: 860px;
+        margin: 0 auto;
+        transition: color 0.2s;
+        border-bottom: 1px solid var(--gm-border);
+        text-decoration: none;
+      }
+      .art-back:hover {
+        color: var(--gm-purple);
+      }
+
+      /* ── Body ── */
+      .art-body-wrap {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 4.5rem 2.5rem 6rem;
+        animation: gmFadeUp 0.7s ease 0.1s both;
+      }
+      @keyframes gmFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .art-body-wrap p {
+        font-family: "Crimson Pro", serif;
+        font-size: 1.2rem;
+        line-height: 1.95;
+        color: var(--gm-text);
+        margin: 0 0 1.8rem;
+      }
+      .art-body-wrap p em {
+        font-style: italic;
+        color: var(--gm-purple);
+      }
+      .art-dropcap::first-letter {
+        font-family: var(--serif);
+        font-size: 5.2rem;
+        font-weight: 700;
+        float: left;
+        line-height: 0.74;
+        margin: 0.08em 0.12em 0 0;
+        color: var(--gm-purple);
+      }
+
+      /* Subheadings */
+      .art-body-wrap h2 {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gm-text);
+        margin: 3.5rem 0 1.3rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--gm-purple-pale);
+      }
+
+      /* Pull quote */
+      .art-pull-quote {
+        position: relative;
+        margin: 3.5rem 0;
+        padding: 2.5rem 2.5rem 2.5rem 4.5rem;
+        background: var(--gm-purple-pale);
+        border-left: 4px solid var(--gm-purple);
+        border-radius: 0 12px 12px 0;
+      }
+      .art-pull-quote::before {
+        content: "\201C";
+        position: absolute;
+        left: 1.2rem;
+        top: 0.5rem;
+        font-family: var(--serif);
+        font-size: 7rem;
+        color: rgba(155, 127, 196, 0.2);
+        line-height: 1;
+        font-weight: 700;
+        pointer-events: none;
+      }
+      .art-pull-quote p {
+        font-family: "DM Serif Display", serif !important;
+        font-size: 1.45rem !important;
+        font-style: italic;
+        color: var(--gm-text) !important;
+        line-height: 1.52 !important;
+        margin: 0 !important;
+      }
+      .art-pull-quote p em {
+        color: var(--gm-purple) !important;
+      }
+
+      /* ── THE COMPARISON TABLE — the centrepiece ── */
+      .gm-comparison {
+        margin: 4rem -1rem;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--gm-border);
+        box-shadow: 0 8px 32px rgba(155, 127, 196, 0.1);
+      }
+      .gm-comparison-header {
+        display: grid;
+        grid-template-columns: 80px 1fr 1fr;
+        background: #2a1f3d;
+        padding: 0;
+      }
+      .gm-comparison-header .spacer {
+        background: #2a1f3d;
+      }
+      .gm-comparison-header .col-label {
+        padding: 1.5rem 2rem;
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: -0.01em;
+      }
+      .gm-comparison-header .col-label.growth {
+        color: #a8e0b8;
+      }
+      .gm-comparison-header .col-label.fixed {
+        color: #f0a8a8;
+      }
+      .gm-comparison-row {
+        display: grid;
+        grid-template-columns: 80px 1fr 1fr;
+        border-top: 1px solid var(--gm-border);
+        transition: background 0.2s;
+      }
+      .gm-comparison-row:hover {
+        background: rgba(155, 127, 196, 0.03);
+      }
+      .gm-comparison-row:nth-child(even) {
+        background: rgba(155, 127, 196, 0.02);
+      }
+      .gm-comparison-row:nth-child(even):hover {
+        background: rgba(155, 127, 196, 0.05);
+      }
+      .gm-row-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.4rem 0;
+        font-size: 1.4rem;
+        border-right: 1px solid var(--gm-border);
+        background: #fdfcff;
+      }
+      .gm-row-growth {
+        padding: 1.4rem 1.8rem;
+        border-right: 1px solid var(--gm-border);
+        background: linear-gradient(
+          to right,
+          rgba(90, 144, 104, 0.04),
+          transparent
+        );
+      }
+      .gm-row-fixed {
+        padding: 1.4rem 1.8rem;
+        background: linear-gradient(
+          to left,
+          rgba(176, 88, 88, 0.04),
+          transparent
+        );
+      }
+      .gm-row-growth .trait,
+      .gm-row-fixed .trait {
+        font-family: "Crimson Pro", serif;
+        font-size: 1.02rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+      .gm-row-growth .trait {
+        color: var(--gm-growth);
+        font-weight: 700;
+      }
+      .gm-row-fixed .trait {
+        color: var(--gm-fixed);
+        font-weight: 700;
+      }
+      .gm-row-growth .desc,
+      .gm-row-fixed .desc {
+        font-family: "Crimson Pro", serif;
+        font-size: 0.92rem;
+        line-height: 1.6;
+        color: var(--gm-muted);
+        margin: 0.2rem 0 0;
+      }
+
+      /* Mindset quote card */
+      .gm-mindset-card {
+        background: linear-gradient(135deg, var(--gm-yellow-pale), #fef9e8);
+        border: 1px solid rgba(245, 200, 66, 0.3);
+        border-radius: 12px;
+        padding: 2rem 2.5rem;
+        margin: 3rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .gm-mindset-card::before {
+        content: "💡";
+        position: absolute;
+        right: 1.8rem;
+        top: 1.5rem;
+        font-size: 2.5rem;
+        opacity: 0.3;
+      }
+      .gm-mindset-card-label {
+        font-family: var(--sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gm-yellow-dark);
+        margin-bottom: 0.6rem;
+      }
+      .gm-mindset-card p {
+        font-family: "Crimson Pro", serif;
+        font-size: 1.08rem;
+        line-height: 1.8;
+        color: var(--gm-text);
+        margin: 0;
+      }
+
+      /* Shift examples */
+      .gm-shift {
+        margin: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .gm-shift-item {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.2rem 1.5rem;
+        border-radius: 10px;
+        border: 1px solid var(--gm-border);
+        background: #fff;
+      }
+      .gm-shift-from {
+        font-family: "Crimson Pro", serif;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--gm-fixed);
+        padding: 0.5rem 1rem;
+        background: var(--gm-fixed-bg);
+        border-radius: 8px;
+        text-align: center;
+      }
+      .gm-shift-arrow {
+        font-size: 1.4rem;
+        color: var(--gm-purple);
+        flex-shrink: 0;
+        text-align: center;
+      }
+      .gm-shift-to {
+        font-family: "Crimson Pro", serif;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--gm-growth);
+        padding: 0.5rem 1rem;
+        background: var(--gm-growth-bg);
+        border-radius: 8px;
+        text-align: center;
+      }
+      .gm-shift-label {
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 0.3rem;
+        display: block;
+      }
+      .gm-shift-label.from {
+        color: var(--gm-fixed);
+      }
+      .gm-shift-label.to {
+        color: var(--gm-growth);
+      }
+
+      /* Image block */
+      .art-img-block {
+        margin: 3rem -1.5rem;
+      }
+      .art-img-block img {
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+      }
+      .art-img-caption {
+        padding: 0.7rem 1.5rem 0;
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        color: var(--gm-muted);
+        letter-spacing: 0.04em;
+        font-style: italic;
+      }
+
+      /* Divider */
+      .art-divider {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 3.5rem 0;
+        opacity: 0.35;
+      }
+      .art-divider::before,
+      .art-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--gm-purple-light);
+      }
+      .art-divider span {
+        font-size: 0.65rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        font-family: var(--sans);
+        color: var(--gm-purple);
+      }
+      .art-end-mark {
+        text-align: center;
+        margin: 3rem 0 0;
+        font-family: "DM Serif Display", serif;
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--gm-muted);
+        letter-spacing: 0.15em;
+      }
+
+      /* ── Continue Reading ── */
+      .art-section-label {
+        display: block;
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--gm-purple);
+        margin-bottom: 0.4rem;
+      }
+      .art-continue {
+        background: var(--gm-purple-pale);
+        border-top: 1px solid var(--gm-border);
+        padding: 5rem 2.5rem;
+      }
+      .art-continue-inner {
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      .art-continue-head {
+        margin-bottom: 3rem;
+      }
+      .art-continue-title {
+        font-family: var(--serif);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 700;
+        color: var(--gm-text);
+        margin: 0.4rem 0 0;
+      }
+      .art-continue-title em {
+        font-style: italic;
+        color: var(--gm-purple);
+      }
+      .art-continue-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+      }
+      .art-card {
+        background: #fff;
+        border: 1px solid var(--gm-border);
+        border-radius: 10px;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .art-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(155, 127, 196, 0.12);
+      }
+      .art-card a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
+      .art-card-img-wrap {
+        overflow: hidden;
+        height: 180px;
+      }
+      .art-card-body {
+        padding: 1.4rem 1.6rem 1.8rem;
+      }
+      .art-card-tag {
+        display: inline-block;
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gm-purple);
+        margin-bottom: 0.5rem;
+      }
+      .art-card-title {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--gm-text);
+        line-height: 1.32;
+        margin: 0;
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 40px;
+        height: 40px;
+        background: var(--gm-purple);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 14px rgba(155, 127, 196, 0.35);
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .back-to-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .back-to-top:hover {
+        background: #7050a8;
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 700px) {
+        .art-hero-inner,
+        .art-author-inner,
+        .art-body-wrap,
+        .art-continue {
+          padding-left: 1.3rem;
+          padding-right: 1.3rem;
+        }
+        .art-back {
+          padding-left: 1.3rem;
+        }
+        .art-continue-grid {
+          grid-template-columns: 1fr;
+        }
+        .art-hero {
+          height: clamp(360px, 65vw, 460px);
+        }
+        .gm-comparison {
+          margin-left: -0.5rem;
+          margin-right: -0.5rem;
+        }
+        .gm-comparison-header,
+        .gm-comparison-row {
+          grid-template-columns: 50px 1fr 1fr;
+        }
+        .gm-row-growth,
+        .gm-row-fixed {
+          padding: 1rem;
+        }
+        .gm-shift-item {
+          grid-template-columns: 1fr;
+          gap: 0.5rem;
+        }
+        .gm-shift-arrow {
+          transform: rotate(90deg);
+        }
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link rel="apple-touch-icon" href="../assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/lifestyle/growth-mindset.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="The Power of Mindset — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="How we think about our abilities shapes everything we do. On Carol Dweck's growth mindset — and why it matters." />
+    <meta property="og:url" content="https://routesandreflections.in/lifestyle/growth-mindset.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Power of Mindset — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="How we think about our abilities shapes everything we do. On Carol Dweck's growth mindset — and why it matters." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <site-ribbon depth=".."></site-ribbon>
+    <site-header active="lifestyle" depth=".."></site-header>
+
+    <!-- ══ ARTICLE HERO ══ -->
+    <section class="art-hero">
+      <img
+        src="../lifestyle/article-assets/mindset.jpg"
+        alt="Growth vs Fixed Mindset"
+        class="art-hero-photo"
+        onerror="this.style.display = 'none'"
+      />
+      <div class="art-hero-glow"></div>
+      <div class="art-hero-scrim"></div>
+      <div class="art-hero-inner">
+        <div class="art-category-badge">
+          <span class="line"></span>
+          <span class="label">Growth · Mindset</span>
+        </div>
+        <h1 class="art-hero-title">
+          The Power of <em> <strong> Mindset</strong></em>
+        </h1>
+      </div>
+    </section>
+
+    <!-- ══ AUTHOR STRIP ══ -->
+    <div class="art-author-strip">
+      <div class="art-author-inner">
+        <div class="art-author-left">
+          <div class="art-author-avatar">R</div>
+          <div class="art-author-info">
+            <span class="art-author-name"
+              >By <a href="../about.html">Rajesh Pathak</a></span
+            >
+            <span class="art-author-meta">April 16, 2026</span>
+          </div>
+        </div>
+        <div class="art-author-right">
+          <a
+            href="https://substack.com/@rajeshpathakd6"
+            class="art-author-substack"
+            >Read on Substack ↗</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <a href="../lifestyle.html" class="art-back">← Back to Lifestyle</a>
+
+    <!-- ══ ARTICLE BODY ══ -->
+    <main class="art-body-wrap" id="articleBody">
+      <p class="art-dropcap">
+        In 1988, a psychologist named Carol Dweck gave a group of schoolchildren
+        a test — and then watched what happened when they failed. Some children
+        crumbled. Others leaned in, curious. Some tried harder. Some gave up.
+        The difference, Dweck found, was not how smart the children were. It was
+        what they believed about smartness itself.
+      </p>
+
+      <p>
+        That observation became the foundation for one of the most influential
+        ideas in modern psychology: the concept of <em>mindset</em>. In her
+        landmark research, Dweck identified two fundamentally different
+        orientations toward ability and challenge — what she called the fixed
+        mindset and the growth mindset — and found that they shape nearly every
+        aspect of how we learn, work, and relate to one another.
+      </p>
+
+      <div class="art-pull-quote">
+        <p>
+          The view you adopt for yourself profoundly affects the way you lead
+          your life. It can determine whether you become the person you want to
+          be.
+        </p>
+      </div>
+
+      <h2>What Each Mindset Actually Believes</h2>
+
+      <p>
+        A fixed mindset starts from a single premise: your qualities —
+        intelligence, talent, personality — are carved in stone. You have a
+        certain amount, and that's what you have. Tests and challenges are there
+        to confirm or deny that amount. Failure doesn't teach you something; it
+        <em>reveals</em> something. And what it reveals, the fixed-mindset
+        person fears, is the truth about who they really are.
+      </p>
+
+      <p>
+        A growth mindset begins somewhere entirely different. It believes that
+        qualities are cultivated through effort, strategy, and support from
+        others. A challenge is not a verdict — it's an invitation. Failure is
+        not an identity — it's information. The fixed-mindset person asks, "Am I
+        good enough?" The growth-mindset person asks, "What can I learn from
+        this?"
+      </p>
+
+      <!-- THE COMPARISON TABLE -->
+      <div class="gm-comparison">
+        <div class="gm-comparison-header">
+          <div class="spacer"></div>
+          <div class="col-label growth">🌱 Growth Mindset</div>
+          <div class="col-label fixed">⛓ Fixed Mindset</div>
+        </div>
+
+        <div class="gm-comparison-row">
+          <div class="gm-row-icon">🧠</div>
+          <div class="gm-row-growth">
+            <p class="trait">Keeps going when things go wrong</p>
+            <p class="desc">
+              Setbacks are part of the path, not proof of failure.
+            </p>
+          </div>
+          <div class="gm-row-fixed">
+            <p class="trait">Avoids problems, gives up easily</p>
+            <p class="desc">
+              Obstacles feel threatening — better not to try than to fail
+              publicly.
+            </p>
+          </div>
+        </div>
+
+        <div class="gm-comparison-row">
+          <div class="gm-row-icon">💡</div>
+          <div class="gm-row-growth">
+            <p class="trait">
+              Developing new talents takes effort — and that's the point
+            </p>
+            <p class="desc">
+              Effort is how ability is built. Hard work is a sign you're
+              growing.
+            </p>
+          </div>
+          <div class="gm-row-fixed">
+            <p class="trait">Others' success feels threatening</p>
+            <p class="desc">
+              If talent is fixed, someone else doing well diminishes you.
+            </p>
+          </div>
+        </div>
+
+        <div class="gm-comparison-row">
+          <div class="gm-row-icon">🎯</div>
+          <div class="gm-row-growth">
+            <p class="trait">Finds motivation in the success of others</p>
+            <p class="desc">
+              What others achieve shows what's possible. Their ceiling isn't
+              your ceiling.
+            </p>
+          </div>
+          <div class="gm-row-fixed">
+            <p class="trait">Motivated mainly by wanting to look smart</p>
+            <p class="desc">
+              Appearing capable matters more than becoming capable.
+            </p>
+          </div>
+        </div>
+
+        <div class="gm-comparison-row">
+          <div class="gm-row-icon">🧩</div>
+          <div class="gm-row-growth">
+            <p class="trait">Embraces challenges as opportunities</p>
+            <p class="desc">
+              Difficulty is where growth actually happens. It's sought, not
+              avoided.
+            </p>
+          </div>
+          <div class="gm-row-fixed">
+            <p class="trait">Believes effort is pointless</p>
+            <p class="desc">
+              If you have to work hard, it means you don't have what it takes.
+            </p>
+          </div>
+        </div>
+
+        <div class="gm-comparison-row">
+          <div class="gm-row-icon">📖</div>
+          <div class="gm-row-growth">
+            <p class="trait">Actively seeks feedback and criticism</p>
+            <p class="desc">
+              Critique is data. Honest feedback accelerates growth faster than
+              praise.
+            </p>
+          </div>
+          <div class="gm-row-fixed">
+            <p class="trait">Ignores or dismisses feedback</p>
+            <p class="desc">
+              Criticism feels personal — an attack on who you are, not how you
+              performed.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Why the Fixed Mindset Feels So Rational</h2>
+
+      <p>
+        Here's what makes this difficult: the fixed mindset is not irrational.
+        It is, in many ways, protective. If you believe your abilities are
+        fixed, then avoiding challenges is smart — why risk confirming your
+        worst fears about yourself? If you believe effort won't help, then not
+        trying is perfectly logical. If you believe feedback is a verdict, then
+        ignoring it is self-defence.
+      </p>
+
+      <p>
+        The fixed mindset is armour. The problem is that armour is very heavy,
+        and it keeps out the very experiences that would help you grow:
+        challenges that stretch you, failures that teach you, criticism that
+        sharpens you, and other people's success that inspires you.
+      </p>
+
+      <div class="gm-mindset-card">
+        <p class="gm-mindset-card-label">Something Worth Sitting With</p>
+        <p>
+          Dweck's research found that praising children for being "smart" tended
+          to create fixed mindsets — because it taught them that intelligence
+          was a trait to protect, not a skill to develop. Children praised for
+          effort, by contrast, were more likely to choose challenging tasks,
+          persist longer, and perform better over time.
+        </p>
+      </div>
+
+      <h2>Shifting the Voice in Your Head</h2>
+
+      <p>
+        Most people carry both mindsets — shifting between them depending on the
+        domain, the stakes, or the day. You might have a growth mindset about
+        physical fitness and a ferociously fixed one about creative work. You
+        might move fluidly between them within a single morning.
+      </p>
+
+      <p>
+        The shift doesn't happen by deciding you now have a growth mindset. It
+        happens by catching the fixed mindset in action — and offering it a
+        different interpretation. Dweck's own advice is surprisingly concrete:
+        when the fixed-mindset voice says <em>you can't do this</em>, don't
+        argue with it. Instead, acknowledge it — and then add: <em>yet</em>.
+      </p>
+
+      <!-- REFRAMING EXAMPLES -->
+      <div class="gm-shift">
+        <div class="gm-shift-item">
+          <div class="gm-shift-from">
+            <span class="gm-shift-label from">Fixed</span>"I'm just not a
+            creative person."
+          </div>
+          <div class="gm-shift-arrow">→</div>
+          <div class="gm-shift-to">
+            <span class="gm-shift-label to">Growth</span>"I haven't developed
+            this skill yet — but creativity is practiced, not born."
+          </div>
+        </div>
+        <div class="gm-shift-item">
+          <div class="gm-shift-from">
+            <span class="gm-shift-label from">Fixed</span>"I failed again. I'm
+            just not cut out for this."
+          </div>
+          <div class="gm-shift-arrow">→</div>
+          <div class="gm-shift-to">
+            <span class="gm-shift-label to">Growth</span>"This didn't work. What
+            specifically can I change for next time?"
+          </div>
+        </div>
+        <div class="gm-shift-item">
+          <div class="gm-shift-from">
+            <span class="gm-shift-label from">Fixed</span>"She's so naturally
+            talented. I could never do that."
+          </div>
+          <div class="gm-shift-arrow">→</div>
+          <div class="gm-shift-to">
+            <span class="gm-shift-label to">Growth</span>"That's what dedication
+            looks like. What can I learn from how she got there?"
+          </div>
+        </div>
+        <div class="gm-shift-item">
+          <div class="gm-shift-from">
+            <span class="gm-shift-label from">Fixed</span>"If I try and fail,
+            everyone will know I'm not as smart as they think."
+          </div>
+          <div class="gm-shift-arrow">→</div>
+          <div class="gm-shift-to">
+            <span class="gm-shift-label to">Growth</span>"The attempt itself is
+            where the learning lives — regardless of outcome."
+          </div>
+        </div>
+      </div>
+
+      <h2>The Long Game</h2>
+
+      <p>
+        In Dweck's decades of research across schools, sports, businesses, and
+        relationships, the growth mindset consistently correlates with higher
+        achievement, stronger resilience, healthier relationships, and greater
+        satisfaction over time. Not because growth-mindset people are more
+        talented or lucky — but because they stay in the game longer, learn from
+        it more deeply, and find the process itself more meaningful.
+      </p>
+
+      <p>
+        The fixed-mindset person optimises for today's performance: looking
+        smart, avoiding failure, protecting the image. The growth-mindset person
+        optimises for tomorrow's capacity: learning something, becoming someone,
+        building the kind of character that can handle a harder problem next
+        year.
+      </p>
+
+      <div class="art-pull-quote">
+        <p>
+          Both mindsets are playing a game — but they're playing for different
+          prizes. One wants to be seen as already good. The other wants to
+          <em>become</em> genuinely better.
+        </p>
+      </div>
+
+      <h2>Where to Start</h2>
+
+      <p>
+        The research is clear, but it's also specific: mindset change is not
+        about reading an article and deciding to be different. It is a practice
+        of noticing. Each time you catch yourself avoiding a challenge,
+        dismissing feedback, or feeling threatened by someone else's success —
+        that is the moment. Not to judge yourself, but to ask: what would the
+        next step look like from a growth orientation?
+      </p>
+
+      <p>
+        Sometimes the answer is trying something uncomfortable. Sometimes it's
+        going back to something you abandoned. Sometimes it's simply admitting —
+        to yourself, quietly — that you don't know yet. That "yet" carries
+        remarkable weight. It keeps the future open.
+      </p>
+
+      <div class="art-divider"><span>✦</span></div>
+      <p class="art-end-mark">— end —</p>
+    </main>
+
+    <!-- ══ CONTINUE READING ══ -->
+    <section class="art-continue">
+      <div class="art-continue-inner">
+        <div class="art-continue-head">
+          <span class="art-section-label">Continue Reading</span>
+          <h2 class="art-continue-title">More from <em>Growth</em></h2>
+        </div>
+        <div class="art-continue-grid">
+          <article class="art-card">
+            <a href="./growth-logotherapy.html">
+              <div class="art-card-img-wrap">
+                <img
+                  src="./article-assets/logotherapy.jpg"
+                  alt="Logotherapy"
+                  onerror="this.parentElement.style.background = '#e0d8cf'"
+                />
+              </div>
+              <div class="art-card-body">
+                <span class="art-card-tag">Meaning</span>
+                <h3 class="art-card-title">When Okay Isn't Enough</h3>
+              </div>
+            </a>
+          </article>
+          <article class="art-card">
+            <a href="#">
+              <div class="art-card-img-wrap">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #f5f0e8, #e8e0d8);
+                  "
+                ></div>
+              </div>
+              <div class="art-card-body">
+                <span class="art-card-tag">Identity</span>
+                <h3 class="art-card-title">
+                  The Single Habit That Outperforms All Others
+                </h3>
+              </div>
+            </a>
+          </article>
+          <article class="art-card">
+            <a href="#">
+              <div class="art-card-img-wrap">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #eaf5f0, #d8ece8);
+                  "
+                ></div>
+              </div>
+              <div class="art-card-body">
+                <span class="art-card-tag">Resilience</span>
+                <h3 class="art-card-title">
+                  What Bouncing Back Actually Looks Like
+                </h3>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <!-- ══ FOOTER ══ -->
+
+    <site-footer depth=".."></site-footer>
+
+    <script type="module" src="../js/components/site-ribbon.js"></script>
+    <script type="module" src="../js/components/site-header.js"></script>
+    <script type="module" src="../js/components/site-footer.js"></script>
+    <script type="module" src="../js/pages/lifestyle-article.js"></script>
+  </body>
+</html>

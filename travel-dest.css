@@ -1,0 +1,310 @@
+/* ════════════════════════════════════════════════════════════
+   travel-dest.css — Destination guide pages (continents & countries)
+   Used by: destinations/asia.html, africa.html, asia-<country>.html …
+   Link from a page in destinations/ (one level deep):
+     <link rel="stylesheet" href="../travel-dest.css" />
+   Built on the site tokens in styles.css (--accent, --ink, --sans …).
+════════════════════════════════════════════════════════════ */
+
+:root {
+  --tdest-bg:     #faf7f2;
+  --tdest-card:   #ffffff;
+  --tdest-rule:   var(--rule, #e8e2d9);
+  --tdest-ink:    var(--ink, #1a140a);
+  --tdest-soft:   var(--ink-soft, #3d3228);
+  --tdest-muted:  var(--ink-muted, #7a6e63);
+  --tdest-accent: var(--accent, #c0815a);
+}
+
+body.tdest-page { background: var(--tdest-bg); }
+
+/* ── Hero ── */
+.tdest-hero {
+  position: relative;
+  min-height: clamp(340px, 46vh, 480px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.tdest-hero-bg { position: absolute; inset: 0; background: var(--tdest-ink); }
+.tdest-hero-gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(16,12,6,.86) 0%, rgba(16,12,6,.34) 55%, rgba(16,12,6,.12) 100%);
+}
+.tdest-hero-content {
+  position: relative; z-index: 1;
+  max-width: var(--max-w, 1280px);
+  width: 100%;
+  margin-inline: auto;
+  padding: 0 var(--pad-x, 2rem) 3rem;
+}
+.tdest-hero-kicker {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--accent-lt, #e8c4a8);
+  margin: 0 0 0.85rem;
+}
+.tdest-hero h1 {
+  font-family: var(--serif, var(--serif));
+  font-size: var(--fs-h1);
+  font-weight: 400; color: #fff;
+  line-height: 1.08; margin: 0 0 0.9rem;
+}
+.tdest-hero h1 em { font-style: italic; color: var(--accent-lt, #e8c4a8); }
+.tdest-hero-tagline {
+  font-family: var(--sans, var(--sans));
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  font-weight: 300; color: rgba(255,255,255,.72);
+  line-height: 1.7; max-width: 620px; margin: 0 0 1.6rem;
+}
+.tdest-hero-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.tdest-badge {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.74rem; font-weight: 400;
+  color: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.24);
+  padding: 0.4rem 0.85rem; border-radius: 2px;
+  backdrop-filter: blur(2px);
+}
+
+/* ── Breadcrumb ── */
+.tdest-breadcrumb {
+  max-width: var(--max-w, 1280px);
+  margin-inline: auto;
+  padding: 1.1rem var(--pad-x, 2rem);
+  font-family: var(--sans, var(--sans));
+  font-size: 0.78rem; color: var(--tdest-muted);
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+}
+.tdest-breadcrumb a { color: var(--tdest-muted); text-decoration: none; transition: color .2s; }
+.tdest-breadcrumb a:hover { color: var(--tdest-accent); }
+.tdest-breadcrumb .sep { color: var(--tdest-rule); }
+.tdest-breadcrumb .current { color: var(--tdest-ink); font-weight: 700; }
+
+/* ── Layout (main + sidebar) ── */
+.tdest-layout {
+  max-width: var(--max-w, 1280px);
+  margin-inline: auto;
+  padding: 1.5rem var(--pad-x, 2rem) 4rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* ── Intro lead ── */
+.tdest-intro { margin-bottom: 2.5rem; }
+.tdest-intro p {
+  font-family: var(--serif, var(--serif));
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 400; font-style: italic;
+  color: var(--tdest-soft); line-height: 1.6; margin: 0;
+}
+
+/* ── Quick facts ── */
+.tdest-facts {
+  background: var(--tdest-card);
+  border: 1px solid var(--tdest-rule);
+  border-radius: 8px;
+  padding: 1.75rem 1.9rem;
+  margin-bottom: 2.75rem;
+}
+.tdest-facts-title {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--tdest-accent); margin-bottom: 1.2rem;
+}
+.tdest-facts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem 2rem; }
+.tdest-fact-item { display: flex; flex-direction: column; gap: 0.25rem; }
+.tdest-fact-label {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.64rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--tdest-muted);
+}
+.tdest-fact-value {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.95rem; font-weight: 400; color: var(--tdest-ink); line-height: 1.4;
+}
+
+/* ── Section titles & headers ── */
+.tdest-section-title {
+  font-family: var(--serif, var(--serif));
+  font-size: var(--fs-h2);
+  font-weight: 400; color: var(--tdest-ink);
+  margin: 0 0 1.6rem; line-height: 1.2;
+}
+.tdest-section-title em { font-style: italic; color: var(--tdest-accent); }
+.tdest-cities-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 1rem; margin-bottom: 1.6rem;
+}
+.tdest-cities-header h2 {
+  font-family: var(--serif, var(--serif));
+  font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 400; color: var(--tdest-ink); margin: 0;
+}
+.tdest-cities-header a {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.74rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--tdest-accent); text-decoration: none; white-space: nowrap; flex-shrink: 0;
+}
+.tdest-cities-header a:hover { color: var(--accent-hover, #a86a45); }
+
+/* ── Country / region cards ── */
+.tdest-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+.tdest-ccard {
+  display: flex; flex-direction: column;
+  background: var(--tdest-card);
+  border: 1px solid var(--tdest-rule);
+  border-radius: 8px; overflow: hidden; text-decoration: none;
+  transition: transform .3s var(--ease, ease), box-shadow .3s var(--ease, ease), border-color .3s;
+}
+.tdest-ccard:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(26,20,10,.12); border-color: var(--accent-lt, #e8c4a8); }
+.tdest-ccard-img { position: relative; height: 150px; overflow: hidden; }
+.tdest-ccard-img-bg { position: absolute; inset: 0; transition: transform .45s var(--ease, ease); }
+.tdest-ccard:hover .tdest-ccard-img-bg { transform: scale(1.06); }
+.tdest-ccard-body { padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
+.tdest-ccard-tag {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--tdest-accent); margin-bottom: 0.55rem;
+}
+.tdest-ccard-name {
+  font-family: var(--serif, var(--serif));
+  font-size: 1.3rem; font-weight: 400; color: var(--tdest-ink); margin-bottom: 0.5rem; line-height: 1.2;
+}
+.tdest-ccard-desc {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.88rem; font-weight: 300; color: var(--tdest-soft); line-height: 1.7; margin: 0 0 0.75rem;
+}
+.tdest-ccard-sub {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.72rem; color: var(--tdest-muted); margin-bottom: 0.75rem;
+}
+.tdest-ccard-link {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--tdest-accent); margin-top: auto;
+  transition: letter-spacing .2s;
+}
+.tdest-ccard:hover .tdest-ccard-link { letter-spacing: 0.12em; }
+
+/* ── City cards (smaller) ── */
+.tdest-city-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-bottom: 3rem; }
+.tdest-city-card {
+  display: flex; flex-direction: column;
+  background: var(--tdest-card);
+  border: 1px solid var(--tdest-rule);
+  border-radius: 8px; overflow: hidden; text-decoration: none;
+  transition: transform .3s var(--ease, ease), box-shadow .3s var(--ease, ease), border-color .3s;
+}
+.tdest-city-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(26,20,10,.1); border-color: var(--accent-lt, #e8c4a8); }
+.tdest-city-card-img { position: relative; height: 120px; overflow: hidden; }
+.tdest-city-card-img-bg { position: absolute; inset: 0; transition: transform .45s var(--ease, ease); }
+.tdest-city-card:hover .tdest-city-card-img-bg { transform: scale(1.06); }
+.tdest-city-card-body { padding: 1.1rem 1.3rem 1.3rem; }
+.tdest-city-card-name {
+  font-family: var(--serif, var(--serif));
+  font-size: 1.1rem; font-weight: 400; color: var(--tdest-ink); margin-bottom: 0.3rem;
+}
+.tdest-city-card-sub {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.82rem; font-weight: 300; color: var(--tdest-soft); line-height: 1.6;
+}
+
+/* ── Coming-soon variant (non-clickable cards) ── */
+.tdest-ccard.is-soon, .tdest-city-card.is-soon { opacity: 0.66; cursor: default; pointer-events: none; position: relative; }
+.tdest-ccard.is-soon::after, .tdest-city-card.is-soon::after {
+  content: "Coming Soon";
+  position: absolute; top: 10px; right: 10px; z-index: 2;
+  font-family: var(--sans, var(--sans));
+  font-size: 0.56rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #fff; background: rgba(26,20,10,.78); padding: 0.32rem 0.55rem; border-radius: 999px;
+}
+
+/* ── Practical tips ── */
+.tdest-tips { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 3rem; }
+.tdest-tip {
+  display: flex; gap: 1rem;
+  background: var(--tdest-card);
+  border: 1px solid var(--tdest-rule);
+  border-left: 3px solid var(--tdest-accent);
+  border-radius: 0 6px 6px 0; padding: 1.25rem 1.4rem;
+}
+.tdest-tip-icon { font-size: 1.3rem; line-height: 1; flex-shrink: 0; margin-top: 0.1rem; }
+.tdest-tip-text strong {
+  display: block;
+  font-family: var(--sans, var(--sans));
+  font-size: 0.92rem; font-weight: 700; color: var(--tdest-ink); margin-bottom: 0.4rem;
+}
+.tdest-tip-text p {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.85rem; font-weight: 300; color: var(--tdest-soft); line-height: 1.7; margin: 0;
+}
+
+/* ── CTA band ── */
+.tdest-cta {
+  background: var(--tdest-ink);
+  border-radius: 10px;
+  padding: 2.75rem 2.5rem; text-align: center; margin-top: 1rem;
+}
+.tdest-cta h3 {
+  font-family: var(--serif, var(--serif));
+  font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 400; color: #fff; margin: 0 0 0.65rem;
+}
+.tdest-cta h3 em { font-style: italic; color: var(--accent-lt, #e8c4a8); }
+.tdest-cta p {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,.62);
+  line-height: 1.7; max-width: 520px; margin: 0 auto 1.6rem;
+}
+.tdest-cta a {
+  display: inline-block;
+  font-family: var(--sans, var(--sans));
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #fff; background: var(--tdest-accent);
+  padding: 0.85rem 1.8rem; border-radius: 3px; text-decoration: none; transition: background .2s;
+}
+.tdest-cta a:hover { background: var(--accent-hover, #a86a45); }
+
+/* ── Sidebar ── */
+.tdest-sidebar { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 1.5rem; }
+.tdest-sidebar-widget {
+  background: var(--tdest-card);
+  border: 1px solid var(--tdest-rule);
+  border-radius: 8px; padding: 1.4rem 1.5rem;
+}
+.tdest-sidebar-widget-title {
+  font-family: var(--sans, var(--sans));
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--tdest-accent); margin-bottom: 1rem;
+  padding-bottom: 0.75rem; border-bottom: 1px solid var(--tdest-rule);
+}
+.tdest-sidebar-list { display: flex; flex-direction: column; }
+.tdest-sidebar-list a {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: var(--sans, var(--sans));
+  font-size: 0.88rem; color: var(--tdest-soft); text-decoration: none;
+  padding: 0.5rem 0; border-bottom: 1px solid var(--tdest-rule); transition: color .2s, padding-left .2s;
+}
+.tdest-sidebar-list a:last-child { border-bottom: 0; }
+.tdest-sidebar-list a:hover { color: var(--tdest-accent); padding-left: 0.3rem; }
+.tdest-sidebar-list a span { font-size: 1rem; flex-shrink: 0; }
+
+/* ── Responsive ── */
+@media (max-width: 940px) {
+  .tdest-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .tdest-sidebar { position: static; flex-direction: row; flex-wrap: wrap; }
+  .tdest-sidebar-widget { flex: 1 1 260px; }
+}
+@media (max-width: 620px) {
+  .tdest-cards, .tdest-city-cards, .tdest-tips, .tdest-facts-grid { grid-template-columns: 1fr; }
+  .tdest-cities-header { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+  .tdest-hero-content { padding-bottom: 2rem; }
+}

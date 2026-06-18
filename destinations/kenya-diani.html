@@ -1,0 +1,1177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diani Beach, Kenya — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="Diani Beach — white sand, warm Indian Ocean, and a coastal Kenya that stays with you long after you leave." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      :root {
+        --d-ink: #1a1410;
+        --d-soft: #4a3e32;
+        --d-muted: #8a7e74;
+        --d-rule: #e0d8cc;
+        --d-bg: #f8f4ef;
+        --d-white: #ffffff;
+        --d-accent: #c0703a;
+        --d-accent-lt: #e8c090;
+        --d-ocean: #4a7e8a;
+        --d-sand: #d4b878;
+        --d-serif: var(--serif);
+        --d-alt: var(--serif);
+        --d-sans: var(--sans);
+      }
+
+      body {
+        background: var(--d-bg);
+      }
+
+      .d-hero {
+        position: relative;
+        height: 96vh;
+        min-height: 620px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 5.5rem;
+      }
+      .d-hero-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url("../assets/kenya.JPG");
+        background-size: cover;
+        background-position: center 45%;
+        transform: scale(1.05);
+        transition: transform 10s ease-out;
+      }
+      .d-hero-bg.loaded {
+        transform: scale(1);
+      }
+      .d-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          175deg,
+          rgba(15, 10, 5, 0.04) 0%,
+          rgba(15, 10, 5, 0.04) 35%,
+          rgba(15, 8, 3, 0.52) 70%,
+          rgba(15, 8, 3, 0.82) 100%
+        );
+      }
+      .d-hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 860px;
+        padding: 0 2rem;
+        animation: dFadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      @keyframes dFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(36px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .d-hero-eyebrow {
+        font-family: var(--d-sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+        color: var(--d-accent-lt);
+        margin-bottom: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.9rem;
+      }
+      .d-hero-eyebrow::before,
+      .d-hero-eyebrow::after {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: var(--d-accent-lt);
+        opacity: 0.6;
+      }
+      .d-hero h1 {
+        font-family: var(--d-alt);
+        font-size: clamp(3.4rem, 8vw, 6.5rem);
+        font-weight: 300;
+        font-style: italic;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 1.4rem;
+      }
+      .d-hero-sub {
+        font-family: var(--d-sans);
+        font-size: 0.88rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.72);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        line-height: 1.6;
+      }
+      .d-hero-meta {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        gap: 2.8rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+        animation: dFadeUp 1.2s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      .d-hero-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: var(--d-sans);
+        font-size: 0.7rem;
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.58);
+      }
+      .d-hero-meta-divider {
+        width: 1px;
+        height: 18px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .d-layout {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 5rem 2rem 7rem;
+        display: grid;
+        grid-template-columns: 1fr 310px;
+        gap: 4rem;
+        align-items: start;
+      }
+      @media (max-width: 920px) {
+        .d-layout {
+          grid-template-columns: 1fr;
+        }
+        .d-sidebar {
+          display: none;
+        }
+      }
+
+      .d-article-intro {
+        font-family: var(--d-alt);
+        font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--d-soft);
+        line-height: 1.78;
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--d-rule);
+      }
+      .d-article p {
+        font-family: var(--d-sans);
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--d-soft);
+        line-height: 1.95;
+        margin-bottom: 1.7rem;
+      }
+      .d-article p strong {
+        font-weight: 700;
+        color: var(--d-ink);
+      }
+
+      .d-section-head {
+        margin: 3.5rem 0 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .d-section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--d-rule);
+      }
+      .d-section-head-label {
+        font-family: var(--d-sans);
+        font-size: 0.63rem;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--d-muted);
+        white-space: nowrap;
+      }
+      .d-section-head-line-right {
+        flex: 0.12;
+      }
+
+      .d-pullquote {
+        margin: 3.2rem 0;
+        padding: 2.2rem 2.5rem;
+        border-left: 3px solid var(--d-accent);
+        background: rgba(192, 112, 58, 0.05);
+      }
+      .d-pullquote p {
+        font-family: var(--d-alt);
+        font-size: clamp(1.15rem, 2vw, 1.35rem);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--d-soft) !important;
+        line-height: 1.7 !important;
+        margin-bottom: 0 !important;
+      }
+
+      .d-photo-full {
+        margin: 2.8rem -2rem;
+        overflow: hidden;
+        background: var(--d-rule);
+      }
+      .d-photo-full img {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        display: block;
+      }
+      .d-photo-placeholder-full {
+        width: 100%;
+        height: 520px;
+        background: linear-gradient(135deg, #ecdec8 0%, #d8c8a8 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      .d-photo-placeholder-full svg {
+        opacity: 0.3;
+      }
+      .d-photo-placeholder-full span {
+        font-family: var(--d-sans);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--d-muted);
+      }
+
+      .d-photo-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin: 2.8rem 0;
+      }
+      .d-photo-grid-3 {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 1.2rem;
+        margin: 2.8rem 0;
+      }
+      .d-photo-item {
+        overflow: hidden;
+        background: var(--d-rule);
+      }
+      .d-photo-item img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+      .d-photo-item:hover img {
+        transform: scale(1.03);
+      }
+      .d-photo-placeholder {
+        width: 100%;
+        height: 320px;
+        background: linear-gradient(135deg, #ecdec8 0%, #d8c8a8 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+      }
+      .d-photo-placeholder svg {
+        opacity: 0.28;
+      }
+      .d-photo-placeholder span {
+        font-family: var(--d-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--d-muted);
+      }
+      .d-photo-caption {
+        font-family: var(--d-sans);
+        font-size: 0.72rem;
+        color: var(--d-muted);
+        letter-spacing: 0.06em;
+        text-align: center;
+        margin-top: -1.2rem;
+        margin-bottom: 2.8rem;
+        font-style: italic;
+      }
+
+      .d-practical {
+        margin: 3.5rem 0;
+        border: 1px solid var(--d-rule);
+        background: var(--d-white);
+      }
+      .d-practical-head {
+        padding: 1.2rem 1.8rem;
+        border-bottom: 1px solid var(--d-rule);
+        font-family: var(--d-sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--d-muted);
+        background: #faf6f0;
+      }
+      .d-practical-item {
+        padding: 1.2rem 1.8rem;
+        border-bottom: 1px solid var(--d-rule);
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        gap: 1.2rem;
+        align-items: baseline;
+      }
+      .d-practical-item:last-child {
+        border-bottom: none;
+      }
+      .d-practical-label {
+        font-family: var(--d-sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--d-ink);
+        padding-top: 2px;
+      }
+      .d-practical-value {
+        font-family: var(--d-sans);
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: var(--d-soft);
+        line-height: 1.6;
+      }
+
+      .d-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .d-sidebar-card {
+        border: 1px solid var(--d-rule);
+        background: var(--d-white);
+        overflow: hidden;
+      }
+      .d-sidebar-card-head {
+        padding: 1rem 1.4rem;
+        border-bottom: 1px solid var(--d-rule);
+        font-family: var(--d-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--d-muted);
+        background: #faf6f0;
+      }
+      .d-sidebar-card-body {
+        padding: 1.2rem 1.4rem;
+      }
+      .d-sidebar-card-body p {
+        font-family: var(--d-sans);
+        font-size: 0.88rem;
+        font-weight: 300;
+        color: var(--d-soft);
+        line-height: 1.7;
+      }
+      .d-sidebar-fact {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 0.65rem 0;
+        border-bottom: 1px solid var(--d-rule);
+        gap: 1rem;
+      }
+      .d-sidebar-fact:last-child {
+        border-bottom: none;
+      }
+      .d-sidebar-fact-label {
+        font-family: var(--d-sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--d-muted);
+        flex-shrink: 0;
+      }
+      .d-sidebar-fact-value {
+        font-family: var(--d-sans);
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: var(--d-ink);
+        text-align: right;
+      }
+      .d-sidebar-photo-placeholder {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #ecdec8 0%, #d8c8a8 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .d-sidebar-photo-placeholder span {
+        font-family: var(--d-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--d-muted);
+      }
+      .d-sidebar-tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1.2rem 1.4rem;
+      }
+      .d-sidebar-tag {
+        font-family: var(--d-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--d-soft);
+        background: #f5ede0;
+        padding: 4px 10px;
+        border: 1px solid var(--d-rule);
+      }
+
+      .d-related {
+        background: #1a1210;
+        padding: 5rem 2rem;
+      }
+      .d-related-inner {
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+      .d-related-eyebrow {
+        font-family: var(--d-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.38em;
+        text-transform: uppercase;
+        color: var(--d-accent-lt);
+        margin-bottom: 0.8rem;
+      }
+      .d-related h2 {
+        font-family: var(--d-alt);
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        font-weight: 300;
+        font-style: italic;
+        color: #fff;
+        margin-bottom: 3rem;
+      }
+      .d-related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+      .d-related-card {
+        display: block;
+        text-decoration: none;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+      .d-related-card:hover {
+        transform: translateY(-4px);
+      }
+      .d-related-card-img {
+        position: relative;
+        height: 240px;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+      }
+      .d-related-card-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 40%,
+          rgba(0, 0, 0, 0.7) 100%
+        );
+      }
+      .d-related-card-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1;
+        font-family: var(--d-sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.45);
+        padding: 4px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .d-related-card-body {
+        padding: 1.4rem;
+        background: #221a14;
+      }
+      .d-related-card-title {
+        font-family: var(--d-serif);
+        font-size: 1.1rem;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .d-related-card-desc {
+        font-family: var(--d-sans);
+        font-size: 0.82rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.6;
+      }
+
+      .js-reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .js-reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link rel="apple-touch-icon" href="../assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/destinations/kenya-diani.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Diani Beach, Kenya — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Diani Beach — white sand, warm Indian Ocean, and a coastal Kenya that stays with you long after you leave." />
+    <meta property="og:url" content="https://routesandreflections.in/destinations/kenya-diani.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Diani Beach, Kenya — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Diani Beach — white sand, warm Indian Ocean, and a coastal Kenya that stays with you long after you leave." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body class="dest-page">
+    <site-ribbon depth=".."></site-ribbon>
+    <site-header active="travel" depth=".."></site-header>
+
+    <!-- HERO -->
+    <section class="d-hero">
+      <div class="d-hero-bg" id="heroBg"></div>
+      <div class="d-hero-content">
+        <div class="d-hero-eyebrow">
+          Kenya &nbsp;·&nbsp; South Coast &nbsp;·&nbsp; Indian Ocean
+        </div>
+        <h1>Diani</h1>
+        <p class="d-hero-sub">
+          Where the Indian Ocean meets Africa's finest sand
+        </p>
+      </div>
+      <div class="d-hero-meta">
+        <div class="d-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg
+          >South of Mombasa
+        </div>
+        <div class="d-hero-meta-divider"></div>
+        <div class="d-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" /></svg
+          >10 km of Beach
+        </div>
+        <div class="d-hero-meta-divider"></div>
+        <div class="d-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" /></svg
+          >3–5 Days Ideal
+        </div>
+        <div class="d-hero-meta-divider"></div>
+        <div class="d-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path
+              d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+            />
+            <path
+              d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+            /></svg
+          >Open Year-round
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN LAYOUT -->
+    <main class="d-layout">
+      <article class="d-article">
+        <p class="d-article-intro js-reveal">
+          Most people who land in Kenya go for the safari. Diani Beach tends to
+          be the afterthought — a few days of ocean before the flight home. That
+          framing undersells it badly. Diani is ten kilometres of white sand on
+          Kenya's South Coast, an hour below Mombasa, with an Indian Ocean so
+          warm and clear that swimming in it feels less like the sea and more
+          like a very large, very blue swimming pool. And it has a quality that
+          the overrun beach resorts of Southeast Asia lost long ago: it still
+          feels like Kenya.
+        </p>
+
+        <div class="d-photo-full js-reveal">
+          <div class="d-photo-placeholder-full">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#8a7e74"
+              stroke-width="1.2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+            <span>Your Hero Photo — Diani Beach, Indian Ocean</span>
+          </div>
+        </div>
+
+        <div class="d-section-head js-reveal">
+          <div class="d-section-head-line"></div>
+          <div class="d-section-head-label">Getting There</div>
+          <div class="d-section-head-line-right d-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          There are two good ways to reach Diani. The simplest is
+          <strong>flying directly into Ukunda Airport</strong> (IATA: UKA), ten
+          minutes from the beach — Safarilink and Kenya Airways both operate the
+          short hop from Nairobi. The flight is about an hour and baggage rules
+          are strict on the small aircraft, so pack accordingly. The alternative
+          is the SGR train from Nairobi to Mombasa (a comfortable four-hour
+          journey), followed by a taxi or Uber to Diani. A new highway
+          connecting Mombasa to Diani removed the need for the old Likoni ferry
+          crossing, making the road journey considerably smoother.
+        </p>
+
+        <p class="js-reveal">
+          Once you're in Diani, getting around is entirely by
+          <strong>tuk-tuk, boda boda (motorbike taxi), or Uber</strong>. Diani
+          Beach Road runs the length of the resort area; tuk-tuks are
+          everywhere, cheap, and cheerful. For short hops, 50–100 shillings.
+          Uber works well and takes the negotiation out of taxi fares if you'd
+          rather avoid it. Diani is a developed tourist area — English is
+          universally spoken, and most restaurants and hotels accept card
+          payment.
+        </p>
+
+        <div class="d-pullquote js-reveal">
+          <p>
+            "Diani has exactly the right amount of infrastructure. Enough
+            restaurants, enough ways to get around, enough things to do — but
+            not so much that it has lost the quality that makes it worth coming
+            to Africa for in the first place."
+          </p>
+        </div>
+
+        <div class="d-photo-grid-2 js-reveal">
+          <div class="d-photo-item">
+            <div class="d-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8a7e74"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Beach at Low Tide</span>
+            </div>
+          </div>
+          <div class="d-photo-item">
+            <div class="d-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8a7e74"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Indian Ocean · Turquoise Water</span>
+            </div>
+          </div>
+        </div>
+        <p class="d-photo-caption">
+          Diani Beach at low tide — the sand stretches for over 200 metres · The
+          warm Indian Ocean in the afternoon light
+        </p>
+
+        <div class="d-section-head js-reveal">
+          <div class="d-section-head-line"></div>
+          <div class="d-section-head-label">The Beach Itself</div>
+          <div class="d-section-head-line-right d-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          The sand at Diani is the kind of white that photographers have to work
+          to make look believable — flour-fine, cool underfoot even in midday
+          heat. The <strong>tides here are dramatic</strong>, which changes the
+          character of the beach entirely across a day. At low tide, the ocean
+          retreats hundreds of metres and the exposed reef becomes a shallow
+          exploration zone; small fish dart through shallow channels; crabs
+          emerge. You walk the flat sand for kilometres. At high tide, the water
+          comes back to the palm line, the reef disappears, and it's all about
+          swimming and floating.
+        </p>
+
+        <p class="js-reveal">
+          The kite-surfing scene in Diani is legitimate and serious. The
+          southern section of the beach, toward Galu Beach, is where the kite
+          operators cluster, and the consistent Indian Ocean wind makes
+          conditions reliable. <strong>Diani Watersports</strong> and several
+          other operators offer everything from first-lesson packages to
+          advanced sessions. Jet skis, stand-up paddleboards, glass-bottom boat
+          rides, dolphin watch tours — the activity infrastructure is
+          comprehensive without being overwhelming.
+        </p>
+
+        <p class="js-reveal">
+          There are beach vendors — men selling sarongs, wooden carvings, beaded
+          jewellery — who work the full length of the beach and approach
+          consistently. They are not aggressive by the standards of comparable
+          beach destinations, and most will accept a friendly but firm "no,
+          thank you" without further pressing. If you're interested in buying,
+          the Millennium Handicrafts Cooperative in Ukunda has genuinely
+          well-made pieces at reasonable prices without the beach negotiation
+          theater.
+        </p>
+
+        <div class="d-photo-full js-reveal">
+          <div class="d-photo-placeholder-full">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#8a7e74"
+              stroke-width="1.2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+            <span>Your Photo — Sunset at Nomad Bar or Beach at Dusk</span>
+          </div>
+        </div>
+
+        <div class="d-section-head js-reveal">
+          <div class="d-section-head-line"></div>
+          <div class="d-section-head-label">Where to Eat & Drink</div>
+          <div class="d-section-head-line-right d-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          <strong>Nomad Beach Bar</strong> is where you want to spend your
+          sundowner hour. It sits directly on the beach, has good cocktails,
+          solid wood-fired pizza, and a golden-hour view of the Indian Ocean
+          that makes everything feel cinematic. It's stylish but not
+          pretentious; the music is right; the seating is comfortable; the vibe
+          is exactly what you want from a beach bar at the end of a day in the
+          sun. Multiple visits across a stay are not unreasonable.
+        </p>
+
+        <p class="js-reveal">
+          For a dinner experience rather than a beach bar,
+          <strong>Ali Barbour's Cave Restaurant</strong> is genuinely
+          exceptional. Dining happens inside a natural coral cave, with the
+          night sky visible through the open ceiling — an entirely unexpected
+          setting that delivers. The seafood is excellent. Book ahead, they fill
+          consistently. For casual dining, the Swahili coast cooking — grilled
+          octopus, coconut fish curry, pilau rice — is available throughout the
+          main strip and at smaller local restaurants behind the resort zone.
+        </p>
+
+        <p class="js-reveal">
+          The restaurant food quality in Diani is higher than most first-time
+          visitors expect. There are Italian restaurants, Japanese places,
+          seafood grills, and international options across the strip. Eating out
+          is generally safe; the combination of tourist infrastructure and
+          genuine local coastal cuisine makes it one of Africa's more satisfying
+          beach food scenes.
+        </p>
+
+        <div class="d-photo-grid-2 js-reveal">
+          <div class="d-photo-item">
+            <div class="d-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8a7e74"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Nomad Beach Bar</span>
+            </div>
+          </div>
+          <div class="d-photo-item">
+            <div class="d-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8a7e74"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Swahili Coast Food</span>
+            </div>
+          </div>
+        </div>
+        <p class="d-photo-caption">
+          Sundowner hour at Nomad Beach Bar · Grilled octopus and coastal
+          Swahili flavours
+        </p>
+
+        <div class="d-section-head js-reveal">
+          <div class="d-section-head-line"></div>
+          <div class="d-section-head-label">Beyond the Beach</div>
+          <div class="d-section-head-line-right d-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          <strong>Kaya Kinondo Sacred Forest</strong> is one of Diani's most
+          underrated experiences — a dense coastal forest that has been
+          protected by the local Digo community for centuries, home to 187 plant
+          species, 48 bird species, and the Colobus monkey. Guided tours are
+          respectful and genuinely informative; the forest walk takes 90 minutes
+          and ends with a better understanding of the Swahili coast's ecology
+          and culture than a week on the beach alone would provide.
+        </p>
+
+        <p class="js-reveal">
+          The <strong>Colobus Conservation Centre</strong> alongside the main
+          road rescues and rehabilitates the endangered Angolan Colobus monkey,
+          a striking black-and-white animal native to the coastal forest strip.
+          A visit is worth the small admission fee. For a day trip, the Wasini
+          Island dolphin tour — a traditional dhow sail south past Kisite Marine
+          Park, with snorkelling over pristine reef and the possibility of
+          encountering spinner and bottlenose dolphins in open water — is
+          routinely cited as a highlight of the Kenya coast. Book through your
+          hotel or a reputable operator; full-day format, departing early.
+        </p>
+
+        <p class="js-reveal">
+          If you're combining Diani with a safari — and you probably should —
+          the Shimba Hills National Reserve is less than an hour away and offers
+          elephants, buffalos, and the extremely rare sable antelope in a
+          coastal forest ecosystem unlike anything in the main savanna parks.
+          Tsavo East, two to three hours from Diani, is one of Africa's largest
+          protected areas and a worthy addition for anyone with an extra day.
+        </p>
+
+        <div class="d-pullquote js-reveal">
+          <p>
+            "The best version of Diani is not a beach holiday with a safari
+            attached. It's a beach holiday that genuinely connects you to the
+            Swahili coast — its history, its ecology, its food, and its warmth.
+            The beach is the reason to come. The everything else is why you
+            remember it."
+          </p>
+        </div>
+
+        <div class="d-photo-grid-3 js-reveal">
+          <div class="d-photo-item">
+            <div class="d-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8a7e74"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Colobus Monkey</span>
+            </div>
+          </div>
+          <div class="d-photo-item">
+            <div class="d-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8a7e74"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Wasini Island · Dhow</span>
+            </div>
+          </div>
+        </div>
+        <p class="d-photo-caption">
+          Colobus monkey in the coastal forest above the beach · Dhow sailing
+          toward Wasini Island
+        </p>
+
+        <div class="d-practical js-reveal">
+          <div class="d-practical-head">Practical Notes</div>
+          <div class="d-practical-item">
+            <div class="d-practical-label">Getting There</div>
+            <div class="d-practical-value">
+              Fly Nairobi → Ukunda Airport (Safarilink / Kenya Airways, ~1 hr)
+              for the simplest approach. Or take the SGR train Nairobi → Mombasa
+              (4 hrs), then Uber/taxi to Diani (1 hr via the new highway — no
+              ferry required).
+            </div>
+          </div>
+          <div class="d-practical-item">
+            <div class="d-practical-label">Getting Around</div>
+            <div class="d-practical-value">
+              Uber is reliable and takes the stress out of fares. Tuk-tuks are
+              everywhere and cheap for short distances. Boda boda (motorbike
+              taxis) for solo travellers comfortable with them. Most resorts
+              will arrange transfers.
+            </div>
+          </div>
+          <div class="d-practical-item">
+            <div class="d-practical-label">Accommodation</div>
+            <div class="d-practical-value">
+              Swahili Beach Resort and Jacaranda Beach Hotel are among the
+              better mid-to-upper options. For budget stays, the strip has
+              guesthouses and apartments. Book at least a month ahead for peak
+              season (December–January, July–August). Half-board plans make
+              sense here.
+            </div>
+          </div>
+          <div class="d-practical-item">
+            <div class="d-practical-label">Tides & Swimming</div>
+            <div class="d-practical-value">
+              Check tide times before planning beach days — low tide exposes the
+              reef and limits deep swimming but opens up exploration. High tide
+              is best for swimming and water sports. The water temperature is
+              warm year-round (25–29°C).
+            </div>
+          </div>
+          <div class="d-practical-item">
+            <div class="d-practical-label">Money & Safety</div>
+            <div class="d-practical-value">
+              M-PESA is the dominant payment system locally — most places accept
+              card too. Diani is considered safe for tourists. Use common sense
+              at night, take Uber after dark. The beach vendors are persistent
+              but not aggressive; a polite "no, asante" works.
+            </div>
+          </div>
+          <div class="d-practical-item">
+            <div class="d-practical-label">Best Time to Visit</div>
+            <div class="d-practical-value">
+              December–February and July–August are peak season with stable
+              weather. The long rains run April–June (fewer crowds, lower
+              prices). Short rains October–November are usually mild. Diani
+              works year-round — the Indian Ocean is warm in every month.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="d-sidebar">
+        <div class="d-sidebar-card">
+          <div class="d-sidebar-card-head">Quick Facts</div>
+          <div class="d-sidebar-card-body">
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Country</span
+              ><span class="d-sidebar-fact-value">Kenya</span>
+            </div>
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Region</span
+              ><span class="d-sidebar-fact-value">South Coast, Ukunda</span>
+            </div>
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Ocean</span
+              ><span class="d-sidebar-fact-value">Indian Ocean</span>
+            </div>
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Beach Length</span
+              ><span class="d-sidebar-fact-value">~10 km</span>
+            </div>
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Ideal Stay</span
+              ><span class="d-sidebar-fact-value">3–5 days</span>
+            </div>
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Water Temp</span
+              ><span class="d-sidebar-fact-value">25–29°C</span>
+            </div>
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Airport</span
+              ><span class="d-sidebar-fact-value">Ukunda (UKA)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-sidebar-card">
+          <div class="d-sidebar-photo-placeholder">
+            <span>Your Photo Here</span>
+          </div>
+          <div class="d-sidebar-card-body">
+            <p>
+              Diani's reef protects the beach from large waves, creating calm
+              lagoon conditions most of the year. The reef itself is snorkelable
+              at low tide and is home to abundant marine life including reef
+              fish, sea turtles, and occasional whale sharks in season.
+            </p>
+          </div>
+        </div>
+
+        <div class="d-sidebar-card">
+          <div class="d-sidebar-card-head">Don't Miss</div>
+          <div class="d-sidebar-card-body">
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Low Tide Walk</span
+              ><span class="d-sidebar-fact-value">Reef exploration</span>
+            </div>
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Nomad Bar</span
+              ><span class="d-sidebar-fact-value">Sundowner hour</span>
+            </div>
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Ali Barbour's Cave</span
+              ><span class="d-sidebar-fact-value">Dinner, book ahead</span>
+            </div>
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Wasini Dhow</span
+              ><span class="d-sidebar-fact-value">Dolphins & reef</span>
+            </div>
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Kaya Kinondo</span
+              ><span class="d-sidebar-fact-value">Sacred forest walk</span>
+            </div>
+            <div class="d-sidebar-fact">
+              <span class="d-sidebar-fact-label">Kite Surfing</span
+              ><span class="d-sidebar-fact-value">Galu Beach, south</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- RELATED -->
+    <section class="d-related">
+      <div class="d-related-inner">
+        <div class="d-related-eyebrow">Explore More</div>
+        <h2>More from Africa</h2>
+        <div class="d-related-grid">
+          <a href="../itineraries/kenya-7days.html" class="d-related-card">
+            <div class="d-related-card-img" style="background: #4a3a20">
+              <span class="d-related-card-badge">Kenya</span>
+            </div>
+            <div class="d-related-card-body">
+              <div class="d-related-card-title">Kenya: 7 Days</div>
+              <div class="d-related-card-desc">
+                Our complete Kenya itinerary — Diani Beach, Masai Mara, Lake
+                Naivasha, Lake Nakuru and Nairobi.
+              </div>
+            </div>
+          </a>
+          <a href="thailand-koh-kradan.html" class="d-related-card">
+            <div class="d-related-card-img" style="background: #1a3a4a">
+              <span class="d-related-card-badge">Thailand</span>
+            </div>
+            <div class="d-related-card-body">
+              <div class="d-related-card-title">Koh Kradan</div>
+              <div class="d-related-card-desc">
+                An island with no roads, no stores, and possibly the best beach
+                in Thailand. Our time on Koh Kradan.
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <site-footer depth=".."></site-footer>
+
+    <script type="module" src="../js/components/site-ribbon.js"></script>
+    <script type="module" src="../js/components/site-header.js"></script>
+    <script type="module" src="../js/components/site-footer.js"></script>
+    <script type="module" src="../js/pages/destination.js"></script>
+  </body>
+</html>

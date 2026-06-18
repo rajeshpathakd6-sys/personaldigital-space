@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Japan Stays — AdiRaj Routes & Reflections</title>
+  <meta name="description" content="Every hotel, ryokan and guesthouse we stayed in across our 14-day Japan journey — from Aomori to Kanazawa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+
+  <style>
+    :root {
+      --accent: #c9815a;
+      --ink: #1a140a;
+      --ink-soft: #3d3228;
+      --ink-muted: #7a6e63;
+      --bg: #f9f7f4;
+      --rule: #e8e2d9;
+      --shadow-sm: 0 2px 12px rgba(26,20,10,0.07);
+    }
+
+    /* ── HERO ── */
+    .sub-hero {
+      position: relative;
+      height: 70vh;
+      min-height: 480px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .sub-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../../assets/japan.JPG');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.45) saturate(0.75);
+      transform: scale(1.05);
+      transition: transform 10s ease;
+    }
+    .sub-hero:hover .sub-hero-bg { transform: scale(1); }
+    .sub-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,8,4,0.95) 0%, rgba(10,8,4,0.35) 55%, transparent 100%);
+    }
+    .sub-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+    .sub-hero-breadcrumb {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1rem;
+    }
+    .sub-hero-breadcrumb a { color: var(--accent); text-decoration: none; }
+    .sub-hero-breadcrumb a:hover { color: #e8c4a0; }
+    .sub-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.08;
+      margin-bottom: 1rem;
+      max-width: 700px;
+    }
+    .sub-hero h1 em { font-style: italic; color: #e8c4a0; }
+    .sub-hero-meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .sub-hero-meta-item {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .sub-hero-meta-item strong { color: #fff; font-weight: 700; }
+
+    /* ── ITINERARY STRIP ── */
+    .itinerary-strip {
+      background: #0e0b08;
+      border-bottom: 1px solid #1e1a14;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .itinerary-strip::-webkit-scrollbar { display: none; }
+    .itinerary-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      gap: 0;
+    }
+    .itinerary-stop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.2rem 1.4rem;
+      position: relative;
+      min-width: fit-content;
+      text-decoration: none;
+    }
+    .itinerary-stop::after {
+      content: '→';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(201,129,90,0.3);
+      font-size: 0.7rem;
+      z-index: 1;
+    }
+    .itinerary-stop:last-child::after { display: none; }
+    .itinerary-stop-day {
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .itinerary-stop-city {
+      font-family: var(--serif);
+      font-size: 0.88rem;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    /* ── SECTION LAYOUT ── */
+    .sub-section {
+      padding: 4rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .sub-section:nth-child(even) { background: #faf9f6; }
+    .sub-section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .region-heading {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .region-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .region-title {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2vw, 1.7rem);
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0;
+    }
+    .region-days {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-left: auto;
+    }
+
+    /* ── HOTEL CARDS ── */
+    .hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .hotel-card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+    .hotel-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 36px rgba(26,20,10,0.11);
+    }
+    .hotel-card--featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .hotel-card--featured .hotel-img { height: 100%; min-height: 280px; }
+    .hotel-img {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .hotel-img-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+    .hotel-card:hover .hotel-img-bg { transform: scale(1.06); }
+    .hotel-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,20,10,0.5) 0%, transparent 55%);
+    }
+    .hotel-badge {
+      position: absolute;
+      top: 10px; left: 10px;
+      z-index: 2;
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(44,36,22,0.7);
+      backdrop-filter: blur(6px);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+      border: 1px solid rgba(201,169,110,0.3);
+    }
+    .hotel-badge--pick {
+      position: absolute;
+      top: 10px; right: 10px;
+      z-index: 2;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+    .hotel-day-tag {
+      position: absolute;
+      bottom: 10px; left: 10px;
+      z-index: 2;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.1em;
+    }
+    .hotel-body {
+      padding: 1.3rem 1.4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .hotel-type {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .hotel-name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+    .hotel-location {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.85rem;
+    }
+    .hotel-desc {
+      font-family: var(--sans);
+      font-size: 0.86rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    .hotel-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 0.28rem;
+      margin-bottom: 1.1rem;
+    }
+    .hotel-highlight {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .hotel-highlight::before {
+      content: '';
+      width: 14px; height: 1px;
+      background: var(--accent);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+    .hotel-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--rule);
+    }
+    .hotel-meta-tag {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      color: var(--ink-muted);
+    }
+    .hotel-rating {
+      margin-left: auto;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .stars { color: #e8b84b; font-size: 0.62rem; }
+
+    /* ── QUICK-LIST (compact multi-hotel card) ── */
+    .hotel-quick-list {
+      background: #faf9f6;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .hotel-quick-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.18rem;
+      padding-bottom: 1.1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hotel-quick-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .hotel-quick-day {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .hotel-quick-name {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .hotel-quick-loc {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+    }
+    .hotel-quick-note {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    /* ── APPROACH / DARK SECTION ── */
+    .tips-dark {
+      background: #0e0b08;
+      padding: 5rem 0;
+    }
+    .tips-dark-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .tips-dark h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.18;
+      margin-bottom: 1.2rem;
+    }
+    .tips-dark h2 em { color: #e8c4a0; font-style: italic; }
+    .tips-dark p {
+      font-family: var(--sans);
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.82;
+    }
+    .tips-dark-kicker {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+    .tip-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .tip-item:last-child { border-bottom: none; }
+    .tip-num {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--accent);
+      opacity: 0.4;
+      flex-shrink: 0;
+      width: 28px;
+      line-height: 1;
+    }
+    .tip-text-title {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+    .tip-text-body {
+      font-family: var(--sans);
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link-bar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      padding: 1rem 0;
+    }
+    .back-link-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .back-link {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent); }
+    .country-nav {
+      display: flex;
+      gap: 1rem;
+    }
+    .country-nav-link {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .country-nav-link:hover, .country-nav-link.active {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    @media (max-width: 960px) {
+      .hotel-grid { grid-template-columns: 1fr 1fr; }
+      .hotel-card--featured { grid-column: span 2; }
+      .tips-dark-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 640px) {
+      .hotel-grid { grid-template-columns: 1fr; }
+      .hotel-card--featured { grid-column: auto; grid-template-columns: 1fr; }
+      .hotel-card--featured .hotel-img { height: 220px; }
+      .country-nav { display: none; }
+    }
+  </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../assets/logo.png" />
+    <link rel="apple-touch-icon" href="../../assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/travel/accomodations/accommodation-japan.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Japan Stays — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Every hotel, ryokan and guesthouse we stayed in across our 14-day Japan journey — from Aomori to Kanazawa." />
+    <meta property="og:url" content="https://routesandreflections.in/travel/accomodations/accommodation-japan.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Japan Stays — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Every hotel, ryokan and guesthouse we stayed in across our 14-day Japan journey — from Aomori to Kanazawa." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+<body class="dest-page">
+
+  <!-- TOP RIBBON -->
+  <div class="prem-ribbon">
+    <div class="prem-ribbon-inner">
+      <div class="ribbon-social">
+        <a href="https://www.instagram.com/adiraj.routesandreflections/" class="ribbon-social-link" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="url(#ig-grad-r)" stroke-width="1.8">
+            <defs><linearGradient id="ig-grad-r" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs>
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#bc1888" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://x.com/AdiRaj_RandR" class="ribbon-social-link" aria-label="Twitter/X" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+      <div class="ribbon-right">
+        <a href="../../index.html" class="ribbon-home-btn" aria-label="Home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="url(#home-grad)" stroke-width="1.8">
+            <defs><linearGradient id="home-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs>
+            <path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/>
+          </svg>
+        </a>
+        <a href="../../contact.html" class="ribbon-contact-btn">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="prem-header" id="siteHeader">
+    <div class="prem-header-inner">
+      <div class="logo-wrap">
+        <a href="../../index.html" class="logo">
+          <span class="logo-icon"><img src="../../assets/logo.png" alt="AdiRaj" class="logo-img" /></span>
+          <span class="logo-text-wrap"><span class="logo-text">AdiRaj <span class="logo-tagline">Routes &amp; Reflections</span></span></span>
+        </a>
+      </div>
+      <nav class="prem-nav-center">
+        <a href="../../index.html" class="prem-nav-link">Home</a>
+        <a href="../../travel.html" class="prem-nav-link active">Travel</a>
+        <a href="../../lifestyle.html" class="prem-nav-link">Lifestyle</a>
+        <a href="../../studio.html" class="prem-nav-link">Studio</a>
+        <a href="../../about.html" class="prem-nav-link">About</a>
+        <a href="../../workwithus.html" class="prem-nav-link">Work With Us</a>
+      </nav>
+      <button class="prem-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="prem-header-divider"></div>
+  </header>
+  <script>(function(){var h=document.getElementById("siteHeader");if(h)window.addEventListener("scroll",function(){h.classList.toggle("scrolled",window.scrollY>40)},{passive:true})})();</script>
+
+  <!-- HERO -->
+  <section class="sub-hero">
+    <div class="sub-hero-bg"></div>
+    <div class="sub-hero-overlay"></div>
+    <div class="sub-hero-content">
+      <p class="sub-hero-breadcrumb">
+        <a href="../../accommodation.html">Accommodation</a> &nbsp;/&nbsp; Japan
+      </p>
+      <h1>Japan — <em>Where We Slept</em></h1>
+      <div class="sub-hero-meta">
+        <span class="sub-hero-meta-item"><strong>14</strong>&nbsp; Nights</span>
+        <span class="sub-hero-meta-item"><strong>10</strong>&nbsp; Cities</span>
+        <span class="sub-hero-meta-item"><strong>11</strong>&nbsp; Hotels &amp; Ryokans</span>
+        <span class="sub-hero-meta-item"><strong>North to South</strong>&nbsp; Route</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITINERARY STRIP -->
+  <div class="itinerary-strip">
+    <div class="itinerary-strip-inner">
+      <div class="itinerary-stop"><span class="itinerary-stop-day">Day 1</span><span class="itinerary-stop-city">Tokyo</span></div>
+      <div class="itinerary-stop"><span class="itinerary-stop-day">Day 2</span><span class="itinerary-stop-city">Aomori</span></div>
+      <div class="itinerary-stop"><span class="itinerary-stop-day">Days 3–4</span><span class="itinerary-stop-city">Sendai</span></div>
+      <div class="itinerary-stop"><span class="itinerary-stop-day">Day 5</span><span class="itinerary-stop-city">Nikko</span></div>
+      <div class="itinerary-stop"><span class="itinerary-stop-day">Day 6</span><span class="itinerary-stop-city">Tokyo</span></div>
+      <div class="itinerary-stop"><span class="itinerary-stop-day">Day 7</span><span class="itinerary-stop-city">Matsumoto</span></div>
+      <div class="itinerary-stop"><span class="itinerary-stop-day">Day 8</span><span class="itinerary-stop-city">Kamikochi</span></div>
+      <div class="itinerary-stop"><span class="itinerary-stop-day">Day 9</span><span class="itinerary-stop-city">Takayama</span></div>
+      <div class="itinerary-stop"><span class="itinerary-stop-day">Day 10</span><span class="itinerary-stop-city">Kanazawa</span></div>
+      <div class="itinerary-stop"><span class="itinerary-stop-day">Days 11–12</span><span class="itinerary-stop-city">Kyoto</span></div>
+      <div class="itinerary-stop"><span class="itinerary-stop-day">Day 13</span><span class="itinerary-stop-city">Tokyo</span></div>
+    </div>
+  </div>
+
+  <!-- BACK LINK BAR -->
+  <div class="back-link-bar">
+    <div class="back-link-inner">
+      <a href="../../accommodation.html" class="back-link">← All Accommodation</a>
+      <div class="country-nav">
+        <a href="accommodation-japan.html" class="country-nav-link active">🗾 Japan</a>
+        <a href="accommodation-kenya.html" class="country-nav-link">🇰🇪 Kenya</a>
+        <a href="accommodation-thailand.html" class="country-nav-link">🇹🇭 Thailand</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ NORTH (AOMORI / SENDAI / NIKKO) ══ -->
+  <section class="sub-section" id="north">
+    <div class="sub-section-inner">
+      <div class="region-heading">
+        <div class="region-dot"></div>
+        <h2 class="region-title">Northern Japan — Tōhoku & Kantō</h2>
+        <span class="region-days">Days 1–5 &nbsp;·&nbsp; Narita → Aomori → Sendai → Nikko</span>
+      </div>
+      <div class="hotel-grid">
+
+        <!-- Featured: KOKO Hotel West, Sendai -->
+        <div class="hotel-card hotel-card--featured">
+          <div class="hotel-img">
+            <div class="hotel-img-bg" style="background-image:url('../../assets/japan.JPG'); background-position:center 40%;"></div>
+            <div class="hotel-img-overlay"></div>
+            <span class="hotel-badge">City Capsule-Style</span>
+            <span class="hotel-badge--pick">★ Great Value</span>
+            <span class="hotel-day-tag">Days 3 & 4</span>
+          </div>
+          <div class="hotel-body">
+            <p class="hotel-type">Smart City Hotel</p>
+            <h3 class="hotel-name">KOKO Hotel West</h3>
+            <p class="hotel-location">📍 Sendai, Miyagi Prefecture</p>
+            <p class="hotel-desc">
+              Sendai was our surprise of the northern leg. KOKO Hotel West is a compact, efficiently designed modern hotel that strips away everything unnecessary — and the result is a genuinely pleasant stay. Rooms are small but thoughtfully done; everything works, nothing is frustrating. It sits well for exploring the Jozenji-dori tree-lined boulevards and the local gyutan (beef tongue) restaurants.
+            </p>
+            <div class="hotel-highlights">
+              <span class="hotel-highlight">Smart, minimal rooms — no fuss, no clutter</span>
+              <span class="hotel-highlight">Great location for city walks and food streets</span>
+              <span class="hotel-highlight">Stayed two nights — a rarity for us on this trip</span>
+            </div>
+            <div class="hotel-meta">
+              <span class="hotel-meta-tag">💰 Budget-friendly</span>
+              <span class="hotel-meta-tag">🛌 2 nights</span>
+              <div class="hotel-rating"><span class="stars">★★★★☆</span> 7.8/10</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick list: Narita + Aomori + Nikko -->
+        <div class="hotel-quick-list">
+          <p class="hotel-type" style="margin-bottom:0.6rem;">Also Stayed — Northern Leg</p>
+
+          <div class="hotel-quick-item">
+            <span class="hotel-quick-day">Day 1</span>
+            <span class="hotel-quick-name">Hotel Nikko Narita</span>
+            <span class="hotel-quick-loc">📍 Narita, Chiba Prefecture</span>
+            <span class="hotel-quick-note">Classic airport transit hotel — exactly what it needs to be. Shuttle to Terminal 1 & 2, clean rooms, and a hot meal after a long flight. Nothing remarkable, nothing disappointing.</span>
+          </div>
+
+          <div class="hotel-quick-item">
+            <span class="hotel-quick-day">Day 2</span>
+            <span class="hotel-quick-name">Super Hotel Aomori</span>
+            <span class="hotel-quick-loc">📍 Aomori City, Aomori Prefecture</span>
+            <span class="hotel-quick-note">We were in Aomori for the nebuta matsuri (lantern festival) atmosphere — the hotel is a reliable, no-surprises choice. Walking distance to the Auga market and the waterfront. The free natural hot spring bath in the basement was a genuine bonus at this price point.</span>
+          </div>
+
+          <div class="hotel-quick-item">
+            <span class="hotel-quick-day">Day 5</span>
+            <span class="hotel-quick-name">Annex Turtle Hotori-An</span>
+            <span class="hotel-quick-loc">📍 Nikko, Tochigi Prefecture</span>
+            <span class="hotel-quick-note">The most atmospheric stay of the northern leg — a small guesthouse-style property right next to Daiya River. Tatami rooms, yukata robes, and an in-house onsen. The owners are warm and the breakfast was a highlight. Essential ryokan experience without the luxury price tag.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TOKYO MIDPOINT ══ -->
+  <section class="sub-section" id="tokyo">
+    <div class="sub-section-inner">
+      <div class="region-heading">
+        <div class="region-dot"></div>
+        <h2 class="region-title">Tokyo — The Return Base</h2>
+        <span class="region-days">Days 6 & 13 &nbsp;·&nbsp; Two stays, same hotel</span>
+      </div>
+      <div class="hotel-grid">
+        <div class="hotel-card hotel-card--featured">
+          <div class="hotel-img">
+            <div class="hotel-img-bg" style="background-image:url('../../assets/japan.JPG'); background-position:20% center;"></div>
+            <div class="hotel-img-overlay"></div>
+            <span class="hotel-badge">Heritage Hotel</span>
+            <span class="hotel-badge--pick">★ Loved It</span>
+            <span class="hotel-day-tag">Days 6 & 13</span>
+          </div>
+          <div class="hotel-body">
+            <p class="hotel-type">Classic Tokyo Hotel</p>
+            <h3 class="hotel-name">Hotel Ryumeikan Tokyo</h3>
+            <p class="hotel-location">📍 Chiyoda City, Tokyo (near Tokyo Station)</p>
+            <p class="hotel-desc">
+              We stayed here twice — once mid-trip and again at the end — which is perhaps the clearest endorsement we can give. Ryumeikan is a lovely mid-century hotel with proper character: not a design hotel trying too hard, not a chain hotel with no soul. The location just minutes from Tokyo Station makes it an ideal operational base. Staff are genuinely attentive in the Japanese sense — present without being intrusive. Rooms are compact in the Tokyo way, but everything is quality.
+            </p>
+            <div class="hotel-highlights">
+              <span class="hotel-highlight">5 minutes from Tokyo Station — unbeatable access</span>
+              <span class="hotel-highlight">Traditional hospitality with modern comfort</span>
+              <span class="hotel-highlight">Excellent breakfast — Japanese and Western options</span>
+              <span class="hotel-highlight">Stayed twice — a real endorsement</span>
+            </div>
+            <div class="hotel-meta">
+              <span class="hotel-meta-tag">💰 Mid-range</span>
+              <span class="hotel-meta-tag">🛌 1 night each stay</span>
+              <div class="hotel-rating"><span class="stars">★★★★★</span> 9.0/10</div>
+            </div>
+          </div>
+        </div>
+        <div class="hotel-card" style="background:#faf9f6; justify-content:center;">
+          <div class="hotel-body">
+            <p class="hotel-type">Tokyo Booking Tips</p>
+            <h3 class="hotel-name" style="font-size:1rem;">Before You Book Tokyo</h3>
+            <div class="hotel-highlights" style="margin-bottom:0;">
+              <span class="hotel-highlight">Book 3–6 months ahead — Tokyo fills fast, especially for good-value mid-range hotels</span>
+              <span class="hotel-highlight">Near a JR line hub (Tokyo, Shinjuku, Shibuya) saves hours per day</span>
+              <span class="hotel-highlight">Don't over-size: tiny rooms are fine for a city you're rarely in</span>
+              <span class="hotel-highlight">Ryumeikan is often slightly cheaper booked directly</span>
+              <span class="hotel-highlight">Request upper floors for street-noise reduction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ JAPANESE ALPS ══ -->
+  <section class="sub-section" id="alps">
+    <div class="sub-section-inner">
+      <div class="region-heading">
+        <div class="region-dot"></div>
+        <h2 class="region-title">Japanese Alps — Matsumoto, Kamikochi & Takayama</h2>
+        <span class="region-days">Days 7–9 &nbsp;·&nbsp; The mountain heart of the trip</span>
+      </div>
+      <div class="hotel-grid">
+
+        <!-- Featured: Kamikochi Onsen Hotel -->
+        <div class="hotel-card hotel-card--featured">
+          <div class="hotel-img">
+            <div class="hotel-img-bg" style="background-image:url('../../assets/japan.JPG'); background-position:50% 60%;"></div>
+            <div class="hotel-img-overlay"></div>
+            <span class="hotel-badge">Mountain Onsen</span>
+            <span class="hotel-badge--pick">★ Trip Highlight</span>
+            <span class="hotel-day-tag">Day 8</span>
+          </div>
+          <div class="hotel-body">
+            <p class="hotel-type">Alpine Onsen Hotel</p>
+            <h3 class="hotel-name">Kamikochi Onsen Hotel</h3>
+            <p class="hotel-location">📍 Kamikochi, Nagano Prefecture (car-free valley)</p>
+            <p class="hotel-desc">
+              If there is one stay from our entire Japan trip we'd return to without hesitation, it's this one. Kamikochi is a car-free alpine valley — you arrive by bus only — which gives it an almost otherworldly quiet. The hotel sits right in the valley, and waking up to mist over the Azusa River with the Northern Alps as your backdrop is the kind of morning you don't forget. The indoor and outdoor onsen are exceptional. Kaiseki-style dinner included, and genuinely excellent. Book months ahead — this fills up.
+            </p>
+            <div class="hotel-highlights">
+              <span class="hotel-highlight">Car-free valley — complete silence and mountain air</span>
+              <span class="hotel-highlight">Both indoor and outdoor onsen with Alps views</span>
+              <span class="hotel-highlight">Multi-course kaiseki dinner included</span>
+              <span class="hotel-highlight">Walking distance to Kappabashi and Taisho Pond</span>
+              <span class="hotel-highlight">Dawn mist over the river — genuinely unmissable</span>
+            </div>
+            <div class="hotel-meta">
+              <span class="hotel-meta-tag">💰 Mid-range to Splurge</span>
+              <span class="hotel-meta-tag">🛌 1–2 nights ideal</span>
+              <div class="hotel-rating"><span class="stars">★★★★★</span> 9.5/10</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:1.5rem;">
+          <!-- Matsumoto -->
+          <div class="hotel-card" style="flex:1;">
+            <div class="hotel-img" style="height:165px;">
+              <div class="hotel-img-bg" style="background-image:url('../../assets/japan.JPG'); background-position:80% 30%;"></div>
+              <div class="hotel-img-overlay"></div>
+              <span class="hotel-badge">Design Hotel</span>
+              <span class="hotel-day-tag">Day 7</span>
+            </div>
+            <div class="hotel-body">
+              <p class="hotel-type">Boutique City Hotel</p>
+              <h3 class="hotel-name">Tabino Hotel lit Matsumoto</h3>
+              <p class="hotel-location">📍 Matsumoto, Nagano Prefecture</p>
+              <p class="hotel-desc">A beautifully designed, light-filled hotel that makes Matsumoto feel properly curated. Great base for Matsumoto Castle and the Nakamachi street district.</p>
+              <div class="hotel-meta">
+                <span class="hotel-meta-tag">💰 Mid-range</span>
+                <div class="hotel-rating"><span class="stars">★★★★☆</span> 8.4/10</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Takayama -->
+          <div class="hotel-card" style="flex:1;">
+            <div class="hotel-img" style="height:165px;">
+              <div class="hotel-img-bg" style="background-image:url('../../assets/japan.JPG'); background-position:30% 50%;"></div>
+              <div class="hotel-img-overlay"></div>
+              <span class="hotel-badge">Luxury Spa</span>
+              <span class="hotel-badge--pick">★ Loved It</span>
+              <span class="hotel-day-tag">Day 9</span>
+            </div>
+            <div class="hotel-body">
+              <p class="hotel-type">Luxury Design Hotel</p>
+              <h3 class="hotel-name">Wat Hotel & Spa Hida Takayama</h3>
+              <p class="hotel-location">📍 Takayama, Gifu Prefecture</p>
+              <p class="hotel-desc">The most design-forward stay of the trip. Wat is a contemporary hotel that takes traditional Hida craft aesthetics seriously — wood details everywhere, excellent spa, and a wonderful sense of calm. Takayama's old town is a 10-minute walk.</p>
+              <div class="hotel-meta">
+                <span class="hotel-meta-tag">💰 Splurge-worthy</span>
+                <div class="hotel-rating"><span class="stars">★★★★★</span> 9.1/10</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ KANAZAWA & KYOTO ══ -->
+  <section class="sub-section" id="west">
+    <div class="sub-section-inner">
+      <div class="region-heading">
+        <div class="region-dot"></div>
+        <h2 class="region-title">Kanazawa & Kyoto — The Cultural West</h2>
+        <span class="region-days">Days 10–12 &nbsp;·&nbsp; Kanazawa → Kyoto</span>
+      </div>
+      <div class="hotel-grid">
+
+        <!-- Featured: Onyado Nono Kanazawa -->
+        <div class="hotel-card hotel-card--featured">
+          <div class="hotel-img">
+            <div class="hotel-img-bg" style="background-image:url('../../assets/japan.JPG'); background-position:center 70%;"></div>
+            <div class="hotel-img-overlay"></div>
+            <span class="hotel-badge">Traditional Inn</span>
+            <span class="hotel-badge--pick">★ Loved It</span>
+            <span class="hotel-day-tag">Day 10</span>
+          </div>
+          <div class="hotel-body">
+            <p class="hotel-type">Japanese Inn (Onyado)</p>
+            <h3 class="hotel-name">Onyado Nono Kanazawa</h3>
+            <p class="hotel-location">📍 Kanazawa, Ishikawa Prefecture</p>
+            <p class="hotel-desc">
+              Kanazawa is often called Japan's secret cultural gem — it escaped WWII bombing and retains remarkable samurai districts, tea houses, and Kenroku-en, one of Japan's great gardens. Onyado Nono is a perfect complement: a traditional-style inn at an accessible price, with communal onsen baths and that distinctive quality of Japanese quietude. You feel like a genuine resident rather than a tourist.
+            </p>
+            <div class="hotel-highlights">
+              <span class="hotel-highlight">Traditional inn atmosphere — tatami, yukata, quiet</span>
+              <span class="hotel-highlight">Communal onsen — properly relaxing</span>
+              <span class="hotel-highlight">10 minutes walk to Kenroku-en and Higashi Chaya</span>
+              <span class="hotel-highlight">Best value traditional stay of the trip</span>
+            </div>
+            <div class="hotel-meta">
+              <span class="hotel-meta-tag">💰 Budget to Mid-range</span>
+              <span class="hotel-meta-tag">🛌 1–2 nights ideal</span>
+              <div class="hotel-rating"><span class="stars">★★★★★</span> 9.0/10</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kyoto: Inn Kawashima -->
+        <div class="hotel-card" style="background:#faf9f6;">
+          <div class="hotel-body" style="display:flex; flex-direction:column; gap:1rem; justify-content:center;">
+            <p class="hotel-type">Days 11 & 12 · Kyoto</p>
+            <div>
+              <h3 class="hotel-name">Inn Kawashima</h3>
+              <p class="hotel-location">📍 Kyoto</p>
+              <p class="hotel-desc">
+                A reliable, well-located Kyoto inn that served us for two nights — our Kyoto base for Arashiyama, Fushimi Inari, and the Nishiki Market. Inn Kawashima has the unpretentious quality of a family-run guesthouse: clean, friendly, and in a genuinely useful part of the city. Don't expect luxury — expect honesty and good value.
+              </p>
+              <div class="hotel-meta">
+                <span class="hotel-meta-tag">💰 Budget-friendly</span>
+                <span class="hotel-meta-tag">🛌 2 nights</span>
+                <div class="hotel-rating"><span class="stars">★★★★☆</span> 7.9/10</div>
+              </div>
+            </div>
+            <div style="border-top:1px solid var(--rule); padding-top:1rem;">
+              <p class="hotel-type" style="margin-bottom:0.5rem;">Kyoto Booking Tips</p>
+              <div class="hotel-highlights" style="margin:0;">
+                <span class="hotel-highlight">Book Kyoto hotels 6+ months out — especially autumn</span>
+                <span class="hotel-highlight">Central or near Kawaramachi gives the best walking access</span>
+                <span class="hotel-highlight">Nishiki Market: go early — tourist crowds arrive by 10am</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TIPS DARK ══ -->
+  <section class="tips-dark">
+    <div class="tips-dark-inner">
+      <div>
+        <p class="tips-dark-kicker">What We Learned</p>
+        <h2>14 nights.<br /><em>Everything we'd tell you.</em></h2>
+        <p>We didn't always get the accommodation right on this trip. Some nights were brilliant; a couple were just functional. Here's the distilled wisdom — what actually mattered across 14 nights, 10 cities, and 11 different stays.</p>
+      </div>
+      <div>
+        <div class="tip-item">
+          <div class="tip-num">01</div>
+          <div>
+            <p class="tip-text-title">Book Kamikochi months in advance</p>
+            <p class="tip-text-body">It's car-free, limited capacity, and very popular. We almost missed out. If you're doing an Alps loop, lock this in first.</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-num">02</div>
+          <div>
+            <p class="tip-text-title">The JR Pass is your accommodation too</p>
+            <p class="tip-text-body">Staying near JR Shinkansen stops changes your daily rhythm entirely. We built our whole hotel selection around this.</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-num">03</div>
+          <div>
+            <p class="tip-text-title">One ryokan stay is non-negotiable</p>
+            <p class="tip-text-body">We had Annex Turtle in Nikko and Kamikochi Onsen. Both were the most memorable nights of the trip. It's not just accommodation — it's the experience.</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-num">04</div>
+          <div>
+            <p class="tip-text-title">Room size doesn't matter in Japan</p>
+            <p class="tip-text-body">You spend very little time in the room. What matters is location and the bath. Don't pay extra for square footage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="prem-footer">
+    <div class="prem-footer-top">
+      <div class="pf-brand">
+        <div class="logo-wrap pf-logo-wrap">
+          <a href="../../index.html" class="logo">
+            <span class="logo-icon"><img src="../../assets/logo-white.png" alt="AdiRaj" class="logo-img" /></span>
+            <span class="logo-text-wrap"><span class="logo-text">AdiRaj <span class="logo-tagline">Routes &amp; Reflections</span></span></span>
+          </a>
+        </div>
+        <p class="pf-brand-desc">Slow travel, honest stories, and the meaning we carry forward.</p>
+      </div>
+      <div class="pf-col">
+        <div class="pf-col-title">Explore</div>
+        <ul class="pf-col-links">
+          <li><a href="../../travel.html">Travel</a></li>
+          <li><a href="../../accommodation.html">Accommodation</a></li>
+          <li><a href="../../lifestyle.html">Lifestyle</a></li>
+          <li><a href="../../about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="pf-col">
+        <div class="pf-col-title">Our Stays</div>
+        <ul class="pf-col-links">
+          <li><a href="accommodation-japan.html">Japan</a></li>
+          <li><a href="accommodation-kenya.html">Kenya</a></li>
+          <li><a href="accommodation-thailand.html">Thailand</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top:1px solid #111;max-width:1380px;margin:0 auto;padding:20px 2.8rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <p class="pf-copy">© 2026 AdiRaj — Routes & Reflections &nbsp;|&nbsp; All rights reserved</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <script src="../../script.js"></script>
+</body>
+</html>

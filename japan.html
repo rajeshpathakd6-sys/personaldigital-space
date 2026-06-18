@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Japan: It Stays With You Differently — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="Beyond the cities, it was the countryside that stayed with us. Quiet towns, scenic train rides, and unhurried moments across Japan." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/pages/article.css" />
+    <style>
+      .post-page-wrap {
+        grid-template-columns: 1fr !important;
+        max-width: 780px !important;
+      }
+      .post-body {
+        max-width: 100%;
+      }
+      .post-hero {
+        position: relative;
+        height: clamp(340px, 52vh, 580px);
+        overflow: hidden;
+        background: #0d1a0d;
+      }
+      .post-hero-img-wrap {
+        height: 100%;
+      }
+      .post-hero-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.85;
+      }
+      .post-hero-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(13, 26, 13, 0.75) 0%,
+          rgba(13, 26, 13, 0.1) 55%,
+          transparent 100%
+        );
+        pointer-events: none;
+      }
+      .photo-placeholder {
+        width: 100%;
+        aspect-ratio: 16/10;
+        background: #e8ede8;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        margin: 1.8rem 0 0.5rem;
+        color: #5a7a5a;
+      }
+      .photo-placeholder svg {
+        opacity: 0.45;
+      }
+      .photo-placeholder span {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #7a9a7a;
+      }
+      .photo-placeholder-sm {
+        aspect-ratio: 4/3;
+      }
+      .post-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: #c8d8c8;
+        border: 1px solid #c8d8c8;
+        border-radius: 3px;
+        overflow: hidden;
+        margin: 2.2rem 0;
+      }
+      .post-stat {
+        background: #f5f8f5;
+        padding: 1.1rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .post-stat-label {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #5a7a5a;
+      }
+      .post-stat-value {
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        color: #1a2a1a;
+      }
+      .post-tip {
+        background: #f2f6f2;
+        border-left: 3px solid #6a9a6a;
+        padding: 1.1rem 1.4rem;
+        border-radius: 0 3px 3px 0;
+        margin: 1.8rem 0;
+      }
+      .post-tip-label {
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #5a8a5a;
+        margin-bottom: 0.4rem;
+      }
+      .post-tip p {
+        font-family: var(--sans) !important;
+        font-size: 0.88rem !important;
+        line-height: 1.65 !important;
+        color: #2a4a2a !important;
+        margin: 0 !important;
+      }
+      .related-section {
+        border-top: 1px solid var(--rule);
+        padding: 3rem 2rem;
+        background: var(--white);
+      }
+      .related-inner {
+        max-width: var(--max-w);
+        margin-inline: auto;
+      }
+      .related-kicker {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink);
+        margin-bottom: 2rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--ink);
+      }
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .related-card {
+        text-decoration: none;
+      }
+      .related-card-img {
+        aspect-ratio: 16/10;
+        overflow: hidden;
+        border-radius: 2px;
+        background: #e8e2d8;
+        margin-bottom: 0.7rem;
+      }
+      .related-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .related-card:hover .related-card-img img {
+        transform: scale(1.04);
+      }
+      .related-card-tag {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .related-card-title {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--ink);
+        line-height: 1.35;
+        transition: color 0.2s;
+      }
+      .related-card:hover .related-card-title {
+        color: var(--accent);
+      }
+      @media (max-width: 640px) {
+        .related-grid {
+          grid-template-columns: 1fr;
+        }
+        .post-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="apple-touch-icon" href="./assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/japan.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Japan: It Stays With You Differently — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Beyond the cities, it was the countryside that stayed with us. Quiet towns, scenic train rides, and unhurried moments across Japan." />
+    <meta property="og:url" content="https://routesandreflections.in/japan.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Japan: It Stays With You Differently — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Beyond the cities, it was the countryside that stayed with us. Quiet towns, scenic train rides, and unhurried moments across Japan." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body>
+    <div class="reading-bar" id="readingBar" aria-hidden="true"></div>
+    <site-ribbon></site-ribbon>
+    <site-header active="travel"></site-header>
+
+
+    <div class="post-hero">
+      <div class="post-hero-img-wrap">
+        <img
+          src="assets/japan.JPG"
+          alt="Japan — Autumn in the countryside"
+          loading="eager"
+        />
+      </div>
+      <div class="post-hero-gradient"></div>
+    </div>
+
+    <div class="post-header">
+      <div class="post-card-tags">
+        <a href="./travel.html" class="post-tag">Travel</a>
+        <a href="#" class="post-tag">Asia</a>
+        <a href="#" class="post-tag">Japan</a>
+      </div>
+      <h1 class="post-title">It Stays With You Differently</h1>
+      <p class="post-subtitle">
+        14 days through northern Honshu and the Japanese Alps — from Aomori's
+        gorges and Nikko's sacred cedars to Kamikochi's high valley, Takayama's
+        Edo streets, and Kyoto at peak autumn colour. Japan doesn't ease you in.
+      </p>
+    </div>
+
+    <div class="post-page-wrap">
+      <article class="post-body">
+        <p>
+          Japan doesn't ease you in. From the moment the shinkansen pulls out of
+          Tokyo station and the countryside blurs past at 300km/h, you
+          understand that this is a country that takes everything — food, craft,
+          travel, aesthetics, train punctuality — completely seriously. We
+          arrived in October, which is when the country turns. The maples go
+          red. The cedars hold their green. The light does something unusual to
+          all of it.
+        </p>
+
+        <p>
+          This was not the standard tourist route. Most people do Tokyo — Kyoto
+          — Osaka — maybe Hiroshima. We had two weeks and wanted to go north
+          first, then cut through the mountains on the way back. The gamble paid
+          off. Northern Honshu in autumn is one of the quieter, more beautiful
+          things we've seen.
+        </p>
+
+        <div
+          style="
+            background: var(--beige);
+            border-left: 3px solid var(--accent);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+          "
+        >
+          <p
+            style="
+              font-size: 0.72rem;
+              font-weight: 700;
+              letter-spacing: 0.15em;
+              text-transform: uppercase;
+              color: var(--ink);
+              margin-bottom: 0.75rem;
+            "
+          >
+            In This Post
+          </p>
+          <ol style="padding-left: 1.2rem; margin: 0">
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#north" style="color: var(--accent)"
+                >Going North — Aomori &amp; Sendai</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#nikko" style="color: var(--accent)"
+                >Nikko — Shrines in the Forest</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#alps" style="color: var(--accent)"
+                >The Japanese Alps — Matsumoto &amp; Kamikochi</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#takayama-kanazawa" style="color: var(--accent)"
+                >Takayama &amp; Kanazawa</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#kyoto" style="color: var(--accent)"
+                >Kyoto at Autumn Peak</a
+              >
+            </li>
+          </ol>
+        </div>
+
+        <h2 id="north">Going North — Aomori &amp; Sendai</h2>
+
+        <p>
+          We flew into Narita, spent a night near the airport to recover from
+          the jet lag (this is not optional — the flight from Bengaluru is
+          real), and took the shinkansen north the next morning. Aomori is
+          Japan's northernmost major city on Honshu, and it receives a fraction
+          of the tourists that the southern cities do. This is precisely why it
+          was worth going.
+        </p>
+
+        <p>
+          The Oirase Gorge, about an hour outside Aomori, is a 14km mountain
+          stream with waterfalls tumbling in every few hundred metres. In
+          mid-October the maples are turning, and walking the gorge path felt
+          like something out of a film that hadn't been made yet — too beautiful
+          to be real and too ordinary to be dramatic about. We walked in
+          near-silence for most of it, which is the correct approach.
+        </p>
+
+        <div class="photo-placeholder">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Oirase Gorge — Aomori, Northern Honshu</span>
+        </div>
+        <p class="img-caption">
+          Oirase Gorge in mid-October. The 14km walking path follows a mountain
+          stream with waterfalls throughout. Most tourist groups don't come this
+          far north.
+        </p>
+
+        <p>
+          From Aomori we came south to Sendai — the City of Trees — via
+          Yamadera. Yamadera is a temple complex built into and on top of a
+          clifftop, reached by climbing 1,000 stone steps cut into the mountain.
+          The view from the top over the forested valley below is one of those
+          things that makes the effort instantly worth it. We were breathing
+          hard at the top and not caring at all.
+        </p>
+
+        <p>
+          Sendai itself surprised us. We'd expected a modern city without much
+          character — it's a big regional centre — but the zelkova-lined
+          boulevards (which give it the Trees nickname) are genuinely lovely,
+          and the Osaki Hachimangu shrine, set back from the main roads in a
+          wooded hillside, was one of the most peaceful hours of the trip.
+        </p>
+
+        <h2 id="nikko">Nikko — Shrines in the Forest</h2>
+
+        <p>
+          Nikko is everything the guidebooks say, and the guidebooks are right
+          to say it. The Toshogu Shrine complex in the mountains outside Nikko
+          is the most elaborately decorated thing we've seen in Japan — gold
+          leaf, lacquerwork, carved wooden animals everywhere, the famous
+          sleeping cat, the three wise monkeys. It's overwhelming in the best
+          way: a country that takes aesthetics seriously, applied to a place of
+          worship, with no expense spared.
+        </p>
+
+        <p>
+          But the surroundings matter as much as the shrine. The approach
+          through cedar-forested avenues, the Shinkyo Bridge in red lacquer over
+          a gorge, the 97-metre drop of Kegon Waterfall into a misty canyon —
+          all of this is part of the same experience. We spent a full day in
+          Nikko and could have stayed longer.
+        </p>
+
+        <div class="photo-placeholder">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Nikko — Toshogu Shrine &amp; Kanmangafuchi Abyss</span>
+        </div>
+        <p class="img-caption">
+          Kanmangafuchi Abyss in Nikko — a row of stone Jizo statues along a
+          forested riverside path. Quiet, strange, and very beautiful.
+        </p>
+
+        <p>
+          The Kanmangafuchi Abyss — a less-visited spot along a gorge in town —
+          is the kind of place that doesn't appear in the main tourist
+          literature but stays with you. A long row of stone Jizo statues lines
+          a path along a rushing river, each wearing a small red or white bib.
+          The mist comes off the water. The moss on the stones is very green.
+          It's an odd and lovely thing.
+        </p>
+
+        <blockquote>
+          "The three wise monkeys are at Toshogu, carved into a stable wall in
+          1636. The actual monkeys — the carved ones — are much smaller than
+          you'd expect. The queue to see them is much longer than you'd want."
+        </blockquote>
+
+        <h2 id="alps">The Japanese Alps — Matsumoto &amp; Kamikochi</h2>
+
+        <p>
+          Matsumoto is the gateway to the Northern Alps and the home of one of
+          Japan's few surviving original castles. Matsumoto Castle — the Crow
+          Castle — is called that for its black exterior, which stands in stark
+          contrast to the white-walled castles more common in the south. It
+          rises above the surrounding city in a way that feels both ancient and
+          immediate. We arrived on a clear morning and the mountains were
+          visible behind it.
+        </p>
+
+        <p>
+          From Matsumoto, Kamikochi is reached by bus through increasingly
+          dramatic mountain scenery. Private cars are not allowed — only buses
+          and taxis — which means Kamikochi has stayed genuinely quiet despite
+          being well-known. It is a highland valley in the Northern Alps at
+          1,500 metres, with the Azusa River running clear and cold through it,
+          and the jagged profile of the Hotaka range on the horizon.
+        </p>
+
+        <div class="photo-placeholder">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Kamikochi — Azusa River &amp; Northern Alps</span>
+        </div>
+        <p class="img-caption">
+          The Azusa River in Kamikochi, with the Hotaka range visible above the
+          treeline. The valley is accessible only by public transport, which
+          keeps it from being overrun.
+        </p>
+
+        <p>
+          The walk from Taisho Pond through Tashiro Marsh, across Kappa Bashi
+          Bridge, and up to Myojin Pond takes most of a day if done properly —
+          slowly, with stops to sit by the river and watch the water. We stayed
+          overnight in the valley itself, which meant we had it largely to
+          ourselves in the early morning and evening when the day visitors had
+          gone. Those hours were the best of the trip.
+        </p>
+
+        <div class="post-tip">
+          <p class="post-tip-label">Kamikochi Timing</p>
+          <p>
+            Kamikochi is only open from mid-April to mid-November. In October
+            the autumn colour is at or near peak, and the valley is stunning.
+            Book accommodation inside the valley well in advance — there are
+            only a handful of places to stay and they fill months ahead during
+            autumn. The season closes November 15th regardless of conditions.
+          </p>
+        </div>
+
+        <h2 id="takayama-kanazawa">Takayama &amp; Kanazawa</h2>
+
+        <p>
+          Takayama is Japan's most beautifully preserved old town, and it takes
+          the preservation seriously without turning it into a museum. People
+          live there. The sake breweries in the Sanmachi Suji district still
+          make sake. The merchant houses are still used. When you walk the
+          stone-paved lanes in the early morning before the tourist groups
+          arrive, it doesn't feel like a reconstruction of Edo Japan. It feels
+          like Japan that never stopped being itself.
+        </p>
+
+        <p>
+          The Miyagawa Morning Market runs every day along the river. We arrived
+          early and spent an hour moving from stall to stall: pickled
+          vegetables, fresh produce, lacquerware, and most importantly — the
+          edible espresso served in a tiny carved wooden cup that a woman in the
+          market was selling. We went back for seconds, which required a small
+          amount of negotiation conducted entirely through smiling and pointing.
+        </p>
+
+        <div class="photo-placeholder">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Takayama — Sanmachi Suji &amp; Morning Market</span>
+        </div>
+        <p class="img-caption">
+          The Sanmachi Suji district in Takayama, lined with sake breweries and
+          merchant houses that look almost exactly as they did 300 years ago.
+          Arrive before 8am for the best experience.
+        </p>
+
+        <p>
+          Kanazawa, reached by bus from Takayama over the mountains, is called
+          the little Kyoto that escaped — it was never bombed during the Second
+          World War, which left its historic districts remarkably intact. The
+          water fountain clock at Kanazawa station is a beautiful piece of
+          engineering that we watched for longer than the designers probably
+          expected. Kenrokuen Garden — considered one of Japan's three finest —
+          was at autumn peak: the ancient pine trees with their supporting
+          poles, the ponds reflecting red and orange, the teahouses. It's a
+          garden that feels designed for people to slow down in, which is the
+          best thing a garden can do.
+        </p>
+
+        <p>
+          The Higashi Chaya district of preserved geisha teahouses is the other
+          essential Kanazawa stop. In the evening light, the wooden facade
+          streets are beautiful and very quiet. We had a gold-leaf ice cream
+          cone from a vendor near JR Station — not as gimmicky as it sounds —
+          and walked back through the old district as the lanterns came on.
+        </p>
+
+        <h2 id="kyoto">Kyoto at Autumn Peak</h2>
+
+        <p>
+          The shinkansen from Kanazawa to Kyoto takes less than an hour. We
+          arrived on a Tuesday in mid-October to find that Kyoto's autumn was at
+          absolute peak — the maples had turned, the gingkos were yellow, and
+          approximately half of Japan had apparently decided to be there at the
+          same time. Kyoto in peak autumn is crowded in a way that requires
+          either very early mornings or very deliberate planning.
+        </p>
+
+        <p>
+          Fushimi Inari at 6am is a different place to Fushimi Inari at 10am.
+          The 10,000 vermilion torii gates that wind up the mountain — famous
+          from every Japan photography list ever compiled — are genuinely
+          spectacular, and the crowds at 6am are minimal. We made it to the
+          quieter upper shrines by 7:30 and had long stretches of the path
+          entirely to ourselves.
+        </p>
+
+        <div class="photo-placeholder">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Kyoto — Fushimi Inari &amp; Philosopher's Path</span>
+        </div>
+        <p class="img-caption">
+          Fushimi Inari at dawn, before the groups arrive. The upper sections of
+          the path are reached by most visitors only if they start walking well
+          before 7am.
+        </p>
+
+        <p>
+          The Philosopher's Path — a canal-side stone walkway lined with cherry
+          trees (bare in October, but still lovely) — connects the Ginkakuji
+          silver pavilion to the Nanzenji complex. We walked it in both
+          directions at different times of day and it was better each time.
+          Arashiyama in the afternoon: the bamboo grove (crowded but worth it),
+          the boat rental ponds, the small temples tucked into the forest edges.
+        </p>
+
+        <p>
+          Gion in the evening is Kyoto's geisha district: preserved wooden
+          machiya townhouses, lanterns, and the occasional glimpse of a maiko
+          hurrying somewhere. We didn't eat at any of the tourist-facing
+          restaurants on the main streets. We found a small ramen shop
+          recommended by someone at our guesthouse, sat at the counter, and ate
+          one of the best bowls of ramen we've had anywhere. Japan rewards this
+          approach: going slightly off the obvious path almost always yields
+          something better.
+        </p>
+
+        <div class="post-tip">
+          <p class="post-tip-label">The Thing About Japan</p>
+          <p>
+            Japan is the country that most rewards slowing down. The temptation
+            is to do everything — temples, cities, mountains, food, onsen — and
+            the trap is moving so fast that nothing has time to settle. Some of
+            our best hours were spent doing almost nothing: sitting by the Azusa
+            River in Kamikochi, or watching a morning market open in Takayama,
+            or just walking a neighbourhood with no particular plan. Give
+            yourself permission to have that kind of day.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div class="related-section">
+      <div class="related-inner">
+        <p class="related-kicker">Continue Reading</p>
+        <div class="related-grid">
+          <a href="./taiwan.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/taiwan.JPG" alt="Taiwan" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Asia</span>
+            <span class="related-card-title"
+              >Taiwan: The Kind of Place You Return To</span
+            >
+          </a>
+          <a href="./thailand.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/thailand.JPG" alt="Thailand" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Asia</span>
+            <span class="related-card-title"
+              >Thailand: A Layover That Became the Plan</span
+            >
+          </a>
+          <a href="./kenya.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/kenya.JPG" alt="Kenya" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Africa</span>
+            <span class="related-card-title"
+              >Kenya: Coast, Mara, and the Rift</span
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PREMIUM FOOTER ── -->
+
+    <site-footer></site-footer>
+
+    <script type="module" src="js/components/site-ribbon.js"></script>
+    <script type="module" src="js/components/site-header.js"></script>
+    <script type="module" src="js/components/site-footer.js"></script>
+    <script type="module" src="js/pages/article.js"></script>
+  </body>
+</html>

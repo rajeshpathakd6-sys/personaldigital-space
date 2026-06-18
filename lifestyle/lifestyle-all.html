@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Lifestyle Posts — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="Every lifestyle post from AdiRaj — life, wellness, creativity, growth, and everything in between." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      /* ─── PAGE VARS ─── */
+      :root {
+        --accent-rgb: 184, 118, 82;
+      }
+
+      /* ─── SUB HERO ─── */
+      .sub-hero {
+        position: relative;
+        padding: calc(var(--total-top) + 5.5rem) var(--pad-x) 5rem;
+        background: #1a1a18;
+        overflow: hidden;
+      }
+      .sub-hero-grain {
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+        opacity: 0.4;
+        pointer-events: none;
+      }
+      .sub-hero-glow {
+        position: absolute;
+        width: 600px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(
+          ellipse,
+          rgba(184, 118, 82, 0.18) 0%,
+          transparent 70%
+        );
+        top: -80px;
+        right: -100px;
+        pointer-events: none;
+      }
+      .sub-hero-inner {
+        position: relative;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: end;
+      }
+      @media (max-width: 760px) {
+        .sub-hero-inner {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+      .sub-breadcrumb {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 1.5rem;
+      }
+      .sub-breadcrumb a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .sub-breadcrumb a:hover {
+        text-decoration: underline;
+      }
+      .sub-hero-eyebrow {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .sub-hero-title {
+        font-family: var(--serif);
+        font-size: clamp(2.8rem, 6vw, 5rem);
+        font-weight: 400;
+        line-height: 1.05;
+        color: #f5f0e8;
+        margin: 0 0 1.5rem;
+      }
+      .sub-hero-title em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .sub-hero-rule {
+        width: 48px;
+        height: 1px;
+        background: var(--accent);
+        margin-bottom: 1.5rem;
+      }
+      .sub-hero-right {
+        padding-bottom: 0.5rem;
+      }
+      .sub-hero-desc {
+        font-family: var(--sans);
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+      .sub-hero-stats {
+        display: flex;
+        gap: 2.5rem;
+      }
+      .sub-hero-stat-num {
+        display: block;
+        font-family: var(--serif);
+        font-size: 2rem;
+        font-style: italic;
+        color: #f5f0e8;
+        line-height: 1;
+      }
+      .sub-hero-stat-label {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+        margin-top: 0.3rem;
+        display: block;
+      }
+
+      /* ─── FILTER BAR ─── */
+      .sf-bar {
+        background: #fff;
+        border-bottom: 1px solid #ebe6de;
+        padding: 0 var(--pad-x);
+        position: sticky;
+        top: calc(
+          var(--top-bar-h, 36px) + var(--header-h, 60px) + var(--nav-h, 44px)
+        );
+        z-index: 20;
+      }
+      .sf-bar-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: flex;
+        gap: 0;
+        align-items: center;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .sf-bar-inner::-webkit-scrollbar {
+        display: none;
+      }
+      .sf-btn {
+        flex-shrink: 0;
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #8a8078;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid transparent;
+        padding: 1rem 1.4rem;
+        cursor: pointer;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+        white-space: nowrap;
+      }
+      .sf-btn:hover {
+        color: #1a1a18;
+      }
+      .sf-btn.sf-active {
+        color: #1a1a18;
+        border-bottom-color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* ─── POSTS SECTION ─── */
+      .sp-sec {
+        background: #f7f3ee;
+        padding: 4rem var(--pad-x) 6rem;
+      }
+      .sp-wrap {
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+      .sp-count {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #a09888;
+        margin-bottom: 2.5rem;
+      }
+      .sp-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+      @media (max-width: 960px) {
+        .sp-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 580px) {
+        .sp-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ─── CARD ─── */
+      .sc {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border: 1px solid #ebe6de;
+        border-radius: 3px;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        transition:
+          transform 0.28s ease,
+          box-shadow 0.28s ease;
+      }
+      .sc:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+      }
+      .sc-img {
+        aspect-ratio: 16/10;
+        overflow: hidden;
+        position: relative;
+        background: #ede8e1;
+      }
+      .sc-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      .sc:hover .sc-img img {
+        transform: scale(1.04);
+      }
+      /* placeholder gradients */
+      .sc-ph {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+      }
+      .ph-warm {
+        background: linear-gradient(135deg, #d4a574, #a87040);
+      }
+      .ph-sage {
+        background: linear-gradient(135deg, #8fad8f, #5a7a5a);
+      }
+      .ph-stone {
+        background: linear-gradient(135deg, #b5a99a, #8c7d6e);
+      }
+      .ph-slate {
+        background: linear-gradient(135deg, #7a8a9a, #5a6a7a);
+      }
+      .ph-blush {
+        background: linear-gradient(135deg, #d4a0a0, #a87070);
+      }
+      .ph-dusk {
+        background: linear-gradient(135deg, #9a8ab0, #7060a0);
+      }
+      .ph-moss {
+        background: linear-gradient(135deg, #7a9a6a, #4a7040);
+      }
+      .ph-ink {
+        background: linear-gradient(135deg, #4a5060, #2a3040);
+      }
+      .ph-gold {
+        background: linear-gradient(135deg, #c8a856, #a08030);
+      }
+      .ph-rose {
+        background: linear-gradient(135deg, #c89090, #a06070);
+      }
+      .ph-earth {
+        background: linear-gradient(135deg, #b09070, #806040);
+      }
+
+      .sc-body {
+        padding: 1.5rem 1.5rem 1.25rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .sc-cat {
+        font-family: var(--sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.6rem;
+        font-weight: 700;
+      }
+      .sc-title {
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-weight: 400;
+        line-height: 1.4;
+        color: #1a1a18;
+        margin: 0 0 0.75rem;
+      }
+      .sc-excerpt {
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        color: #7a7068;
+        line-height: 1.7;
+        margin: 0 0 auto;
+      }
+      .sc-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid #f0ebe3;
+      }
+      .sc-date {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        color: #a09888;
+        letter-spacing: 0.04em;
+      }
+      .sc-read {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        color: var(--accent);
+        letter-spacing: 0.08em;
+        font-weight: 700;
+      }
+
+      /* ─── NO RESULTS ─── */
+      .sp-empty {
+        display: none;
+        text-align: center;
+        padding: 4rem 0;
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        font-style: italic;
+        color: #a09888;
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link rel="apple-touch-icon" href="../assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/lifestyle/lifestyle-all.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="All Lifestyle Posts — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Every lifestyle post from AdiRaj — life, wellness, creativity, growth, and everything in between." />
+    <meta property="og:url" content="https://routesandreflections.in/lifestyle/lifestyle-all.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="All Lifestyle Posts — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Every lifestyle post from AdiRaj — life, wellness, creativity, growth, and everything in between." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body>
+    <site-ribbon depth=".."></site-ribbon>
+    <site-header active="lifestyle" depth=".."></site-header>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="sub-hero">
+      <div class="sub-hero-grain"></div>
+      <div class="sub-hero-glow"></div>
+      <div class="sub-hero-inner">
+        <div class="sub-hero-left">
+          <p class="sub-breadcrumb">
+            <a href="../lifestyle.html">Lifestyle</a> &nbsp;/&nbsp; All Posts
+          </p>
+          <span class="sub-hero-eyebrow">The Journal</span>
+          <h1 class="sub-hero-title">
+            Every piece,<br />in one <em>place.</em>
+          </h1>
+          <div class="sub-hero-rule"></div>
+        </div>
+        <div class="sub-hero-right">
+          <p class="sub-hero-desc">
+            Essays on how we live, create, grow, and rest — collected here for
+            easy reading. Filter by what you need most right now.
+          </p>
+          <div class="sub-hero-stats">
+            <div>
+              <span class="sub-hero-stat-num">24</span>
+              <span class="sub-hero-stat-label">Essays</span>
+            </div>
+            <div>
+              <span class="sub-hero-stat-num">5</span>
+              <span class="sub-hero-stat-label">Categories</span>
+            </div>
+            <div>
+              <span class="sub-hero-stat-num">∞</span>
+              <span class="sub-hero-stat-label">Growing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FILTER BAR ═══ -->
+    <div class="sf-bar" id="sfBar">
+      <div class="sf-bar-inner">
+        <button class="sf-btn sf-active" onclick="filterPosts(this, 'all')">
+          All
+        </button>
+        <button class="sf-btn" onclick="filterPosts(this, 'life')">Life</button>
+        <button class="sf-btn" onclick="filterPosts(this, 'creativity')">
+          Creativity
+        </button>
+        <button class="sf-btn" onclick="filterPosts(this, 'growth')">
+          Growth
+        </button>
+        <button class="sf-btn" onclick="filterPosts(this, 'wellness')">
+          Wellness
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ POSTS GRID ═══ -->
+    <section class="sp-sec">
+      <div class="sp-wrap">
+        <p class="sp-count" id="spCount">Showing all posts</p>
+        <div class="sp-grid" id="spGrid">
+          <!-- LIFE -->
+          <a
+            href="../lifestyle/wellness-vipassana.html"
+            class="sc"
+            data-cat="life"
+          >
+            <div class="sc-img">
+              <div class="sc-ph ph-sage"></div>
+              <img
+                src="../lifestyle/article-assets/vipassana.jpg"
+                alt="Equanimity in Practice"
+                loading="lazy"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+            <div class="sc-body">
+              <span class="sc-cat">Life · Philosophy</span>
+              <h2 class="sc-title">Equanimity in Practice</h2>
+              <p class="sc-excerpt">
+                Between stimulus and response there is space. What you do with
+                that space is your life.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Mar 12, 2026 · 7 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="../lifestyle/life-not-everyday.html"
+            class="sc"
+            data-cat="life"
+          >
+            <div class="sc-img">
+              <div class="sc-ph ph-warm"></div>
+              <img
+                src="../lifestyle/article-assets/not-every-day-needs-to-mean-something.jpg"
+                alt="Not Every Day"
+                loading="lazy"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+            <div class="sc-body">
+              <span class="sc-cat">Life · Reflections</span>
+              <h2 class="sc-title">Not Every Day Needs to Mean Something</h2>
+              <p class="sc-excerpt">
+                On ordinary days, the pressure to be productive, and the quiet
+                dignity of just existing.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Apr 2, 2026 · 5 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="../lifestyle/life-bel-far-niente.html"
+            class="sc"
+            data-cat="life"
+          >
+            <div class="sc-img">
+              <div class="sc-ph ph-blush"></div>
+              <img
+                src="../lifestyle/article-assets/bel-far-niente.jpg"
+                alt="Bel Far Niente"
+                loading="lazy"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+            <div class="sc-body">
+              <span class="sc-cat">Life · Reflections</span>
+              <h2 class="sc-title">Bel Far Niente</h2>
+              <p class="sc-excerpt">
+                And now we will count to twelve, and we will all keep still.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Feb 2, 2026 · 4 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../lifestyle/life-boring.html" class="sc" data-cat="life">
+            <div class="sc-img">
+              <div class="sc-ph ph-stone"></div>
+              <img
+                src="../lifestyle/article-assets/boring.jpg"
+                alt="Boring"
+                loading="lazy"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+            <div class="sc-body">
+              <span class="sc-cat">Life · Slow Living</span>
+              <h2 class="sc-title">Boring</h2>
+              <p class="sc-excerpt">
+                A defence of the unremarkable and the deeply underrated pleasure
+                of having nothing happen.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Jan 15, 2026 · 5 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../lifestyle/life-chai.html" class="sc" data-cat="life">
+            <div class="sc-img">
+              <div class="sc-ph ph-gold"></div>
+              <img
+                src="../lifestyle/article-assets/chai.jpg"
+                alt="Chai"
+                loading="lazy"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+            <div class="sc-body">
+              <span class="sc-cat">Life · Slow Living</span>
+              <h2 class="sc-title">Chai</h2>
+              <p class="sc-excerpt">
+                There is a ritual inside every cup — and it has nothing to do
+                with caffeine.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Jan 20, 2026 · 4 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="../lifestyle/life-stupid-birds.html"
+            class="sc"
+            data-cat="life"
+          >
+            <div class="sc-img">
+              <div class="sc-ph ph-moss"></div>
+              <img
+                src="../lifestyle/article-assets/stupid-birds.jpg"
+                alt="Stupid Birds"
+                loading="lazy"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+            <div class="sc-body">
+              <span class="sc-cat">Life · Slow Living</span>
+              <h2 class="sc-title">Stupid Birds</h2>
+              <p class="sc-excerpt">
+                What the birds outside my window taught me about doing things
+                without needing a reason.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Jan 30, 2026 · 4 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- CREATIVITY -->
+          <a
+            href="../lifestyle/creativity-the-three-decisions-behind-every-photo.html"
+            class="sc"
+            data-cat="creativity"
+          >
+            <div class="sc-img">
+              <div class="sc-ph ph-slate"></div>
+              <img
+                src="../lifestyle/article-assets/the-three-decisions-behind-every-photo.jpg"
+                alt="Three Decisions"
+                loading="lazy"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+            <div class="sc-body">
+              <span class="sc-cat">Creativity · Photography</span>
+              <h2 class="sc-title">The Three Decisions Behind Every Photo</h2>
+              <p class="sc-excerpt">
+                Every image you've ever admired was the result of three choices
+                made in a fraction of a second.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Mar 26, 2026 · 6 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="sc" data-cat="creativity">
+            <div class="sc-img"><div class="sc-ph ph-sage"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Creativity · Making</span>
+              <h2 class="sc-title">
+                Making Things By Hand in a World That Doesn't Need You To
+              </h2>
+              <p class="sc-excerpt">
+                On why manual craft is not nostalgic — it is necessary, and
+                deeply subversive.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Mar 2, 2026 · 8 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="sc" data-cat="creativity">
+            <div class="sc-img"><div class="sc-ph ph-blush"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Creativity · Writing</span>
+              <h2 class="sc-title">
+                How to Write Every Day Without Burning Out
+              </h2>
+              <p class="sc-excerpt">
+                Not discipline. Not motivation. Something quieter and far more
+                durable.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Feb 14, 2026 · 6 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="sc" data-cat="creativity">
+            <div class="sc-img"><div class="sc-ph ph-ink"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Creativity · Photography</span>
+              <h2 class="sc-title">
+                Seeing Slowly: What Street Photography Taught Me About Attention
+              </h2>
+              <p class="sc-excerpt">
+                A camera changes not just what you look at, but how long you're
+                willing to look.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Jan 22, 2026 · 7 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- GROWTH -->
+          <a href="#" class="sc" data-cat="growth">
+            <div class="sc-img"><div class="sc-ph ph-stone"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Growth · Habits</span>
+              <h2 class="sc-title">The Compound Effect of Small Discomforts</h2>
+              <p class="sc-excerpt">
+                Every choice to stay uncomfortable for five more minutes is a
+                vote for who you're becoming.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Jan 5, 2026 · 5 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="sc" data-cat="growth">
+            <div class="sc-img"><div class="sc-ph ph-dusk"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Growth · Deep Work</span>
+              <h2 class="sc-title">
+                On Finishing Things: A Love Letter to the Last 10%
+              </h2>
+              <p class="sc-excerpt">
+                The gap between nearly done and actually done is where most
+                things die.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Jan 8, 2026 · 5 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="sc" data-cat="growth">
+            <div class="sc-img"><div class="sc-ph ph-warm"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Growth · Mindset</span>
+              <h2 class="sc-title">
+                The Single Habit That Outperforms All Others
+              </h2>
+              <p class="sc-excerpt">
+                Buried in decades of productivity research is one practice that
+                appears again and again.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Dec 18, 2025 · 6 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- WELLNESS -->
+          <a href="#" class="sc" data-cat="wellness">
+            <div class="sc-img"><div class="sc-ph ph-sage"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Wellness · Movement</span>
+              <h2 class="sc-title">
+                Zone 2 Training: Why Slow Running Is the Ultimate Performance
+                Hack
+              </h2>
+              <p class="sc-excerpt">
+                Elite athletes spend 80% of training at a conversational pace.
+                Most of us have it backwards.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Feb 18, 2026 · 8 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="sc" data-cat="wellness">
+            <div class="sc-img"><div class="sc-ph ph-moss"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Wellness · Mind</span>
+              <h2 class="sc-title">
+                Stillness Is Not Emptiness: Meditation Without the Mysticism
+              </h2>
+              <p class="sc-excerpt">
+                A practical, secular case for sitting with yourself for 20
+                minutes a day.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Mar 10, 2026 · 7 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="sc" data-cat="wellness">
+            <div class="sc-img"><div class="sc-ph ph-slate"></div></div>
+            <div class="sc-body">
+              <span class="sc-cat">Wellness · Sleep</span>
+              <h2 class="sc-title">Sleep Is Not Lazy. It Is the Work.</h2>
+              <p class="sc-excerpt">
+                The one variable that predicts performance, mood, and longevity
+                above almost all else.
+              </p>
+              <div class="sc-meta">
+                <span class="sc-date">Feb 10, 2026 · 6 min</span
+                ><span class="sc-read">Read →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- /#spGrid -->
+        <p class="sp-empty" id="spEmpty">
+          No posts in this category yet — check back soon.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- ── PREMIUM FOOTER ── -->
+
+    <site-footer depth=".."></site-footer>
+
+    <script type="module" src="../js/components/site-ribbon.js"></script>
+    <script type="module" src="../js/components/site-header.js"></script>
+    <script type="module" src="../js/components/site-footer.js"></script>
+    <script type="module" src="../js/pages/lifestyle-category.js"></script>
+  </body>
+</html>

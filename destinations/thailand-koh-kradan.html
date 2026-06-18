@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koh Kradan, Thailand — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="Koh Kradan — one of Thailand's last quiet islands, where the reef is still healthy and the evenings are genuinely still." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      :root {
+        --t-ink: #0e1a1e;
+        --t-soft: #2a3e48;
+        --t-muted: #6a8898;
+        --t-rule: #ccd8e0;
+        --t-bg: #f2f8fa;
+        --t-white: #ffffff;
+        --t-accent: #2a8a8a;
+        --t-accent-lt: #7cd0d0;
+        --t-sand: #d4c090;
+        --t-warm: #c0703a;
+        --t-serif: var(--serif);
+        --t-alt: var(--serif);
+        --t-sans: var(--sans);
+      }
+
+      body {
+        background: var(--t-bg);
+      }
+
+      .t-hero {
+        position: relative;
+        height: 96vh;
+        min-height: 620px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 5.5rem;
+      }
+      .t-hero-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url("../travel/assets/koh-kradan.JPG");
+        background-size: cover;
+        background-position: center 50%;
+        transform: scale(1.05);
+        transition: transform 10s ease-out;
+      }
+      .t-hero-bg.loaded {
+        transform: scale(1);
+      }
+      .t-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          175deg,
+          rgba(5, 18, 25, 0.04) 0%,
+          rgba(5, 18, 25, 0.04) 35%,
+          rgba(5, 18, 25, 0.52) 70%,
+          rgba(5, 18, 25, 0.82) 100%
+        );
+      }
+      .t-hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 860px;
+        padding: 0 2rem;
+        animation: tFadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      @keyframes tFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(36px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .t-hero-eyebrow {
+        font-family: var(--t-sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+        color: var(--t-accent-lt);
+        margin-bottom: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.9rem;
+      }
+      .t-hero-eyebrow::before,
+      .t-hero-eyebrow::after {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: var(--t-accent-lt);
+        opacity: 0.6;
+      }
+      .t-hero h1 {
+        font-family: var(--t-alt);
+        font-size: clamp(3.4rem, 8vw, 6.5rem);
+        font-weight: 300;
+        font-style: italic;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 1.4rem;
+      }
+      .t-hero-sub {
+        font-family: var(--t-sans);
+        font-size: 0.88rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.72);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        line-height: 1.6;
+      }
+      .t-hero-meta {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        gap: 2.8rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+        animation: tFadeUp 1.2s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      .t-hero-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: var(--t-sans);
+        font-size: 0.7rem;
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.58);
+      }
+      .t-hero-meta-divider {
+        width: 1px;
+        height: 18px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .t-layout {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 5rem 2rem 7rem;
+        display: grid;
+        grid-template-columns: 1fr 310px;
+        gap: 4rem;
+        align-items: start;
+      }
+      @media (max-width: 920px) {
+        .t-layout {
+          grid-template-columns: 1fr;
+        }
+        .t-sidebar {
+          display: none;
+        }
+      }
+
+      .t-article-intro {
+        font-family: var(--t-alt);
+        font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--t-soft);
+        line-height: 1.78;
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--t-rule);
+      }
+      .t-article p {
+        font-family: var(--t-sans);
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--t-soft);
+        line-height: 1.95;
+        margin-bottom: 1.7rem;
+      }
+      .t-article p strong {
+        font-weight: 700;
+        color: var(--t-ink);
+      }
+
+      .t-section-head {
+        margin: 3.5rem 0 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .t-section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--t-rule);
+      }
+      .t-section-head-label {
+        font-family: var(--t-sans);
+        font-size: 0.63rem;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--t-muted);
+        white-space: nowrap;
+      }
+      .t-section-head-line-right {
+        flex: 0.12;
+      }
+
+      .t-pullquote {
+        margin: 3.2rem 0;
+        padding: 2.2rem 2.5rem;
+        border-left: 3px solid var(--t-accent);
+        background: rgba(42, 138, 138, 0.05);
+      }
+      .t-pullquote p {
+        font-family: var(--t-alt);
+        font-size: clamp(1.15rem, 2vw, 1.35rem);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--t-soft) !important;
+        line-height: 1.7 !important;
+        margin-bottom: 0 !important;
+      }
+
+      .t-photo-full {
+        margin: 2.8rem -2rem;
+        overflow: hidden;
+        background: var(--t-rule);
+      }
+      .t-photo-full img {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        display: block;
+      }
+      .t-photo-placeholder-full {
+        width: 100%;
+        height: 520px;
+        background: linear-gradient(135deg, #c8e4ec 0%, #a8ccd8 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      .t-photo-placeholder-full svg {
+        opacity: 0.3;
+      }
+      .t-photo-placeholder-full span {
+        font-family: var(--t-sans);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--t-muted);
+      }
+
+      .t-photo-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin: 2.8rem 0;
+      }
+      .t-photo-grid-3 {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 1.2rem;
+        margin: 2.8rem 0;
+      }
+      .t-photo-item {
+        overflow: hidden;
+        background: var(--t-rule);
+      }
+      .t-photo-item img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+      .t-photo-item:hover img {
+        transform: scale(1.03);
+      }
+      .t-photo-placeholder {
+        width: 100%;
+        height: 320px;
+        background: linear-gradient(135deg, #c8e4ec 0%, #a8ccd8 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+      }
+      .t-photo-placeholder svg {
+        opacity: 0.28;
+      }
+      .t-photo-placeholder span {
+        font-family: var(--t-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--t-muted);
+      }
+      .t-photo-caption {
+        font-family: var(--t-sans);
+        font-size: 0.72rem;
+        color: var(--t-muted);
+        letter-spacing: 0.06em;
+        text-align: center;
+        margin-top: -1.2rem;
+        margin-bottom: 2.8rem;
+        font-style: italic;
+      }
+
+      .t-practical {
+        margin: 3.5rem 0;
+        border: 1px solid var(--t-rule);
+        background: var(--t-white);
+      }
+      .t-practical-head {
+        padding: 1.2rem 1.8rem;
+        border-bottom: 1px solid var(--t-rule);
+        font-family: var(--t-sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--t-muted);
+        background: #f4f9fa;
+      }
+      .t-practical-item {
+        padding: 1.2rem 1.8rem;
+        border-bottom: 1px solid var(--t-rule);
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        gap: 1.2rem;
+        align-items: baseline;
+      }
+      .t-practical-item:last-child {
+        border-bottom: none;
+      }
+      .t-practical-label {
+        font-family: var(--t-sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--t-ink);
+        padding-top: 2px;
+      }
+      .t-practical-value {
+        font-family: var(--t-sans);
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: var(--t-soft);
+        line-height: 1.6;
+      }
+
+      .t-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .t-sidebar-card {
+        border: 1px solid var(--t-rule);
+        background: var(--t-white);
+        overflow: hidden;
+      }
+      .t-sidebar-card-head {
+        padding: 1rem 1.4rem;
+        border-bottom: 1px solid var(--t-rule);
+        font-family: var(--t-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--t-muted);
+        background: #f4f9fa;
+      }
+      .t-sidebar-card-body {
+        padding: 1.2rem 1.4rem;
+      }
+      .t-sidebar-card-body p {
+        font-family: var(--t-sans);
+        font-size: 0.88rem;
+        font-weight: 300;
+        color: var(--t-soft);
+        line-height: 1.7;
+      }
+      .t-sidebar-fact {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 0.65rem 0;
+        border-bottom: 1px solid var(--t-rule);
+        gap: 1rem;
+      }
+      .t-sidebar-fact:last-child {
+        border-bottom: none;
+      }
+      .t-sidebar-fact-label {
+        font-family: var(--t-sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--t-muted);
+        flex-shrink: 0;
+      }
+      .t-sidebar-fact-value {
+        font-family: var(--t-sans);
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: var(--t-ink);
+        text-align: right;
+      }
+      .t-sidebar-photo-placeholder {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #c8e4ec 0%, #a8ccd8 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .t-sidebar-photo-placeholder span {
+        font-family: var(--t-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--t-muted);
+      }
+      .t-sidebar-tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1.2rem 1.4rem;
+      }
+      .t-sidebar-tag {
+        font-family: var(--t-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--t-soft);
+        background: #e8f4f8;
+        padding: 4px 10px;
+        border: 1px solid var(--t-rule);
+      }
+
+      .t-related {
+        background: #0e1a1e;
+        padding: 5rem 2rem;
+      }
+      .t-related-inner {
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+      .t-related-eyebrow {
+        font-family: var(--t-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.38em;
+        text-transform: uppercase;
+        color: var(--t-accent-lt);
+        margin-bottom: 0.8rem;
+      }
+      .t-related h2 {
+        font-family: var(--t-alt);
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        font-weight: 300;
+        font-style: italic;
+        color: #fff;
+        margin-bottom: 3rem;
+      }
+      .t-related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+      .t-related-card {
+        display: block;
+        text-decoration: none;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+      .t-related-card:hover {
+        transform: translateY(-4px);
+      }
+      .t-related-card-img {
+        position: relative;
+        height: 240px;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+      }
+      .t-related-card-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 40%,
+          rgba(0, 0, 0, 0.7) 100%
+        );
+      }
+      .t-related-card-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1;
+        font-family: var(--t-sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.45);
+        padding: 4px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .t-related-card-body {
+        padding: 1.4rem;
+        background: #162022;
+      }
+      .t-related-card-title {
+        font-family: var(--t-serif);
+        font-size: 1.1rem;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .t-related-card-desc {
+        font-family: var(--t-sans);
+        font-size: 0.82rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.6;
+      }
+
+      .js-reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .js-reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link rel="apple-touch-icon" href="../assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/destinations/thailand-koh-kradan.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Koh Kradan, Thailand — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Koh Kradan — one of Thailand's last quiet islands, where the reef is still healthy and the evenings are genuinely still." />
+    <meta property="og:url" content="https://routesandreflections.in/destinations/thailand-koh-kradan.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Koh Kradan, Thailand — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Koh Kradan — one of Thailand's last quiet islands, where the reef is still healthy and the evenings are genuinely still." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body class="dest-page">
+    <site-ribbon depth=".."></site-ribbon>
+    <site-header active="travel" depth=".."></site-header>
+
+    <!-- HERO -->
+    <section class="t-hero">
+      <div class="t-hero-bg" id="heroBg"></div>
+      <div class="t-hero-content">
+        <div class="t-hero-eyebrow">
+          Thailand &nbsp;·&nbsp; Andaman Sea &nbsp;·&nbsp; Trang Province
+        </div>
+        <h1>Koh Kradan</h1>
+        <p class="t-hero-sub">
+          No roads. No ATMs. Possibly Thailand's finest beach.
+        </p>
+      </div>
+      <div class="t-hero-meta">
+        <div class="t-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg
+          >Trang Province
+        </div>
+        <div class="t-hero-meta-divider"></div>
+        <div class="t-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" /></svg
+          >2–4 Days Ideal
+        </div>
+        <div class="t-hero-meta-divider"></div>
+        <div class="t-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            /></svg
+          >No Private Vehicles
+        </div>
+        <div class="t-hero-meta-divider"></div>
+        <div class="t-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" /></svg
+          >Nov – Apr Season
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN LAYOUT -->
+    <main class="t-layout">
+      <article class="t-article">
+        <p class="t-article-intro js-reveal">
+          Koh Kradan is a long, narrow island in Thailand's Trang Province, in
+          the Andaman Sea, and it routinely appears on lists of the world's best
+          beaches. There are no roads on the island. No ATMs. No stores worth
+          mentioning. The ferry cannot approach the beach directly, so you
+          arrive by longtail boat, suitcase balanced across the bow, wading the
+          last few metres through knee-high water to the sand. None of this is
+          inconvenient. All of it is the point.
+        </p>
+
+        <div class="t-photo-full js-reveal">
+          <div class="t-photo-placeholder-full">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#6a8898"
+              stroke-width="1.2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+            <span>Your Hero Photo — Koh Kradan Beach, Andaman Sea</span>
+          </div>
+        </div>
+
+        <div class="t-section-head js-reveal">
+          <div class="t-section-head-line"></div>
+          <div class="t-section-head-label">Getting There</div>
+          <div class="t-section-head-line-right t-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          Koh Kradan sits in Trang Province, on Thailand's west coast about
+          midway between Krabi and the Malaysian border.
+          <strong>Fly from Bangkok to Trang Airport</strong> (about an hour on
+          AirAsia or Nok Air) and arrange a transfer to the Pak Meng or
+          Kuangtung Pier, from where the ferry departs. The ferry journey to Koh
+          Kradan takes about 45 minutes on the Tigerline service. The entire
+          journey from Bangkok — including transfer and ferry — can be done in
+          half a day if you leave early.
+        </p>
+
+        <p class="js-reveal">
+          Alternatively, Koh Kradan can be reached as part of a Trang
+          island-hopping route, typically going Koh Ngai → Koh Mook → Koh Kradan
+          → Koh Libong. The islands are close enough that daily longtail
+          transfers between them are practical and inexpensive. If you're coming
+          from Koh Lanta (in Krabi Province to the north), the Tigerline ferry
+          also connects.
+          <strong>Book the ferry ahead during peak season</strong>
+          (December–February) — seats sell out regularly.
+        </p>
+
+        <div class="t-pullquote js-reveal">
+          <p>
+            "The island is long and narrow, and the beach runs its entire east
+            coast. When you step off the longtail and into that water — clear,
+            warm, and impossibly shallow for hundreds of metres — you understand
+            immediately why people who discover this place talk about it the way
+            they do."
+          </p>
+        </div>
+
+        <div class="t-photo-grid-2 js-reveal">
+          <div class="t-photo-item">
+            <div class="t-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#6a8898"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Main Beach · Low Tide</span>
+            </div>
+          </div>
+          <div class="t-photo-item">
+            <div class="t-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#6a8898"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Andaman Sandbar</span>
+            </div>
+          </div>
+        </div>
+        <p class="t-photo-caption">
+          The east coast beach at low tide — shallow water stretching for 100
+          metres · The exposed sandbar at the island's southern tip
+        </p>
+
+        <div class="t-section-head js-reveal">
+          <div class="t-section-head-line"></div>
+          <div class="t-section-head-label">The Beach</div>
+          <div class="t-section-head-line-right t-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          The east coast beach is what brings everyone here: a long, powder-soft
+          stretch of white sand facing a shallow lagoon of improbably clear
+          Andaman water. At low tide, the water retreats dramatically, leaving a
+          vast expanse of warm shallows — knee-depth for what feels like an
+          impossible distance from the shore. At the southern end of the island,
+          a sandbar emerges completely at low tide, and watching the sunset from
+          it, standing ankle-deep with limestone karsts silhouetted on the
+          horizon, is the specific Koh Kradan experience that most people are
+          trying to describe when they run out of superlatives.
+        </p>
+
+        <p class="js-reveal">
+          Between 10 AM and 2 PM, day-trip boats arrive and the beach can feel
+          crowded relative to what the rest of the day offers.
+          <strong>Staying overnight is the correct choice</strong> — not because
+          the island has much nightlife (it doesn't, and that's exactly right),
+          but because the early morning and late afternoon light, with the
+          day-trippers gone, is when Koh Kradan is most fully itself. Guests who
+          stay the night typically find themselves walking the empty beach by 7
+          AM in absolute quiet, with the Andaman Sea flat and glassy and the
+          day's heat not yet arrived.
+        </p>
+
+        <p class="js-reveal">
+          The snorkelling directly off the east coast beach is accessible from
+          the shore — the reef begins within swimming distance. The coral has
+          suffered some bleaching but the fish population remains excellent:
+          parrotfish, clownfish, moray eels, reef sharks in the shallower
+          sections. <strong>Bring water shoes</strong> — sea urchins are present
+          in numbers along the reef edge. The hotels loan snorkel equipment; the
+          Reef Resort provides it free to guests.
+        </p>
+
+        <div class="t-photo-full js-reveal">
+          <div class="t-photo-placeholder-full">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#6a8898"
+              stroke-width="1.2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+            <span>Your Photo — Sunset or Sandbar at Low Tide</span>
+          </div>
+        </div>
+
+        <div class="t-section-head js-reveal">
+          <div class="t-section-head-line"></div>
+          <div class="t-section-head-label">The Emerald Cave</div>
+          <div class="t-section-head-line-right t-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          Koh Mook's famous <strong>Morakot Cave (Emerald Cave)</strong> is
+          directly across a short stretch of water from Koh Kradan — a 30-minute
+          longtail ride. The cave can only be accessed at certain tide windows,
+          requiring a 80-metre swim through a dark sea tunnel before you emerge
+          into a completely enclosed hidden lagoon with a secret white sand
+          beach, surrounded by towering limestone cliffs. The turquoise-green
+          water gives the cave its name. It sounds theatrical. It delivers.
+        </p>
+
+        <p class="js-reveal">
+          The crucial caveat: go very early. The cave receives significant
+          day-trip traffic between 10 AM and 2 PM, and the difference between
+          arriving at 8 AM (when it's nearly empty and the light through the
+          tunnel entrance is at its best) and arriving at noon (with fifty other
+          swimmers) is the difference between magic and a queue. From Koh
+          Kradan, arranging an early departure from your hotel is
+          straightforward — most hotels organise the longtail. The ride over
+          before the crowds and back before the heat is one of the cleanest day
+          itineraries in the Trang islands.
+        </p>
+
+        <div class="t-photo-grid-2 js-reveal">
+          <div class="t-photo-item">
+            <div class="t-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#6a8898"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Emerald Cave Entrance</span>
+            </div>
+          </div>
+          <div class="t-photo-item">
+            <div class="t-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#6a8898"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Hidden Lagoon Inside</span>
+            </div>
+          </div>
+        </div>
+        <p class="t-photo-caption">
+          The sea tunnel entrance to Morakot Cave at low tide · The hidden
+          lagoon and beach revealed inside the cliff
+        </p>
+
+        <div class="t-section-head js-reveal">
+          <div class="t-section-head-line"></div>
+          <div class="t-section-head-label">Accommodation</div>
+          <div class="t-section-head-line-right t-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          Everything on Koh Kradan is expensive relative to mainland Thailand,
+          because everything — food, water, building materials — arrives by
+          boat. Accept this before you arrive and the prices become simply what
+          things cost on an island paradise rather than a grievance.
+          <strong>The Reef Resort</strong> is the most established option, with
+          a swimming pool, reliable snorkel and SUP equipment included, and
+          staff that are consistently excellent. Kradan Beach Resort is a step
+          cheaper with similarly good beachfront positioning. For something more
+          ecological and quiet, <strong>Kalumé</strong> offers boutique bamboo
+          accommodation and an excellent Italian restaurant that constitutes
+          most of the island's fine dining.
+        </p>
+
+        <p class="js-reveal">
+          One practical note: electricity on the island operates on a generator
+          system, and some accommodations only run air-conditioning during
+          specified hours — typically evening through morning. Confirm this when
+          you book if you need it. There are no ATMs anywhere on the island;
+          most hotels accept card payment and will allow cash withdrawals for a
+          fee. Bring more cash than you think you'll need as a backup.
+        </p>
+
+        <div class="t-pullquote js-reveal">
+          <p>
+            "The island goes quiet by 10 PM. There are no bars, barely any
+            nightlife — just the sound of the Andaman Sea and whatever you
+            brought to read. This is not a deficiency. It is, specifically, what
+            makes it worth coming here."
+          </p>
+        </div>
+
+        <div class="t-photo-grid-3 js-reveal">
+          <div class="t-photo-item">
+            <div class="t-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#6a8898"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Snorkelling · Reef</span>
+            </div>
+          </div>
+          <div class="t-photo-item">
+            <div class="t-photo-placeholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#6a8898"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Sunset Beach Path</span>
+            </div>
+          </div>
+        </div>
+        <p class="t-photo-caption">
+          Snorkelling the east coast reef · The jungle path to Sunset Beach on
+          the island's western face
+        </p>
+
+        <div class="t-practical js-reveal">
+          <div class="t-practical-head">Practical Notes</div>
+          <div class="t-practical-item">
+            <div class="t-practical-label">Getting There</div>
+            <div class="t-practical-value">
+              Fly Bangkok → Trang (1 hr), then transfer to Pak Meng or Kuangtung
+              Pier, Tigerline ferry to Koh Kradan (~45 min). Also reachable via
+              Koh Lanta ferry route. Book ferry ahead in Dec–Feb. No direct
+              approach to beach — arrive by longtail from the ferry.
+            </div>
+          </div>
+          <div class="t-practical-item">
+            <div class="t-practical-label">Best Season</div>
+            <div class="t-practical-value">
+              November through April is the dry season with calm seas.
+              May–October is monsoon season — some resorts close entirely, ferry
+              services become unreliable. December–February is peak season; book
+              accommodation 2–3 months ahead.
+            </div>
+          </div>
+          <div class="t-practical-item">
+            <div class="t-practical-label">Money</div>
+            <div class="t-practical-value">
+              No ATMs on the island. Bring sufficient cash. Most hotels accept
+              card and can do cash advances for a fee. There is a tiny minimart
+              — prices are triple mainland rates. Bring snacks and anything you
+              need from the mainland.
+            </div>
+          </div>
+          <div class="t-practical-item">
+            <div class="t-practical-label">Accommodation</div>
+            <div class="t-practical-value">
+              The Reef Resort (best facilities, pool, snorkel equipment
+              included), Kradan Beach Resort (slightly cheaper, good location),
+              Kalumé (eco boutique, best food on the island). All expensive by
+              Thai standards — accept this or come as a day trip.
+            </div>
+          </div>
+          <div class="t-practical-item">
+            <div class="t-practical-label">Snorkelling</div>
+            <div class="t-practical-value">
+              Bring water shoes — sea urchins are numerous at the reef edge. The
+              reef is accessible directly from the east coast beach. Best
+              visibility early morning. Most hotels loan equipment; the Reef
+              Resort includes it free.
+            </div>
+          </div>
+          <div class="t-practical-item">
+            <div class="t-practical-label">Our Take</div>
+            <div class="t-practical-value">
+              Two nights is the ideal stay — enough time to see the beach in
+              different tides and lights, do the Emerald Cave early morning, and
+              find the Sunset Beach path. Come for the beach and the quiet.
+              Don't come for nightlife, varied dining, or the kind of facilities
+              you'd find on Koh Samui. The island's entire value proposition is
+              in what it doesn't have.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="t-sidebar">
+        <div class="t-sidebar-card">
+          <div class="t-sidebar-card-head">Quick Facts</div>
+          <div class="t-sidebar-card-body">
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Country</span
+              ><span class="t-sidebar-fact-value">Thailand</span>
+            </div>
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Province</span
+              ><span class="t-sidebar-fact-value">Trang</span>
+            </div>
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Sea</span
+              ><span class="t-sidebar-fact-value">Andaman Sea</span>
+            </div>
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Season Open</span
+              ><span class="t-sidebar-fact-value">Nov – Apr</span>
+            </div>
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Ideal Stay</span
+              ><span class="t-sidebar-fact-value">2–4 nights</span>
+            </div>
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Roads</span
+              ><span class="t-sidebar-fact-value">None</span>
+            </div>
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">ATMs</span
+              ><span class="t-sidebar-fact-value">None</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-sidebar-card">
+          <div class="t-sidebar-photo-placeholder">
+            <span>Your Photo Here</span>
+          </div>
+          <div class="t-sidebar-card-body">
+            <p>
+              Koh Kradan has been placed in the top 25 beaches in the world by
+              multiple international rankings. Its relative inaccessibility
+              compared to Phuket and Koh Samui has protected it from
+              overdevelopment — so far.
+            </p>
+          </div>
+        </div>
+
+        <div class="t-sidebar-card">
+          <div class="t-sidebar-card-head">Don't Miss</div>
+          <div class="t-sidebar-card-body">
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Low Tide Sandbar</span
+              ><span class="t-sidebar-fact-value">South tip, sunset</span>
+            </div>
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Emerald Cave</span
+              ><span class="t-sidebar-fact-value">Before 9 AM</span>
+            </div>
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Dawn Walk</span
+              ><span class="t-sidebar-fact-value">7 AM, empty beach</span>
+            </div>
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Reef Snorkelling</span
+              ><span class="t-sidebar-fact-value">East coast, AM</span>
+            </div>
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Sunset Beach</span
+              ><span class="t-sidebar-fact-value">Jungle path, west</span>
+            </div>
+            <div class="t-sidebar-fact">
+              <span class="t-sidebar-fact-label">Night Sky</span
+              ><span class="t-sidebar-fact-value">No light pollution</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- RELATED -->
+    <section class="t-related">
+      <div class="t-related-inner">
+        <div class="t-related-eyebrow">Explore More</div>
+        <h2>More from Thailand</h2>
+        <div class="t-related-grid">
+          <a href="../itineraries/thailand-8days.html" class="t-related-card">
+            <div class="t-related-card-img" style="background: #1a2e38">
+              <span class="t-related-card-badge">Thailand</span>
+            </div>
+            <div class="t-related-card-body">
+              <div class="t-related-card-title">Thailand: 8 Days</div>
+              <div class="t-related-card-desc">
+                Our complete Thailand island-hopping itinerary — Phuket, Koh
+                Lanta, Koh Mook, Koh Ngai, Koh Kradan, and Bangkok.
+              </div>
+            </div>
+          </a>
+          <a href="kenya-diani.html" class="t-related-card">
+            <div class="t-related-card-img" style="background: #2e1a10">
+              <span class="t-related-card-badge">Kenya</span>
+            </div>
+            <div class="t-related-card-body">
+              <div class="t-related-card-title">Diani Beach</div>
+              <div class="t-related-card-desc">
+                Kenya's South Coast and the Indian Ocean — ten kilometres of
+                white sand that still feels like Africa.
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <site-footer depth=".."></site-footer>
+
+    <script type="module" src="../js/components/site-ribbon.js"></script>
+    <script type="module" src="../js/components/site-header.js"></script>
+    <script type="module" src="../js/components/site-footer.js"></script>
+    <script type="module" src="../js/pages/destination.js"></script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+    ┌──────────────────────────────────────────────────────────────────┐
+    │  TEMPLATE for sub-pages (articles, destinations, itineraries)    │
+    │                                                                  │
+    │  How to use:                                                     │
+    │  1. Update <title> and <meta name="description">                 │
+    │  2. Set active="travel" (or "lifestyle" / "studio") on           │
+    │     <site-header active="...">                                   │
+    │  3. Adjust the path depth of asset and script hrefs:             │
+    │     - Root-level page (e.g. japan.html):  href="../styles.css"   │
+    │       → actually stays  href="styles.css"                        │
+    │     - One folder deep (e.g. destinations/asia-japan.html):       │
+    │       → href="../styles.css"                                     │
+    │     - Two folders deep (e.g. lifestyle/articles/foo.html):       │
+    │       → href="../../styles.css"                                  │
+    │  4. Replace <!-- PAGE CONTENT --> with your content              │
+    │  5. If the page is a long article, add id="readingBar" div       │
+    │     below <site-header> for the reading progress bar             │
+    └──────────────────────────────────────────────────────────────────┘
+    -->
+
+    <title>Page Title — AdiRaj Routes &amp; Reflections</title>
+    <meta name="description" content="Page description here." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+    <!-- Adjust path depth: ../styles.css for 1 folder, ../../styles.css for 2 -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Web Components: adjust path depth to match -->
+    <site-ribbon></site-ribbon>
+    <site-header active="travel"></site-header>
+
+    <!--
+      Optional reading progress bar (for long articles):
+      <div id="readingBar" style="position:fixed;top:0;left:0;height:2px;
+           background:var(--accent);width:0;z-index:9999;transition:width .1s;"></div>
+    -->
+
+    <!-- ══════════════════════════════════════
+         PAGE CONTENT
+         Replace everything below with your
+         actual page content.
+    ══════════════════════════════════════ -->
+    <main class="page-content">
+
+      <!-- Example: Article hero -->
+      <div class="post-hero">
+        <img src="assets/your-image.jpg" alt="Descriptive alt text" loading="eager" />
+      </div>
+
+      <!-- Example: Article body -->
+      <article class="post-body">
+        <header class="post-header">
+          <div class="post-tags">
+            <span class="post-tag">Category</span>
+          </div>
+          <h1>Your Article Title</h1>
+          <div class="post-meta">
+            <span>Author Name</span>
+            <span>·</span>
+            <span>Date</span>
+          </div>
+        </header>
+
+        <div class="post-content">
+          <p>Your content here.</p>
+        </div>
+      </article>
+
+    </main>
+    <!-- /END PAGE CONTENT -->
+
+    <site-footer></site-footer>
+
+    <!-- Adjust path depth to match your folder structure -->
+    <script type="module" src="js/components/site-ribbon.js"></script>
+    <script type="module" src="js/components/site-header.js"></script>
+    <script type="module" src="js/components/site-footer.js"></script>
+    <script type="module" src="js/pages/shared-pages.js"></script>
+    <!--
+      Use a specific page script if the sub-page has interactive features:
+      <script type="module" src="../js/pages/travel.js"></script>
+    -->
+  </body>
+</html>

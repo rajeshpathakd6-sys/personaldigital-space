@@ -1,0 +1,1096 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kamikochi, Japan — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="Walking the valley floor at Kamikochi — Japan's most beautiful alpine destination and why it stopped us in our tracks." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      /* ── PAGE VARIABLES ── */
+      :root {
+        --k-ink: #1a1918;
+        --k-soft: #4a4440;
+        --k-muted: #8a8480;
+        --k-rule: #e2ddd8;
+        --k-bg: #f7f5f2;
+        --k-white: #ffffff;
+        --k-accent: #c0815a;
+        --k-accent-lt: #e8c4a8;
+        --k-green: #4a5e45;
+        --k-blue: #4a6e8a;
+        --k-serif: var(--serif);
+        --k-alt: var(--serif);
+        --k-sans: var(--sans);
+      }
+
+      body {
+        background: var(--k-bg);
+      }
+
+      /* ── HERO ── */
+      .k-hero {
+        position: relative;
+        height: 96vh;
+        min-height: 620px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 5.5rem;
+      }
+      .k-hero-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url("../travel/assets/kamikochi.JPG");
+        background-size: cover;
+        background-position: center 35%;
+        transform: scale(1.05);
+        transition: transform 10s ease-out;
+      }
+      .k-hero-bg.loaded {
+        transform: scale(1);
+      }
+      .k-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          175deg,
+          rgba(0, 0, 0, 0.04) 0%,
+          rgba(0, 0, 0, 0.05) 35%,
+          rgba(0, 0, 0, 0.52) 70%,
+          rgba(10, 8, 6, 0.82) 100%
+        );
+      }
+      .k-hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 860px;
+        padding: 0 2rem;
+        animation: kFadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      @keyframes kFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(36px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .k-hero-eyebrow {
+        font-family: var(--k-sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+        color: var(--k-accent-lt);
+        margin-bottom: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.9rem;
+      }
+      .k-hero-eyebrow::before,
+      .k-hero-eyebrow::after {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: var(--k-accent-lt);
+        opacity: 0.6;
+      }
+      .k-hero h1 {
+        font-family: var(--k-alt);
+        font-size: clamp(3.4rem, 8vw, 6.5rem);
+        font-weight: 300;
+        font-style: italic;
+        color: #fff;
+        line-height: 1;
+        letter-spacing: -0.01em;
+        margin-bottom: 1.4rem;
+      }
+      .k-hero-sub {
+        font-family: var(--k-sans);
+        font-size: 0.88rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.72);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        line-height: 1.6;
+      }
+      .k-hero-meta {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        gap: 2.8rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+        animation: kFadeUp 1.2s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      .k-hero-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: var(--k-sans);
+        font-size: 0.7rem;
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.58);
+      }
+      .k-hero-meta-divider {
+        width: 1px;
+        height: 18px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* ── LAYOUT ── */
+      .k-layout {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 5rem 2rem 7rem;
+        display: grid;
+        grid-template-columns: 1fr 310px;
+        gap: 4rem;
+        align-items: start;
+      }
+      @media (max-width: 920px) {
+        .k-layout {
+          grid-template-columns: 1fr;
+        }
+        .k-sidebar {
+          display: none;
+        }
+      }
+
+      /* ── ARTICLE ── */
+      .k-article-intro {
+        font-family: var(--k-alt);
+        font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--k-soft);
+        line-height: 1.78;
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--k-rule);
+      }
+      .k-article p {
+        font-family: var(--k-sans);
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--k-soft);
+        line-height: 1.95;
+        margin-bottom: 1.7rem;
+      }
+      .k-article p strong {
+        font-weight: 700;
+        color: var(--k-ink);
+      }
+
+      /* ── SECTION HEADING ── */
+      .k-section-head {
+        margin: 3.5rem 0 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .k-section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--k-rule);
+      }
+      .k-section-head-label {
+        font-family: var(--k-sans);
+        font-size: 0.63rem;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--k-muted);
+        white-space: nowrap;
+      }
+      .k-section-head-line-right {
+        flex: 0.12;
+      }
+
+      /* ── PULL QUOTE ── */
+      .k-pullquote {
+        margin: 3.2rem 0;
+        padding: 2.2rem 2.5rem;
+        border-left: 3px solid var(--k-accent);
+        background: rgba(192, 129, 90, 0.05);
+      }
+      .k-pullquote p {
+        font-family: var(--k-alt);
+        font-size: clamp(1.15rem, 2vw, 1.35rem);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--k-soft) !important;
+        line-height: 1.7 !important;
+        margin-bottom: 0 !important;
+      }
+
+      /* ── PHOTO CONTAINERS ── */
+      .k-photo-full {
+        margin: 2.8rem -2rem;
+        overflow: hidden;
+        background: var(--k-rule);
+      }
+      .k-photo-full img {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        display: block;
+      }
+      .k-photo-placeholder-full {
+        width: 100%;
+        height: 520px;
+        background: linear-gradient(135deg, #e8e2d8 0%, #d5cfc5 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      .k-photo-placeholder-full svg {
+        opacity: 0.3;
+      }
+      .k-photo-placeholder-full span {
+        font-family: var(--k-sans);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--k-muted);
+      }
+
+      .k-photo-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin: 2.8rem 0;
+      }
+      .k-photo-grid-3 {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 1.2rem;
+        margin: 2.8rem 0;
+      }
+      .k-photo-item {
+        overflow: hidden;
+        background: var(--k-rule);
+      }
+      .k-photo-item img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+      .k-photo-item:hover img {
+        transform: scale(1.03);
+      }
+      .k-photo-placeholder {
+        width: 100%;
+        height: 320px;
+        background: linear-gradient(135deg, #e8e2d8 0%, #d5cfc5 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+      }
+      .k-photo-placeholder svg {
+        opacity: 0.28;
+      }
+      .k-photo-placeholder span {
+        font-family: var(--k-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--k-muted);
+      }
+      .k-photo-caption {
+        font-family: var(--k-sans);
+        font-size: 0.72rem;
+        color: var(--k-muted);
+        letter-spacing: 0.06em;
+        text-align: center;
+        margin-top: -1.2rem;
+        margin-bottom: 2.8rem;
+        font-style: italic;
+      }
+
+      /* ── PRACTICAL BOX ── */
+      .k-practical {
+        margin: 3.5rem 0;
+        border: 1px solid var(--k-rule);
+        background: var(--k-white);
+      }
+      .k-practical-head {
+        padding: 1.2rem 1.8rem;
+        border-bottom: 1px solid var(--k-rule);
+        font-family: var(--k-sans);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--k-muted);
+        background: #faf8f5;
+      }
+      .k-practical-item {
+        padding: 1.2rem 1.8rem;
+        border-bottom: 1px solid var(--k-rule);
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        gap: 1.2rem;
+        align-items: baseline;
+      }
+      .k-practical-item:last-child {
+        border-bottom: none;
+      }
+      .k-practical-label {
+        font-family: var(--k-sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--k-ink);
+        padding-top: 2px;
+      }
+      .k-practical-value {
+        font-family: var(--k-sans);
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: var(--k-soft);
+        line-height: 1.6;
+      }
+
+      /* ── SIDEBAR ── */
+      .k-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .k-sidebar-card {
+        border: 1px solid var(--k-rule);
+        background: var(--k-white);
+        overflow: hidden;
+      }
+      .k-sidebar-card-head {
+        padding: 1rem 1.4rem;
+        border-bottom: 1px solid var(--k-rule);
+        font-family: var(--k-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--k-muted);
+        background: #faf8f5;
+      }
+      .k-sidebar-card-body {
+        padding: 1.2rem 1.4rem;
+      }
+      .k-sidebar-card-body p {
+        font-family: var(--k-sans);
+        font-size: 0.88rem;
+        font-weight: 300;
+        color: var(--k-soft);
+        line-height: 1.7;
+      }
+      .k-sidebar-fact {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 0.65rem 0;
+        border-bottom: 1px solid var(--k-rule);
+        gap: 1rem;
+      }
+      .k-sidebar-fact:last-child {
+        border-bottom: none;
+      }
+      .k-sidebar-fact-label {
+        font-family: var(--k-sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--k-muted);
+        flex-shrink: 0;
+      }
+      .k-sidebar-fact-value {
+        font-family: var(--k-sans);
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: var(--k-ink);
+        text-align: right;
+      }
+      .k-sidebar-photo {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+        background: var(--k-rule);
+      }
+      .k-sidebar-photo-placeholder {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #e8e2d8 0%, #d5cfc5 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .k-sidebar-photo-placeholder span {
+        font-family: var(--k-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--k-muted);
+      }
+      .k-sidebar-tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1.2rem 1.4rem;
+      }
+      .k-sidebar-tag {
+        font-family: var(--k-sans);
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--k-soft);
+        background: #f0ebe3;
+        padding: 4px 10px;
+        border: 1px solid var(--k-rule);
+      }
+
+      /* ── RELATED ── */
+      .k-related {
+        background: #1a1918;
+        padding: 5rem 2rem;
+      }
+      .k-related-inner {
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+      .k-related-eyebrow {
+        font-family: var(--k-sans);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.38em;
+        text-transform: uppercase;
+        color: var(--k-accent);
+        margin-bottom: 0.8rem;
+      }
+      .k-related h2 {
+        font-family: var(--k-alt);
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        font-weight: 300;
+        font-style: italic;
+        color: #fff;
+        margin-bottom: 3rem;
+      }
+      .k-related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+      .k-related-card {
+        display: block;
+        text-decoration: none;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+      .k-related-card:hover {
+        transform: translateY(-4px);
+      }
+      .k-related-card-img {
+        position: relative;
+        height: 240px;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+      }
+      .k-related-card-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 40%,
+          rgba(0, 0, 0, 0.7) 100%
+        );
+      }
+      .k-related-card-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1;
+        font-family: var(--k-sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.45);
+        padding: 4px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .k-related-card-body {
+        padding: 1.4rem;
+        background: #242220;
+      }
+      .k-related-card-title {
+        font-family: var(--k-serif);
+        font-size: 1.1rem;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .k-related-card-desc {
+        font-family: var(--k-sans);
+        font-size: 0.82rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.6;
+      }
+
+      /* ── SCROLL REVEAL ── */
+      .js-reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .js-reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link rel="apple-touch-icon" href="../assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/destinations/japan-kamikochi.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Kamikochi, Japan — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Walking the valley floor at Kamikochi — Japan's most beautiful alpine destination and why it stopped us in our tracks." />
+    <meta property="og:url" content="https://routesandreflections.in/destinations/japan-kamikochi.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kamikochi, Japan — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Walking the valley floor at Kamikochi — Japan's most beautiful alpine destination and why it stopped us in our tracks." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body class="dest-page">
+    <site-ribbon depth=".."></site-ribbon>
+    <site-header active="travel" depth=".."></site-header>
+
+    <!-- ══ HERO ══ -->
+    <section class="k-hero">
+      <div class="k-hero-bg" id="heroBg"></div>
+      <div class="k-hero-content">
+        <div class="k-hero-eyebrow">
+          Japan &nbsp;·&nbsp; Japanese Alps &nbsp;·&nbsp; Nagano
+        </div>
+        <h1>Kamikochi</h1>
+        <p class="k-hero-sub">Where the gods once descended</p>
+      </div>
+      <div class="k-hero-meta">
+        <div class="k-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Nagano, Japan
+        </div>
+        <div class="k-hero-meta-divider"></div>
+        <div class="k-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          1 Night · 2 Days
+        </div>
+        <div class="k-hero-meta-divider"></div>
+        <div class="k-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          Autumn Season
+        </div>
+        <div class="k-hero-meta-divider"></div>
+        <div class="k-hero-meta-item">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+          1,500 m Altitude
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ MAIN LAYOUT ══ -->
+    <main class="k-layout">
+      <!-- ── ARTICLE ── -->
+      <article class="k-article">
+        <p class="k-article-intro js-reveal">
+          Kamikochi — 上高地 — translates loosely as "the highlands where gods
+          descend." After one night in this glacially carved valley, entirely
+          surrounded by peaks above 3,000 metres and no road in except by bus,
+          the name stops feeling like mythology and starts feeling like the most
+          accurate description of a place you've ever encountered.
+        </p>
+
+        <!-- PHOTO: FULL WIDTH -->
+        <div class="k-photo-full js-reveal">
+          <img
+            src="../travel/assets/kamikochi-bridge.jpeg"
+            alt="Kappa Bridge"
+          />
+        </div>
+
+        <div class="k-section-head js-reveal">
+          <div class="k-section-head-line"></div>
+          <div class="k-section-head-label">Getting There</div>
+          <div class="k-section-head-line-right k-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          Private cars are banned from Kamikochi entirely — not merely
+          discouraged, but legally prohibited. This single decision, which has
+          held for decades, is responsible for the valley's preservation. You
+          arrive the only way permitted: by bus from Shin-Shimashima Station,
+          itself reached by the Matsumoto Electric Railway from Matsumoto. From
+          the moment you step off at the Kamikochi Bus Terminal, 1,500 metres
+          above sea level, you are somewhere that requires effort to reach — and
+          the reward is proportional to that effort.
+        </p>
+
+        <p class="js-reveal">
+          The approach matters.
+          <strong>Book the overnight bus from Shinjuku</strong> if you want to
+          maximise your valley time. It deposits you at the terminal around 6
+          AM, when the light is still low and gold, the first buses of
+          day-trippers are hours away, and the valley belongs entirely to those
+          who stayed the night or were early enough to want it this badly. The
+          alternative from Matsumoto is perfectly fine, but the early morning
+          window — before 9 AM — is when Kamikochi is most itself.
+        </p>
+
+        <div class="k-pullquote js-reveal">
+          <p>
+            "The moment the bus pulls free of the tunnel and the Hotaka Range
+            appears above the treeline — all 3,190 metres of Oku-Hotakadake
+            filling the windscreen — you understand immediately why this valley
+            has been a place of pilgrimage since the Edo period."
+          </p>
+        </div>
+
+        <div class="k-section-head js-reveal">
+          <div class="k-section-head-line"></div>
+          <div class="k-section-head-label">The Valley</div>
+          <div class="k-section-head-line-right k-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          Kamikochi stretches for roughly six accessible kilometres from Taisho
+          Pond in the south to the lodges at Tokusawa and beyond. The Azusa
+          River — impossibly turquoise, fed by snowmelt from peaks that stay
+          white well into June — runs the length of the valley floor. The trails
+          beside it are almost entirely flat, a rarity at this altitude, which
+          means anyone can walk them.
+        </p>
+
+        <p class="js-reveal">
+          <strong>Taisho Pond</strong> is the first encounter and it is
+          extraordinary: formed in 1915 when the volcano Yakedake erupted and
+          dammed the Azusa River, it holds the standing skeletons of larch
+          trees, perfectly preserved, rising from still water that mirrors the
+          Hotaka peaks on a calm morning. At this hour, with mist threading
+          between the standing dead, it feels less like a lake and more like a
+          Japanese ink painting made three-dimensional.
+        </p>
+
+        <!-- PHOTO GRID 2-UP -->
+        <div class="k-photo-grid-2 js-reveal">
+          <div class="k-photo-item">
+            <img
+              src="../travel/assets/kamikochi-taisopond.jpeg"
+              alt="Taiso Pond"
+            />
+          </div>
+          <div class="k-photo-item">
+            <img src="../travel/assets/kamikochi7.jpeg" alt="Hike to Hotel" />
+          </div>
+        </div>
+        <!--  <p class="k-photo-caption">
+          Taisho Pond in early morning mist · The Azusa River running
+          glacial-blue beside the valley trail
+        </p>
+      -->
+
+        <p class="js-reveal">
+          From Taisho Pond, the walk north along the Azusa River to Kappa Bridge
+          — the valley's famous wooden suspension span, 36 metres across, with
+          the Hotaka peaks framing the view on both sides — takes under an hour
+          at a leisurely pace. The name comes from a mythical water creature
+          said to inhabit the river below. What you're more likely to encounter:
+          Japanese macaques, entirely unconcerned by your presence, crossing the
+          footpath; grey wagtails darting between river stones; and, if you're
+          here in October, the white birch trees burning yellow against the dark
+          spires of the peaks.
+        </p>
+
+        <div class="k-section-head js-reveal">
+          <div class="k-section-head-line"></div>
+          <div class="k-section-head-label">Staying the Night</div>
+          <div class="k-section-head-line-right k-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          The entire point of staying in the valley overnight — and it is worth
+          the premium — is access to two windows that day-trippers never see.
+          The first is the hour before 8 AM: the last bus from Matsumoto doesn't
+          arrive until mid-morning, so the valley is empty of crowds, the light
+          is raking and golden, and the reflection in the Azusa River is
+          undisturbed. The second is the night itself, when the last day-tripper
+          departs around 5 PM and the valley goes entirely still.
+        </p>
+
+        <p class="js-reveal">
+          <strong
+            >Book your lodge accommodation at least three months in advance for
+            autumn</strong
+          >, particularly if you want the Kamikochi Imperial Hotel or the
+          Nishi-Itoya Mountain Lodge — both fill completely for the October
+          leaf-peeping season. There are about half a dozen hotels within the
+          protected valley, plus several mountain huts (sanso) for those
+          continuing toward the peaks. Day-trippers can use many hotel
+          facilities — hot spring baths, restaurants — without an overnight
+          stay.
+        </p>
+
+        <!-- PHOTO FULL WIDTH -->
+        <div class="k-photo-full js-reveal">
+          <img src="../travel/assets/kamikochi2.jpeg" alt="Kamikochi & Us" />
+        </div>
+
+        <div class="k-section-head js-reveal">
+          <div class="k-section-head-line"></div>
+          <div class="k-section-head-label">What to Walk</div>
+          <div class="k-section-head-line-right k-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          The valley's main route —
+          <strong>Taisho Pond → Kappa Bridge → Myojin Pond</strong> — takes
+          three to four hours at a relaxed pace, each direction. From Kappa
+          Bridge, heading north to Myojin Pond (about an hour's easy walk), you
+          enter quieter forest. Myojin Pond itself is enclosed, dark-green, and
+          still, with a small Shinto shrine at its edge — one of those places
+          that feels genuinely sacred rather than performatively so. A small
+          wooden dock extends over the water; stand at the end of it and you'll
+          understand why this valley has drawn pilgrims and mountaineers for two
+          centuries.
+        </p>
+
+        <p class="js-reveal">
+          Beyond Myojin lies Tokusawa, another hour further, where you enter the
+          true realm of mountain huts and alpinists. The trail stays flat and
+          through deep larch forest. You can stay the night here and push toward
+          Karasawa Cirque the following morning — the glacial headwall of the
+          valley, reached after a substantial climb, and one of Japan's most
+          iconic high-mountain settings. For most visitors, though, Myojin Pond
+          and back is the ideal scope for a single overnight stay.
+        </p>
+
+        <div class="k-pullquote js-reveal">
+          <p>
+            "After the last day-tripper bus departs at 5 PM, the valley belongs
+            only to those who stay. The silence that descends is not the silence
+            of emptiness — it is the silence of something held carefully for a
+            long time."
+          </p>
+        </div>
+
+        <!-- PHOTO GRID 3-UP -->
+        <div class="k-photo-grid-3 js-reveal">
+          <div class="k-photo-item">
+            <img src="../travel/assets/kamikochi4.jpeg" alt="Trail" />
+          </div>
+          <div class="k-photo-item">
+            <img src="../travel/assets/kamikochi3.jpeg" alt="Forest Trail" />
+          </div>
+        </div>
+
+        <div class="k-section-head js-reveal">
+          <div class="k-section-head-line"></div>
+          <div class="k-section-head-label">The Autumn Season</div>
+          <div class="k-section-head-line-right k-section-head-line"></div>
+        </div>
+
+        <p class="js-reveal">
+          Autumn is the most spectacular season in Kamikochi, and also the most
+          crowded. The white birch trees — <em>shirakaba</em> — turn a vivid
+          chrome yellow through October; the larches follow in gold; the peaks
+          often carry first snow by late October. Peak colour is
+          weather-dependent and shifts year to year, but mid-October is the
+          usual window. Weekday visits in autumn are dramatically quieter than
+          weekends.
+          <strong>Avoid the Japanese holidays (Obon and Golden Week)</strong>
+          unless you want to queue for buses and trail space.
+        </p>
+
+        <p class="js-reveal">
+          The valley is open from mid-April (when the snow recedes enough for
+          the road to be cleared) through 15 November, after which it closes
+          completely for winter. The season's opening brings a different magic:
+          snowfields still blanketing the upper slopes, new green unfurling on
+          the valley floor, and a sense of emergence. Summer is popular with
+          hikers targeting the high peaks. Each season offers something genuine
+          — autumn's colour is just the most photogenic.
+        </p>
+
+        <!-- PRACTICAL INFO -->
+        <div class="k-practical js-reveal">
+          <div class="k-practical-head">Practical Notes</div>
+          <div class="k-practical-item">
+            <div class="k-practical-label">Access</div>
+            <div class="k-practical-value">
+              Train from Matsumoto → Shin-Shimashima (30 min), then bus to
+              Kamikochi (60 min). No private vehicles permitted. Overnight buses
+              from Shinjuku, Osaka and Kyoto are also available. Book buses in
+              advance — no walk-up seats in peak season.
+            </div>
+          </div>
+          <div class="k-practical-item">
+            <div class="k-practical-label">Season</div>
+            <div class="k-practical-value">
+              Open mid-April to 15 November only. Autumn foliage peaks
+              mid-October (weather dependent). Spring (late April–May) offers
+              snow-capped peaks and new growth. Summer suits high-mountain
+              hikers. Avoid Obon holidays and autumn weekends for smaller
+              crowds.
+            </div>
+          </div>
+          <div class="k-practical-item">
+            <div class="k-practical-label">Accommodation</div>
+            <div class="k-practical-value">
+              Book 3–4 months ahead for autumn stays. Six hotels within the
+              valley plus mountain huts (sanso) further north. Day-tripper hot
+              spring baths available at several hotels without overnight
+              booking. No ATMs in the valley — carry cash.
+            </div>
+          </div>
+          <div class="k-practical-item">
+            <div class="k-practical-label">Dining</div>
+            <div class="k-practical-value">
+              Restaurants on the 2nd floor of the Bus Terminal and near Kappa
+              Bridge. Salt-grilled river char (iwana) and cold soba noodles are
+              the local staples. Kamonjigoya near Myojin Pond does excellent
+              grilled fish. No convenience stores in the valley — bring snacks
+              for long walks.
+            </div>
+          </div>
+          <div class="k-practical-item">
+            <div class="k-practical-label">What to Pack</div>
+            <div class="k-practical-value">
+              Layers — mornings are genuinely cold even in early autumn (bring
+              gloves for October). A headlamp for predawn walks. Good walking
+              shoes; the main trails are flat but can be muddy after rain. Bear
+              bells are sold locally if hiking beyond Tokusawa.
+            </div>
+          </div>
+          <div class="k-practical-item">
+            <div class="k-practical-label">Our Take</div>
+            <div class="k-practical-value">
+              One night is the minimum that justifies the journey. Two nights
+              lets you reach Karasawa Cirque. Three is not excessive if you want
+              to sit with the valley rather than just pass through it. The
+              predawn walk from your lodge to Kappa Bridge — in total darkness
+              and silence — is the experience worth planning everything else
+              around.
+            </div>
+          </div>
+        </div>
+
+        <!-- FINAL PHOTO GRID -->
+        <div class="k-photo-grid-2 js-reveal">
+          <div class="k-photo-item">
+            <img src="../travel/assets/kamikochi6.jpeg" alt="Hotaka Range" />
+          </div>
+          <div class="k-photo-item">
+            <img src="../travel/assets/kamikochi5.jpeg" alt="Hotaka Range" />
+          </div>
+        </div>
+      </article>
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="k-sidebar">
+        <div class="k-sidebar-card">
+          <div class="k-sidebar-card-head">Quick Facts</div>
+          <div class="k-sidebar-card-body">
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Country</span
+              ><span class="k-sidebar-fact-value">Japan</span>
+            </div>
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Prefecture</span
+              ><span class="k-sidebar-fact-value">Nagano</span>
+            </div>
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Altitude</span
+              ><span class="k-sidebar-fact-value">~1,500 m</span>
+            </div>
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Open</span
+              ><span class="k-sidebar-fact-value">Mid-Apr – 15 Nov</span>
+            </div>
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Our Stay</span
+              ><span class="k-sidebar-fact-value">1 Night / 2 Days</span>
+            </div>
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Best Season</span
+              ><span class="k-sidebar-fact-value">October (Autumn)</span>
+            </div>
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">No. of Hotels</span
+              ><span class="k-sidebar-fact-value">~6 in valley</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="k-sidebar-card">
+          <img src="../travel/assets/kamikochi-us.jpeg" alt="Kamikochi & Us" />
+          <div class="k-sidebar-card-body">
+            <p>
+              Kamikochi is protected within Chubu Sangaku National Park. No
+              private vehicles have been allowed inside since the 1970s — which
+              is the reason it remains one of Japan's most pristine mountain
+              valleys.
+            </p>
+          </div>
+        </div>
+
+        <div class="k-sidebar-card">
+          <div class="k-sidebar-card-head">Don't Miss</div>
+          <div class="k-sidebar-card-body">
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Predawn Walk</span
+              ><span class="k-sidebar-fact-value">Before 6 AM</span>
+            </div>
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Taisho Pond</span
+              ><span class="k-sidebar-fact-value">Mist & reflections</span>
+            </div>
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Kappa Bridge</span
+              ><span class="k-sidebar-fact-value">Dawn & dusk</span>
+            </div>
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Myojin Pond</span
+              ><span class="k-sidebar-fact-value">Shrine & stillness</span>
+            </div>
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Alpenglow</span
+              ><span class="k-sidebar-fact-value">Face the Hotaka</span>
+            </div>
+            <div class="k-sidebar-fact">
+              <span class="k-sidebar-fact-label">Macaques</span
+              ><span class="k-sidebar-fact-value">Along the river trail</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- ══ RELATED ══ -->
+    <section class="k-related">
+      <div class="k-related-inner">
+        <div class="k-related-eyebrow">Explore More</div>
+        <h2>More from Asia</h2>
+        <div class="k-related-grid">
+          <a href="taiwan-east-rift-valley.html" class="k-related-card">
+            <div class="k-related-card-img" style="background: #3d5a3a">
+              <span class="k-related-card-badge">Taiwan</span>
+            </div>
+            <div class="k-related-card-body">
+              <div class="k-related-card-title">East Rift Valley</div>
+              <div class="k-related-card-desc">
+                Cycling through paddy fields between two mountain ranges —
+                Taiwan's most quietly spectacular inland landscape.
+              </div>
+            </div>
+          </a>
+          <a href="../itineraries/japan-14days.html" class="k-related-card">
+            <div class="k-related-card-img" style="background: #4a3a2a">
+              <span class="k-related-card-badge">Japan</span>
+            </div>
+            <div class="k-related-card-body">
+              <div class="k-related-card-title">Japan: 14 Days</div>
+              <div class="k-related-card-desc">
+                Our complete Japan itinerary — from Tokyo and Kyoto to the
+                Japanese Alps and beyond.
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PREMIUM FOOTER ── -->
+
+    <site-footer depth=".."></site-footer>
+
+    <script type="module" src="../js/components/site-ribbon.js"></script>
+    <script type="module" src="../js/components/site-header.js"></script>
+    <script type="module" src="../js/components/site-footer.js"></script>
+    <script type="module" src="../js/pages/destination.js"></script>
+  </body>
+</html>

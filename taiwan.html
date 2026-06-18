@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taiwan: The Kind of Place You Return To — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="Taiwan unfolded gently for us — through local streets, night markets, and unplanned detours. It's the kind of place where slowing down makes everything richer." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/pages/article.css" />
+    <style>
+      /* ── No-sidebar layout override ── */
+      .post-page-wrap {
+        grid-template-columns: 1fr !important;
+        max-width: 780px !important;
+      }
+      .post-body {
+        max-width: 100%;
+      }
+
+      /* ── Hero ── */
+      .post-hero {
+        position: relative;
+        height: clamp(340px, 52vh, 580px);
+        overflow: hidden;
+        background: #1a140e;
+      }
+      .post-hero-img-wrap {
+        height: 100%;
+      }
+      .post-hero-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.88;
+      }
+      .post-hero-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(20, 14, 8, 0.72) 0%,
+          rgba(20, 14, 8, 0.1) 55%,
+          transparent 100%
+        );
+        pointer-events: none;
+      }
+      /* Dummy photo placeholder */
+      .photo-placeholder {
+        width: 100%;
+        aspect-ratio: 16/10;
+        background: #e8e2d8;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        margin: 1.8rem 0 0.5rem;
+        color: #a0927e;
+      }
+      .photo-placeholder svg {
+        opacity: 0.45;
+      }
+      .photo-placeholder span {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #b8a890;
+      }
+      .photo-placeholder-sm {
+        aspect-ratio: 4/3;
+      }
+
+      /* ── Pull stat boxes ── */
+      .post-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: #e8e2d8;
+        border: 1px solid #e8e2d8;
+        border-radius: 3px;
+        overflow: hidden;
+        margin: 2.2rem 0;
+      }
+      .post-stat {
+        background: #faf8f4;
+        padding: 1.1rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .post-stat-label {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #9a8068;
+      }
+      .post-stat-value {
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        color: #1a140e;
+      }
+
+      /* ── Highlight / tip box ── */
+      .post-tip {
+        background: #f5f1ea;
+        border-left: 3px solid #c9a96e;
+        padding: 1.1rem 1.4rem;
+        border-radius: 0 3px 3px 0;
+        margin: 1.8rem 0;
+      }
+      .post-tip-label {
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #c9a96e;
+        margin-bottom: 0.4rem;
+      }
+      .post-tip p {
+        font-family: var(--sans) !important;
+        font-size: 0.88rem !important;
+        line-height: 1.65 !important;
+        color: #5a4a38 !important;
+        margin: 0 !important;
+      }
+
+      /* ── Section divider ── */
+      .post-divider {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 2.5rem 0 1.5rem;
+      }
+      .post-divider-line {
+        flex: 1;
+        height: 1px;
+        background: #e0d8ce;
+      }
+      .post-divider-label {
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #b8a890;
+        white-space: nowrap;
+      }
+
+      /* ── Related posts ── */
+      .related-section {
+        border-top: 1px solid var(--rule);
+        padding: 3rem 2rem;
+        background: var(--white);
+      }
+      .related-inner {
+        max-width: var(--max-w);
+        margin-inline: auto;
+      }
+      .related-kicker {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink);
+        margin-bottom: 2rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--ink);
+      }
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .related-card {
+        text-decoration: none;
+      }
+      .related-card-img {
+        aspect-ratio: 16/10;
+        overflow: hidden;
+        border-radius: 2px;
+        background: #e8e2d8;
+        margin-bottom: 0.7rem;
+      }
+      .related-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .related-card:hover .related-card-img img {
+        transform: scale(1.04);
+      }
+      .related-card-tag {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .related-card-title {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--ink);
+        line-height: 1.35;
+        transition: color 0.2s;
+      }
+      .related-card:hover .related-card-title {
+        color: var(--accent);
+      }
+      @media (max-width: 640px) {
+        .related-grid {
+          grid-template-columns: 1fr;
+        }
+        .post-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="apple-touch-icon" href="./assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/taiwan.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Taiwan: The Kind of Place You Return To — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Taiwan unfolded gently for us — through local streets, night markets, and unplanned detours. It's the kind of place where slowing down makes everything richer." />
+    <meta property="og:url" content="https://routesandreflections.in/taiwan.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Taiwan: The Kind of Place You Return To — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Taiwan unfolded gently for us — through local streets, night markets, and unplanned detours. It's the kind of place where slowing down makes everything richer." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body>
+    <div class="reading-bar" id="readingBar" aria-hidden="true"></div>
+    <site-ribbon></site-ribbon>
+    <site-header active="travel"></site-header>
+
+
+    <!-- POST HERO -->
+    <div class="post-hero">
+      <div class="post-hero-img-wrap">
+        <img
+          src="assets/taiwan.JPG"
+          alt="Taiwan — East Rift Valley"
+          loading="eager"
+        />
+      </div>
+      <div class="post-hero-gradient"></div>
+    </div>
+
+    <!-- POST HEADER -->
+    <div class="post-header">
+      <div class="post-card-tags">
+        <a href="./travel.html" class="post-tag">Travel</a>
+        <a href="#" class="post-tag">Asia</a>
+        <a href="#" class="post-tag">Taiwan</a>
+      </div>
+      <h1 class="post-title">The Kind of Place You Return To</h1>
+      <p class="post-subtitle">
+        An island that keeps surprising you — from the mountain tea villages of
+        Alishan to the golden rice fields of Chishang, and every night market in
+        between.
+      </p>
+    </div>
+
+    <!-- POST BODY -->
+    <div class="post-page-wrap">
+      <article class="post-body">
+        <p>
+          Taiwan had been on the list for a while. We'd talked about it for
+          years — the night markets, the mountain railways, the paddy fields of
+          the east coast — and when December opened up, we booked it properly.
+          Ten days, a loose route from north to south, and a deliberate plan to
+          go slower than we usually do. We're glad we made the time.
+        </p>
+
+        <p>
+          Taiwan is one of those places that doesn't announce itself loudly. It
+          doesn't have the iconic skyline of Tokyo or the ancient grandeur of
+          Kyoto. What it has instead is something harder to describe — a
+          combination of warmth, creativity, natural beauty, and food that
+          quietly adds up to one of the most rewarding travel experiences in
+          Asia.
+        </p>
+
+        <!-- TOC -->
+        <div
+          style="
+            background: var(--beige);
+            border-left: 3px solid var(--accent);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+          "
+        >
+          <p
+            style="
+              font-size: 0.72rem;
+              font-weight: 700;
+              letter-spacing: 0.15em;
+              text-transform: uppercase;
+              color: var(--ink);
+              margin-bottom: 0.75rem;
+            "
+          >
+            In This Post
+          </p>
+          <ol style="padding-left: 1.2rem; margin: 0">
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#taipei" style="color: var(--accent)"
+                >Taipei — The City That Works</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#taichung-mountains" style="color: var(--accent)"
+                >Taichung &amp; The Mountains</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#east-coast" style="color: var(--accent)"
+                >The East Coast — Taitung &amp; Chishang</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#south" style="color: var(--accent)"
+                >Tainan &amp; Kaohsiung</a
+              >
+            </li>
+          </ol>
+        </div>
+
+        <h2 id="taipei">Taipei — The City That Works</h2>
+
+        <p>
+          We landed at Taoyuan in the afternoon and took the metro straight into
+          the city. The first thing you notice about Taipei is how functional
+          everything is. The trains run on time, the signs are in English, the
+          7-Elevens are everywhere (and genuinely useful — you can pay bills,
+          print boarding passes, buy SIM cards), and the whole city feels
+          designed for humans rather than cars.
+        </p>
+
+        <p>
+          The neighbourhood around Da'an and Rongjin is where you want to spend
+          your first afternoon. It's residential, leafy, and full of small cafés
+          tucked between apartment blocks. We found Summer Savage Café by
+          accident — one of those places with perfect coffee and
+          better-than-average interior design — and spent longer there than
+          planned, which is usually a sign that a city has you.
+        </p>
+
+        <p>
+          Yongkang Street is the food street that every post about Taipei
+          mentions, and for good reason. It's not overly touristy, the food is
+          exceptional, and the bubble tea here is legitimately great rather than
+          a tourist experience. We had dinner standing up from a stall and it
+          was one of the best meals of the trip.
+        </p>
+
+        <div class="photo-placeholder">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Taipei — Da'an District &amp; Yongkang Street</span>
+        </div>
+        <p class="img-caption">
+          The Da'an neighbourhood in Taipei — café culture, leafy streets, and
+          some of the best casual food in the city.
+        </p>
+
+        <p>
+          In December, Taipei has CHRISTMASLAND — an enormous light festival
+          centred on the New Taipei City Government complex that transforms the
+          whole Xinyi district. It's genuinely spectacular in a way that doesn't
+          feel corporate or forced. Taipei 101 lit up against the night sky
+          behind it only made it better.
+        </p>
+
+        <blockquote>
+          "Taiwan doesn't try to be impressive. It just is, quietly and
+          consistently, in ways that take a few days to fully appreciate."
+        </blockquote>
+
+        <h2 id="taichung-mountains">Taichung &amp; The Mountains</h2>
+
+        <p>
+          The HSR from Taipei to Taichung takes exactly one hour and costs very
+          little. Taichung is Taiwan's third city and its most liveable one —
+          smaller than Taipei, easier to walk, with a creative energy that shows
+          up in its cafés, art spaces, and street food culture.
+        </p>
+
+        <p>
+          Miyahara is the strangest and most wonderful place. It used to be an
+          ophthalmology clinic. Now it's an ice cream parlour and chocolate shop
+          housed in a beautifully restored brick building, with shelves of
+          antique-looking tins and packaging that make it feel like stepping
+          into a Wes Anderson film. The ice cream is very good. The experience
+          is better.
+        </p>
+
+        <p>
+          From Taichung we made the move most tourists don't: we took the train
+          to Chiayi and then Bus 7322 up into the Alishan mountain range to a
+          tiny village called Shizhuo, at 1,100 metres elevation, surrounded by
+          tea terraces draped in mist. We stayed at Drizzle Tea House. There
+          were almost no other tourists. The trail through the tea gardens in
+          the afternoon mist, with silence on all sides, is the kind of thing
+          you remember years later.
+        </p>
+
+        <div class="photo-placeholder">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Shizhuo Tea Village &amp; Alishan Forest</span>
+        </div>
+        <p class="img-caption">
+          The mist trail through Shizhuo's tea terraces at 1,100m. Most tourists
+          go directly to Alishan — we stayed a night here and it was completely
+          different.
+        </p>
+
+        <p>
+          The next morning we caught the bus up to Alishan itself for sunrise.
+          The famous image — a sea of clouds below the peaks, turning orange and
+          then gold as the sun climbs — is not exaggerated. We were not alone
+          for it (a crowd had gathered), but it was one of those moments where
+          the spectacle is big enough that other people don't diminish it. The
+          Alishan Forest Railway through ancient cypress groves runs slowly and
+          beautifully. The ancient trees — Sisters Pond, the Sacred Tree, the
+          Three-Generations Tree — are extraordinary in a quiet way that
+          photographs don't quite capture.
+        </p>
+
+        <div class="post-tip">
+          <p class="post-tip-label">Practical Note</p>
+          <p>
+            Book the Alishan Forest Railway in advance online — it sells out.
+            Take the earliest bus up from Shizhuo for sunrise, around 4:30–5am.
+            The light show is brief and worth the early wake.
+          </p>
+        </div>
+
+        <h2 id="east-coast">The East Coast — Taitung &amp; Chishang</h2>
+
+        <p>
+          The Puyuma Express cuts across the island from Chiayi to Taitung in
+          about two and a half hours, and the journey itself is worth something
+          — watching the terrain change from western plains to the Central
+          Mountain Range and then down to the Pacific coast. Taitung is a
+          different Taiwan entirely. Indigenous Paiwan and Amis cultures are
+          present and visible here in ways that the west coast cities aren't.
+          The pace drops immediately.
+        </p>
+
+        <p>
+          Tiehua Music Village — an outdoor live music and artisan market in
+          former military warehouses — was where we spent our first evening.
+          Local musicians, handmade ceramics, and a very relaxed atmosphere. It
+          didn't feel like a tourist attraction. It felt like a neighbourhood
+          doing something it actually cared about.
+        </p>
+
+        <p>
+          From Taitung we took the local train north to Chishang — a small
+          farming town famous for its organic rice and for Brown Boulevard, a
+          poplar-lined road cutting through paddy fields with the Central
+          Mountains on one side and the East Rift Valley hills on the other. The
+          light in the late afternoon makes the fields glow in a way that
+          doesn't feel real. We walked it slowly, in both directions. There were
+          almost no tourists. A few cyclists. Some farmers. The mountains went
+          purple as the sun dropped.
+        </p>
+
+        <div class="photo-placeholder">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Brown Boulevard, Chishang — East Rift Valley</span>
+        </div>
+        <p class="img-caption">
+          Brown Boulevard in Chishang — poplar trees, golden paddy fields, and
+          the Central Mountain Range. One of the most unexpectedly beautiful
+          places in Taiwan.
+        </p>
+
+        <p>
+          The Chishang Barn Art Gallery is worth a visit too — a converted rice
+          warehouse with contemporary art exhibitions that feel genuinely
+          considered rather than tourism-adjacent. The bento boxes here are
+          apparently famous across Taiwan (the railway bento is a whole thing),
+          and we had one on the platform while waiting for the train, which is
+          very much the correct way to eat them.
+        </p>
+
+        <p>
+          The next day: the Yufu Bikeway, a flat 10km cycling path through rice
+          fields near Yuli, with unobstructed mountain panoramas on both sides.
+          Rent a bike at Yuli station, leave luggage in a locker, cycle out and
+          back at your own pace. It was two hours of the kind of uncomplicated
+          happiness that travel occasionally delivers.
+        </p>
+
+        <h2 id="south">Tainan &amp; Kaohsiung</h2>
+
+        <p>
+          Tainan is Taiwan's oldest city and its food capital, and both facts
+          are taken very seriously by the people who live there. The Anping Tree
+          House — a 19th-century warehouse that was abandoned and subsequently
+          swallowed by banyan trees over several decades — is one of the
+          genuinely strange and beautiful things we've seen anywhere. The roots
+          now form the walls. The trees have become the building. It should feel
+          like a tourist trap. It doesn't.
+        </p>
+
+        <p>
+          Shennong Street is the most atmospheric lane in Tainan — narrow, lined
+          with old wooden apothecaries converted into indie cafés and design
+          shops, with the sound of cooking coming from windows above. We spent
+          an afternoon wandering it slowly and eating our way through. The
+          milkfish congee and danzai noodles are both essential.
+        </p>
+
+        <div class="photo-placeholder photo-placeholder-sm">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Anping Tree House, Tainan</span>
+        </div>
+        <p class="img-caption">
+          Anping Tree House — a 19th-century warehouse now entirely colonised by
+          banyan roots. One of those places that photographs poorly and is
+          extraordinary in person.
+        </p>
+
+        <p>
+          Kaohsiung is Taiwan's second city and operates at a different speed to
+          Taipei — more port city than capital, more relaxed, with a harbour
+          area (Pier-2 Art Centre) that reminds us slightly of repurposed
+          industrial spaces in European cities. The Lotus Pond dragon and tiger
+          pagodas, which you enter through the dragon's mouth and exit through
+          the tiger's mouth to receive good luck, are gloriously over-the-top
+          and completely earnest about it. Cijin Island, reached by a short
+          ferry, has good seafood and a lighthouse walk with views back over the
+          city.
+        </p>
+
+        <p>
+          We ended our last evening in Taiwan at Liuhe Night Market —
+          Kaohsiung's best street food strip. Grilled squid, seafood congee,
+          papaya milk, and more skewers than we could count. It was the right
+          way to finish: standing up, a little overwhelmed, with food in hand.
+        </p>
+
+        <div class="post-tip">
+          <p class="post-tip-label">Would We Go Back?</p>
+          <p>
+            Yes. Without hesitation. There's a whole north coast we didn't see,
+            hot springs we skipped, and the Taroko Gorge that we've been told
+            we'll regret missing. Taiwan earns a second trip in a way that very
+            few places do.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- RELATED POSTS -->
+    <div class="related-section">
+      <div class="related-inner">
+        <p class="related-kicker">Continue Reading</p>
+        <div class="related-grid">
+          <a href="./japan.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/japan.JPG" alt="Japan" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Asia</span>
+            <span class="related-card-title"
+              >Japan: It Stays With You Differently</span
+            >
+          </a>
+          <a href="./thailand.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/thailand.JPG" alt="Thailand" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Asia</span>
+            <span class="related-card-title"
+              >Thailand: A Layover That Became the Plan</span
+            >
+          </a>
+          <a href="./kenya.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/kenya.JPG" alt="Kenya" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Africa</span>
+            <span class="related-card-title"
+              >Kenya: Coast, Mara, and the Rift</span
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <!-- ── PREMIUM FOOTER ── -->
+
+    <site-footer></site-footer>
+
+    <script type="module" src="js/components/site-ribbon.js"></script>
+    <script type="module" src="js/components/site-header.js"></script>
+    <script type="module" src="js/components/site-footer.js"></script>
+    <script type="module" src="js/pages/article.js"></script>
+  </body>
+</html>

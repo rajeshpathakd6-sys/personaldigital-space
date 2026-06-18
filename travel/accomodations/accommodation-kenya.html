@@ -1,0 +1,975 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kenya Stays — AdiRaj Routes & Reflections</title>
+  <meta name="description" content="Our 6-day Kenya safari accommodation guide — Diani Beach, Masai Mara, and Lake Nakuru." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+
+  <style>
+    :root {
+      --accent: #c9815a;
+      --ink: #1a140a;
+      --ink-soft: #3d3228;
+      --ink-muted: #7a6e63;
+      --bg: #f9f7f4;
+      --rule: #e8e2d9;
+      --shadow-sm: 0 2px 12px rgba(26,20,10,0.07);
+    }
+
+    /* ── HERO ── */
+    .sub-hero {
+      position: relative;
+      height: 75vh;
+      min-height: 500px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .sub-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../../assets/kenya.JPG');
+      background-size: cover;
+      background-position: center 40%;
+      filter: brightness(0.42) saturate(0.8);
+      transform: scale(1.05);
+      transition: transform 10s ease;
+    }
+    .sub-hero:hover .sub-hero-bg { transform: scale(1); }
+    .sub-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,5,2,0.97) 0%, rgba(8,5,2,0.3) 55%, transparent 100%);
+    }
+    .sub-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 4.5rem;
+    }
+    .sub-hero-breadcrumb {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.42);
+      margin-bottom: 1.1rem;
+    }
+    .sub-hero-breadcrumb a { color: var(--accent); text-decoration: none; }
+    .sub-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.06;
+      margin-bottom: 1.2rem;
+      max-width: 720px;
+    }
+    .sub-hero h1 em { font-style: italic; color: #e8c4a0; }
+    .sub-hero-meta {
+      display: flex;
+      gap: 2.2rem;
+      flex-wrap: wrap;
+    }
+    .sub-hero-meta-item {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .sub-hero-meta-item strong { color: #fff; font-weight: 700; }
+
+    /* ── ITINERARY TIMELINE ── */
+    .itinerary-section {
+      background: #0e0b08;
+      padding: 4rem 0;
+    }
+    .itinerary-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .itinerary-label {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .itinerary-h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 2.5rem;
+    }
+    .itinerary-h2 em { font-style: italic; color: #e8c4a0; }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, rgba(201,129,90,0.6), rgba(201,129,90,0.1));
+    }
+    .timeline-day {
+      padding: 0 1.5rem 0 0;
+      padding-top: 0;
+      position: relative;
+    }
+    .timeline-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: #0e0b08;
+      border: 2px solid var(--accent);
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-day-label {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .timeline-city {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+    .timeline-hotel {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+    .timeline-activity {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      color: rgba(201,129,90,0.7);
+      margin-top: 0.5rem;
+    }
+
+    /* ── BACK / NAV ── */
+    .back-link-bar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      padding: 1rem 0;
+    }
+    .back-link-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .back-link {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent); }
+    .country-nav { display: flex; gap: 1rem; }
+    .country-nav-link {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .country-nav-link:hover, .country-nav-link.active {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ── SECTIONS ── */
+    .sub-section {
+      padding: 4.5rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .sub-section:nth-child(even) { background: #faf9f6; }
+    .sub-section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .region-heading {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .region-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .region-title {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0;
+    }
+    .region-days {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-left: auto;
+    }
+
+    /* ── CARDS ── */
+    .hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .hotel-card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+    .hotel-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 36px rgba(26,20,10,0.11);
+    }
+    .hotel-card--featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .hotel-card--featured .hotel-img { height: 100%; min-height: 300px; }
+    .hotel-img {
+      position: relative;
+      height: 210px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .hotel-img-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+    .hotel-card:hover .hotel-img-bg { transform: scale(1.06); }
+    .hotel-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,20,10,0.55) 0%, transparent 55%);
+    }
+    .hotel-badge {
+      position: absolute;
+      top: 10px; left: 10px;
+      z-index: 2;
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(44,36,22,0.72);
+      backdrop-filter: blur(6px);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+      border: 1px solid rgba(201,169,110,0.3);
+    }
+    .hotel-badge--pick {
+      position: absolute;
+      top: 10px; right: 10px;
+      z-index: 2;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+    .hotel-day-tag {
+      position: absolute;
+      bottom: 10px; left: 10px;
+      z-index: 2;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.8);
+    }
+    .hotel-body {
+      padding: 1.3rem 1.4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .hotel-type {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .hotel-name {
+      font-family: var(--serif);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+    .hotel-location {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.85rem;
+    }
+    .hotel-desc {
+      font-family: var(--sans);
+      font-size: 0.87rem;
+      color: var(--ink-soft);
+      line-height: 1.72;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    .hotel-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 0.28rem;
+      margin-bottom: 1.1rem;
+    }
+    .hotel-highlight {
+      font-family: var(--sans);
+      font-size: 0.76rem;
+      color: var(--ink-soft);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .hotel-highlight::before {
+      content: '';
+      width: 14px; height: 1px;
+      background: var(--accent);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+    .hotel-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--rule);
+    }
+    .hotel-meta-tag {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      color: var(--ink-muted);
+    }
+    .hotel-rating {
+      margin-left: auto;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .stars { color: #e8b84b; font-size: 0.62rem; }
+
+    /* ── INCLUDED/NOT INCLUDED BOX ── */
+    .incl-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .incl-box {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.5rem;
+    }
+    .incl-box--dark {
+      background: #faf9f6;
+    }
+    .incl-title {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .incl-item {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+    .incl-item:last-child { border-bottom: none; }
+    .incl-icon { flex-shrink: 0; font-size: 0.75rem; margin-top: 0.1rem; }
+
+    /* ── TIPS DARK ── */
+    .tips-dark {
+      background: #0e0b08;
+      padding: 5rem 0;
+    }
+    .tips-dark-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .tips-dark h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.18;
+      margin-bottom: 1.2rem;
+    }
+    .tips-dark h2 em { color: #e8c4a0; font-style: italic; }
+    .tips-dark p {
+      font-family: var(--sans);
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.82;
+    }
+    .tips-dark-kicker {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+    .tip-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .tip-item:last-child { border-bottom: none; }
+    .tip-num {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--accent);
+      opacity: 0.35;
+      flex-shrink: 0;
+      width: 28px;
+      line-height: 1;
+    }
+    .tip-text-title {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+    .tip-text-body {
+      font-family: var(--sans);
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 960px) {
+      .hotel-grid { grid-template-columns: 1fr 1fr; }
+      .hotel-card--featured { grid-column: span 2; }
+      .tips-dark-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .timeline { grid-template-columns: 1fr; }
+      .timeline::before { display: none; }
+      .incl-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .hotel-grid { grid-template-columns: 1fr; }
+      .hotel-card--featured { grid-column: auto; grid-template-columns: 1fr; }
+      .hotel-card--featured .hotel-img { height: 220px; }
+      .country-nav { display: none; }
+    }
+  </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../assets/logo.png" />
+    <link rel="apple-touch-icon" href="../../assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/travel/accomodations/accommodation-kenya.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Kenya Stays — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Our 6-day Kenya safari accommodation guide — Diani Beach, Masai Mara, and Lake Nakuru." />
+    <meta property="og:url" content="https://routesandreflections.in/travel/accomodations/accommodation-kenya.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kenya Stays — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Our 6-day Kenya safari accommodation guide — Diani Beach, Masai Mara, and Lake Nakuru." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+<body class="dest-page">
+
+  <!-- RIBBON -->
+  <div class="prem-ribbon">
+    <div class="prem-ribbon-inner">
+      <div class="ribbon-social">
+        <a href="https://www.instagram.com/adiraj.routesandreflections/" class="ribbon-social-link" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="url(#ig-grad-rk)" stroke-width="1.8">
+            <defs><linearGradient id="ig-grad-rk" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs>
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#bc1888" stroke="none"/>
+          </svg>
+        </a>
+      </div>
+      <div class="ribbon-right">
+        <a href="../../index.html" class="ribbon-home-btn" aria-label="Home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="url(#home-grad-k)" stroke-width="1.8">
+            <defs><linearGradient id="home-grad-k" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs>
+            <path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/>
+          </svg>
+        </a>
+        <a href="../../contact.html" class="ribbon-contact-btn">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="prem-header" id="siteHeader">
+    <div class="prem-header-inner">
+      <div class="logo-wrap">
+        <a href="../../index.html" class="logo">
+          <span class="logo-icon"><img src="../../assets/logo.png" alt="AdiRaj" class="logo-img" /></span>
+          <span class="logo-text-wrap"><span class="logo-text">AdiRaj <span class="logo-tagline">Routes &amp; Reflections</span></span></span>
+        </a>
+      </div>
+      <nav class="prem-nav-center">
+        <a href="../../index.html" class="prem-nav-link">Home</a>
+        <a href="../../travel.html" class="prem-nav-link active">Travel</a>
+        <a href="../../lifestyle.html" class="prem-nav-link">Lifestyle</a>
+        <a href="../../studio.html" class="prem-nav-link">Studio</a>
+        <a href="../../about.html" class="prem-nav-link">About</a>
+        <a href="../../workwithus.html" class="prem-nav-link">Work With Us</a>
+      </nav>
+      <button class="prem-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="prem-header-divider"></div>
+  </header>
+  <script>(function(){var h=document.getElementById("siteHeader");if(h)window.addEventListener("scroll",function(){h.classList.toggle("scrolled",window.scrollY>40)},{passive:true})})();</script>
+
+  <!-- HERO -->
+  <section class="sub-hero">
+    <div class="sub-hero-bg"></div>
+    <div class="sub-hero-overlay"></div>
+    <div class="sub-hero-content">
+      <p class="sub-hero-breadcrumb">
+        <a href="../../accommodation.html">Accommodation</a> &nbsp;/&nbsp; Kenya
+      </p>
+      <h1>Kenya — <em>Safari & Sea</em></h1>
+      <div class="sub-hero-meta">
+        <span class="sub-hero-meta-item"><strong>6</strong>&nbsp; Days</span>
+        <span class="sub-hero-meta-item"><strong>5</strong>&nbsp; Nights</span>
+        <span class="sub-hero-meta-item"><strong>3</strong>&nbsp; Properties</span>
+        <span class="sub-hero-meta-item">Msanii Africa Safaris itinerary &nbsp;·&nbsp; <strong>Aug–Sep 2023</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITINERARY TIMELINE -->
+  <section class="itinerary-section">
+    <div class="itinerary-inner">
+      <p class="itinerary-label">The Itinerary — Msanii Africa Safaris</p>
+      <h2 class="itinerary-h2">6 Days, 5 Nights —<br /><em>Diani Beach · Masai Mara · Lake Nakuru</em></h2>
+      <div class="timeline">
+        <div class="timeline-day">
+          <div class="timeline-dot"></div>
+          <span class="timeline-day-label">Days 1–2 &nbsp;·&nbsp; 31 Aug – 1 Sep</span>
+          <div class="timeline-city">Diani Beach</div>
+          <div class="timeline-hotel">Diani Sea Resort<br />or Diani Sea Lodge</div>
+          <div class="timeline-activity">✈ Flight to Ukunda · Beach & optional water sports</div>
+        </div>
+        <div class="timeline-day">
+          <div class="timeline-dot"></div>
+          <span class="timeline-day-label">Days 3–4 &nbsp;·&nbsp; 2–3 Sep</span>
+          <div class="timeline-city">Masai Mara</div>
+          <div class="timeline-hotel">Jambo Mara Lodge</div>
+          <div class="timeline-activity">Lake Naivasha en route · Full-day game drive · Optional balloon safari</div>
+        </div>
+        <div class="timeline-day">
+          <div class="timeline-dot"></div>
+          <span class="timeline-day-label">Day 5 &nbsp;·&nbsp; 4 Sep</span>
+          <div class="timeline-city">Lake Nakuru</div>
+          <div class="timeline-hotel">Lake Nakuru Lodge</div>
+          <div class="timeline-activity">Masai Village visit · Evening game drive · Return to Nairobi Day 6</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACK LINK BAR -->
+  <div class="back-link-bar">
+    <div class="back-link-inner">
+      <a href="../../accommodation.html" class="back-link">← All Accommodation</a>
+      <div class="country-nav">
+        <a href="accommodation-japan.html" class="country-nav-link">🗾 Japan</a>
+        <a href="accommodation-kenya.html" class="country-nav-link active">🇰🇪 Kenya</a>
+        <a href="accommodation-thailand.html" class="country-nav-link">🇹🇭 Thailand</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DIANI BEACH ══ -->
+  <section class="sub-section" id="diani">
+    <div class="sub-section-inner">
+      <div class="region-heading">
+        <div class="region-dot"></div>
+        <h2 class="region-title">Diani Beach — The Indian Ocean Start</h2>
+        <span class="region-days">Days 1 & 2 &nbsp;·&nbsp; 31 Aug – 1 Sep 2023</span>
+      </div>
+      <div class="hotel-grid">
+
+        <div class="hotel-card hotel-card--featured">
+          <div class="hotel-img">
+            <div class="hotel-img-bg" style="background-image:url('../../assets/kenya.JPG'); background-position:center 30%;"></div>
+            <div class="hotel-img-overlay"></div>
+            <span class="hotel-badge">All-Inclusive</span>
+            <span class="hotel-badge--pick">★ Loved It</span>
+            <span class="hotel-day-tag">Days 1 & 2</span>
+          </div>
+          <div class="hotel-body">
+            <p class="hotel-type">Swahili Beachfront Resort</p>
+            <h3 class="hotel-name">Diani Sea Resort & Diani Sea Lodge</h3>
+            <p class="hotel-location">📍 Diani Beach, Coast Province, Kenya</p>
+            <p class="hotel-desc">
+              Diani Beach was the revelation of this trip — we genuinely hadn't expected Kenya's coast to be this beautiful. The twin resorts (Sea Resort and Sea Lodge, operated by the same group) are all-inclusive and sit right on an almost absurdly white strip of beach facing the Indian Ocean. The Swahili architectural character is the real differentiator: carved wood, dhow-inspired arches, and the kind of considered design you only find when someone cares about place as much as product. Sundowners with the ocean turning gold remain among our favourite travel memories.
+            </p>
+            <div class="hotel-highlights">
+              <span class="hotel-highlight">White sand beachfront — virtually no crowds</span>
+              <span class="hotel-highlight">All-inclusive includes meals, drinks and water sports</span>
+              <span class="hotel-highlight">Distinctive Swahili-inspired architecture</span>
+              <span class="hotel-highlight">Short flight from Nairobi — only ~1 hour</span>
+              <span class="hotel-highlight">Excellent base for Shimba Hills & Wasini Island day trips</span>
+            </div>
+            <div class="hotel-meta">
+              <span class="hotel-meta-tag">💰 Mid-range (All-Inclusive)</span>
+              <span class="hotel-meta-tag">🛌 2 nights</span>
+              <div class="hotel-rating"><span class="stars">★★★★★</span> 9.1/10</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hotel-card" style="background:#faf9f6;">
+          <div class="hotel-body" style="display:flex; flex-direction:column; justify-content:center;">
+            <p class="hotel-type">Which to Choose?</p>
+            <h3 class="hotel-name" style="font-size:1rem;">Sea Resort vs Sea Lodge</h3>
+            <p class="hotel-desc">
+              Both are operated by the same group and share the beach. The itinerary listed either/or based on availability — the distinctions are subtle. The Resort tends to be slightly larger and more structured; the Lodge has a more intimate, boutique feel. If available, the Lodge is our preference. Both are excellent.
+            </p>
+            <div style="border-top:1px solid var(--rule); padding-top:1rem; margin-top:0.5rem;">
+              <p class="hotel-type" style="margin-bottom:0.5rem;">Practical Notes — Diani</p>
+              <div class="hotel-highlights" style="margin:0;">
+                <span class="hotel-highlight">Transfer from Ukunda airstrip — organised by resort</span>
+                <span class="hotel-highlight">All-inclusive includes select drinks</span>
+                <span class="hotel-highlight">Optional water sports (snorkelling, kayaking) available</span>
+                <span class="hotel-highlight">Good wifi — useful for planning the safari leg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MASAI MARA ══ -->
+  <section class="sub-section" id="mara">
+    <div class="sub-section-inner">
+      <div class="region-heading">
+        <div class="region-dot"></div>
+        <h2 class="region-title">Masai Mara — In the Reserve</h2>
+        <span class="region-days">Days 3 & 4 &nbsp;·&nbsp; 2–3 Sep 2023</span>
+      </div>
+      <div class="hotel-grid">
+
+        <div class="hotel-card hotel-card--featured">
+          <div class="hotel-img">
+            <div class="hotel-img-bg" style="background-image:url('../../assets/kenya.JPG'); background-position:20% 60%;"></div>
+            <div class="hotel-img-overlay"></div>
+            <span class="hotel-badge">Safari Lodge</span>
+            <span class="hotel-badge--pick">★ Safari HQ</span>
+            <span class="hotel-day-tag">Days 3 & 4</span>
+          </div>
+          <div class="hotel-body">
+            <p class="hotel-type">Safari Lodge — Full Board</p>
+            <h3 class="hotel-name">Jambo Mara Lodge</h3>
+            <p class="hotel-location">📍 Masai Mara National Reserve, Narok County</p>
+            <p class="hotel-desc">
+              This is where the trip becomes unforgettable. Jambo Mara Lodge sits within the reserve — not near it, inside it. Your night sounds include the distant calls of hyena and the occasional proximity of elephants. The lodge is full-board, which makes complete sense here: you're far from any town, and the food is genuinely good. Day 4 was a full-day game drive tracking the Big 5 with a picnic lunch served under a lone tree at the heart of the reserve. The optional hot air balloon ride at $390/person is one of the genuinely great bucket-list experiences and worth the cost.
+            </p>
+            <div class="hotel-highlights">
+              <span class="hotel-highlight">Inside the Masai Mara — wildlife outside your tent</span>
+              <span class="hotel-highlight">Full-board included — critical in remote reserves</span>
+              <span class="hotel-highlight">4x4 game drives with private English-speaking guide</span>
+              <span class="hotel-highlight">Optional hot air balloon safari ($390/person — worth it)</span>
+              <span class="hotel-highlight">Night bonfires available after dinner</span>
+            </div>
+            <div class="hotel-meta">
+              <span class="hotel-meta-tag">💰 Mid-range (Full Board)</span>
+              <span class="hotel-meta-tag">🛌 2 nights</span>
+              <div class="hotel-rating"><span class="stars">★★★★★</span> 9.3/10</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hotel-card" style="background:#faf9f6;">
+          <div class="hotel-body" style="display:flex; flex-direction:column; gap:1rem; justify-content:center;">
+            <p class="hotel-type">En Route — Lake Naivasha</p>
+            <div>
+              <h4 style="font-family:var(--serif); font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:0.2rem;">Crescent Island Stop</h4>
+              <p style="font-family:var(--sans); font-size:0.72rem; color:var(--ink-muted); margin-bottom:0.4rem;">📍 Lake Naivasha, Great Rift Valley</p>
+              <p style="font-family:var(--sans); font-size:0.82rem; color:var(--ink-soft); line-height:1.6;">The Day 3 journey from Nairobi to Masai Mara stops at Lake Naivasha — the only freshwater lake in the Great Rift Valley. Boat rides and a walking safari at Crescent Island (only accessible by boat) with giraffes, antelopes, hippos and birdlife. Optional at $50/person but genuinely worth it.</p>
+            </div>
+            <div style="border-top:1px solid var(--rule); padding-top:1rem;">
+              <p class="hotel-type" style="margin-bottom:0.5rem;">Masai Mara Tips</p>
+              <div class="hotel-highlights" style="margin:0;">
+                <span class="hotel-highlight">Book balloon safari the day before — pre-booking essential</span>
+                <span class="hotel-highlight">Morning drives (6–9am) are best for big cat sightings</span>
+                <span class="hotel-highlight">Wildebeest migration peaks Jul–Oct — plan accordingly</span>
+                <span class="hotel-highlight">Pack warm layers — mornings at altitude are cold</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LAKE NAKURU ══ -->
+  <section class="sub-section" id="nakuru">
+    <div class="sub-section-inner">
+      <div class="region-heading">
+        <div class="region-dot"></div>
+        <h2 class="region-title">Lake Nakuru — The Flamingo National Park</h2>
+        <span class="region-days">Day 5 &nbsp;·&nbsp; 4 Sep 2023 &nbsp;·&nbsp; Return to Nairobi Day 6</span>
+      </div>
+      <div class="hotel-grid">
+        <div class="hotel-card hotel-card--featured">
+          <div class="hotel-img">
+            <div class="hotel-img-bg" style="background-image:url('../../assets/kenya.JPG'); background-position:70% 50%;"></div>
+            <div class="hotel-img-overlay"></div>
+            <span class="hotel-badge">Lake Lodge</span>
+            <span class="hotel-day-tag">Day 5</span>
+          </div>
+          <div class="hotel-body">
+            <p class="hotel-type">National Park Lodge</p>
+            <h3 class="hotel-name">Lake Nakuru Lodge</h3>
+            <p class="hotel-location">📍 Lake Nakuru National Park, Nakuru County</p>
+            <p class="hotel-desc">
+              The final night of the safari, and a different kind of beauty: Lake Nakuru is famous for its flamingo populations (the lake turns pink at scale) and is home to rhinos, lions, and leopards alongside the flamingos. The lodge sits within the park boundary and the arrival itself — a game drive along the lake's edge — serves as a soft re-entry to what's been a remarkable five days. The morning departure allows for an early game drive before the road back to Nairobi.
+            </p>
+            <div class="hotel-highlights">
+              <span class="hotel-highlight">Inside Lake Nakuru National Park — lions and rhinos nearby</span>
+              <span class="hotel-highlight">Famous flamingo lake — spectacular at scale</span>
+              <span class="hotel-highlight">Arrival includes an evening game drive to the lodge</span>
+              <span class="hotel-highlight">Option for early morning drive before Nairobi departure</span>
+            </div>
+            <div class="hotel-meta">
+              <span class="hotel-meta-tag">💰 Mid-range</span>
+              <span class="hotel-meta-tag">🛌 1 night</span>
+              <div class="hotel-rating"><span class="stars">★★★★☆</span> 8.6/10</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hotel-card" style="background:#faf9f6;">
+          <div class="hotel-body" style="display:flex; flex-direction:column; gap:1rem;">
+            <p class="hotel-type">Day 5 Highlight — En Route</p>
+            <div>
+              <h4 style="font-family:var(--serif); font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:0.3rem;">Masai Village Cultural Tour</h4>
+              <p style="font-family:var(--sans); font-size:0.82rem; color:var(--ink-soft); line-height:1.6;">The morning of Day 5 included a visit to a Masai village before leaving the Mara — one of the more genuinely moving parts of the trip. Dances, customs, traditions. Not performative in the way many such stops are; this one felt real.</p>
+            </div>
+            <div style="border-top:1px solid var(--rule); padding-top:1rem;">
+              <p class="hotel-type" style="margin-bottom:0.5rem;">What's Included in the Package</p>
+              <div class="hotel-highlights" style="margin:0;">
+                <span class="hotel-highlight">All transfers — city, airport and game drives</span>
+                <span class="hotel-highlight">Private 4x4 Land Cruiser + English-speaking guide</span>
+                <span class="hotel-highlight">Domestic flights (Nairobi ↔ Diani)</span>
+                <span class="hotel-highlight">All park, reserve and activity fees</span>
+                <span class="hotel-highlight">Meals per property: B&B (Nairobi), All-in (Diani), Full Board (Mara)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What's Included / Not Included -->
+      <div class="incl-grid">
+        <div class="incl-box">
+          <div class="incl-title">✓ Included in the Msanii Package</div>
+          <div class="incl-item"><span class="incl-icon">✈</span> Domestic flights — Nairobi to Diani return</div>
+          <div class="incl-item"><span class="incl-icon">🚗</span> Private 4x4 Land Cruiser + English-speaking guide throughout</div>
+          <div class="incl-item"><span class="incl-icon">🍽</span> All meals per property (B&B / All-inclusive / Full-board)</div>
+          <div class="incl-item"><span class="incl-icon">🎟</span> All park, reserve, guide and activity fees</div>
+          <div class="incl-item"><span class="incl-icon">📞</span> 24-hour tourist support throughout the trip</div>
+          <div class="incl-item"><span class="incl-icon">🧴</span> Bottled water, sanitiser, goodie bag</div>
+          <div class="incl-item"><span class="incl-icon">🚢</span> Lake Naivasha boat ride & walking safari (optional, $50/pp)</div>
+        </div>
+        <div class="incl-box incl-box--dark">
+          <div class="incl-title">✕ Not Included</div>
+          <div class="incl-item"><span class="incl-icon">✈</span> International flights to/from Kenya</div>
+          <div class="incl-item"><span class="incl-icon">🛂</span> Tourist visa — $55/person via immigration.go.ke</div>
+          <div class="incl-item"><span class="incl-icon">🏥</span> Travel and medical insurance</div>
+          <div class="incl-item"><span class="incl-icon">🎈</span> Hot air balloon ride — $390/person (highly recommended)</div>
+          <div class="incl-item"><span class="incl-icon">💊</span> Covid testing and vaccinations (at time of travel)</div>
+          <div class="incl-item"><span class="incl-icon">🤝</span> Tips and gratuities for guides and staff</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS DARK -->
+  <section class="tips-dark">
+    <div class="tips-dark-inner">
+      <div>
+        <p class="tips-dark-kicker">Planning Your Kenya Safari</p>
+        <h2>6 days.<br /><em>What we'd do differently.</em></h2>
+        <p>We went with Msanii Africa Safaris — tour leader Titus Mutua — and the operation was exceptional. Flawless logistics, great guide, genuine care throughout. For a trip of this nature with this many moving parts, using a specialist operator was the right call, without question.</p>
+      </div>
+      <div>
+        <div class="tip-item">
+          <div class="tip-num">01</div>
+          <div>
+            <p class="tip-text-title">Deposit 30% at least 3 months out</p>
+            <p class="tip-text-body">Msanii requires 30% deposit to confirm. Lodge capacity in Masai Mara is finite — don't leave this late. Online payment has no surcharge; card on arrival adds 3.5%.</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-num">02</div>
+          <div>
+            <p class="tip-text-title">Do the balloon safari</p>
+            <p class="tip-text-body">$390/person sounds steep. It is. But an hour over the Mara at dawn, landing for a champagne bush breakfast — this is one of the great experiences on earth. Requires pre-booking; briefing the day before.</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-num">03</div>
+          <div>
+            <p class="tip-text-title">Start at Diani — reverse the order</p>
+            <p class="tip-text-body">We went beach first, safari second. This works brilliantly — you arrive relaxed and ready, rather than arriving at a beach having just driven through the bush.</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-num">04</div>
+          <div>
+            <p class="tip-text-title">Full board matters in remote lodges</p>
+            <p class="tip-text-body">There are no restaurants outside the gate. Always choose full board for Mara and Nakuru — it's not just convenience, it's the only sensible option.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="prem-footer">
+    <div class="prem-footer-top">
+      <div class="pf-brand">
+        <div class="logo-wrap pf-logo-wrap">
+          <a href="../../index.html" class="logo">
+            <span class="logo-icon"><img src="../../assets/logo-white.png" alt="AdiRaj" class="logo-img" /></span>
+            <span class="logo-text-wrap"><span class="logo-text">AdiRaj <span class="logo-tagline">Routes &amp; Reflections</span></span></span>
+          </a>
+        </div>
+        <p class="pf-brand-desc">Slow travel, honest stories, and the meaning we carry forward.</p>
+      </div>
+      <div class="pf-col">
+        <div class="pf-col-title">Explore</div>
+        <ul class="pf-col-links">
+          <li><a href="../../travel.html">Travel</a></li>
+          <li><a href="../../accommodation.html">Accommodation</a></li>
+          <li><a href="../../lifestyle.html">Lifestyle</a></li>
+          <li><a href="../../about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="pf-col">
+        <div class="pf-col-title">Our Stays</div>
+        <ul class="pf-col-links">
+          <li><a href="accommodation-japan.html">Japan</a></li>
+          <li><a href="accommodation-kenya.html">Kenya</a></li>
+          <li><a href="accommodation-thailand.html">Thailand</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top:1px solid #111;max-width:1380px;margin:0 auto;padding:20px 2.8rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <p class="pf-copy">© 2026 AdiRaj — Routes & Reflections &nbsp;|&nbsp; All rights reserved</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <script src="../../script.js"></script>
+</body>
+</html>

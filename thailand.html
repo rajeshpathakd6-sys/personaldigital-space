@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thailand: A Layover That Became the Plan — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="Thailand was more than its popular spots — we leaned into slower days, local corners, and places slightly off the map." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/pages/article.css" />
+    <style>
+      .post-page-wrap {
+        grid-template-columns: 1fr !important;
+        max-width: 780px !important;
+      }
+      .post-body {
+        max-width: 100%;
+      }
+      .post-hero {
+        position: relative;
+        height: clamp(340px, 52vh, 580px);
+        overflow: hidden;
+        background: #0a1a2e;
+      }
+      .post-hero-img-wrap {
+        height: 100%;
+      }
+      .post-hero-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.88;
+      }
+      .post-hero-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(10, 26, 46, 0.72) 0%,
+          rgba(10, 26, 46, 0.1) 55%,
+          transparent 100%
+        );
+        pointer-events: none;
+      }
+      .photo-placeholder {
+        width: 100%;
+        aspect-ratio: 16/10;
+        background: #ddeef5;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        margin: 1.8rem 0 0.5rem;
+        color: #5a8a9a;
+      }
+      .photo-placeholder svg {
+        opacity: 0.45;
+      }
+      .photo-placeholder span {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #7aaab8;
+      }
+      .photo-placeholder-sm {
+        aspect-ratio: 4/3;
+      }
+      .post-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: #c8e0e8;
+        border: 1px solid #c8e0e8;
+        border-radius: 3px;
+        overflow: hidden;
+        margin: 2.2rem 0;
+      }
+      .post-stat {
+        background: #f2f9fc;
+        padding: 1.1rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .post-stat-label {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #4a8a9a;
+      }
+      .post-stat-value {
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        color: #0e2233;
+      }
+      .post-tip {
+        background: #f0f8fc;
+        border-left: 3px solid #4a9ab2;
+        padding: 1.1rem 1.4rem;
+        border-radius: 0 3px 3px 0;
+        margin: 1.8rem 0;
+      }
+      .post-tip-label {
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #4a9ab2;
+        margin-bottom: 0.4rem;
+      }
+      .post-tip p {
+        font-family: var(--sans) !important;
+        font-size: 0.88rem !important;
+        line-height: 1.65 !important;
+        color: #2a5a6a !important;
+        margin: 0 !important;
+      }
+      .related-section {
+        border-top: 1px solid var(--rule);
+        padding: 3rem 2rem;
+        background: var(--white);
+      }
+      .related-inner {
+        max-width: var(--max-w);
+        margin-inline: auto;
+      }
+      .related-kicker {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink);
+        margin-bottom: 2rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--ink);
+      }
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .related-card {
+        text-decoration: none;
+      }
+      .related-card-img {
+        aspect-ratio: 16/10;
+        overflow: hidden;
+        border-radius: 2px;
+        background: #e8e2d8;
+        margin-bottom: 0.7rem;
+      }
+      .related-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .related-card:hover .related-card-img img {
+        transform: scale(1.04);
+      }
+      .related-card-tag {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .related-card-title {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--ink);
+        line-height: 1.35;
+        transition: color 0.2s;
+      }
+      .related-card:hover .related-card-title {
+        color: var(--accent);
+      }
+      @media (max-width: 640px) {
+        .related-grid {
+          grid-template-columns: 1fr;
+        }
+        .post-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="apple-touch-icon" href="./assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/thailand.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Thailand: A Layover That Became the Plan — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Thailand was more than its popular spots — we leaned into slower days, local corners, and places slightly off the map." />
+    <meta property="og:url" content="https://routesandreflections.in/thailand.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Thailand: A Layover That Became the Plan — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Thailand was more than its popular spots — we leaned into slower days, local corners, and places slightly off the map." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body>
+    <div class="reading-bar" id="readingBar" aria-hidden="true"></div>
+    <site-ribbon></site-ribbon>
+    <site-header active="travel"></site-header>
+
+
+    <div class="post-hero">
+      <div class="post-hero-img-wrap">
+        <img
+          src="assets/thailand.JPG"
+          alt="Thailand — Andaman Islands"
+          loading="eager"
+        />
+      </div>
+      <div class="post-hero-gradient"></div>
+    </div>
+
+    <div class="post-header">
+      <div class="post-card-tags">
+        <a href="./travel.html" class="post-tag">Travel</a>
+        <a href="#" class="post-tag">Asia</a>
+        <a href="#" class="post-tag">Thailand</a>
+      </div>
+      <h1 class="post-title">A Layover That Became the Plan</h1>
+      <p class="post-subtitle">
+        Five islands in eight days — from Koh Lanta's long beaches to Koh
+        Kradan's impossible turquoise water. Thailand's southern islands are
+        everything the photos promise, and the Emerald Cave is something else
+        entirely.
+      </p>
+    </div>
+
+    <div class="post-page-wrap">
+      <article class="post-body">
+        <p>
+          The December trip to Taiwan had us routing through Bangkok — and once
+          we saw the connections, Thailand wasn’t an afterthought. We built
+          eight days into the itinerary on purpose, flying into Phuket and
+          moving through the Andaman islands before heading to Taipei. It turned
+          out to be one of the best decisions we’ve made — sometimes a simple
+          layover leads somewhere unexpected.
+        </p>
+
+        <p>
+          This wasn’t random island-hopping. Every stop was planned — a mix of
+          well-known islands and quieter, lesser-known places. A lot of that
+          came from Aditi, who spent days researching the details most people
+          miss. So when we finally got on those speedboats and saw the Andaman
+          Sea in that unreal December blue-green, it felt familiar — like
+          something we had already imagined, but still better in real life.
+        </p>
+
+        <p>
+          This was just the first half of the trip. Thailand came first — eight
+          days of water, sun, and seafood — before everything shifted to
+          mountains and tea villages in Taiwan. It was a combination that worked
+          perfectly.
+        </p>
+
+        <div
+          style="
+            background: var(--beige);
+            border-left: 3px solid var(--accent);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+          "
+        >
+          <p
+            style="
+              font-size: 0.72rem;
+              font-weight: 700;
+              letter-spacing: 0.15em;
+              text-transform: uppercase;
+              color: var(--ink);
+              margin-bottom: 0.75rem;
+            "
+          >
+            In This Post
+          </p>
+          <ol style="padding-left: 1.2rem; margin: 0">
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#koh-lanta" style="color: var(--accent)"
+                >Koh Lanta — The Long Island</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#koh-mook" style="color: var(--accent)"
+                >Koh Mook &amp; the Emerald Cave</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#koh-ngai-kradan" style="color: var(--accent)"
+                >Koh Ngai &amp; Koh Kradan</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#bangkok" style="color: var(--accent)"
+                >Bangkok — One Night Only</a
+              >
+            </li>
+          </ol>
+        </div>
+
+        <h2 id="koh-lanta">Koh Lanta — The Long Island</h2>
+
+        <p>
+          We flew into Phuket and took the morning speedboat south from Satun
+          Pakbara to Koh Lanta — about an hour and a half on the water, watching
+          the limestone karst islands slide past on either side. Koh Lanta is
+          long and relatively thin, with the west coast facing the Andaman and a
+          series of beaches running down its length, each with a slightly
+          different character.
+        </p>
+
+        <p>
+          The first evening we rented a scooter and drove the length of the
+          island. This is the correct way to see it. The west coast road follows
+          the shoreline, and at sunset the light on the water is extraordinary —
+          orange and gold over the Andaman, the kind of thing that makes you
+          pull over and just watch. Lanta Old Town is at the southern end: a
+          wooden boardwalk village built over the sea, with shophouses dating
+          back to when it was a trading port. Worth an evening wander.
+        </p>
+
+        <div class="photo-placeholder">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Koh Lanta — West Coast Sunset</span>
+        </div>
+        <p class="img-caption">
+          The west coast of Koh Lanta at sunset. Renting a scooter and driving
+          the length of the island in the late afternoon is worth doing on day
+          one.
+        </p>
+
+        <p>
+          On the second day on Koh Lanta we made it to Kantiang Bay in the south
+          — widely considered the island's most dramatic beach setting, with a
+          curve of sand backed by forested hills. The Marine National Park at
+          the southern tip has decent snorkeling off the rocks. We found a
+          clifftop café we didn't want to leave, ordered too many coconut
+          drinks, and watched the water for longer than was entirely reasonable.
+        </p>
+
+        <p>
+          Koh Lanta's café scene is better than you'd expect for an island this
+          size. There's a genuine creative culture here — places with good
+          coffee, interesting food, and design sensibility that isn't trying to
+          be a beach shack. If you're used to the more developed Koh Samui or
+          Phuket, Koh Lanta feels significantly more real and relaxed.
+        </p>
+
+        <h2 id="koh-mook">Koh Mook &amp; the Emerald Cave</h2>
+
+        <p>
+          The speedboat from Koh Lanta to Koh Mook takes about 45 minutes, which
+          is enough time to watch the islands change character entirely. Koh
+          Mook is smaller, quieter, and has a large Muslim fishing community
+          that gives it a completely different feel to the more tourist-oriented
+          islands. The village in the evening — fishing boats coming in, the
+          call to prayer, families on scooters — has an ordinary, lived-in
+          quality that we appreciated.
+        </p>
+
+        <p>
+          But the reason most people come to Koh Mook is Morakot — the Emerald
+          Cave. And it earns its reputation entirely. The approach is by
+          longtail boat from the beach, then you swim through a sea cave in
+          near-total darkness for about 80 metres, the cave ceiling dropping
+          lower until you can hear your own breathing very clearly, and then
+          suddenly the cave opens into a hidden lagoon — a circular chamber open
+          to the sky, with white sand and water that is, genuinely, the exact
+          colour of emerald. We swam in silence for a long time.
+        </p>
+
+        <blockquote>
+          "The cave opens into a hidden lagoon — a circular chamber open to sky,
+          with white sand and water that is, genuinely, the exact colour of
+          emerald."
+        </blockquote>
+
+        <div class="photo-placeholder">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Koh Mook — Emerald Cave &amp; Charlie Beach</span>
+        </div>
+        <p class="img-caption">
+          The hidden lagoon inside Morakot Cave. You swim through 80 metres of
+          sea cave in darkness to reach it. Timing your visit to low tide is
+          essential.
+        </p>
+
+        <div class="post-tip">
+          <p class="post-tip-label">Emerald Cave Timing</p>
+          <p>
+            Go at low tide — the swim is much easier and the cave opening is
+            less submerged. Most longtail operators know the tides. Arrive early
+            to avoid groups. Take a waterproof bag for your phone. The cave is
+            perfectly safe but genuinely dark — just swim steadily toward the
+            light ahead.
+          </p>
+        </div>
+
+        <p>
+          Charlie Beach on the western side of Koh Mook has the island's best
+          sunset, and it's a proper beach — wide, clean sand with good swimming.
+          We spent our second afternoon there and barely moved. The seafood from
+          the small restaurants backing onto the beach was some of the freshest
+          of the trip.
+        </p>
+
+        <h2 id="koh-ngai-kradan">Koh Ngai &amp; Koh Kradan</h2>
+
+        <p>
+          Koh Ngai is reached by longtail boat from Koh Mook in about 20
+          minutes. It's small, almost entirely undeveloped, with coral reefs
+          accessible directly from the beach — no boat needed, just walk in. The
+          water clarity is outstanding. We spent a full day snorkeling and
+          swimming, eating at the single beachside kitchen, and not thinking
+          about anything in particular. It was very good for us.
+        </p>
+
+        <p>
+          Koh Kradan, a short hop from Koh Mook, is the one we'd heard the most
+          about, and it delivers. The beach is consistently listed among the
+          finest in Thailand and the water is — this is the only word —
+          impossible. The kind of turquoise that makes you think someone has
+          added something to it. The reef comes right up to the beach, the sand
+          is white, and the island has minimal development. Casuarina trees
+          provide the only shade. We arrived mid-morning and stayed until the
+          last boat back.
+        </p>
+
+        <div class="photo-placeholder">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" /></svg
+          ><span>Koh Kradan — The Beach</span>
+        </div>
+        <p class="img-caption">
+          Koh Kradan. The water colour is not enhanced in photographs. It
+          actually looks like this, and the reef is accessible directly from the
+          beach.
+        </p>
+
+        <p>
+          If we could choose only one island from the five, it would be Koh
+          Kradan. Not because the others weren't beautiful — they all were — but
+          because Koh Kradan has that quality of a place that feels complete.
+          Nothing missing, nothing excessive. Just water and sand and sky.
+        </p>
+
+        <h2 id="bangkok">Bangkok — One Night Only</h2>
+
+        <p>
+          The speedboat from Koh Kradan to Trang pier is about 40 minutes,
+          followed by a transfer to Trang Airport for the domestic flight to
+          Bangkok. We arrived in late afternoon with one night free before the
+          connecting flight to Taipei.
+        </p>
+
+        <p>
+          One night in Bangkok is not nothing. We took a river taxi to Wat Arun,
+          which is best seen from across the water at night — lit up in gold
+          against a dark sky, reflected on the Chao Phraya. Walked past Wat Pho.
+          Then into Yaowarat — Bangkok's Chinatown — for the late-night street
+          food that the city is famous for: grilled seafood on the street,
+          congee at a plastic table at midnight, the noise and energy of a city
+          that clearly never sleeps.
+        </p>
+
+       
+
+        <div class="post-tip">
+          <p class="post-tip-label">Would We Go Back?</p>
+          <p>
+            Koh Kradan alone would bring us back. There's also a whole other
+            coast — the Gulf of Thailand side with Koh Samui, Koh Tao, and the
+            Angthong Marine Park — that we haven't seen. And Bangkok deserves
+            more than one night. Thailand is a country that rewards returning.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div class="related-section">
+      <div class="related-inner">
+        <p class="related-kicker">Continue Reading</p>
+        <div class="related-grid">
+          <a href="./taiwan.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/taiwan.JPG" alt="Taiwan" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Asia</span>
+            <span class="related-card-title"
+              >Taiwan: The Kind of Place You Return To</span
+            >
+          </a>
+          <a href="./japan.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/japan.JPG" alt="Japan" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Asia</span>
+            <span class="related-card-title">Japan: It Stays With You Differently</span>
+          </a>
+         <a href="./kenya.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/kenya.JPG" alt="Kenya" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Africa</span>
+            <span class="related-card-title"
+              >Kenya: Coast, Mara, and the Rift</span
+            >
+        </div>
+      </div>
+    </div>
+
+  <!-- ── PREMIUM FOOTER ── -->
+
+    <site-footer></site-footer>
+
+    <script type="module" src="js/components/site-ribbon.js"></script>
+    <script type="module" src="js/components/site-header.js"></script>
+    <script type="module" src="js/components/site-footer.js"></script>
+    <script type="module" src="js/pages/article.js"></script>
+  </body>
+</html>

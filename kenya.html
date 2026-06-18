@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kenya: Coast and Mara — AdiRaj Routes & Reflections</title>
+    <meta name="description" content="Masai Mara felt like stepping into a world we'd only seen in documentaries — wide open skies, quiet mornings, and wildlife just there." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/pages/article.css" />
+    <style>
+      .post-page-wrap {
+        grid-template-columns: 1fr !important;
+        max-width: 780px !important;
+      }
+      .post-body {
+        max-width: 100%;
+      }
+
+      /* Hero — warm earth / savanna dusk */
+      .post-hero {
+        position: relative;
+        height: clamp(340px, 52vh, 580px);
+        overflow: hidden;
+        background: #1a100a;
+      }
+      .post-hero-img-wrap {
+        height: 100%;
+      }
+      .post-hero-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.88;
+      }
+      .post-hero-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(20, 10, 4, 0.78) 0%,
+          rgba(20, 10, 4, 0.12) 55%,
+          transparent 100%
+        );
+        pointer-events: none;
+      }
+
+      /* Stat grid — warm ochre tones */
+      .post-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: #d8c8a8;
+        border: 1px solid #d8c8a8;
+        border-radius: 3px;
+        overflow: hidden;
+        margin: 2.2rem 0;
+      }
+      .post-stat {
+        background: #faf5ec;
+        padding: 1.1rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .post-stat-label {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #8b6a3a;
+      }
+      .post-stat-value {
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        color: #2c1e0e;
+      }
+
+      /* Tip/highlight boxes — safari amber */
+      .post-tip {
+        background: #faf4e8;
+        border-left: 3px solid #c9a050;
+        padding: 1.1rem 1.4rem;
+        border-radius: 0 3px 3px 0;
+        margin: 1.8rem 0;
+      }
+      .post-tip-label {
+        font-family: var(--sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #b08030;
+        margin-bottom: 0.4rem;
+      }
+      .post-tip p {
+        font-family: var(--sans) !important;
+        font-size: 0.88rem !important;
+        line-height: 1.65 !important;
+        color: #5a3e18 !important;
+        margin: 0 !important;
+      }
+
+      /* Related posts */
+      .related-section {
+        border-top: 1px solid var(--rule);
+        padding: 3rem 2rem;
+        background: var(--white);
+      }
+      .related-inner {
+        max-width: var(--max-w);
+        margin-inline: auto;
+      }
+      .related-kicker {
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink);
+        margin-bottom: 2rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--ink);
+      }
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .related-card {
+        text-decoration: none;
+      }
+      .related-card-img {
+        aspect-ratio: 16/10;
+        overflow: hidden;
+        border-radius: 2px;
+        background: #e8e2d8;
+        margin-bottom: 0.7rem;
+      }
+      .related-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .related-card:hover .related-card-img img {
+        transform: scale(1.04);
+      }
+      .related-card-tag {
+        font-family: var(--sans);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .related-card-title {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--ink);
+        line-height: 1.35;
+        transition: color 0.2s;
+      }
+      .related-card:hover .related-card-title {
+        color: var(--accent);
+      }
+      @media (max-width: 640px) {
+        .related-grid {
+          grid-template-columns: 1fr;
+        }
+        .post-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="apple-touch-icon" href="./assets/logo.png" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://routesandreflections.in/kenya.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AdiRaj — Routes & Reflections" />
+    <meta property="og:title" content="Kenya: Coast and Mara — AdiRaj Routes & Reflections" />
+    <meta property="og:description" content="Masai Mara felt like stepping into a world we'd only seen in documentaries — wide open skies, quiet mornings, and wildlife just there." />
+    <meta property="og:url" content="https://routesandreflections.in/kenya.html" />
+    <meta property="og:image" content="https://routesandreflections.in/assets/japan.JPG" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kenya: Coast and Mara — AdiRaj Routes & Reflections" />
+    <meta name="twitter:description" content="Masai Mara felt like stepping into a world we'd only seen in documentaries — wide open skies, quiet mornings, and wildlife just there." />
+    <meta name="twitter:image" content="https://routesandreflections.in/assets/japan.JPG" />
+  </head>
+  <body>
+    <div class="reading-bar" id="readingBar" aria-hidden="true"></div>
+    <site-ribbon></site-ribbon>
+    <site-header active="travel"></site-header>
+
+
+    <div class="post-hero">
+      <div class="post-hero-img-wrap">
+        <img
+          src="assets/kenya.JPG"
+          alt="Kenya — Masai Mara at sunrise"
+          loading="eager"
+        />
+      </div>
+      <div class="post-hero-gradient"></div>
+    </div>
+
+    <div class="post-header">
+      <div class="post-card-tags">
+        <a href="./travel.html" class="post-tag">Travel</a>
+        <a href="#" class="post-tag">Africa</a>
+        <a href="#" class="post-tag">Kenya</a>
+      </div>
+      <h1 class="post-title">Coast, Mara, and the Rift</h1>
+      <p class="post-subtitle">
+        Seven days from the Indian Ocean coast to the Rift Valley — Diani Beach,
+        the Masai Mara at peak migration, Lake Naivasha, and Lake Nakuru's
+        flamingo-pink shores. Africa changes something in you.
+      </p>
+    </div>
+
+    <div class="post-page-wrap">
+      <article class="post-body">
+        <p>
+          Kenya is one of those rare places that delivers everything it
+          promises. We'd been warned about this — friends who'd been before
+          saying that photographs don't prepare you, that the scale of the Masai
+          Mara is genuinely unlike anything you can anticipate. They were right.
+          The sheer weight of the landscape, the silence broken only by
+          something moving through tall grass, the feeling of being somewhere
+          that operates on entirely different terms to anything familiar — none
+          of this was available in advance.
+        </p>
+
+        <p>
+          We went in August, which is the month the wildebeest cross. Seven
+          days: two on the coast at Diani to arrive and decompress, three in the
+          Mara for the heart of the trip, then the Rift Valley lakes on the way
+          back north to Nairobi. It was the right shape for the country.
+        </p>
+
+        <div
+          style="
+            background: var(--beige);
+            border-left: 3px solid var(--accent);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+          "
+        >
+          <p
+            style="
+              font-size: 0.72rem;
+              font-weight: 700;
+              letter-spacing: 0.15em;
+              text-transform: uppercase;
+              color: var(--ink);
+              margin-bottom: 0.75rem;
+            "
+          >
+            In This Post
+          </p>
+          <ol style="padding-left: 1.2rem; margin: 0">
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#diani" style="color: var(--accent)"
+                >Diani Beach — Arriving at the Indian Ocean</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#mara" style="color: var(--accent)"
+                >The Masai Mara — The Migration</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#naivasha" style="color: var(--accent)"
+                >Lake Naivasha — The Rift Valley Begins</a
+              >
+            </li>
+            <li style="font-size: 0.9rem; margin-bottom: 0.3rem">
+              <a href="#nakuru" style="color: var(--accent)"
+                >Lake Nakuru — Flamingos &amp; Rhinos</a
+              >
+            </li>
+          </ol>
+        </div>
+
+        <h2 id="diani">Diani Beach — Arriving at the Indian Ocean</h2>
+
+        <p>
+          We flew from Nairobi to Ukunda — a short forty-minute domestic hop on
+          Jambojet — rather than driving the six hours south. The road saves
+          money. The flight saves the first day. For a seven-day trip, that
+          trade is worth it.
+        </p>
+
+        <p>
+          Diani is a long white-sand beach on the south coast of Kenya, just
+          above the Tanzanian border. The Indian Ocean here is warm and
+          incredibly clear, the kind of turquoise that makes you keep looking at
+          it from different angles to confirm it's real. Colobus monkeys move
+          through the coastal forest — black and white, remarkable to watch —
+          and the fishermen go out at dawn in traditional ngalawa outrigger
+          canoes that haven't changed much in centuries.
+        </p>
+
+        <p>
+          We spent two days here doing almost nothing purposeful, which was
+          entirely correct. Swimming, eating fresh crab and grilled fish at the
+          local beach restaurants, watching the light change over the water in
+          the late afternoon. The coast is a good place to arrive — the pace is
+          slow enough that the pace of Africa settles into you before the
+          intensity of the Mara begins.
+        </p>
+
+        <div class="post-tip">
+          <p class="post-tip-label">Diani Logistics</p>
+          <p>
+            The domestic flight from Wilson Airport (Nairobi) to Ukunda Airstrip
+            takes about 40 minutes and is significantly more comfortable than
+            the long drive. Fly540 and Jambojet are reliable and book early —
+            August high season fills up. Diani is entirely walkable along the
+            beach; tuk-tuks handle everything else and cost almost nothing.
+          </p>
+        </div>
+
+        <h2 id="mara">The Masai Mara — The Migration</h2>
+
+        <p>
+          The flight from Ukunda to the Mara crosses from coast to highlands —
+          the landscape changing underneath you from Indian Ocean blue to
+          red-earthed plateau to the extraordinary ochre and green of the
+          savanna. We landed on a grass airstrip in the middle of nothing in
+          particular, and a Land Cruiser was waiting. Within twenty minutes of
+          landing we had seen a cheetah.
+        </p>
+
+        <p>
+          The Masai Mara is contiguous with Tanzania's Serengeti, forming one of
+          the largest wildlife conservation areas on earth. In August, the Great
+          Migration is at its most dramatic: approximately 1.5 million
+          wildebeest move north into Kenya from the Serengeti following the
+          rains, crossing the Mara River in one of nature's most extraordinary
+          spectacles. The crocodiles know they're coming. So do the lions.
+        </p>
+
+        <p>
+          We were there for three days and saw two river crossings. The first —
+          on the morning of our second day — is the thing that stays. Thousands
+          of wildebeest moving to the river's edge, milling, retreating, then
+          suddenly committing: plunging into the brown current with the
+          crocodiles moving below and the noise of it rising — hooves, water,
+          the sound of something ancient and completely indifferent to our
+          presence. We watched from the jeep in total silence for a long time
+          afterward.
+        </p>
+
+        <blockquote>
+          "You understand, watching a river crossing, that this has been
+          happening for millions of years and will continue to happen
+          regardless. There is something genuinely humbling about witnessing a
+          world that doesn't require an audience."
+        </blockquote>
+
+        <p>
+          The Mara is also simply excellent game viewing even without the
+          migration spectacle. The lion prides here are large and relatively
+          unbothered by vehicles — we sat with a pride of eleven for the better
+          part of an hour one afternoon, the cubs playing around the adults in
+          the golden grass. Elephant herds crossed our path regularly. We found
+          leopard twice, which our guide said was either very good luck or very
+          good tracking — probably both.
+        </p>
+
+        <p>
+          Mornings in the Mara start before dawn. The call at 5:30am, the dark
+          drive out onto the plains, the sky lightening from black to purple to
+          orange over the acacia silhouettes — this is the hour that makes the
+          early alarm worth everything. The air at that temperature is cold
+          enough to need a fleece. By 9am it's warm. By noon, everything except
+          the safari vehicles has found shade.
+        </p>
+
+        <div class="post-tip">
+          <p class="post-tip-label">Mara Timing</p>
+          <p>
+            River crossings are unpredictable — the wildebeest decide when and
+            where, and they don't do it on schedule. Your guide will know the
+            general crossing points and read the herd behaviour. Ask to stay at
+            a crossing point for at least two hours once the animals start
+            gathering — the decision to cross often takes longer than you
+            expect. Patience is the entire thing.
+          </p>
+        </div>
+
+        <p>
+          On the afternoon of our second day, our guide arranged a Maasai
+          village visit. The Maasai community adjacent to the reserve has lived
+          alongside these animals for generations, and the relationship between
+          pastoralist culture and wildlife conservation is more complicated and
+          interesting than the tourist version suggests. The elders received us,
+          explained aspects of traditional governance and cattle herding, and we
+          watched the young men perform their extraordinary jumping dances — the
+          highs are genuinely astonishing, fuelled by years of practice and the
+          particular kind of competitive pride that produces excellence in any
+          culture. We left with a clear sense that we'd seen something real
+          rather than performed.
+        </p>
+
+        <h2 id="naivasha">Lake Naivasha — The Rift Valley Begins</h2>
+
+        <p>
+          The drive from the Mara to Lake Naivasha crosses the Great Rift Valley
+          properly — you climb out of the savanna and the valley opens below
+          you, an ancient geological fault that runs from the Afar Triangle to
+          Mozambique. The scale of it makes you understand why early explorers
+          thought it might be the edge of the world.
+        </p>
+
+        <p>
+          Lake Naivasha sits in the valley at over 1,880 metres. It's a
+          freshwater lake surrounded by fever tree forests and papyrus reed
+          beds, and the birdlife here is extraordinary — over 400 species
+          recorded around the shores, the trees full of African fish eagles,
+          yellow-billed storks, and herons. Hippos live in the shallows and come
+          out to graze at night: we could hear them from our lodge after dark,
+          the deep grunting carrying across the water.
+        </p>
+
+        <p>
+          We took a boat out onto the lake with a local guide in the late
+          afternoon. The hippos surface around the boat — vast, entirely
+          unimpressed — and the sunset over the acacia-framed shoreline was one
+          of those moments that you try to photograph and then eventually put
+          the camera away for. The Crescent Island Game Sanctuary, a private
+          island in the lake, allows walking among giraffe, zebra, and impala
+          without a vehicle — the only place in the Mara ecosystem where this is
+          possible. Walking at the same level as a giraffe, close enough to hear
+          it moving through the grass, is a completely different experience to
+          watching from a jeep.
+        </p>
+
+        <h2 id="nakuru">Lake Nakuru — Flamingos &amp; Rhinos</h2>
+
+        <p>
+          Lake Nakuru, a few hours north of Naivasha, is an alkaline lake in
+          Lake Nakuru National Park. For years it was famous for hosting over a
+          million flamingos — the shallows running pink to the horizon. Water
+          levels have changed the numbers in recent years, but the lake still
+          holds extraordinary concentrations of both lesser and greater
+          flamingos, and the sight of thousands of them feeding in a single
+          stretch of water remains unlike anything else.
+        </p>
+
+        <p>
+          The park is also one of Kenya's most important rhino sanctuaries — it
+          holds both black and white rhino populations, and the conservation
+          effort here is serious and visible. We found black rhino on our
+          evening game drive: a mother and calf moving through the acacia scrub
+          in the late afternoon light, the calf close to the mother in the way
+          young animals stay near safety. Black rhino are critically endangered
+          — roughly 5,500 remain globally — and seeing them in genuinely
+          protected habitat felt like something that mattered beyond the usual
+          terms of wildlife tourism.
+        </p>
+
+        <p>
+          The Rift Valley escarpment views from above the lake are the final
+          thing to see before the drive back to Nairobi. From the ridge, the
+          lake stretches out below — pink at the edges, blue in the centre, the
+          valley walls on either side dropping in geological layers of brown and
+          red and grey. It's a fittingly large-scale close to a trip that had
+          been about scale all along.
+        </p>
+
+        <div class="post-tip">
+          <p class="post-tip-label">The Thing About Africa</p>
+          <p>
+            People tell you the safari changes you, and you file that away as
+            the kind of thing people say about transformative experiences. Then
+            you're sitting in a jeep at dawn watching a river crossing and
+            understanding — really understanding — what it means to be in a
+            world that was here for millions of years before you arrived and
+            will be here long after. That feeling stays. It's worth going back
+            for, which is the best thing that can be said about anywhere.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div class="related-section">
+      <div class="related-inner">
+        <p class="related-kicker">Continue Reading</p>
+        <div class="related-grid">
+          <a href="./japan.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/japan.JPG" alt="Japan" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Asia</span>
+            <span class="related-card-title"
+              >Japan: It Stays With You Differently</span
+            >
+          </a>
+          <a href="./taiwan.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/taiwan.JPG" alt="Taiwan" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Asia</span>
+            <span class="related-card-title"
+              >Taiwan: The Kind of Place You Return To</span
+            >
+          </a>
+          <a href="./thailand.html" class="related-card">
+            <div class="related-card-img">
+              <img src="assets/thailand.JPG" alt="Thailand" loading="lazy" />
+            </div>
+            <span class="related-card-tag">Travel · Asia</span>
+            <span class="related-card-title"
+              >Thailand: A Layover That Became the Plan</span
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PREMIUM FOOTER ── -->
+
+    <site-footer></site-footer>
+
+    <script type="module" src="js/components/site-ribbon.js"></script>
+    <script type="module" src="js/components/site-header.js"></script>
+    <script type="module" src="js/components/site-footer.js"></script>
+    <script type="module" src="js/pages/article.js"></script>
+  </body>
+</html>
