@@ -48,15 +48,7 @@ class SiteHeader extends HTMLElement {
   <div class="prem-header-inner">
     <div class="logo-wrap">
       <a href="${depth}/index.html" class="logo" aria-label="AdiRaj Routes &amp; Reflections — home">
-        <span class="logo-icon" aria-hidden="true">
-          <img src="${logoPath}" alt="" class="logo-img" width="36" height="36"/>
-        </span>
-        <span class="logo-text-wrap">
-          <span class="logo-text">
-            AdiRaj
-            <span class="logo-tagline">Routes &amp; Reflections</span>
-          </span>
-        </span>
+        <img src="${depth}/assets/AdiRaj.png" alt="AdiRaj Routes &amp; Reflections" class="site-logo-img"/>
       </a>
     </div>
     <nav class="prem-nav-center" aria-label="Main navigation">

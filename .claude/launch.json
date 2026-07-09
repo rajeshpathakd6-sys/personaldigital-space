@@ -6,6 +6,12 @@
       "runtimeExecutable": "node",
       "runtimeArgs": ["_static.mjs"],
       "port": 5050
+    },
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:\\Users\\rajes\\Desktop\\rajeshpathak-portfolio\\rajeshpathak-portfolio", "-p", "8090", "-c-1"],
+      "port": 8090
     }
   ]
 }
