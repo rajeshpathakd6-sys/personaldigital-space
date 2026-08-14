@@ -155,8 +155,8 @@ textarea {
    PREMIUM TOP RIBBON
 ════════════════════════════════════════════ */
 .prem-ribbon {
-  background: #e8dfd3;
-  color: #8a7a6a;
+  background: var(--off-white);
+  color: var(--ink-soft);
   font-family: var(--sans);
   font-size: 10px;
   font-weight: 400;
@@ -177,7 +177,7 @@ textarea {
   background: linear-gradient(90deg, transparent, rgba(0,0,0,0.06), transparent);
 }
 .prem-ribbon a { color: inherit; text-decoration: none; transition: color 0.2s; }
-.prem-ribbon a:hover { color: #3a2e24; }
+.prem-ribbon a:hover { color: var(--accent); }
 
 .prem-ribbon-inner {
   max-width: var(--max-w);
@@ -197,36 +197,28 @@ textarea {
   display: flex; align-items: center; justify-content: center;
   width: 28px; height: 28px;
   border-radius: 5px;
-  transition: opacity 0.2s, background 0.2s;
-  opacity: 0.65;
+  color: var(--ink-soft);
+  transition: color 0.2s, background 0.2s;
   text-decoration: none;
 }
-.ribbon-social-link:hover { opacity: 1; background: rgba(0,0,0,0.06); }
+.ribbon-social-link:hover { color: var(--accent); background: rgba(0,0,0,0.06); }
 .ribbon-social-link svg { display: block; }
-
-/* Reset SVG colours for light ribbon */
-.ribbon-social-link svg path,
-.ribbon-social-link svg rect,
-.ribbon-social-link svg circle { stroke: #6b5b4a !important; fill: none !important; }
-.ribbon-social-link svg [fill="#E60023"],
-.ribbon-social-link svg [fill="#bc1888"] { fill: #6b5b4a !important; stroke: none !important; }
 
 /* Ribbon right */
 .ribbon-right { display: flex; align-items: center; gap: 14px; }
 .ribbon-right a { color: inherit; text-decoration: none; transition: color 0.2s, background 0.2s; }
-.ribbon-right a:hover { color: #3a2e24; }
+.ribbon-right a:hover { color: var(--accent); }
 
 .ribbon-home-btn {
   display: flex; align-items: center; justify-content: center;
   width: 28px; height: 28px;
   border-radius: 5px;
+  color: var(--ink-soft);
   text-decoration: none;
-  opacity: 0.65;
-  transition: opacity 0.2s, background 0.2s;
+  transition: color 0.2s, background 0.2s;
 }
 .ribbon-home-btn svg { display: block; }
-.ribbon-home-btn svg path { stroke: #6b5b4a !important; }
-.ribbon-home-btn:hover { opacity: 1; background: rgba(0,0,0,0.06); }
+.ribbon-home-btn:hover { color: var(--accent); background: rgba(0,0,0,0.06); }
 
 .ribbon-contact-btn {
   font-family: var(--sans);
@@ -234,17 +226,18 @@ textarea {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #6b5b4a;
-  border: 1px solid rgba(0,0,0,0.15);
+  color: var(--white);
+  background: var(--accent);
+  border: 1px solid var(--accent);
   padding: 4px 13px;
   border-radius: 3px;
   text-decoration: none;
   transition: border-color 0.25s, color 0.25s, background 0.25s;
 }
 .ribbon-contact-btn:hover {
-  border-color: rgba(0,0,0,0.35);
-  color: #3a2e24;
-  background: rgba(0,0,0,0.05);
+  border-color: var(--accent-hover);
+  color: var(--white);
+  background: var(--accent-hover);
 }
 
 /* ════════════════════════════════════════════
@@ -3832,6 +3825,9 @@ body:has(.wwu-hero) {
         color: var(--accent-lt);
       }
 
+      .hero-subtitle { font-family: var(--serif); font-size: clamp(1.45rem, 2.8vw, 2.25rem); font-weight: 400; font-style: normal; line-height: 1.25; color: rgba(255, 255, 255, 0.82); max-width: 560px; margin: -0.55rem 0 1.25rem; letter-spacing: -0.01em; } .hero-subtitle em { font-style: italic; color: var(--accent-lt); }
+
+
       .hero-desc {
         font-family: var(--sans);
         font-size: 1rem;
@@ -4142,6 +4138,8 @@ body:has(.wwu-hero) {
           display: none;
         }
       }
+
+      @media (max-width: 620px) { .hero-subtitle { font-size: 1.4rem; line-height: 1.3; margin-top: -0.35rem; } }
 
 /* ════════════════════════════════════════════
    LIFESTYLE PAGE — Hero, Subnav, Cards, Panels
