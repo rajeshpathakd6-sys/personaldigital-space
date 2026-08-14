@@ -6699,6 +6699,7 @@ body:has(.wwu-hero) {
     height: 100%;
     object-fit: cover;
     display: block;
+    object-position: 60% center;
   }
 
   .mag-hero-img-scrim {
@@ -6712,6 +6713,7 @@ body:has(.wwu-hero) {
   .mag-hero-body {
     padding: 1.5rem;
   }
+  
 }
       @media (max-width: 480px) {
         .mag-front-header {
