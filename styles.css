@@ -7259,7 +7259,7 @@ body:has(.wwu-hero) {
    TRAVEL PAGE — MISCELLANEOUS READS (misc-*)
 ════════════════════════════════════════════ */
 .misc-reads-section { background: var(--bg); padding: 5.5rem 0 6rem; border-top: 1px solid var(--rule); }
-.misc-reads-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.misc-reads-inner { max-width: 1200px; margin: 0 auto; padding: 0 var(--pad-x); }
 .misc-reads-header {
   display: flex; align-items: flex-end; justify-content: space-between;
   gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;
@@ -7341,6 +7341,44 @@ body:has(.wwu-hero) {
 @media (max-width: 580px) {
   .misc-reads-grid { grid-template-columns: 1fr; }
   .misc-reads-header { flex-direction: column; align-items: flex-start; }
+}
+
+/* ═══════════════════════════════════════
+   MOBILE — MISC READS CARD FIX
+═══════════════════════════════════════ */
+
+@media (max-width: 620px) {
+
+  .misc-reads-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .misc-cat-card {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .misc-cat-card-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    flex-shrink: 0;
+  }
+
+  .misc-cat-card-img-bg,
+  .misc-cat-card-overlay {
+    width: 100%;
+    height: 100%;
+  }
+
+  .misc-cat-card-body {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 /* ════════════════════════════════════════════
