@@ -7922,6 +7922,6 @@ body.dest-page { background: #faf6ef; }
   .idx-st-grid { grid-template-columns: 1fr; height: auto; }
   .idx-st-tile--wide { grid-column: auto; height: 180px; }
   .idx-st-tile { height: 120px; }
-  .mag-hero-img-wrap { height: 320px; }
+  .mag-hero-img-wrap { height: 210px; }
 }
 
