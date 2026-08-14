@@ -33,16 +33,23 @@ createSlideshow({
 });
 
 // ── Paginated posts grid ──────────────────────────────────
+// ── Paginated posts grid ──────────────────────────────────
 (function () {
   const grid          = document.getElementById('postsGrid');
   const paginationNav = document.getElementById('postsPagination');
   if (!grid || !paginationNav) return;
 
-  const cards      = Array.from(grid.querySelectorAll('.grid-post-card'));
-  const perPage    = 3;
-  const pages      = Math.ceil(cards.length / perPage);
-  const WINDOW     = 3;
-  let current      = 1;
+  const cards = Array.from(grid.querySelectorAll('.grid-post-card'));
+
+  // Desktop: 3 articles per page
+  // Mobile: 2 articles per page
+  const getPerPage = () => window.innerWidth <= 620 ? 2 : 3;
+
+  let perPage = getPerPage();
+  let pages   = Math.ceil(cards.length / perPage);
+
+  const WINDOW = 3;
+  let current  = 1;
 
   function buildPagination() {
     paginationNav.innerHTML = '';
@@ -56,13 +63,22 @@ createSlideshow({
 
     let start = Math.max(1, current - Math.floor(WINDOW / 2));
     let end   = Math.min(pages, start + WINDOW - 1);
-    if (end > pages) { end = pages; start = Math.max(1, end - WINDOW + 1); }
+
+    if (end > pages) {
+      end = pages;
+      start = Math.max(1, end - WINDOW + 1);
+    }
 
     for (let p = start; p <= end; p++) {
       const btn = document.createElement('button');
-      btn.className = 'page-btn' + (p === current ? ' page-btn--active' : '');
+
+      btn.className =
+        'page-btn' +
+        (p === current ? ' page-btn--active' : '');
+
       btn.textContent = p;
       btn.onclick = () => showPage(p);
+
       paginationNav.appendChild(btn);
     }
 
@@ -83,10 +99,39 @@ createSlideshow({
 
   function showPage(page) {
     current = Math.max(1, Math.min(page, pages));
-    const s = (current - 1) * perPage;
-    cards.forEach((card, i) => { card.style.display = (i >= s && i < s + perPage) ? 'flex' : 'none'; });
+
+    const start = (current - 1) * perPage;
+
+    cards.forEach((card, i) => {
+      card.style.display =
+        (i >= start && i < start + perPage)
+          ? 'flex'
+          : 'none';
+    });
+
     buildPagination();
   }
+
+  function updatePaginationForViewport() {
+    const newPerPage = getPerPage();
+
+    if (newPerPage === perPage) return;
+
+    // Keep the currently visible article range sensible
+    const firstVisibleIndex = (current - 1) * perPage;
+
+    perPage = newPerPage;
+    pages = Math.ceil(cards.length / perPage);
+
+    current = Math.floor(firstVisibleIndex / perPage) + 1;
+    current = Math.min(current, pages);
+
+    showPage(current);
+  }
+
+  // Recalculate if the user rotates the phone
+  // or resizes the browser.
+  window.addEventListener('resize', updatePaginationForViewport);
 
   showPage(1);
 })();
